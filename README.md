@@ -57,8 +57,17 @@ The Docker image is available on Docker Hub: **[https://hub.docker.com/r/isarate
 
 ```bash
 docker pull isaratech/isoflam:latest
-docker run -p 3000:3000 isaratech/isoflam:latest
+docker run -p 80:80 isaratech/isoflam:latest
 ```
+
+For detailed Docker usage instructions, see [README-dockerhub.md](README-dockerhub.md).
+
+## 🔄 Continuous Integration
+
+This project uses GitHub Actions for continuous integration:
+- **Build and Test**: Automatically runs linting, tests, and build process on all pushes and pull requests
+- **GitHub Pages**: Deploys the application to GitHub Pages on pushes to main/master branches
+- **Docker Publish**: Builds and publishes Docker image on pushes to main/master branches
 
 ## Installation and Usage
 
