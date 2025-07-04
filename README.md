@@ -14,6 +14,11 @@
 
 Isoflam is an isometric drawing software designed for firefighters. It allows quick scene modeling by placing elements such as vehicles, personnel, and equipment, drawing shapes, arrows, or zones, and adding text. The final diagram can be exported as an image to support operational communication or post-incident reporting.
 
+## Application Preview
+
+![Application Screenshot](docs/img1.png)
+*Example of Isoflam application interface showing isometric scene modeling*
+
 ## Key Features
 
 - **Drag-and-drop editor** - Quickly place firefighting vehicles, personnel, and equipment on your scene
