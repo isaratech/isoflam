@@ -9,7 +9,9 @@ import { useColor } from 'src/hooks/useColor';
 export const useIcon = (
   id: string | undefined,
   scaleFactor?: number,
-  colorId?: string
+  colorId?: string,
+  mirrorHorizontal?: boolean,
+  mirrorVertical?: boolean
 ) => {
   const [hasLoaded, setHasLoaded] = React.useState(false);
   const icons = useModelStore((state) => {
@@ -67,7 +69,12 @@ export const useIcon = (
     if (!colorizedIcon.isIsometric) {
       setHasLoaded(true);
       return (
-        <NonIsometricIcon icon={colorizedIcon} scaleFactor={scaleFactor} />
+        <NonIsometricIcon
+          icon={colorizedIcon}
+          scaleFactor={scaleFactor}
+          mirrorHorizontal={mirrorHorizontal}
+          mirrorVertical={mirrorVertical}
+        />
       );
     }
 
@@ -75,12 +82,14 @@ export const useIcon = (
       <IsometricIcon
         icon={colorizedIcon}
         scaleFactor={scaleFactor}
+        mirrorHorizontal={mirrorHorizontal}
+        mirrorVertical={mirrorVertical}
         onImageLoaded={() => {
           setHasLoaded(true);
         }}
       />
     );
-  }, [colorizedIcon, scaleFactor]);
+  }, [colorizedIcon, scaleFactor, mirrorHorizontal, mirrorVertical]);
 
   return {
     icon,

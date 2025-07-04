@@ -71,7 +71,17 @@ export const frTranslations = {
   // Connector Styles
   SOLID: 'CONTINU',
   DOTTED: 'POINTILLÉ',
-  DASHED: 'TIRETS'
+  DASHED: 'TIRETS',
+
+  // ContextMenu
+  'Send backward': 'Reculer',
+  'Bring forward': 'Avancer',
+  'Send to back': 'Mettre en arrière-plan',
+  'Bring to front': 'Mettre au premier plan',
+
+  Mirroring: 'Miroir',
+  Vertical: 'Vertical',
+  Horizontal: 'Horizontal'
 } as const;
 
 export type TranslationKey = keyof typeof frTranslations;

@@ -103,7 +103,9 @@ export const DEFAULTS_VIEW: Required<
 export const DEFAULTS_VIEW_ITEM: Required<Omit<ViewItem, 'id' | 'tile'>> = {
   labelHeight: 80,
   scaleFactor: 1,
-  color: DEFAULT_COLOR.id
+  color: DEFAULT_COLOR.id,
+  mirrorHorizontal: false,
+  mirrorVertical: false
 };
 
 /**

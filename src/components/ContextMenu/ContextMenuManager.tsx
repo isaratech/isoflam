@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { getTilePosition, CoordsUtils } from 'src/utils';
 import { useScene } from 'src/hooks/useScene';
+import { useTranslation } from 'src/hooks/useTranslation';
 import { ContextMenu } from './ContextMenu';
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
 
 export const ContextMenuManager = ({ anchorEl }: Props) => {
   const scene = useScene();
+  const { t } = useTranslation();
   const zoom = useUiStateStore((state) => {
     return state.zoom;
   });
@@ -39,28 +41,28 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
       )}
       menuItems={[
         {
-          label: 'Send backward',
+          label: t('Send backward'),
           onClick: () => {
             scene.changeLayerOrder('SEND_BACKWARD', contextMenu.item);
             onClose();
           }
         },
         {
-          label: 'Bring forward',
+          label: t('Bring forward'),
           onClick: () => {
             scene.changeLayerOrder('BRING_FORWARD', contextMenu.item);
             onClose();
           }
         },
         {
-          label: 'Send to back',
+          label: t('Send to back'),
           onClick: () => {
             scene.changeLayerOrder('SEND_TO_BACK', contextMenu.item);
             onClose();
           }
         },
         {
-          label: 'Bring to front',
+          label: t('Bring to front'),
           onClick: () => {
             scene.changeLayerOrder('BRING_TO_FRONT', contextMenu.item);
             onClose();

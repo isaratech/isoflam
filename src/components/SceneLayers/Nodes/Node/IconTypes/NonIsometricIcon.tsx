@@ -7,11 +7,15 @@ import { getIsoProjectionCss } from 'src/utils';
 interface Props {
   icon: Icon;
   scaleFactor?: number;
+  mirrorHorizontal?: boolean;
+  mirrorVertical?: boolean;
 }
 
 export const NonIsometricIcon = ({
   icon,
-  scaleFactor: propScaleFactor
+  scaleFactor: propScaleFactor,
+  mirrorHorizontal = false,
+  mirrorVertical = false
 }: Props) => {
   const scaleFactor = propScaleFactor ?? icon.scaleFactor ?? 1;
 
@@ -19,6 +23,14 @@ export const NonIsometricIcon = ({
   const scaledWidth = PROJECTED_TILE_SIZE.width * 0.7 * scaleFactor;
   const baseWidth = PROJECTED_TILE_SIZE.width * 0.7;
   const widthDifference = (scaledWidth - baseWidth) / 2;
+
+  // Create transform string for mirroring
+  const getMirrorTransform = () => {
+    let transform = '';
+    if (mirrorHorizontal) transform += 'scaleX(-1) ';
+    if (mirrorVertical) transform += 'scaleY(-1) ';
+    return transform.trim();
+  };
 
   return (
     <Box sx={{ pointerEvents: 'none' }}>
@@ -38,7 +50,9 @@ export const NonIsometricIcon = ({
           sx={{
             width: scaledWidth,
             display: 'block',
-            margin: '0 auto'
+            margin: '0 auto',
+            transform: getMirrorTransform(),
+            transformOrigin: 'center'
           }}
         />
       </Box>
