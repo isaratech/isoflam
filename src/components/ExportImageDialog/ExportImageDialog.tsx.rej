@@ -1,0 +1,34 @@
+--- src/components/ExportImageDialog/ExportImageDialog.tsx	(revision Before)
++++ src/components/ExportImageDialog/ExportImageDialog.tsx	(revision After)
+@@ -48,7 +48,7 @@
+   });
+   const [imageData, setImageData] = React.useState<string>();
+   const [exportError, setExportError] = useState(false);
+-  const { getUnprojectedBounds } = useDiagramUtils();
++  const { getUnprojectedBounds, fitToView } = useDiagramUtils();
+   const uiStateActions = useUiStateStore((state) => {
+     return state.actions;
+   });
+@@ -71,16 +71,19 @@
+     if (!containerRef.current) return;
+ 
+     clearTimeout(debounceRef.current);
++    // First explicitly call fitToView to ensure content is properly fitted to screen
++    await fitToView();
++    // Then start the export process after a delay to ensure the UI has updated
+     debounceRef.current = setTimeout(() => {
+       exportAsImage(containerRef.current as HTMLDivElement)
+         .then((data) => {
+           return setImageData(data);
+         })
+-        .catch((err) => {
++        .catch(() => {
+           setExportError(true);
+         });
+-    }, 2000);
+-  }, []);
++    }, 1000); // Reduced timeout since we're explicitly calling fitToView first
++  }, [fitToView]);
+ 
+   const downloadFile = useCallback(() => {
+     if (!imageData) return;
