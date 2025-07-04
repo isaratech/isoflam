@@ -1,0 +1,50 @@
+export const frTranslations = {
+  // MainMenu
+  'Main menu': 'Menu principal',
+  Open: 'Ouvrir',
+  'Export as JSON': 'Exporter en JSON',
+  'Export as image': 'Exporter en image',
+  'Clear the canvas': 'Effacer le canevas',
+  GitHub: 'GitHub',
+  Discord: 'Discord',
+
+  // ToolMenu
+  Select: 'Sélectionner',
+  Pan: 'Déplacer',
+  'Add item': 'Ajouter un élément',
+  Rectangle: 'Rectangle',
+  Connector: 'Connecteur',
+  Text: 'Texte',
+
+  // ZoomControls
+  'Zoom out': 'Dézoomer',
+  'Zoom in': 'Zoomer',
+  'Fit to screen': "Ajuster à l'écran",
+
+  // ExportImageDialog
+  'Certain browsers may not support exporting images properly.':
+    "Certains navigateurs peuvent ne pas prendre en charge l'exportation d'images correctement.",
+  'For best results, please use the latest version of either Chrome or Firefox.':
+    'Pour de meilleurs résultats, veuillez utiliser la dernière version de Chrome ou Firefox.',
+  preview: 'aperçu',
+  Options: 'Options',
+  'Show grid': 'Afficher la grille',
+  'Background color': "Couleur d'arrière-plan",
+  Cancel: 'Annuler',
+  'Download as PNG': 'Télécharger en PNG',
+  'Could not export image': "Impossible d'exporter l'image",
+
+  // IconSelectionControls
+  'You can drag and drop any item below onto the canvas.':
+    "Vous pouvez glisser-déposer n'importe quel élément ci-dessous sur le canevas.",
+  'Search icons': 'Rechercher des icônes',
+
+  // DeleteButton
+  Delete: 'Supprimer',
+
+  // NodeControls
+  'Update icon': "Mettre à jour l'icône",
+  Settings: 'Paramètres'
+} as const;
+
+export type TranslationKey = keyof typeof frTranslations;
