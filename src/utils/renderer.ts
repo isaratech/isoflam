@@ -450,6 +450,36 @@ export const getItemAtTile = ({
   tile,
   scene
 }: GetItemAtTile): ItemReference | null => {
+  // First check for scaled icons - they can span multiple cells
+  const scaledViewItem = scene.items.find((item) => {
+    // If the item has a scaleFactor > 1, check if the tile is within its bounds
+    if (item.scaleFactor && item.scaleFactor > 1) {
+      // Calculate the size of the icon in tiles based on scale factor
+      // Round up to ensure we cover the full area
+      const iconSize = Math.ceil(item.scaleFactor);
+
+      // Create a bounding box for the icon
+      const iconBounds = getBoundingBox([
+        item.tile,
+        {
+          x: item.tile.x + iconSize - 1,
+          y: item.tile.y + iconSize - 1
+        }
+      ]);
+
+      return isWithinBounds(tile, iconBounds);
+    }
+    return false;
+  });
+
+  if (scaledViewItem) {
+    return {
+      type: 'ITEM',
+      id: scaledViewItem.id
+    };
+  }
+
+  // Then check for exact tile matches for non-scaled items
   const viewItem = scene.items.find((item) => {
     return CoordsUtils.isEqual(item.tile, tile);
   });

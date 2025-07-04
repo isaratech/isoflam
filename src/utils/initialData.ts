@@ -1,14 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { Colors, Icons, InitialData } from 'src/Isoflam';
+import { Colors, Icons, InitialData, Model } from 'src/types';
+import { DEFAULT_COLOR } from 'src/config';
 import { sdmisIcons } from '../fixtures/sdmisIcons';
 import { icons as basicIcons } from '../fixtures/icons';
-import { DEFAULT_COLOR } from 'src/config';
+// Import export.json data
+import exportData from '../assets/export.json';
 
 export const colors: Colors = [
-  {
-    id: '__DEFAULT__',
-    value: '#000000'
-  },
+  DEFAULT_COLOR,
   {
     id: 'color0',
     value: '#979797'
@@ -45,12 +44,8 @@ export const colors: Colors = [
 
 export const icons: Icons = [...basicIcons, ...sdmisIcons];
 
+// Simulate loading data from export.json
 export const initialData: InitialData = {
-  title: 'SITAC',
-  version: '',
-  icons: [],
-  colors: [DEFAULT_COLOR],
-  items: [],
-  views: [],
-  fitToView: false
+  ...(exportData as Model),
+  fitToView: true
 };

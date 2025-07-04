@@ -11,6 +11,7 @@ import { useViewItem } from 'src/hooks/useViewItem';
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { useModelItem } from 'src/hooks/useModelItem';
 import { useTranslation } from 'src/hooks/useTranslation';
+import { generateId } from 'src/utils';
 import { ControlsContainer } from '../components/ControlsContainer';
 import { Icons } from '../IconSelectionControls/Icons';
 import { NodeSettings } from './NodeSettings/NodeSettings';
@@ -30,7 +31,13 @@ type Mode = keyof typeof ModeOptions;
 export const NodeControls = ({ id }: Props) => {
   const { t } = useTranslation();
   const [mode, setMode] = useState<Mode>('SETTINGS');
-  const { updateModelItem, updateViewItem, deleteViewItem } = useScene();
+  const {
+    updateModelItem,
+    updateViewItem,
+    deleteViewItem,
+    createModelItem,
+    createViewItem
+  } = useScene();
   const uiStateActions = useUiStateStore((state) => {
     return state.actions;
   });
@@ -102,6 +109,27 @@ export const NodeControls = ({ id }: Props) => {
           onDeleted={() => {
             uiStateActions.setItemControls(null);
             deleteViewItem(viewItem.id);
+          }}
+          onDuplicated={() => {
+            // Create a duplicate of the model item first with a unique ID
+            const newId = generateId();
+            const newModelItem = {
+              ...modelItem,
+              id: newId
+            };
+            createModelItem(newModelItem);
+
+            // Then create a duplicate of the view item with position in adjacent cell
+            // Use the same ID as the model item to maintain the relationship
+            const newViewItem = {
+              ...viewItem,
+              id: newId,
+              tile: {
+                x: viewItem.tile.x + 1,
+                y: viewItem.tile.y
+              }
+            };
+            createViewItem(newViewItem);
           }}
         />
       )}

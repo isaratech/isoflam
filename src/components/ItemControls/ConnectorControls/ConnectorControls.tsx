@@ -13,6 +13,7 @@ import { useConnector } from 'src/hooks/useConnector';
 import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { useScene } from 'src/hooks/useScene';
+import { useTranslation } from 'src/hooks/useTranslation';
 import { ControlsContainer } from '../components/ControlsContainer';
 import { Section } from '../components/Section';
 import { DeleteButton } from '../components/DeleteButton';
@@ -22,6 +23,7 @@ interface Props {
 }
 
 export const ConnectorControls = ({ id }: Props) => {
+  const { t } = useTranslation();
   const uiStateActions = useUiStateStore((state) => {
     return state.actions;
   });
@@ -32,7 +34,7 @@ export const ConnectorControls = ({ id }: Props) => {
     <ControlsContainer>
       <Section>
         <TextField
-          label="Description"
+          label={t('Description')}
           value={connector.description}
           onChange={(e) => {
             updateConnector(connector.id, {
@@ -49,7 +51,7 @@ export const ConnectorControls = ({ id }: Props) => {
           activeColor={connector.color}
         />
       </Section>
-      <Section title="Width">
+      <Section title={t('Width')}>
         <Slider
           marks
           step={10}
@@ -61,7 +63,7 @@ export const ConnectorControls = ({ id }: Props) => {
           }}
         />
       </Section>
-      <Section title="Style">
+      <Section title={t('Style')}>
         <Select
           value={connector.style}
           onChange={(e) => {
@@ -71,11 +73,11 @@ export const ConnectorControls = ({ id }: Props) => {
           }}
         >
           {Object.values(connectorStyleOptions).map((style) => {
-            return <MenuItem value={style}>{style}</MenuItem>;
+            return <MenuItem value={style}>{t(style)}</MenuItem>;
           })}
         </Select>
       </Section>
-      <Section title="Triangle">
+      <Section title={t('Triangle')}>
         <FormControlLabel
           control={
             <Checkbox
@@ -87,7 +89,7 @@ export const ConnectorControls = ({ id }: Props) => {
               }}
             />
           }
-          label="Afficher le triangle"
+          label={t('Show triangle')}
         />
       </Section>
       <Section>
