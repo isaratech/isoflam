@@ -13,6 +13,7 @@ import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { getIsoProjectionCss, generateId } from 'src/utils';
 import { useScene } from 'src/hooks/useScene';
+import { useTranslation } from 'src/hooks/useTranslation';
 import { ControlsContainer } from '../components/ControlsContainer';
 import { Section } from '../components/Section';
 import { DeleteButton } from '../components/DeleteButton';
@@ -23,6 +24,7 @@ interface Props {
 }
 
 export const TextBoxControls = ({ id }: Props) => {
+  const { t } = useTranslation();
   const uiStateActions = useUiStateStore((state) => {
     return state.actions;
   });
@@ -47,7 +49,7 @@ export const TextBoxControls = ({ id }: Props) => {
           activeColor={textBox.color}
         />
       </Section>
-      <Section title="Text size">
+      <Section title={t('Text size')}>
         <Slider
           marks
           step={0.3}
@@ -59,7 +61,7 @@ export const TextBoxControls = ({ id }: Props) => {
           }}
         />
       </Section>
-      <Section title="Alignment">
+      <Section title={t('Alignment')}>
         <ToggleButtonGroup
           value={textBox.orientation}
           exclusive

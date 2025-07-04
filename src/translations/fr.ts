@@ -47,7 +47,31 @@ export const frTranslations = {
 
   // NodeControls
   'Update icon': "Mettre à jour l'icône",
-  Settings: 'Paramètres'
+  Settings: 'Paramètres',
+
+  // TextBoxControls
+  'Text size': 'Taille du texte',
+  Alignment: 'Alignement',
+
+  // NodeSettings
+  Name: 'Nom',
+  Description: 'Description',
+  'Label height': 'Hauteur du libellé',
+  'Icon scale': "Échelle de l'icône",
+
+  // ColorSelector
+  'No colors available': 'Aucune couleur disponible',
+
+  // ConnectorControls
+  Width: 'Largeur',
+  Style: 'Style',
+  Triangle: 'Triangle',
+  'Show triangle': 'Afficher le triangle',
+
+  // Connector Styles
+  SOLID: 'CONTINU',
+  DOTTED: 'POINTILLÉ',
+  DASHED: 'TIRETS'
 } as const;
 
 export type TranslationKey = keyof typeof frTranslations;

@@ -4,6 +4,7 @@ import { ModelItem, ViewItem } from 'src/types';
 import { MarkdownEditor } from 'src/components/MarkdownEditor/MarkdownEditor';
 import { useModelItem } from 'src/hooks/useModelItem';
 import { useIcon } from 'src/hooks/useIcon';
+import { useTranslation } from 'src/hooks/useTranslation';
 import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
 import { DeleteButton } from '../../components/DeleteButton';
 import { DuplicateButton } from '../../components/DuplicateButton';
@@ -29,12 +30,13 @@ export const NodeSettings = ({
   onDeleted,
   onDuplicated
 }: Props) => {
+  const { t } = useTranslation();
   const modelItem = useModelItem(node.id);
   const { icon } = useIcon(modelItem.icon);
 
   return (
     <>
-      <Section title="Name">
+      <Section title={t('Name')}>
         <TextField
           value={modelItem.name}
           onChange={(e) => {
@@ -43,7 +45,7 @@ export const NodeSettings = ({
           }}
         />
       </Section>
-      <Section title="Description">
+      <Section title={t('Description')}>
         <MarkdownEditor
           value={modelItem.description}
           onChange={(text) => {
@@ -53,7 +55,7 @@ export const NodeSettings = ({
         />
       </Section>
       {modelItem.name && (
-        <Section title="Label height">
+        <Section title={t('Label height')}>
           <Slider
             marks
             step={20}
@@ -67,7 +69,7 @@ export const NodeSettings = ({
           />
         </Section>
       )}
-      <Section title="Icon scale">
+      <Section title={t('Icon scale')}>
         <Slider
           marks
           step={0.1}
