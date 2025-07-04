@@ -4,9 +4,11 @@ import { useRectangle } from 'src/hooks/useRectangle';
 import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { useScene } from 'src/hooks/useScene';
+import { generateId } from 'src/utils';
 import { ControlsContainer } from '../components/ControlsContainer';
 import { Section } from '../components/Section';
 import { DeleteButton } from '../components/DeleteButton';
+import { DuplicateButton } from '../components/DuplicateButton';
 
 interface Props {
   id: string;
@@ -17,7 +19,7 @@ export const RectangleControls = ({ id }: Props) => {
     return state.actions;
   });
   const rectangle = useRectangle(id);
-  const { updateRectangle, deleteRectangle } = useScene();
+  const { updateRectangle, deleteRectangle, createRectangle } = useScene();
 
   return (
     <ControlsContainer>
@@ -30,7 +32,25 @@ export const RectangleControls = ({ id }: Props) => {
         />
       </Section>
       <Section>
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
+          <DuplicateButton
+            onClick={() => {
+              // Create a duplicate of the rectangle with position in adjacent cell and a unique ID
+              const newRectangle = {
+                ...rectangle,
+                id: generateId(),
+                from: {
+                  x: rectangle.from.x + 1,
+                  y: rectangle.from.y
+                },
+                to: {
+                  x: rectangle.to.x + 1,
+                  y: rectangle.to.y
+                }
+              };
+              createRectangle(newRectangle);
+            }}
+          />
           <DeleteButton
             onClick={() => {
               uiStateActions.setItemControls(null);

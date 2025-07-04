@@ -42,6 +42,9 @@ export const frTranslations = {
   // DeleteButton
   Delete: 'Supprimer',
 
+  // DuplicateButton
+  Duplicate: 'Dupliquer',
+
   // NodeControls
   'Update icon': "Mettre à jour l'icône",
   Settings: 'Paramètres'

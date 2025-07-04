@@ -6,6 +6,7 @@ import { useModelItem } from 'src/hooks/useModelItem';
 import { useIcon } from 'src/hooks/useIcon';
 import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
 import { DeleteButton } from '../../components/DeleteButton';
+import { DuplicateButton } from '../../components/DuplicateButton';
 import { Section } from '../../components/Section';
 
 export type NodeUpdates = {
@@ -18,13 +19,15 @@ interface Props {
   onModelItemUpdated: (updates: Partial<ModelItem>) => void;
   onViewItemUpdated: (updates: Partial<ViewItem>) => void;
   onDeleted: () => void;
+  onDuplicated: () => void;
 }
 
 export const NodeSettings = ({
   node,
   onModelItemUpdated,
   onViewItemUpdated,
-  onDeleted
+  onDeleted,
+  onDuplicated
 }: Props) => {
   const modelItem = useModelItem(node.id);
   const { icon } = useIcon(modelItem.icon);
@@ -97,7 +100,8 @@ export const NodeSettings = ({
         </Section>
       )}
       <Section>
-        <Box>
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <DuplicateButton onClick={onDuplicated} />
           <DeleteButton onClick={onDeleted} />
         </Box>
       </Section>

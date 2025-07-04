@@ -11,11 +11,12 @@ import { TextRotationNone as TextRotationNoneIcon } from '@mui/icons-material';
 import { useTextBox } from 'src/hooks/useTextBox';
 import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
 import { useUiStateStore } from 'src/stores/uiStateStore';
-import { getIsoProjectionCss } from 'src/utils';
+import { getIsoProjectionCss, generateId } from 'src/utils';
 import { useScene } from 'src/hooks/useScene';
 import { ControlsContainer } from '../components/ControlsContainer';
 import { Section } from '../components/Section';
 import { DeleteButton } from '../components/DeleteButton';
+import { DuplicateButton } from '../components/DuplicateButton';
 
 interface Props {
   id: string;
@@ -26,7 +27,7 @@ export const TextBoxControls = ({ id }: Props) => {
     return state.actions;
   });
   const textBox = useTextBox(id);
-  const { updateTextBox, deleteTextBox } = useScene();
+  const { updateTextBox, deleteTextBox, createTextBox } = useScene();
 
   return (
     <ControlsContainer>
@@ -82,7 +83,21 @@ export const TextBoxControls = ({ id }: Props) => {
         </ToggleButtonGroup>
       </Section>
       <Section>
-        <Box>
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <DuplicateButton
+            onClick={() => {
+              // Create a duplicate of the text box with position in adjacent cell and a unique ID
+              const newTextBox = {
+                ...textBox,
+                id: generateId(),
+                tile: {
+                  x: textBox.tile.x + 1,
+                  y: textBox.tile.y
+                }
+              };
+              createTextBox(newTextBox);
+            }}
+          />
           <DeleteButton
             onClick={() => {
               uiStateActions.setItemControls(null);

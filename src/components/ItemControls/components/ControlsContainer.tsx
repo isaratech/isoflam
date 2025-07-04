@@ -35,7 +35,8 @@ export const ControlsContainer = ({ header, children }: Props) => {
       <Box
         sx={{
           width: '100%',
-          flexGrow: 1
+          flexGrow: 1,
+          overflow: 'auto'
         }}
       >
         <Box sx={{ width: '100%' }}>{children}</Box>

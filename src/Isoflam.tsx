@@ -122,6 +122,20 @@ const App = ({
           }
           break;
 
+        case 'c':
+        case 'C':
+          if (event.ctrlKey || event.metaKey) {
+            // Allow default copy behavior (do not call event.preventDefault())
+          }
+          break;
+
+        case 'v':
+        case 'V':
+          if (event.ctrlKey || event.metaKey) {
+            // Allow default paste behavior (do not call event.preventDefault())
+          }
+          break;
+
         default:
           // Other keys, do nothing
           break;
