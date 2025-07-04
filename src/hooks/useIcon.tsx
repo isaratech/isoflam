@@ -1,6 +1,6 @@
 import React, { useMemo, useEffect } from 'react';
 import { useModelStore } from 'src/stores/modelStore';
-import { getItemByIdOrThrow } from 'src/utils';
+import {getColorVariant, getItemByIdOrThrow} from 'src/utils';
 import { IsometricIcon } from 'src/components/SceneLayers/Nodes/Node/IconTypes/IsometricIcon';
 import { NonIsometricIcon } from 'src/components/SceneLayers/Nodes/Node/IconTypes/NonIsometricIcon';
 import { DEFAULT_ICON } from 'src/config';
@@ -44,7 +44,10 @@ export const useIcon = (
         const colorizedSvg = svgContent
           .replace(/fill="#000000"/g, `fill="${color.value}"`)
           .replace(/fill="black"/g, `fill="${color.value}"`)
+            .replace(/fill:#000000/g, `fill:${color.value}`)
+            .replace(/stroke:#000000/g, `stroke:${color.value}`)
           .replace(/fill="#000"/g, `fill="${color.value}"`);
+
 
         const newBase64 = btoa(colorizedSvg);
         const newUrl = `data:image/svg+xml;base64,${newBase64}`;
