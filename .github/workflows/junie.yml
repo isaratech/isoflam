@@ -3,6 +3,7 @@ run-name: Junie run ${{ inputs.run_id }}
 
 permissions:
   contents: write
+  pull-requests: write
 
 on:
   workflow_dispatch:
