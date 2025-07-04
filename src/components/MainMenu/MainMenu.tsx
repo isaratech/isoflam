@@ -7,7 +7,8 @@ import {
   DataObject as ExportJsonIcon,
   ImageOutlined as ExportImageIcon,
   FolderOpen as FolderOpenIcon,
-  DeleteOutline as DeleteOutlineIcon
+  DeleteOutline as DeleteOutlineIcon,
+  Info as InfoIcon
 } from '@mui/icons-material';
 import { UiElement } from 'src/components/UiElement/UiElement';
 import { IconButton } from 'src/components/IconButton/IconButton';
@@ -84,6 +85,11 @@ export const MainMenu = () => {
   const onExportAsImage = useCallback(() => {
     uiStateActions.setIsMainMenuOpen(false);
     uiStateActions.setDialog('EXPORT_IMAGE');
+  }, [uiStateActions]);
+
+  const onShowCredits = useCallback(() => {
+    uiStateActions.setIsMainMenuOpen(false);
+    uiStateActions.setDialog('CREDITS');
   }, [uiStateActions]);
 
   const { clear } = initialDataManager;
@@ -175,6 +181,12 @@ export const MainMenu = () => {
                   Icon={<GitHubIcon />}
                 >
                   {t('GitHub')}
+                </MenuItem>
+              )}
+
+              {mainMenuOptions.includes('LINK.CREDITS') && (
+                <MenuItem onClick={onShowCredits} Icon={<InfoIcon />}>
+                  {t('Credits')}
                 </MenuItem>
               )}
             </>

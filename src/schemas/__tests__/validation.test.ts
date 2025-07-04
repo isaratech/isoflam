@@ -70,7 +70,9 @@ describe('Model validation works correctly', () => {
       tile: {
         x: 0,
         y: 0
-      }
+      },
+      mirrorHorizontal: false,
+      mirrorVertical: false
     };
 
     const model = produce(modelFixture, (draft) => {

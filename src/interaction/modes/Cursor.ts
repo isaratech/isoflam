@@ -15,7 +15,8 @@ import {
   generateId,
   CoordsUtils,
   getAnchorTile,
-  connectorPathTileToGlobal
+  connectorPathTileToGlobal,
+  setWindowCursor
 } from 'src/utils';
 import { useScene } from 'src/hooks/useScene';
 
@@ -99,11 +100,16 @@ const mousedown: ModeActionsAction = ({
 
     uiState.actions.setItemControls(itemAtTile);
   } else {
-    uiState.actions.setMode(
-      produce(uiState.mode, (draft) => {
-        draft.mousedownItem = null;
-      })
-    );
+    // If clicking on an empty cell, switch to PAN mode
+    // Store the current mode to restore it when the drag stops
+    uiState.actions.setMode({
+      type: 'PAN',
+      showCursor: false,
+      previousMode: uiState.mode
+    });
+
+    // Set the cursor to grabbing to indicate panning
+    setWindowCursor('grabbing');
 
     uiState.actions.setItemControls(null);
   }

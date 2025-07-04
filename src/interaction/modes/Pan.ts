@@ -10,7 +10,11 @@ export const Pan: ModeActions = {
     setWindowCursor('default');
   },
   mousemove: ({ uiState }) => {
-    if (uiState.mode.type !== 'PAN') return;
+    // Allow panning with middle mouse button even when not in PAN mode
+    const isMiddleMouseDown = uiState.mouse.mousedown?.button === 1;
+    const isPanMode = uiState.mode.type === 'PAN';
+
+    if (!isPanMode && !isMiddleMouseDown) return;
 
     if (uiState.mouse.mousedown !== null) {
       const newScroll = produce(uiState.scroll, (draft) => {
@@ -23,11 +27,30 @@ export const Pan: ModeActions = {
     }
   },
   mousedown: ({ uiState, isRendererInteraction }) => {
-    if (uiState.mode.type !== 'PAN' || !isRendererInteraction) return;
+    // Allow panning with middle mouse button even when not in PAN mode
+    const isMiddleMouseButton = uiState.mouse.mousedown?.button === 1;
+    const isPanMode = uiState.mode.type === 'PAN';
+
+    if ((!isPanMode && !isMiddleMouseButton) || !isRendererInteraction) return;
 
     setWindowCursor('grabbing');
   },
-  mouseup: () => {
-    setWindowCursor('grab');
+  mouseup: ({ uiState }) => {
+    // Only handle if we're in PAN mode
+    if (uiState.mode.type === 'PAN') {
+      // If we have a previous mode stored, restore it
+      if (uiState.mode.previousMode) {
+        uiState.actions.setMode(uiState.mode.previousMode);
+      } else {
+        // Default to CURSOR mode if no previous mode
+        uiState.actions.setMode({
+          type: 'CURSOR',
+          showCursor: true,
+          mousedownItem: null
+        });
+      }
+    } else {
+      setWindowCursor('default');
+    }
   }
 };

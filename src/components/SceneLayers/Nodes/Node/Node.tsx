@@ -22,7 +22,9 @@ export const Node = ({ node, order }: Props) => {
   const { iconComponent } = useIcon(
     modelItem.icon,
     node.scaleFactor,
-    node.color
+    node.color,
+    node.mirrorHorizontal,
+    node.mirrorVertical
   );
 
   const position = useMemo(() => {

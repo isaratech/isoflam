@@ -71,7 +71,26 @@ export const frTranslations = {
   // Connector Styles
   SOLID: 'CONTINU',
   DOTTED: 'POINTILLÉ',
-  DASHED: 'TIRETS'
+  DASHED: 'TIRETS',
+
+  // ContextMenu
+  'Send backward': 'Reculer',
+  'Bring forward': 'Avancer',
+  'Send to back': 'Mettre en arrière-plan',
+  'Bring to front': 'Mettre au premier plan',
+
+  Mirroring: 'Miroir',
+  Vertical: 'Vertical',
+  Horizontal: 'Horizontal',
+
+  // Credits Dialog
+  Credits: 'Crédits',
+  'SDMIS Icons': 'Icônes SDMIS',
+  "Service Départemental-Métropolitain d'Incendie et de Secours (SDMIS), 2023. All rights reserved.":
+    "Service Départemental-Métropolitain d'Incendie et de Secours (SDMIS), 2023. Tous droits réservés.",
+  'Licensed under': 'Sous licence',
+  'Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)':
+    "Creative Commons Attribution-Pas d'Utilisation Commerciale-Partage dans les Mêmes Conditions 4.0 International (CC BY-NC-SA 4.0)"
 } as const;
 
 export type TranslationKey = keyof typeof frTranslations;

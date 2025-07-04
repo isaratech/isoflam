@@ -1,5 +1,12 @@
 import React from 'react';
-import { Slider, Box, TextField } from '@mui/material';
+import {
+  Slider,
+  Box,
+  TextField,
+  ToggleButton,
+  ToggleButtonGroup
+} from '@mui/material';
+import { SwapHoriz, SwapVert } from '@mui/icons-material';
 import { ModelItem, ViewItem } from 'src/types';
 import { MarkdownEditor } from 'src/components/MarkdownEditor/MarkdownEditor';
 import { useModelItem } from 'src/hooks/useModelItem';
@@ -90,6 +97,35 @@ export const NodeSettings = ({
             });
           }}
         />
+      </Section>
+      <Section title={t('Mirroring')}>
+        <ToggleButtonGroup
+          value={[
+            node.mirrorHorizontal ? 'horizontal' : null,
+            node.mirrorVertical ? 'vertical' : null
+          ].filter(Boolean)}
+          onChange={(e, newValues) => {
+            const hasHorizontal = newValues.includes('horizontal');
+            const hasVertical = newValues.includes('vertical');
+
+            if (
+              hasHorizontal !== node.mirrorHorizontal ||
+              hasVertical !== node.mirrorVertical
+            ) {
+              onViewItemUpdated({
+                mirrorHorizontal: hasHorizontal,
+                mirrorVertical: hasVertical
+              });
+            }
+          }}
+        >
+          <ToggleButton value="horizontal">
+            <SwapHoriz />
+          </ToggleButton>
+          <ToggleButton value="vertical">
+            <SwapVert />
+          </ToggleButton>
+        </ToggleButtonGroup>
       </Section>
       {icon.colorizable !== false && (
         <Section>

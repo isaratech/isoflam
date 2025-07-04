@@ -131,7 +131,8 @@ export const useInteractionManager = () => {
         ...e,
         clientX: Math.floor(e.touches[0].clientX),
         clientY: Math.floor(e.touches[0].clientY),
-        type: 'mousedown'
+        type: 'mousedown',
+        button: 0
       });
     };
 
@@ -140,7 +141,8 @@ export const useInteractionManager = () => {
         ...e,
         clientX: Math.floor(e.touches[0].clientX),
         clientY: Math.floor(e.touches[0].clientY),
-        type: 'mousemove'
+        type: 'mousemove',
+        button: 0
       });
     };
 
@@ -149,7 +151,8 @@ export const useInteractionManager = () => {
         ...e,
         clientX: 0,
         clientY: 0,
-        type: 'mouseup'
+        type: 'mouseup',
+        button: 0
       });
     };
 

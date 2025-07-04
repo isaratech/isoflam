@@ -9,7 +9,9 @@ export const viewItemSchema = z.object({
   tile: coords,
   labelHeight: z.number().optional(),
   scaleFactor: z.number().min(0.1).max(5).optional(),
-  color: id.optional()
+  color: id.optional(),
+  mirrorHorizontal: z.boolean().optional().default(false),
+  mirrorVertical: z.boolean().optional().default(false)
 });
 
 export const viewSchema = z.object({

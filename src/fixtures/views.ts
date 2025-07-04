@@ -11,21 +11,27 @@ export const views: Model['views'] = [
         tile: {
           x: 0,
           y: 0
-        }
+        },
+        mirrorHorizontal: false,
+        mirrorVertical: false
       },
       {
         id: 'node2',
         tile: {
           x: 0,
           y: 4
-        }
+        },
+        mirrorHorizontal: false,
+        mirrorVertical: false
       },
       {
         id: 'node3',
         tile: {
           x: 0,
           y: -4
-        }
+        },
+        mirrorHorizontal: false,
+        mirrorVertical: false
       }
     ],
     rectangles: [

@@ -22,7 +22,7 @@ export type BoundingBox = [Coords, Coords, Coords, Coords];
 
 export type SlimMouseEvent = Pick<
   MouseEvent,
-  'clientX' | 'clientY' | 'target' | 'type' | 'preventDefault'
+  'clientX' | 'clientY' | 'target' | 'type' | 'preventDefault' | 'button'
 >;
 
 export const EditorModeEnum = {
@@ -37,6 +37,7 @@ export const MainMenuOptionsEnum = {
   'EXPORT.PNG': 'EXPORT.PNG',
   'ACTION.CLEAR_CANVAS': 'ACTION.CLEAR_CANVAS',
   'LINK.GITHUB': 'LINK.GITHUB',
+  'LINK.CREDITS': 'LINK.CREDITS',
   VERSION: 'VERSION'
 } as const;
 
