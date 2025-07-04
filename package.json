@@ -1,6 +1,6 @@
 {
   "name": "isoflam",
-  "version": "1.0",
+  "version": "1.1",
   "private": false,
   "description": "Isometric drawing software designed for firefighters. Allows quick scene modeling by placing elements such as vehicles, personnel, and equipment.",
   "author": "Isara Tech.",
