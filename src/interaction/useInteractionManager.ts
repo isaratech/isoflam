@@ -42,6 +42,8 @@ const getModeFunction = (mode: ModeActions, e: SlimMouseEvent) => {
 export const useInteractionManager = () => {
   const rendererRef = useRef<HTMLElement>();
   const reducerTypeRef = useRef<string>();
+  const previousModeRef = useRef<string>();
+  const isMiddleMousePanningRef = useRef<boolean>(false);
   const uiState = useUiStateStore((state) => {
     return state;
   });
@@ -54,6 +56,31 @@ export const useInteractionManager = () => {
   const onMouseEvent = useCallback(
     (e: SlimMouseEvent) => {
       if (!rendererRef.current) return;
+
+      // Handle middle mouse button (wheel click) for panning
+      if (
+        e.type === 'mousedown' &&
+        e.button === 1 &&
+        rendererRef.current === e.target
+      ) {
+        // Store the current mode before switching to PAN
+        previousModeRef.current = uiState.mode.type;
+        isMiddleMousePanningRef.current = true;
+        // Switch to PAN mode
+        if (uiState.mode.type !== 'PAN') {
+          uiState.actions.setMode({ type: 'PAN' });
+        }
+      } else if (
+        e.type === 'mouseup' &&
+        e.button === 1 &&
+        isMiddleMousePanningRef.current
+      ) {
+        // Restore the previous mode when middle mouse button is released
+        isMiddleMousePanningRef.current = false;
+        if (previousModeRef.current && previousModeRef.current !== 'PAN') {
+          uiState.actions.setMode({ type: previousModeRef.current });
+        }
+      }
 
       const mode = modes[uiState.mode.type];
       const modeFunction = getModeFunction(mode, e);
