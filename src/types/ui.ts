@@ -16,6 +16,7 @@ export interface Mouse {
   mousedown: {
     screen: Coords;
     tile: Coords;
+    button?: number;
   } | null;
   delta: {
     screen: Coords;
@@ -45,6 +46,7 @@ export interface DragItemsMode {
 export interface PanMode {
   type: 'PAN';
   showCursor: boolean;
+  previousMode?: Mode;
 }
 
 export interface PlaceIconMode {
