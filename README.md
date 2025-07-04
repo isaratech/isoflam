@@ -14,6 +14,15 @@
 
 Isoflam is an isometric drawing software designed for firefighters. It allows quick scene modeling by placing elements such as vehicles, personnel, and equipment, drawing shapes, arrows, or zones, and adding text. The final diagram can be exported as an image to support operational communication or post-incident reporting.
 
+## 🚀 Live Demo
+
+Try the application online: **[https://isaratech.github.io/isoflam/](https://isaratech.github.io/isoflam/)**
+
+```bash
+docker pull isaratech/isoflam:latest
+docker run -p 3000:3000 isaratech/isoflam:latest
+```
+
 ## Application Preview
 
 ![Application Screenshot](docs/img1.png)
@@ -46,6 +55,10 @@ These icons are licensed under [Creative Commons CC BY-NC-SA 4.0](https://creati
 ## License
 
 This project is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+## 🐳 Docker Image
+
+The Docker image is available on Docker Hub: **[https://hub.docker.com/r/isaratech/isoflam](https://hub.docker.com/r/isaratech/isoflam)**
 
 ## Installation and Usage
 
