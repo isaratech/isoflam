@@ -1,6 +1,6 @@
 import React, { useMemo, useEffect } from 'react';
 import { useModelStore } from 'src/stores/modelStore';
-import {getColorVariant, getItemByIdOrThrow} from 'src/utils';
+import { getItemByIdOrThrow } from 'src/utils';
 import { IsometricIcon } from 'src/components/SceneLayers/Nodes/Node/IconTypes/IsometricIcon';
 import { NonIsometricIcon } from 'src/components/SceneLayers/Nodes/Node/IconTypes/NonIsometricIcon';
 import { DEFAULT_ICON } from 'src/config';
