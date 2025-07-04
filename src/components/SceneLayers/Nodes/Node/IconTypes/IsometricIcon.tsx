@@ -48,6 +48,7 @@ export const IsometricIcon = ({
       component="img"
       onLoad={onImageLoaded}
       src={icon.url}
+      alt={icon.name || 'Isometric icon'}
       sx={{
         position: 'absolute',
         width: expectedWidth,

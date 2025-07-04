@@ -69,6 +69,7 @@ export const NodeControls = ({ id }: Props) => {
             <Box
               component="img"
               src={icon.url}
+              alt={icon.name || 'Node icon'}
               sx={{ width: 70, height: 70 }}
             />
             {mode === 'SETTINGS' && (

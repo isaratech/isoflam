@@ -46,7 +46,7 @@ export const NonIsometricIcon = ({
         <Box
           component="img"
           src={icon.url}
-          alt={`icon-${icon.id}`}
+          alt={icon.name || 'Non-isometric icon'}
           sx={{
             width: scaledWidth,
             display: 'block',
