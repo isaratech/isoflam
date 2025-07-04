@@ -5,6 +5,7 @@ import type { RendererProps } from './rendererProps';
 export type InitialData = Model & {
   fitToView?: boolean;
   view?: string;
+  zoom?: number;
 };
 
 export interface IsoflamProps {

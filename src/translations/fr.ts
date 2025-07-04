@@ -30,6 +30,7 @@ export const frTranslations = {
   Options: 'Options',
   'Show grid': 'Afficher la grille',
   'Background color': "Couleur d'arrière-plan",
+  'Current view': 'Vue actuelle',
   Cancel: 'Annuler',
   'Download as PNG': 'Télécharger en PNG',
   'Could not export image': "Impossible d'exporter l'image",

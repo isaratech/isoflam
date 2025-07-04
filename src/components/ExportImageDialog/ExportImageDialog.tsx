@@ -39,12 +39,15 @@ interface Props {
   onClose: () => void;
 }
 
-export const ExportImageDialog = ({ onClose, quality = 1.5 }: Props) => {
+export const ExportImageDialog = ({ onClose, quality = 1 }: Props) => {
   const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>();
   const debounceRef = useRef<NodeJS.Timeout>();
   const currentView = useUiStateStore((state) => {
     return state.view;
+  });
+  const currentZoom = useUiStateStore((state) => {
+    return state.zoom;
   });
   const [imageData, setImageData] = React.useState<string>();
   const [exportError, setExportError] = useState(false);
@@ -76,7 +79,7 @@ export const ExportImageDialog = ({ onClose, quality = 1.5 }: Props) => {
         .then((data) => {
           return setImageData(data);
         })
-        .catch((err) => {
+        .catch(() => {
           setExportError(true);
         });
     }, 2000);
@@ -98,6 +101,11 @@ export const ExportImageDialog = ({ onClose, quality = 1.5 }: Props) => {
     setShowGrid(checked);
   };
 
+  const [useCurrentView, setUseCurrentView] = useState(true);
+  const handleUseCurrentViewChange = (checked: boolean) => {
+    setUseCurrentView(checked);
+  };
+
   const [backgroundColor, setBackgroundColor] = useState<string>(
     customVars.customPalette.diagramBg
   );
@@ -107,7 +115,7 @@ export const ExportImageDialog = ({ onClose, quality = 1.5 }: Props) => {
 
   useEffect(() => {
     setImageData(undefined);
-  }, [showGrid, backgroundColor]);
+  }, [showGrid, backgroundColor, useCurrentView]);
 
   return (
     <Dialog open onClose={onClose}>
@@ -151,8 +159,9 @@ export const ExportImageDialog = ({ onClose, quality = 1.5 }: Props) => {
                     onModelUpdated={exportImage}
                     initialData={{
                       ...model,
-                      fitToView: true,
-                      view: currentView
+                      fitToView: !useCurrentView,
+                      view: currentView,
+                      zoom: useCurrentView ? currentZoom : undefined
                     }}
                     renderer={{
                       showGrid,
@@ -195,6 +204,18 @@ export const ExportImageDialog = ({ onClose, quality = 1.5 }: Props) => {
                   {t('Options')}
                 </Typography>
 
+                <FormControlLabel
+                  label={t('Current view')}
+                  control={
+                    <Checkbox
+                      size="small"
+                      checked={useCurrentView}
+                      onChange={(event) => {
+                        handleUseCurrentViewChange(event.target.checked);
+                      }}
+                    />
+                  }
+                />
                 <FormControlLabel
                   label={t('Show grid')}
                   control={

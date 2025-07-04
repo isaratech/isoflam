@@ -85,7 +85,9 @@ export const useInitialDataManager = () => {
 
       changeView(view.value.id, initialData);
 
-      if (initialData.fitToView) {
+      if (initialData.zoom !== undefined) {
+        uiStateActions.setZoom(initialData.zoom);
+      } else if (initialData.fitToView) {
         const rendererSize = rendererEl?.getBoundingClientRect();
 
         const { zoom, scroll } = getFitToViewParams(view.value, {

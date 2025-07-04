@@ -23,7 +23,8 @@ const ToolsEnum = {
   ZOOM_CONTROLS: 'ZOOM_CONTROLS',
   TOOL_MENU: 'TOOL_MENU',
   ITEM_CONTROLS: 'ITEM_CONTROLS',
-  VIEW_TITLE: 'VIEW_TITLE'
+  VIEW_TITLE: 'VIEW_TITLE',
+  FOOTER_CREDITS: 'FOOTER_CREDITS'
 } as const;
 
 interface EditorModeMapping {
@@ -36,9 +37,10 @@ const EDITOR_MODE_MAPPING: EditorModeMapping = {
     'ZOOM_CONTROLS',
     'TOOL_MENU',
     'MAIN_MENU',
-    'VIEW_TITLE'
+    'VIEW_TITLE',
+    'FOOTER_CREDITS'
   ],
-  [EditorModeEnum.EXPLORABLE_READONLY]: ['ZOOM_CONTROLS', 'VIEW_TITLE'],
+  [EditorModeEnum.EXPLORABLE_READONLY]: ['ZOOM_CONTROLS', 'VIEW_TITLE', 'FOOTER_CREDITS'],
   [EditorModeEnum.NON_INTERACTIVE]: []
 };
 
@@ -221,48 +223,50 @@ export const UiOverlay = () => {
         )}
 
         {/* Footer credit */}
-        <Box
-          sx={{
-            position: 'absolute',
-            transform: 'translateX(-100%)'
-          }}
-          style={{
-            left: rendererSize.width - appPadding.x,
-            top: rendererSize.height - appPadding.y * 2,
-            width: 220
-          }}
-        >
-          <UiElement
+        {availableTools.includes('FOOTER_CREDITS') && (
+          <Box
             sx={{
-              px: 2,
-              py: 1
+              position: 'absolute',
+              transform: 'translateX(-100%)'
+            }}
+            style={{
+              left: rendererSize.width - appPadding.x,
+              top: rendererSize.height - appPadding.y * 2,
+              width: 220
             }}
           >
-            <Typography
-              variant="caption"
+            <UiElement
               sx={{
-                color: 'text.secondary',
-                fontSize: '0.75rem',
-                opacity: 0.7,
-                '& a': {
-                  color: 'inherit',
-                  textDecoration: 'none',
-                  '&:hover': {
-                    textDecoration: 'underline'
-                  }
-                }
+                px: 2,
+                py: 1
               }}
             >
-              <a
-                href="https://gohorus.fr"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Typography
+                variant="caption"
+                sx={{
+                  color: 'text.secondary',
+                  fontSize: '0.75rem',
+                  opacity: 0.7,
+                  '& a': {
+                    color: 'inherit',
+                    textDecoration: 'none',
+                    '&:hover': {
+                      textDecoration: 'underline'
+                    }
+                  }
+                }}
               >
-                Développé avec ❤️ par <b>HORUS</b>
-              </a>
-            </Typography>
-          </UiElement>
-        </Box>
+                <a
+                  href="https://gohorus.fr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Développé avec ❤️ par <b>HORUS</b>
+                </a>
+              </Typography>
+            </UiElement>
+          </Box>
+        )}
       </Box>
 
       {mode.type === 'PLACE_ICON' && mode.id && (
