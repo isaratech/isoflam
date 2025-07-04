@@ -37,6 +37,7 @@ export const MainMenuOptionsEnum = {
   'EXPORT.PNG': 'EXPORT.PNG',
   'ACTION.CLEAR_CANVAS': 'ACTION.CLEAR_CANVAS',
   'LINK.GITHUB': 'LINK.GITHUB',
+  'LINK.CREDITS': 'LINK.CREDITS',
   VERSION: 'VERSION'
 } as const;
 

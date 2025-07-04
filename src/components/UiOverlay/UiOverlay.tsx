@@ -16,6 +16,7 @@ import { ContextMenuManager } from 'src/components/ContextMenu/ContextMenuManage
 import { useScene } from 'src/hooks/useScene';
 import { useModelStore } from 'src/stores/modelStore';
 import { ExportImageDialog } from '../ExportImageDialog/ExportImageDialog';
+import { CreditsDialog } from '../CreditsDialog/CreditsDialog';
 
 const ToolsEnum = {
   MAIN_MENU: 'MAIN_MENU',
@@ -272,6 +273,14 @@ export const UiOverlay = () => {
 
       {dialog === 'EXPORT_IMAGE' && (
         <ExportImageDialog
+          onClose={() => {
+            return uiStateActions.setDialog(null);
+          }}
+        />
+      )}
+
+      {dialog === 'CREDITS' && (
+        <CreditsDialog
           onClose={() => {
             return uiStateActions.setDialog(null);
           }}

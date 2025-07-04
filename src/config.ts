@@ -254,6 +254,7 @@ export const MENU_MAIN_OPTIONS: MainMenuOptions = [
   'EXPORT.PNG',
   'ACTION.CLEAR_CANVAS',
   'LINK.GITHUB',
+  'LINK.CREDITS',
   'VERSION'
 ];
 
