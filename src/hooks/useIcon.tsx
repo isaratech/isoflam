@@ -42,11 +42,9 @@ export const useIcon = (
 
         // Replace black color (#000000 or black) with the selected color
         const colorizedSvg = svgContent
-          .replace(/fill="#000000"/g, `fill="${color.value}"`)
-          .replace(/fill="black"/g, `fill="${color.value}"`)
-            .replace(/fill:#000000/g, `fill:${color.value}`)
-            .replace(/stroke:#000000/g, `stroke:${color.value}`)
-          .replace(/fill="#000"/g, `fill="${color.value}"`);
+          .replace(/(fill|stroke)([:=]"?#?)(black|#000000|#000)/gi, (_, attr, sep) => {
+            return `${attr}${sep}${color.value}`;
+          });
 
 
         const newBase64 = btoa(colorizedSvg);
