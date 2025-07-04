@@ -39,7 +39,6 @@ export const useInitialDataManager = () => {
       if (!validationResult.success) {
         // TODO: let's get better at reporting error messages here (starting with how we present them to users)
         // - not in console but in a modal
-        console.log(validationResult.error.errors);
         // Format detailed error messages for the user
         const errorMessages = validationResult.error.errors.map(
           (error, index) => {

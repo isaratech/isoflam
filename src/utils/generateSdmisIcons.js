@@ -53,7 +53,6 @@ function generateSdmisIcons() {
   const sdmisDir = path.join(__dirname, '..', 'assets', 'Banque icones SDMIS');
 
   if (!fs.existsSync(sdmisDir)) {
-    console.error('SDMIS directory not found:', sdmisDir);
     return;
   }
 
@@ -110,22 +109,6 @@ export default sdmisIcons;
   // Write the file
   const outputPath = path.join(__dirname, '..', 'fixtures', 'sdmisIcons.ts');
   fs.writeFileSync(outputPath, tsContent);
-
-  console.log(`Generated ${icons.length} SDMIS icons in ${outputPath}`);
-
-  // Also generate a summary by collection
-  const collections = {};
-  icons.forEach(icon => {
-    if (!collections[icon.collection]) {
-      collections[icon.collection] = 0;
-    }
-    collections[icon.collection]++;
-  });
-
-  console.log('\nIcons by collection:');
-  Object.entries(collections).forEach(([collection, count]) => {
-    console.log(`  ${collection}: ${count} icons`);
-  });
 }
 
 // Run the generator

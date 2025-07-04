@@ -52,7 +52,6 @@ export const useIcon = (
           url: newUrl
         };
       } catch (error) {
-        console.warn('Failed to colorize icon:', error);
         return icon;
       }
     }

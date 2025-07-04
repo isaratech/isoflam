@@ -77,7 +77,6 @@ export const ExportImageDialog = ({ onClose, quality = 1.5 }: Props) => {
           return setImageData(data);
         })
         .catch((err) => {
-          console.log(err);
           setExportError(true);
         });
     }, 2000);

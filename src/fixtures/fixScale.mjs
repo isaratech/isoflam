@@ -12,4 +12,3 @@ const fixed = original.replace(
 
 // 3. écrit le fichier corrigé
 writeFileSync('./sdmisIcons.fixed.ts', fixed, 'utf8');
-console.log('✅  Fichier généré : sdmisIcons.fixed.ts');

@@ -111,7 +111,6 @@ const App = ({
           if (event.ctrlKey || event.metaKey) {
             event.preventDefault();
             // TODO: Implement undo functionality
-            console.log('Undo shortcut pressed (Ctrl+Z)');
           }
           break;
 
@@ -120,7 +119,6 @@ const App = ({
           if (event.ctrlKey || event.metaKey) {
             event.preventDefault();
             // TODO: Implement redo functionality
-            console.log('Redo shortcut pressed (Ctrl+Y)');
           }
           break;
 
