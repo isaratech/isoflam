@@ -18,11 +18,6 @@ Isoflam is an isometric drawing software designed for firefighters. It allows qu
 
 Try the application online: **[https://isaratech.github.io/isoflam/](https://isaratech.github.io/isoflam/)**
 
-```bash
-docker pull isaratech/isoflam:latest
-docker run -p 3000:3000 isaratech/isoflam:latest
-```
-
 ## Application Preview
 
 ![Application Screenshot](docs/img1.png)
@@ -59,6 +54,11 @@ This project is licensed under the [Creative Commons Attribution-NonCommercial-S
 ## 🐳 Docker Image
 
 The Docker image is available on Docker Hub: **[https://hub.docker.com/r/isaratech/isoflam](https://hub.docker.com/r/isaratech/isoflam)**
+
+```bash
+docker pull isaratech/isoflam:latest
+docker run -p 3000:3000 isaratech/isoflam:latest
+```
 
 ## Installation and Usage
 
