@@ -21,6 +21,7 @@ Try the application online: **[https://isaratech.github.io/isoflam/](https://isa
 ## Application Preview
 
 ![Application Screenshot](docs/img1.png)
+![Application Screenshot](docs/img2.png)
 *Example of Isoflam application interface showing isometric scene modeling*
 
 ## Key Features

@@ -5,6 +5,7 @@ import { sdmisIcons } from '../fixtures/sdmisIcons';
 import { icons as basicIcons } from '../fixtures/icons';
 // Import export.json data
 import exportData from '../assets/export.json';
+import sitacIcons from "../fixtures/sitacIcons";
 
 export const colors: Colors = [
   DEFAULT_COLOR,
@@ -39,10 +40,14 @@ export const colors: Colors = [
   {
     id: 'color7',
     value: '#b3e5e3'
-  }
+  },
+ {
+    id: 'color8',
+    value: '#ffffff'
+  },
 ];
 
-export const icons: Icons = [...basicIcons, ...sdmisIcons];
+export const icons: Icons = [...basicIcons, ...sdmisIcons, ...sitacIcons];
 
 // Simulate loading data from export.json
 export const initialData: InitialData = {
