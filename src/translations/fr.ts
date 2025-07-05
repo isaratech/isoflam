@@ -52,6 +52,7 @@ export const frTranslations = {
 
   // TextBoxControls
   'Text size': 'Taille du texte',
+  'Text style': 'Style du texte',
   Alignment: 'Alignement',
 
   // NodeSettings

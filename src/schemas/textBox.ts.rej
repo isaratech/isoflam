@@ -1,0 +1,11 @@
+--- src/schemas/textBox.ts	(revision Before)
++++ src/schemas/textBox.ts	(revision After)
+@@ -13,5 +13,7 @@
+       z.literal(ProjectionOrientationEnum.X),
+       z.literal(ProjectionOrientationEnum.Y)
+     ])
+-    .optional()
++    .optional(),
++  isBold: z.boolean().optional(),
++  isItalic: z.boolean().optional()
+ });

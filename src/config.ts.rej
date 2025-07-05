@@ -1,0 +1,13 @@
+--- src/config.ts	(revision Before)
++++ src/config.ts	(revision After)
+@@ -129,7 +129,9 @@
+ > = {
+   orientation: 'X',
+   fontSize: 0.6,
+-  content: 'Text'
++  content: 'Text',
++  isBold: true,
++  isItalic: false
+ };
+ 
+ /**
