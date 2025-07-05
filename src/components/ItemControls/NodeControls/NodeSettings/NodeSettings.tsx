@@ -45,7 +45,7 @@ export const NodeSettings = ({
   return (
     <>
       {/* Basic controls */}
-      <Section title={t('Name')}>
+      <Section title={t('Label')}>
         <TextField
           value={modelItem.name}
           onChange={(e) => {
@@ -60,7 +60,7 @@ export const NodeSettings = ({
             marks
             step={20}
             min={60}
-            max={280}
+            max={1000}
             value={node.labelHeight}
             onChange={(e, newHeight) => {
               const labelHeight = newHeight as number;

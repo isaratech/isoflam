@@ -55,10 +55,10 @@ export const frTranslations = {
   Alignment: 'Alignement',
 
   // NodeSettings
-  Name: 'Nom',
+  Label: 'Libellé',
   Description: 'Description',
   'Label height': 'Hauteur du libellé',
-  'Icon scale': "Échelle de l'icône",
+  'Icon scale': "Taille de l'icône",
 
   // ColorSelector
   'No colors available': 'Aucune couleur disponible',
