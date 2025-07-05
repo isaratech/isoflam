@@ -60,7 +60,6 @@ export const NodeSettings = ({
             marks
             step={20}
             min={60}
-            max={1000}
             value={node.labelHeight}
             onChange={(e, newHeight) => {
               const labelHeight = newHeight as number;
@@ -76,7 +75,6 @@ export const NodeSettings = ({
               marks
               step={0.5}
               min={0.5}
-              max={50}
               value={node.scaleFactor ?? 1}
               onChange={(e, newScale) => {
                 const scaleFactor = newScale as number;
@@ -97,13 +95,12 @@ export const NodeSettings = ({
             type="number"
             inputProps={{
               min: 0.1,
-              max: 50,
               step: 0.1
             }}
             value={node.scaleFactor ?? 1}
             onChange={(e) => {
               const value = parseFloat(e.target.value);
-              if (!Number.isNaN(value) && value >= 0.1 && value <= 50) {
+              if (!Number.isNaN(value) && value >= 0.1) {
                 const scaleFactor = value;
                 const baseLabelHeight = 80;
                 const adjustedLabelHeight = Math.round(

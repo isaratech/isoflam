@@ -9,7 +9,7 @@ import { colorsSchema } from './colors';
 
 export const modelSchema = z
   .object({
-    version: z.string().max(10).optional(),
+    version: z.string().optional(),
     title: constrainedStrings.name,
     description: constrainedStrings.description.optional(),
     items: modelItemsSchema,

@@ -63,7 +63,6 @@ export const RectangleControls = ({ id }: Props) => {
               marks
               step={5}
               min={0}
-              max={40}
               value={rectangle.width || 0}
               onChange={(e, newWidth) => {
                 updateRectangle(rectangle.id, { width: newWidth as number });
@@ -76,7 +75,6 @@ export const RectangleControls = ({ id }: Props) => {
             marks
             step={20}
             min={-1}
-            max={200}
             value={rectangle.radius || 20}
             onChange={(e, newRadius) => {
               updateRectangle(rectangle.id, { radius: newRadius as number });

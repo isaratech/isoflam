@@ -75,7 +75,6 @@ export const ConnectorControls = ({ id }: Props) => {
             marks
             step={10}
             min={10}
-            max={100}
             value={connector.width}
             onChange={(e, newWidth) => {
               updateConnector(connector.id, { width: newWidth as number });

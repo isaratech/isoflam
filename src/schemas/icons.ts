@@ -8,7 +8,7 @@ export const iconSchema = z.object({
   collection: constrainedStrings.name.optional(),
   subcategory: constrainedStrings.name.optional(),
   isIsometric: z.boolean().optional(),
-  scaleFactor: z.number().min(0.1).max(50).optional().default(1),
+  scaleFactor: z.number().min(0.1).optional().default(1),
   colorizable: z.boolean().optional().default(true)
 });
 

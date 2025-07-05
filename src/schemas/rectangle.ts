@@ -9,6 +9,6 @@ export const rectangleSchema = z.object({
   from: coords,
   to: coords,
   style: z.enum(rectangleStyleOptions).optional(),
-  width: z.number().min(1).max(10).optional(),
-  radius: z.number().min(0).max(50).optional()
+  width: z.number().min(1).optional(),
+  radius: z.number().min(0).optional()
 });

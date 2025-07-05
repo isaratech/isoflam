@@ -54,7 +54,6 @@ export const TextBoxControls = ({ id }: Props) => {
           marks
           step={0.3}
           min={0.3}
-          max={1.2}
           value={textBox.fontSize}
           onChange={(e, newSize) => {
             updateTextBox(textBox.id, { fontSize: newSize as number });

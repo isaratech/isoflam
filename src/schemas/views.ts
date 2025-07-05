@@ -8,7 +8,7 @@ export const viewItemSchema = z.object({
   id,
   tile: coords,
   labelHeight: z.number().optional(),
-  scaleFactor: z.number().min(0.1).max(50).optional(),
+  scaleFactor: z.number().min(0.1).optional(),
   color: id.optional(),
   mirrorHorizontal: z.boolean().optional().default(false),
   mirrorVertical: z.boolean().optional().default(false)
