@@ -139,7 +139,9 @@ export const DEFAULTS_TEXTBOX: Required<
 export const DEFAULTS_RECTANGLE: Required<
   Omit<Rectangle, 'id' | 'from' | 'to' | 'color'>
 > = {
-  style: 'SOLID'
+  style: 'NONE',
+  width: 1,
+  radius: 22
 };
 
 // =============================================================================

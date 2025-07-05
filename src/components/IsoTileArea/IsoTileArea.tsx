@@ -12,7 +12,7 @@ interface Props {
   stroke?: {
     width: number;
     color: string;
-    style?: 'SOLID' | 'DOTTED' | 'DASHED';
+    style?: 'NONE' | 'SOLID' | 'DOTTED' | 'DASHED';
   };
 }
 
@@ -29,7 +29,7 @@ export const IsoTileArea = ({
   });
 
   const strokeParams = useMemo(() => {
-    if (!stroke) return {};
+    if (!stroke || stroke.style === 'NONE') return {};
 
     const params: Record<string, string | number> = {
       stroke: stroke.color,

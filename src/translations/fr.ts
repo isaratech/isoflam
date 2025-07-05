@@ -1,7 +1,7 @@
 export const frTranslations = {
   // MainMenu
   'Main menu': 'Menu principal',
-  Open: 'Ouvrir',
+  Open: 'Ouvrir un JSON',
   'Export as JSON': 'Exporter en JSON',
   'Export as image': 'Exporter en image',
   'Clear the canvas': 'Effacer le canevas',
@@ -65,6 +65,7 @@ export const frTranslations = {
 
   // ConnectorControls
   Width: 'Largeur',
+  Radius: 'Rayon',
   Style: 'Style',
   Triangle: 'Triangle',
   'Show triangle': 'Afficher le triangle',
@@ -73,6 +74,7 @@ export const frTranslations = {
   SOLID: 'CONTINU',
   DOTTED: 'POINTILLÉ',
   DASHED: 'TIRETS',
+    NONE: 'AUCUN',
 
   // ContextMenu
   'Send backward': 'Reculer',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Select, MenuItem } from '@mui/material';
+import { Box, Select, MenuItem, Slider, Typography } from '@mui/material';
 import { useRectangle } from 'src/hooks/useRectangle';
 import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
 import { useUiStateStore } from 'src/stores/uiStateStore';
@@ -51,6 +51,32 @@ export const RectangleControls = ({ id }: Props) => {
             );
           })}
         </Select>
+      </Section>
+      {rectangle.style && rectangle.style !== 'NONE' && (
+        <Section title={t('Width')}>
+          <Slider
+            marks
+            step={5}
+            min={0}
+            max={20}
+            value={rectangle.width || 0}
+            onChange={(e, newWidth) => {
+              updateRectangle(rectangle.id, { width: newWidth as number });
+            }}
+          />
+        </Section>
+      )}
+      <Section title={t('Radius')}>
+        <Slider
+          marks
+          step={20}
+          min={-1}
+          max={200}
+          value={rectangle.radius || 20}
+          onChange={(e, newRadius) => {
+            updateRectangle(rectangle.id, { radius: newRadius as number });
+          }}
+        />
       </Section>
       <Section>
         <Box sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
