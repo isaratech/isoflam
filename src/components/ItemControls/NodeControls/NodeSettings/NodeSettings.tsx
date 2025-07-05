@@ -16,6 +16,7 @@ import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
 import { DeleteButton } from '../../components/DeleteButton';
 import { DuplicateButton } from '../../components/DuplicateButton';
 import { Section } from '../../components/Section';
+import { AdvancedSettings } from '../../components/AdvancedSettings';
 
 export type NodeUpdates = {
   model: Partial<ModelItem>;
@@ -43,21 +44,13 @@ export const NodeSettings = ({
 
   return (
     <>
+      {/* Basic controls */}
       <Section title={t('Name')}>
         <TextField
           value={modelItem.name}
           onChange={(e) => {
             const text = e.target.value as string;
             if (modelItem.name !== text) onModelItemUpdated({ name: text });
-          }}
-        />
-      </Section>
-      <Section title={t('Description')}>
-        <MarkdownEditor
-          value={modelItem.description}
-          onChange={(text) => {
-            if (modelItem.description !== text)
-              onModelItemUpdated({ description: text });
           }}
         />
       </Section>
@@ -126,35 +119,6 @@ export const NodeSettings = ({
           />
         </Box>
       </Section>
-      <Section title={t('Mirroring')}>
-        <ToggleButtonGroup
-          value={[
-            node.mirrorHorizontal ? 'horizontal' : null,
-            node.mirrorVertical ? 'vertical' : null
-          ].filter(Boolean)}
-          onChange={(e, newValues) => {
-            const hasHorizontal = newValues.includes('horizontal');
-            const hasVertical = newValues.includes('vertical');
-
-            if (
-              hasHorizontal !== node.mirrorHorizontal ||
-              hasVertical !== node.mirrorVertical
-            ) {
-              onViewItemUpdated({
-                mirrorHorizontal: hasHorizontal,
-                mirrorVertical: hasVertical
-              });
-            }
-          }}
-        >
-          <ToggleButton value="horizontal">
-            <SwapHoriz />
-          </ToggleButton>
-          <ToggleButton value="vertical">
-            <SwapVert />
-          </ToggleButton>
-        </ToggleButtonGroup>
-      </Section>
       {icon.colorizable !== false && (
         <Section>
           <ColorSelector
@@ -165,6 +129,50 @@ export const NodeSettings = ({
           />
         </Section>
       )}
+
+      {/* Advanced settings */}
+      <AdvancedSettings>
+        <Section title={t('Description')}>
+          <MarkdownEditor
+            value={modelItem.description}
+            onChange={(text) => {
+              if (modelItem.description !== text)
+                onModelItemUpdated({ description: text });
+            }}
+          />
+        </Section>
+        <Section title={t('Mirroring')}>
+          <ToggleButtonGroup
+            value={[
+              node.mirrorHorizontal ? 'horizontal' : null,
+              node.mirrorVertical ? 'vertical' : null
+            ].filter(Boolean)}
+            onChange={(e, newValues) => {
+              const hasHorizontal = newValues.includes('horizontal');
+              const hasVertical = newValues.includes('vertical');
+
+              if (
+                hasHorizontal !== node.mirrorHorizontal ||
+                hasVertical !== node.mirrorVertical
+              ) {
+                onViewItemUpdated({
+                  mirrorHorizontal: hasHorizontal,
+                  mirrorVertical: hasVertical
+                });
+              }
+            }}
+          >
+            <ToggleButton value="horizontal">
+              <SwapHoriz />
+            </ToggleButton>
+            <ToggleButton value="vertical">
+              <SwapVert />
+            </ToggleButton>
+          </ToggleButtonGroup>
+        </Section>
+      </AdvancedSettings>
+
+      {/* Action buttons */}
       <Section>
         <Box sx={{ display: 'flex', gap: 1 }}>
           <DuplicateButton onClick={onDuplicated} />
