@@ -114,8 +114,11 @@ export const useInteractionManager = () => {
           item: itemAtTile,
           tile: uiState.mouse.position.tile
         });
-      } else if (uiState.contextMenu) {
-        uiState.actions.setContextMenu(null);
+      } else {
+        // Show context menu for empty space
+        uiState.actions.setContextMenu({
+          tile: uiState.mouse.position.tile
+        });
       }
     },
     [uiState.mouse, scene, uiState.contextMenu, uiState.actions]
