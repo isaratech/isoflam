@@ -1,13 +1,10 @@
 import React from 'react';
 import { ProjectionOrientationEnum } from 'src/types';
+import { Box, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import {
-  Box,
-  TextField,
-  ToggleButton,
-  ToggleButtonGroup,
-  Slider
-} from '@mui/material';
-import { TextRotationNone as TextRotationNoneIcon } from '@mui/icons-material';
+  TextRotationNone as TextRotationNoneIcon,
+  FormatSize as FormatSizeIcon
+} from '@mui/icons-material';
 import { useTextBox } from 'src/hooks/useTextBox';
 import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
 import { useUiStateStore } from 'src/stores/uiStateStore';
@@ -50,16 +47,28 @@ export const TextBoxControls = ({ id }: Props) => {
         />
       </Section>
       <Section title={t('Text size')}>
-        <Slider
-          marks
-          step={0.3}
-          min={0.3}
-          max={1.2}
+        <ToggleButtonGroup
           value={textBox.fontSize}
+          exclusive
           onChange={(e, newSize) => {
-            updateTextBox(textBox.id, { fontSize: newSize as number });
+            if (newSize !== null) {
+              updateTextBox(textBox.id, { fontSize: newSize as number });
+            }
           }}
-        />
+        >
+          <ToggleButton value={0.3}>
+            <FormatSizeIcon sx={{ fontSize: '0.75rem' }} />
+          </ToggleButton>
+          <ToggleButton value={0.6}>
+            <FormatSizeIcon sx={{ fontSize: '1rem' }} />
+          </ToggleButton>
+          <ToggleButton value={0.9}>
+            <FormatSizeIcon sx={{ fontSize: '1.25rem' }} />
+          </ToggleButton>
+          <ToggleButton value={1.2}>
+            <FormatSizeIcon sx={{ fontSize: '1.5rem' }} />
+          </ToggleButton>
+        </ToggleButtonGroup>
       </Section>
       <Section title={t('Alignment')}>
         <ToggleButtonGroup
