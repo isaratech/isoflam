@@ -73,8 +73,8 @@ export const NodeSettings = ({
           <Box sx={{ flexGrow: 1 }}>
             <Slider
               marks
-              step={0.5}
-              min={0.5}
+              step={0.1}
+              min={0.1}
               value={node.scaleFactor ?? 1}
               onChange={(e, newScale) => {
                 const scaleFactor = newScale as number;
