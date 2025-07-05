@@ -6,7 +6,7 @@ import { useColor } from 'src/hooks/useColor';
 
 type Props = ReturnType<typeof useScene>['rectangles'][0];
 
-export const Rectangle = ({ from, to, color: colorId }: Props) => {
+export const Rectangle = ({ from, to, color: colorId, style }: Props) => {
   const color = useColor(colorId);
 
   return (
@@ -17,7 +17,8 @@ export const Rectangle = ({ from, to, color: colorId }: Props) => {
       cornerRadius={22}
       stroke={{
         color: getColorVariant(color.value, 'dark', { grade: 2 }),
-        width: 1
+        width: 1,
+        style
       }}
     />
   );

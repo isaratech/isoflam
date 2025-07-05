@@ -12,6 +12,7 @@ interface Props {
   stroke?: {
     width: number;
     color: string;
+    style?: 'SOLID' | 'DOTTED' | 'DASHED';
   };
 }
 
@@ -30,10 +31,28 @@ export const IsoTileArea = ({
   const strokeParams = useMemo(() => {
     if (!stroke) return {};
 
-    return {
+    const params: Record<string, string | number> = {
       stroke: stroke.color,
       strokeWidth: stroke.width
     };
+
+    // Add stroke dash array based on style
+    if (stroke.style) {
+      switch (stroke.style) {
+        case 'DASHED':
+          params.strokeDasharray = `${stroke.width * 2}, ${stroke.width * 2}`;
+          break;
+        case 'DOTTED':
+          params.strokeDasharray = `0, ${stroke.width * 1.8}`;
+          break;
+        case 'SOLID':
+        default:
+          // No dash array for solid lines
+          break;
+      }
+    }
+
+    return params;
   }, [stroke]);
 
   return (

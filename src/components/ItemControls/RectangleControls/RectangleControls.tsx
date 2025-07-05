@@ -1,10 +1,12 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Select, MenuItem } from '@mui/material';
 import { useRectangle } from 'src/hooks/useRectangle';
 import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { useScene } from 'src/hooks/useScene';
 import { generateId } from 'src/utils';
+import { Rectangle, rectangleStyleOptions } from 'src/types';
+import { useTranslation } from 'src/hooks/useTranslation';
 import { ControlsContainer } from '../components/ControlsContainer';
 import { Section } from '../components/Section';
 import { DeleteButton } from '../components/DeleteButton';
@@ -15,6 +17,7 @@ interface Props {
 }
 
 export const RectangleControls = ({ id }: Props) => {
+  const { t } = useTranslation();
   const uiStateActions = useUiStateStore((state) => {
     return state.actions;
   });
@@ -30,6 +33,24 @@ export const RectangleControls = ({ id }: Props) => {
           }}
           activeColor={rectangle.color}
         />
+      </Section>
+      <Section title={t('Style')}>
+        <Select
+          value={rectangle.style || 'SOLID'}
+          onChange={(e) => {
+            updateRectangle(rectangle.id, {
+              style: e.target.value as Rectangle['style']
+            });
+          }}
+        >
+          {Object.values(rectangleStyleOptions).map((style) => {
+            return (
+              <MenuItem key={style} value={style}>
+                {t(style)}
+              </MenuItem>
+            );
+          })}
+        </Select>
       </Section>
       <Section>
         <Box sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
