@@ -106,13 +106,20 @@ export interface Scroll {
   offset: Coords;
 }
 
+export interface IconSubcategoryState {
+  id: string;
+  isExpanded: boolean;
+}
+
 export interface IconCollectionState {
   id?: string;
   isExpanded: boolean;
+  subcategories?: IconSubcategoryState[];
 }
 
 export type IconCollectionStateWithIcons = IconCollectionState & {
   icons: Icon[];
+  subcategories?: (IconSubcategoryState & { icons: Icon[] })[];
 };
 
 export const DialogTypeEnum = {

@@ -62,7 +62,95 @@ function generateSdmisIcons() {
   for (const file of pngFiles) {
     const iconId = generateIconId(file.name, file.category);
     const displayName = generateDisplayName(file.name);
-    const collection = file.category.split(path.sep)[0] || 'SDMIS';
+    const pathParts = file.category.split(path.sep);
+    const collection = pathParts[0] || 'SDMIS';
+    
+    // Extract subcategory from the path
+    // If there are at least 2 parts in the path, use the second part as subcategory
+    let subcategory = null;
+    if (pathParts.length >= 2) {
+      // Extract the subcategory from the second part of the path
+      // For example, from "AMU/AMU_materiels" extract "materiels"
+      const subcategoryPart = pathParts[1];
+      
+      // Try to extract subcategory from format like "AMU_materiels"
+      const match = subcategoryPart.match(/_([^_]+)$/);
+      let extractedSubcategory = '';
+      if (match && match[1]) {
+        extractedSubcategory = match[1].toLowerCase();
+      } else {
+        // If no match, use the whole part as subcategory
+        extractedSubcategory = subcategoryPart.toLowerCase();
+      }
+      
+      // Map the extracted subcategory to user-friendly categories
+      const subcategoryMap = {
+        // Vehicles and transportation
+        'vehicules': 'vehicles',
+        'vl': 'vehicles',
+        'helico': 'vehicles',
+        'ambulance': 'vehicles',
+        'engins': 'vehicles',
+        'moyens': 'vehicles',
+        'aeriens': 'vehicles',
+        
+        // People and personnel
+        'personnels': 'people',
+        'personnel': 'people',
+        'personnes': 'people',
+        'intervenants': 'people',
+        'victimes': 'people',
+        'blesses': 'people',
+        
+        // Equipment and materials
+        'materiels': 'equipment',
+        'materiel': 'equipment',
+        'equipements': 'equipment',
+        'equipement': 'equipment',
+        'outils': 'equipment',
+        
+        // Buildings and structures
+        'batiments': 'buildings',
+        'batiment': 'buildings',
+        'structures': 'buildings',
+        'infrastructure': 'buildings',
+        'environnements': 'buildings',
+        'batiments-environnements': 'buildings',
+        
+        // Actions and operations
+        'actions': 'actions',
+        'action': 'actions',
+        'operations': 'actions',
+        'interventions': 'actions',
+        'manoeuvres': 'actions',
+        
+        // Hazards and dangers
+        'dangers': 'hazards',
+        'risques': 'hazards',
+        'incidents': 'hazards',
+        
+        // Signs and symbols
+        'symboles': 'symbols',
+        'signes': 'symbols',
+        'marquages': 'symbols',
+        
+        // Communication
+        'communication': 'communication',
+        'transmissions': 'communication',
+        'signaux': 'communication'
+      };
+      
+      // Map the subcategory or use the extracted value if no mapping exists
+      subcategory = subcategoryMap[extractedSubcategory] || extractedSubcategory;
+      
+      // Make sure subcategory is not null or empty
+      if (!subcategory || subcategory === '') {
+        subcategory = 'other';
+      }
+    } else {
+      // If no subcategory found, use a default
+      subcategory = 'other';
+    }
 
     // Convert Windows path to URL path
     const urlPath = file.relativePath.replace(/\\/g, '/');
@@ -72,7 +160,10 @@ function generateSdmisIcons() {
       name: displayName,
       url: `./assets/Banque icones SDMIS/${urlPath}`,
       collection: `SDMIS-${collection}`,
-      isIsometric: true
+      subcategory: subcategory,
+      isIsometric: true,
+      colorizable: false,
+      scaleFactor: 1
     });
   }
 
