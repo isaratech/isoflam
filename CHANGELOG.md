@@ -12,12 +12,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Advanced settings accordion in UI components
 - Customizable corner radii for rectangles
 - Rectangle style options (SOLID, DASHED, NONE)
+- Adjustable width for rectangle borders
+- Adjustable label height for nodes
+- Horizontal and vertical mirroring options for icons
+- Option to show/hide direction triangles on connectors
+- Expanded SDMIS icon library with 1258 icons
+- Enhanced icon categorization system with intelligent mapping to user-friendly categories
+- Improved text size controls with adjustable font scaling
 
 ### Changed
 - Bumped version from 1.1 to 1.2
 - Removed package-lock.json and added it to .gitignore
 - Removed all .orig and .rej files from the repository
 - Adjusted scale factor for vehicle icons to improve visibility
+- Updated icon generation script with better subcategory detection and mapping
+
+### Fixed
+- Connector x-coordinates mirroring issue
+
+### Fixed
+- Connector x-coordinates mirroring issue
 
 ## [1.1] - 2025-06-01
 
