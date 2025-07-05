@@ -65,6 +65,15 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
     onClose();
   }, [uiStateActions, onClose]);
 
+  const createNewConnector = useCallback(() => {
+    uiStateActions.setMode({
+      type: 'CONNECTOR',
+      id: null,
+      showCursor: true
+    });
+    onClose();
+  }, [uiStateActions, onClose]);
+
   if (!contextMenu) {
     return null;
   }
@@ -113,6 +122,10 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
         {
           label: t('Create new rectangle'),
           onClick: createNewRectangle
+        },
+        {
+          label: t('Create new link'),
+          onClick: createNewConnector
         }
       ];
 

@@ -84,6 +84,7 @@ export const frTranslations = {
   'Create new icon': 'Créer une nouvelle icône',
   'Create new text': 'Créer un nouveau texte',
   'Create new rectangle': 'Créer un nouveau rectangle',
+  'Create new link': 'Créer un nouveau lien',
 
   Mirroring: 'Miroir',
   Vertical: 'Vertical',
