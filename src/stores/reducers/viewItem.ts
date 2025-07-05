@@ -57,7 +57,19 @@ export const createViewItem = (
   const { state, viewId } = ctx;
   const view = getItemByIdOrThrow(state.model.views, viewId);
 
+  // Check if the model item exists, if not create it
+  const modelItemExists = state.model.items.some(item => item.id === newViewItem.id);
+
   const newState = produce(state, (draft) => {
+    // Create model item if it doesn't exist
+    if (!modelItemExists) {
+      draft.model.items.push({
+        id: newViewItem.id,
+        name: `Item ${newViewItem.id}`, // Default name
+        icon: undefined // Default icon value
+      });
+    }
+
     const { items } = draft.model.views[view.index];
     items.unshift(newViewItem);
   });

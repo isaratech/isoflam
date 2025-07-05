@@ -17,6 +17,7 @@ import { useScene } from 'src/hooks/useScene';
 import { useModelStore } from 'src/stores/modelStore';
 import { ExportImageDialog } from '../ExportImageDialog/ExportImageDialog';
 import { CreditsDialog } from '../CreditsDialog/CreditsDialog';
+import horusLogo from 'src/assets/horus.png';
 
 const ToolsEnum = {
   MAIN_MENU: 'MAIN_MENU',
@@ -232,7 +233,7 @@ export const UiOverlay = () => {
             style={{
               left: rendererSize.width - appPadding.x,
               top: rendererSize.height - appPadding.y * 2,
-              width: 220
+              width: 250
             }}
           >
             <UiElement
@@ -260,8 +261,18 @@ export const UiOverlay = () => {
                   href="https://gohorus.fr"
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
                 >
                   Développé avec ❤️ par <b>HORUS</b>
+                  <img 
+                    src={horusLogo} 
+                    alt="HORUS logo" 
+                    style={{ 
+                      height: '16px', 
+                      width: 'auto',
+                      marginLeft: '4px'
+                    }} 
+                  />
                 </a>
               </Typography>
             </UiElement>
