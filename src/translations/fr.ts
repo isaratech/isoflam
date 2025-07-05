@@ -48,7 +48,7 @@ export const frTranslations = {
 
   // NodeControls
   'Update icon': "Mettre à jour l'icône",
-  Settings: 'Paramètres',
+  Settings: 'Options supplémentaires',
 
   // TextBoxControls
   'Text size': 'Taille du texte',
