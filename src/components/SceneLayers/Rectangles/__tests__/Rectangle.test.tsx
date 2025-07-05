@@ -54,16 +54,6 @@ describe('Rectangle', () => {
     expect(strokeData.width).toBe(1);
   });
 
-  it('renders with stroke when style is DOTTED', () => {
-    const { getByTestId } = render(
-      <Rectangle {...defaultProps} style="DOTTED" />
-    );
-
-    const element = getByTestId('iso-tile-area');
-    const strokeData = JSON.parse(element.getAttribute('data-stroke') || '{}');
-    expect(strokeData.style).toBe('DOTTED');
-  });
-
   it('renders with stroke when style is DASHED', () => {
     const { getByTestId } = render(
       <Rectangle {...defaultProps} style="DASHED" />

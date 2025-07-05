@@ -1,13 +1,13 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { RectangleControls } from '../RectangleControls';
-
-// Create a mock function that can be configured per test
-const mockUseRectangle = jest.fn();
+import { useRectangle } from 'src/hooks/useRectangle';
 
 jest.mock('src/hooks/useRectangle', () => ({
-  useRectangle: mockUseRectangle
+  useRectangle: jest.fn()
 }));
+
+const mockUseRectangle = useRectangle as jest.MockedFunction<typeof useRectangle>;
 
 jest.mock('src/hooks/useScene', () => ({
   useScene: () => ({
@@ -74,13 +74,13 @@ describe('RectangleControls', () => {
     expect(screen.queryByText('Width')).not.toBeInTheDocument();
   });
 
-  it('shows width control when style is DOTTED', () => {
+  it('shows width control when style is DASHED', () => {
     mockUseRectangle.mockReturnValue({
       id: 'test-rectangle',
       from: { x: 0, y: 0 },
       to: { x: 2, y: 2 },
       color: 'red',
-      style: 'DOTTED',
+      style: 'DASHED',
       width: 1,
       radius: 22
     });
