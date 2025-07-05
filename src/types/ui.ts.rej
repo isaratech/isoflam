@@ -1,0 +1,23 @@
+--- src/types/ui.ts	(revision Before)
++++ src/types/ui.ts	(revision After)
+@@ -106,13 +106,20 @@
+   offset: Coords;
+ }
+ 
++export interface IconSubcategoryState {
++  id: string;
++  isExpanded: boolean;
++}
++
+ export interface IconCollectionState {
+   id?: string;
+   isExpanded: boolean;
++  subcategories?: IconSubcategoryState[];
+ }
+ 
+ export type IconCollectionStateWithIcons = IconCollectionState & {
+   icons: Icon[];
++  subcategories?: (IconSubcategoryState & { icons: Icon[] })[];
+ };
+ 
+ export const DialogTypeEnum = {

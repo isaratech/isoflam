@@ -1,0 +1,62 @@
+--- src/utils/common.ts	(revision Before)
++++ src/utils/common.ts	(revision After)
+@@ -58,21 +58,56 @@
+ };
+ 
+ export const categoriseIcons = (icons: Icon[]) => {
+-  const categories: { name?: string; icons: Icon[] }[] = [];
++  const categories: {
++    name?: string;
++    icons: Icon[];
++    subcategories?: { id: string; isExpanded: boolean }[];
++  }[] = [];
+ 
++  // First pass: group by collection
+   icons.forEach((icon) => {
+     const collection = categories.find((cat) => {
+       return cat.name === icon.collection;
+     });
+ 
+     if (!collection) {
+-      categories.push({ name: icon.collection, icons: [icon] });
++      categories.push({
++        name: icon.collection,
++        icons: [icon],
++        subcategories: []
++      });
+     } else {
+       collection.icons.push(icon);
+     }
+   });
+ 
+-  return categories;
++  // Second pass: identify subcategories within each collection
++  return categories.map((category) => {
++    // Initialize subcategories map
++    const subcategoriesMap = new Map<string, boolean>();
++
++    // Identify unique subcategories
++    category.icons.forEach((icon) => {
++      if (icon.subcategory && !subcategoriesMap.has(icon.subcategory)) {
++        subcategoriesMap.set(icon.subcategory, true);
++      }
++    });
++
++    // Create a new category object with subcategories
++    const result = { ...category };
++
++    // Convert map to array of subcategory states
++    if (subcategoriesMap.size > 0) {
++      result.subcategories = Array.from(subcategoriesMap.keys()).map((id) => {
++        return {
++          id,
++          isExpanded: false
++        };
++      });
++    }
++
++    return result;
++  });
+ };
+ 
+ export const getStartingMode = (
