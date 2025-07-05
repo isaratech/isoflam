@@ -77,26 +77,54 @@ export const NodeSettings = ({
         </Section>
       )}
       <Section title={t('Icon scale')}>
-        <Slider
-          marks
-          step={0.1}
-          min={0.1}
-          max={5}
-          value={node.scaleFactor ?? 1}
-          onChange={(e, newScale) => {
-            const scaleFactor = newScale as number;
-            // Calculate proportional label height based on scale factor
-            // Use the default label height (80) as base and multiply by scale factor
-            const baseLabelHeight = 80;
-            const adjustedLabelHeight = Math.round(
-              baseLabelHeight * scaleFactor
-            );
-            onViewItemUpdated({
-              scaleFactor,
-              labelHeight: adjustedLabelHeight
-            });
-          }}
-        />
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <Box sx={{ flexGrow: 1 }}>
+            <Slider
+              marks
+              step={0.5}
+              min={0.5}
+              max={50}
+              value={node.scaleFactor ?? 1}
+              onChange={(e, newScale) => {
+                const scaleFactor = newScale as number;
+                // Calculate proportional label height based on scale factor
+                // Use the default label height (80) as base and multiply by scale factor
+                const baseLabelHeight = 80;
+                const adjustedLabelHeight = Math.round(
+                  baseLabelHeight * scaleFactor
+                );
+                onViewItemUpdated({
+                  scaleFactor,
+                  labelHeight: adjustedLabelHeight
+                });
+              }}
+            />
+          </Box>
+          <TextField
+            type="number"
+            inputProps={{
+              min: 0.1,
+              max: 50,
+              step: 0.1
+            }}
+            value={node.scaleFactor ?? 1}
+            onChange={(e) => {
+              const value = parseFloat(e.target.value);
+              if (!Number.isNaN(value) && value >= 0.1 && value <= 50) {
+                const scaleFactor = value;
+                const baseLabelHeight = 80;
+                const adjustedLabelHeight = Math.round(
+                  baseLabelHeight * scaleFactor
+                );
+                onViewItemUpdated({
+                  scaleFactor,
+                  labelHeight: adjustedLabelHeight
+                });
+              }
+            }}
+            sx={{ width: '80px' }}
+          />
+        </Box>
       </Section>
       <Section title={t('Mirroring')}>
         <ToggleButtonGroup
