@@ -13,6 +13,7 @@ import { UiStateProvider, useUiStateStore } from 'src/stores/uiStateStore';
 import { INITIAL_DATA, MAIN_MENU_OPTIONS } from 'src/config';
 import { useInitialDataManager } from 'src/hooks/useInitialDataManager';
 import { useScene } from 'src/hooks/useScene';
+import { useSharedScene } from 'src/hooks/useSharedScene';
 
 const App = ({
   initialData,
@@ -35,6 +36,18 @@ const App = ({
     return modelFromModelStore(state);
   });
   const scene = useScene();
+  
+  // Check for shared scene in URL and load it if present
+  const { error: sharedSceneError } = useSharedScene();
+  
+  // Display error message if there's an issue loading a shared scene
+  useEffect(() => {
+    if (sharedSceneError) {
+      console.error('Error loading shared scene:', sharedSceneError);
+      // Show error message to user
+      alert(`Error loading shared scene: ${sharedSceneError}`);
+    }
+  }, [sharedSceneError]);
 
   const { load } = initialDataManager;
 

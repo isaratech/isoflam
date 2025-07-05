@@ -124,9 +124,14 @@ export const useInitialDataManager = () => {
     uiStateActions.resetUiState();
   }, [load, model.icons, model.colors, uiStateActions]);
 
+  const getCurrentData = useCallback(() => {
+    return model;
+  }, [model]);
+
   return {
     load,
     clear,
-    isReady
+    isReady,
+    getCurrentData
   };
 };

@@ -4,6 +4,7 @@ export const frTranslations = {
   Open: 'Ouvrir',
   'Export as JSON': 'Exporter en JSON',
   'Export as image': 'Exporter en image',
+  'Share scene': 'Partager la scène',
   'Clear the canvas': 'Effacer le canevas',
   GitHub: 'GitHub',
   Discord: 'Discord',
@@ -91,7 +92,19 @@ export const frTranslations = {
     "Service Départemental-Métropolitain d'Incendie et de Secours (SDMIS), 2023. Tous droits réservés.",
   'Licensed under': 'Sous licence',
   'Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)':
-    "Creative Commons Attribution-Pas d'Utilisation Commerciale-Partage dans les Mêmes Conditions 4.0 International (CC BY-NC-SA 4.0)"
+    "Creative Commons Attribution-Pas d'Utilisation Commerciale-Partage dans les Mêmes Conditions 4.0 International (CC BY-NC-SA 4.0)",
+
+  // Share Dialog
+  'Share Scene': 'Partager la scène',
+  'Error creating shareable link': 'Erreur lors de la création du lien de partage',
+  'Your scene is now shareable! Copy the link below to share it with others.':
+    "Votre scène est maintenant partageable ! Copiez le lien ci-dessous pour la partager avec d'autres personnes.",
+  'Shareable Link': 'Lien de partage',
+  Close: 'Fermer',
+  'Copy to Clipboard': 'Copier dans le presse-papiers',
+  'Something went wrong. Please try again.':
+    "Une erreur s'est produite. Veuillez réessayer.",
+  'Link copied to clipboard!': 'Lien copié dans le presse-papiers !'
 } as const;
 
 export type TranslationKey = keyof typeof frTranslations;

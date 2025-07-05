@@ -1,0 +1,48 @@
+--- src/components/ShareDialog/ShareDialog.tsx	(revision Before)
++++ src/components/ShareDialog/ShareDialog.tsx	(revision After)
+@@ -16,6 +16,8 @@
+ import { useScene } from 'src/hooks/useScene';
+ import { createSceneShare, getShareableUrl } from 'src/utils/pastebin';
+ import { useTranslation } from 'src/hooks/useTranslation';
++import { useModelStore } from 'src/stores/modelStore';
++import { useSceneStore } from 'src/stores/sceneStore';
+ 
+ interface Props {
+   onClose: () => void;
+@@ -24,6 +26,8 @@
+ export const ShareDialog = ({ onClose }: Props) => {
+   const { t } = useTranslation();
+   const scene = useScene();
++  const modelData = useModelStore(state => state);
++  const sceneData = useSceneStore(state => state);
+   
+   const [isLoading, setIsLoading] = useState(false);
+   const [error, setError] = useState<string | null>(null);
+@@ -36,16 +40,12 @@
+       setError(null);
+       
+       try {
+-        // Get the current scene state
+-        const state = scene.getState ? scene.getState() : null;
+-        const sceneData = state ? state.scene : null;
+-        
+         if (!sceneData) {
+           throw new Error('Could not get scene data');
+         }
+         
+-        // Create a shareable link using Pastebin
+-        const result = await createSceneShare(sceneData);
++        // Create a shareable link using Pastebin with both scene and model data
++        const result = await createSceneShare(sceneData, modelData);
+         
+         if (!result.success || !result.pasteKey) {
+           throw new Error(result.message || 'Failed to create shareable link');
+@@ -64,7 +64,7 @@
+     };
+     
+     generateShareableLink();
+-  }, [scene]);
++  }, [scene, sceneData, modelData]);
+ 
+   const handleCopyToClipboard = () => {
+     if (shareableLink) {

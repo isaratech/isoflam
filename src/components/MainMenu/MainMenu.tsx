@@ -8,7 +8,8 @@ import {
   ImageOutlined as ExportImageIcon,
   FolderOpen as FolderOpenIcon,
   DeleteOutline as DeleteOutlineIcon,
-  Info as InfoIcon
+  Info as InfoIcon,
+  Share as ShareIcon
 } from '@mui/icons-material';
 import { UiElement } from 'src/components/UiElement/UiElement';
 import { IconButton } from 'src/components/IconButton/IconButton';
@@ -87,6 +88,11 @@ export const MainMenu = () => {
     uiStateActions.setDialog('EXPORT_IMAGE');
   }, [uiStateActions]);
 
+  const onShareScene = useCallback(() => {
+    uiStateActions.setIsMainMenuOpen(false);
+    uiStateActions.setDialog('SHARE_SCENE');
+  }, [uiStateActions]);
+
   const onShowCredits = useCallback(() => {
     uiStateActions.setIsMainMenuOpen(false);
     uiStateActions.setDialog('CREDITS');
@@ -160,6 +166,12 @@ export const MainMenu = () => {
           {mainMenuOptions.includes('EXPORT.PNG') && (
             <MenuItem onClick={onExportAsImage} Icon={<ExportImageIcon />}>
               {t('Export as image')}
+            </MenuItem>
+          )}
+
+          {mainMenuOptions.includes('EXPORT.SHARE') && (
+            <MenuItem onClick={onShareScene} Icon={<ShareIcon />}>
+              {t('Share scene')}
             </MenuItem>
           )}
 

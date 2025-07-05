@@ -1,0 +1,175 @@
+--- src/utils/pastebin.ts	(revision Before)
++++ src/utils/pastebin.ts	(revision After)
+@@ -1,11 +1,20 @@
+ import axios from 'axios';
+-import { Scene, SceneStore } from 'src/types';
++import { Scene, SceneStore, ModelStore } from 'src/types';
++import { modelFromModelStore } from 'src/utils';
+ 
+ // Pastebin API configuration
+ const PASTEBIN_API_URL = 'https://pastebin.com/api/api_post.php';
+-const PASTEBIN_API_KEY = 'c7f8e25a9f0b9f9e9f8e9f8e9f8e9f8e'; // API key for Isoflam application
+ const PASTEBIN_RAW_URL = 'https://pastebin.com/raw/';
+ 
++// Get the API key from environment variables or use a default for development
++// In production, this should be set as an environment variable
++const PASTEBIN_API_KEY = process.env.PASTEBIN_API_KEY || 'c7f8e25a9f0b9f9e9f8e9f8e9f8e9f8e';
++
++// Validate that we have an API key
++if (!PASTEBIN_API_KEY || PASTEBIN_API_KEY === 'c7f8e25a9f0b9f9e9f8e9f8e9f8e9f8e') {
++  console.warn('Using default Pastebin API key. For production, set the PASTEBIN_API_KEY environment variable.');
++}
++
+ /**
+  * Interface for the response from the Pastebin API
+  */
+@@ -16,22 +25,55 @@
+ }
+ 
+ /**
+- * Creates a new paste on Pastebin with the provided scene data
++ * Interface for the shareable data structure
++ */
++interface ShareableData {
++  model: Partial<ModelStore>;
++  scene: Scene;
++}
++
++/**
++ * Creates a new paste on Pastebin with the provided scene and model data
+  * @param sceneData The scene data to share
++ * @param modelData The model data to share
+  * @returns A promise that resolves to the unique paste key
++ * @throws Will not throw, but returns an error response if something goes wrong
+  */
+ export const createSceneShare = async (
+-  sceneData: SceneStore
++  sceneData: SceneStore,
++  modelData?: ModelStore
+ ): Promise<PastebinResponse> => {
+   try {
++    // Validate inputs
++    if (!sceneData) {
++      return {
++        success: false,
++        message: 'No scene data provided'
++      };
++    }
++
++    // Validate API key
++    if (!PASTEBIN_API_KEY) {
++      return {
++        success: false,
++        message: 'Pastebin API key is not configured'
++      };
++    }
++
+     // Extract only the necessary scene data (without the actions)
+     const sceneToShare: Scene = {
+-      connectors: sceneData.connectors,
+-      textBoxes: sceneData.textBoxes
++      connectors: sceneData.connectors || {},
++      textBoxes: sceneData.textBoxes || {}
++    };
++
++    // Create a shareable data structure with both scene and model data
++    const dataToShare: ShareableData = {
++      scene: sceneToShare,
++      model: modelData ? modelFromModelStore(modelData) : {}
+     };
+ 
+-    // Convert scene data to JSON string
+-    const jsonData = JSON.stringify(sceneToShare);
++    // Convert data to JSON string
++    const jsonData = JSON.stringify(dataToShare);
+ 
+     // Prepare form data for Pastebin API
+     const formData = new FormData();
+@@ -47,7 +89,7 @@
+     const response = await axios.post(PASTEBIN_API_URL, formData);
+ 
+     // Check if the response contains a paste key (success) or an error message
+-    if (response.data && response.data.startsWith('https://pastebin.com/')) {
++    if (response.data && typeof response.data === 'string' && response.data.startsWith('https://pastebin.com/')) {
+       // Extract the paste key from the URL
+       const pasteKey = response.data.split('/').pop();
+       return {
+@@ -56,6 +98,7 @@
+       };
+     }
+ 
++    // Handle error response
+     return {
+       success: false,
+       message: response.data || 'Unknown error occurred'
+@@ -70,19 +113,64 @@
+ };
+ 
+ /**
+- * Retrieves scene data from Pastebin using the provided paste key
++ * Retrieves shared data from Pastebin using the provided paste key
+  * @param pasteKey The unique paste key
+- * @returns A promise that resolves to the scene data
++ * @returns A promise that resolves to the shared data or null if an error occurs
++ * @throws Will not throw, but returns null if something goes wrong
+  */
+ export const getSharedScene = async (
+   pasteKey: string
+-): Promise<Scene | null> => {
++): Promise<ShareableData | null> => {
+   try {
++    // Validate input
++    if (!pasteKey) {
++      console.error('Error retrieving shared scene: No paste key provided');
++      return null;
++    }
++
+     // Get the raw paste content
+     const response = await axios.get(`${PASTEBIN_RAW_URL}${pasteKey}`);
+-    // Parse the JSON data
+-    const sceneData: Scene = JSON.parse(response.data);
+-    return sceneData;
++    
++    // Validate response
++    if (!response.data) {
++      console.error('Error retrieving shared scene: Empty response from Pastebin');
++      return null;
++    }
++    
++    try {
++      // Parse the JSON data
++      const data = JSON.parse(response.data);
++      
++      // Validate parsed data
++      if (!data) {
++        console.error('Error retrieving shared scene: Invalid JSON data');
++        return null;
++      }
++      
++      // Handle both new format (ShareableData) and old format (just Scene)
++      if (data.scene && data.model) {
++        // New format with both scene and model data
++        return {
++          scene: {
++            connectors: data.scene.connectors || {},
++            textBoxes: data.scene.textBoxes || {}
++          },
++          model: data.model || {}
++        };
++      }
++      
++      // Old format with just scene data
++      return {
++        scene: {
++          connectors: data.connectors || {},
++          textBoxes: data.textBoxes || {}
++        },
++        model: {}
++      };
++    } catch (parseError) {
++      console.error('Error parsing shared scene data:', parseError);
++      return null;
++    }
+   } catch (error) {
+     console.error('Error retrieving shared scene:', error);
+     return null;

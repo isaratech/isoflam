@@ -298,6 +298,7 @@ export const useScene = () => {
     createRectangle,
     updateRectangle,
     deleteRectangle,
-    changeLayerOrder
+    changeLayerOrder,
+    getState
   };
 };

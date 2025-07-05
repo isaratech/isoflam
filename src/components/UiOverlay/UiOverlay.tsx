@@ -17,6 +17,7 @@ import { useScene } from 'src/hooks/useScene';
 import { useModelStore } from 'src/stores/modelStore';
 import { ExportImageDialog } from '../ExportImageDialog/ExportImageDialog';
 import { CreditsDialog } from '../CreditsDialog/CreditsDialog';
+import { ShareDialog } from '../ShareDialog/ShareDialog';
 
 const ToolsEnum = {
   MAIN_MENU: 'MAIN_MENU',
@@ -285,6 +286,14 @@ export const UiOverlay = () => {
 
       {dialog === 'CREDITS' && (
         <CreditsDialog
+          onClose={() => {
+            return uiStateActions.setDialog(null);
+          }}
+        />
+      )}
+
+      {dialog === 'SHARE_SCENE' && (
+        <ShareDialog
           onClose={() => {
             return uiStateActions.setDialog(null);
           }}

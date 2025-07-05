@@ -1,0 +1,36 @@
+--- src/hooks/useSharedScene.ts	(revision Before)
++++ src/hooks/useSharedScene.ts	(revision After)
+@@ -25,10 +25,10 @@
+       setError(null);
+       
+       try {
+-        // Fetch the scene data from Pastebin
+-        const sceneData = await getSharedScene(pasteKey);
++        // Fetch the shared data from Pastebin
++        const sharedData = await getSharedScene(pasteKey);
+         
+-        if (!sceneData) {
++        if (!sharedData) {
+           throw new Error('Failed to load shared scene');
+         }
+         
+@@ -39,10 +39,17 @@
+           throw new Error('Failed to get current data');
+         }
+         
+-        // Merge the scene data with the current model data
++        // Merge the shared data with the current model data
++        // Keep current icons, colors, and other model properties, but use shared scene data
+         const mergedData = {
+           ...currentData,
+-          scene: sceneData as Scene
++          ...sharedData.model, // Apply any model data from the shared scene
++          // Ensure we keep the current icons and colors if not provided in shared data
++          icons: sharedData.model.icons || currentData.icons,
++          colors: sharedData.model.colors || currentData.colors,
++          // Apply the scene data
++          connectors: sharedData.scene.connectors,
++          textBoxes: sharedData.scene.textBoxes
+         };
+         
+         // Load the merged data

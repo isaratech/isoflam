@@ -1,0 +1,179 @@
+--- src/utils/__tests__/pastebin.test.ts
++++ src/utils/__tests__/pastebin.test.ts	(revision After)
+@@ -0,0 +1,176 @@
++import axios from 'axios';
++import {
++  createSceneShare,
++  getSharedScene,
++  getShareableUrl,
++  extractPasteKeyFromUrl
++} from '../pastebin';
++import { Scene, SceneStore, ModelStore } from 'src/types';
++
++// Mock axios
++jest.mock('axios');
++const mockedAxios = axios as jest.Mocked<typeof axios>;
++
++describe('Pastebin utilities', () => {
++  beforeEach(() => {
++    jest.clearAllMocks();
++  });
++
++  describe('createSceneShare', () => {
++    test('should create a paste with scene and model data', async () => {
++      // Mock successful response from Pastebin API
++      mockedAxios.post.mockResolvedValueOnce({
++        data: 'https://pastebin.com/abc123'
++      });
++
++      // Create mock scene and model data
++      const mockSceneData: SceneStore = {
++        connectors: { conn1: { id: 'conn1', type: 'line' } },
++        textBoxes: { text1: { id: 'text1', content: 'Test' } },
++        actions: { get: jest.fn(), set: jest.fn() }
++      };
++
++      const mockModelData: Partial<ModelStore> = {
++        title: 'Test Model',
++        icons: [],
++        colors: []
++      };
++
++      // Call the function
++      const result = await createSceneShare(mockSceneData, mockModelData as ModelStore);
++
++      // Verify the result
++      expect(result.success).toBe(true);
++      expect(result.pasteKey).toBe('abc123');
++
++      // Verify axios was called correctly
++      expect(mockedAxios.post).toHaveBeenCalledTimes(1);
++      expect(mockedAxios.post.mock.calls[0][0]).toContain('pastebin.com');
++
++      // Verify the FormData contains the expected data
++      const formData = mockedAxios.post.mock.calls[0][1];
++      expect(formData.get('api_option')).toBe('paste');
++      
++      // The paste should contain both scene and model data
++      const pasteContent = formData.get('api_paste_code');
++      const parsedContent = JSON.parse(pasteContent);
++      expect(parsedContent.scene).toBeDefined();
++      expect(parsedContent.model).toBeDefined();
++      expect(parsedContent.scene.connectors).toEqual(mockSceneData.connectors);
++      expect(parsedContent.scene.textBoxes).toEqual(mockSceneData.textBoxes);
++      expect(parsedContent.model.title).toEqual(mockModelData.title);
++    });
++
++    test('should handle errors from Pastebin API', async () => {
++      // Mock error response
++      mockedAxios.post.mockResolvedValueOnce({
++        data: 'Error: Invalid API key'
++      });
++
++      const mockSceneData: SceneStore = {
++        connectors: {},
++        textBoxes: {},
++        actions: { get: jest.fn(), set: jest.fn() }
++      };
++
++      // Call the function
++      const result = await createSceneShare(mockSceneData);
++
++      // Verify the result
++      expect(result.success).toBe(false);
++      expect(result.message).toBe('Error: Invalid API key');
++    });
++  });
++
++  describe('getSharedScene', () => {
++    test('should retrieve and parse shared data in new format', async () => {
++      // Mock response with both scene and model data
++      const mockResponse = {
++        scene: {
++          connectors: { conn1: { id: 'conn1' } },
++          textBoxes: { text1: { id: 'text1' } }
++        },
++        model: {
++          title: 'Test Model',
++          icons: []
++        }
++      };
++
++      mockedAxios.get.mockResolvedValueOnce({
++        data: JSON.stringify(mockResponse)
++      });
++
++      // Call the function
++      const result = await getSharedScene('abc123');
++
++      // Verify the result
++      expect(result).not.toBeNull();
++      expect(result?.scene.connectors).toEqual(mockResponse.scene.connectors);
++      expect(result?.model.title).toBe('Test Model');
++    });
++
++    test('should handle old format with just scene data', async () => {
++      // Mock response with only scene data
++      const mockResponse = {
++        connectors: { conn1: { id: 'conn1' } },
++        textBoxes: { text1: { id: 'text1' } }
++      };
++
++      mockedAxios.get.mockResolvedValueOnce({
++        data: JSON.stringify(mockResponse)
++      });
++
++      // Call the function
++      const result = await getSharedScene('abc123');
++
++      // Verify the result
++      expect(result).not.toBeNull();
++      expect(result?.scene.connectors).toEqual(mockResponse.connectors);
++      expect(result?.model).toEqual({});
++    });
++
++    test('should handle errors', async () => {
++      // Mock error
++      mockedAxios.get.mockRejectedValueOnce(new Error('Network error'));
++
++      // Call the function
++      const result = await getSharedScene('abc123');
++
++      // Verify the result
++      expect(result).toBeNull();
++    });
++  });
++
++  describe('URL utilities', () => {
++    test('getShareableUrl should generate a URL with the paste key', () => {
++      // Mock window.location
++      const originalLocation = window.location;
++      delete window.location;
++      window.location = { href: 'https://example.com/app' } as any;
++
++      const url = getShareableUrl('abc123');
++      
++      // Verify the URL contains the paste key
++      expect(url).toContain('scene=abc123');
++      expect(url).toContain('https://example.com/app');
++
++      // Restore window.location
++      window.location = originalLocation;
++    });
++
++    test('extractPasteKeyFromUrl should extract the paste key from a URL', () => {
++      const url = 'https://example.com/app?scene=abc123';
++      const pasteKey = extractPasteKeyFromUrl(url);
++      
++      // Verify the paste key was extracted
++      expect(pasteKey).toBe('abc123');
++    });
++
++    test('extractPasteKeyFromUrl should return null for invalid URLs', () => {
++      const pasteKey = extractPasteKeyFromUrl('not-a-url');
++      
++      // Verify null is returned for invalid URLs
++      expect(pasteKey).toBeNull();
++    });
++  });
++});

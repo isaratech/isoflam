@@ -117,7 +117,8 @@ export type IconCollectionStateWithIcons = IconCollectionState & {
 
 export const DialogTypeEnum = {
   EXPORT_IMAGE: 'EXPORT_IMAGE',
-  CREDITS: 'CREDITS'
+  CREDITS: 'CREDITS',
+  SHARE_SCENE: 'SHARE_SCENE'
 } as const;
 
 export interface ContextMenu {
