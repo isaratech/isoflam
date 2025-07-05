@@ -17,6 +17,7 @@ import { useTranslation } from 'src/hooks/useTranslation';
 import { ControlsContainer } from '../components/ControlsContainer';
 import { Section } from '../components/Section';
 import { DeleteButton } from '../components/DeleteButton';
+import { AdvancedSettings } from '../components/AdvancedSettings';
 
 interface Props {
   id: string;
@@ -32,6 +33,7 @@ export const ConnectorControls = ({ id }: Props) => {
 
   return (
     <ControlsContainer>
+      {/* Basic controls */}
       <Section>
         <TextField
           label={t('Description')}
@@ -51,18 +53,6 @@ export const ConnectorControls = ({ id }: Props) => {
           activeColor={connector.color}
         />
       </Section>
-      <Section title={t('Width')}>
-        <Slider
-          marks
-          step={10}
-          min={10}
-          max={100}
-          value={connector.width}
-          onChange={(e, newWidth) => {
-            updateConnector(connector.id, { width: newWidth as number });
-          }}
-        />
-      </Section>
       <Section title={t('Style')}>
         <Select
           value={connector.style}
@@ -77,21 +67,39 @@ export const ConnectorControls = ({ id }: Props) => {
           })}
         </Select>
       </Section>
-      <Section title={t('Triangle')}>
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={connector.showTriangle ?? true}
-              onChange={(e) => {
-                updateConnector(connector.id, {
-                  showTriangle: e.target.checked
-                });
-              }}
-            />
-          }
-          label={t('Show triangle')}
-        />
-      </Section>
+
+      {/* Advanced settings */}
+      <AdvancedSettings>
+        <Section title={t('Width')}>
+          <Slider
+            marks
+            step={10}
+            min={10}
+            max={100}
+            value={connector.width}
+            onChange={(e, newWidth) => {
+              updateConnector(connector.id, { width: newWidth as number });
+            }}
+          />
+        </Section>
+        <Section title={t('Triangle')}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={connector.showTriangle ?? true}
+                onChange={(e) => {
+                  updateConnector(connector.id, {
+                    showTriangle: e.target.checked
+                  });
+                }}
+              />
+            }
+            label={t('Show triangle')}
+          />
+        </Section>
+      </AdvancedSettings>
+
+      {/* Action buttons */}
       <Section>
         <Box>
           <DeleteButton
