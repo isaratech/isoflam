@@ -24,3 +24,7 @@ yarn-error.log*
 
 # Misc
 .idea
+
+# Merge conflict and patch files
+*.orig
+*.rej
