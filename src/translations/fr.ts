@@ -79,6 +79,9 @@ export const frTranslations = {
   'Bring forward': 'Avancer',
   'Send to back': 'Mettre en arrière-plan',
   'Bring to front': 'Mettre au premier plan',
+  'Create new icon': 'Créer une nouvelle icône',
+  'Create new text': 'Créer un nouveau texte',
+  'Create new rectangle': 'Créer un nouveau rectangle',
 
   Mirroring: 'Miroir',
   Vertical: 'Vertical',
