@@ -1,10 +1,12 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Select, MenuItem, Slider, Typography } from '@mui/material';
 import { useRectangle } from 'src/hooks/useRectangle';
 import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { useScene } from 'src/hooks/useScene';
 import { generateId } from 'src/utils';
+import { Rectangle, rectangleStyleOptions } from 'src/types';
+import { useTranslation } from 'src/hooks/useTranslation';
 import { ControlsContainer } from '../components/ControlsContainer';
 import { Section } from '../components/Section';
 import { DeleteButton } from '../components/DeleteButton';
@@ -15,6 +17,7 @@ interface Props {
 }
 
 export const RectangleControls = ({ id }: Props) => {
+  const { t } = useTranslation();
   const uiStateActions = useUiStateStore((state) => {
     return state.actions;
   });
@@ -29,6 +32,50 @@ export const RectangleControls = ({ id }: Props) => {
             updateRectangle(rectangle.id, { color });
           }}
           activeColor={rectangle.color}
+        />
+      </Section>
+      <Section title={t('Style')}>
+        <Select
+          value={rectangle.style || 'SOLID'}
+          onChange={(e) => {
+            updateRectangle(rectangle.id, {
+              style: e.target.value as Rectangle['style']
+            });
+          }}
+        >
+          {Object.values(rectangleStyleOptions).map((style) => {
+            return (
+              <MenuItem key={style} value={style}>
+                {t(style)}
+              </MenuItem>
+            );
+          })}
+        </Select>
+      </Section>
+      {rectangle.style && rectangle.style !== 'NONE' && (
+        <Section title={t('Width')}>
+          <Slider
+            marks
+            step={5}
+            min={0}
+            max={20}
+            value={rectangle.width || 0}
+            onChange={(e, newWidth) => {
+              updateRectangle(rectangle.id, { width: newWidth as number });
+            }}
+          />
+        </Section>
+      )}
+      <Section title={t('Radius')}>
+        <Slider
+          marks
+          step={20}
+          min={-1}
+          max={200}
+          value={rectangle.radius || 20}
+          onChange={(e, newRadius) => {
+            updateRectangle(rectangle.id, { radius: newRadius as number });
+          }}
         />
       </Section>
       <Section>

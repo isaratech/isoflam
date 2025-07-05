@@ -134,11 +134,15 @@ export const DEFAULTS_TEXTBOX: Required<
 
 /**
  * Default configuration for rectangles (area selections).
- * Currently empty but maintains type consistency.
+ * Defines default line style.
  */
 export const DEFAULTS_RECTANGLE: Required<
   Omit<Rectangle, 'id' | 'from' | 'to' | 'color'>
-> = {};
+> = {
+  style: 'NONE',
+  width: 1,
+  radius: 22
+};
 
 // =============================================================================
 // CONNECTOR SPECIFIC CONFIGURATION
