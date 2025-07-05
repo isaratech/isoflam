@@ -91,7 +91,14 @@ export const frTranslations = {
     "Service Départemental-Métropolitain d'Incendie et de Secours (SDMIS), 2023. Tous droits réservés.",
   'Licensed under': 'Sous licence',
   'Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)':
-    "Creative Commons Attribution-Pas d'Utilisation Commerciale-Partage dans les Mêmes Conditions 4.0 International (CC BY-NC-SA 4.0)"
+    "Creative Commons Attribution-Pas d'Utilisation Commerciale-Partage dans les Mêmes Conditions 4.0 International (CC BY-NC-SA 4.0)",
+
+  // Subcategories
+  equipment: 'Équipement',
+  people: 'Personnes',
+  vehicles: 'Véhicules',
+  other: 'Autre',
+  buildings: 'Bâtiments'
 } as const;
 
 export type TranslationKey = keyof typeof frTranslations;

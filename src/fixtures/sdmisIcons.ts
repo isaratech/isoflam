@@ -1809,7 +1809,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Maire 01",
     "url": icon54,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1819,7 +1819,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Maire 02",
     "url": icon55,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1829,7 +1829,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Maire 03",
     "url": icon56,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1839,7 +1839,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Maire 04",
     "url": icon57,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1849,7 +1849,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Ministre 01",
     "url": icon58,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1859,7 +1859,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Ministre 01f",
     "url": icon59,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1869,7 +1869,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Ministre 02",
     "url": icon60,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1879,7 +1879,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Ministre 02f",
     "url": icon61,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1889,7 +1889,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Ministre 03",
     "url": icon62,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1899,7 +1899,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Ministre 03f",
     "url": icon63,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1909,7 +1909,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Ministre 04",
     "url": icon64,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1919,7 +1919,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Ministre 04f",
     "url": icon65,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1929,7 +1929,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Prefet 01",
     "url": icon66,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1939,7 +1939,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Prefet 02",
     "url": icon67,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1949,7 +1949,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Prefet 03",
     "url": icon68,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1959,7 +1959,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Prefet 04",
     "url": icon69,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1969,7 +1969,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Prefete 01",
     "url": icon70,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1979,7 +1979,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Prefete 02",
     "url": icon71,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1989,7 +1989,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Prefete 03",
     "url": icon72,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -1999,7 +1999,7 @@ export const sdmisIcons: Icons = [
     "name": "Autorites Prefete 04",
     "url": icon73,
     "collection": "SDMIS-Autorités",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -13799,7 +13799,7 @@ export const sdmisIcons: Icons = [
     "name": "Incendie Habitation 01",
     "url": icon1253,
     "collection": "SDMIS-Sinistres",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -13809,7 +13809,7 @@ export const sdmisIcons: Icons = [
     "name": "Incendie Pl 01",
     "url": icon1254,
     "collection": "SDMIS-Sinistres",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -13819,7 +13819,7 @@ export const sdmisIcons: Icons = [
     "name": "Incendie Pl 02",
     "url": icon1255,
     "collection": "SDMIS-Sinistres",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -13829,7 +13829,7 @@ export const sdmisIcons: Icons = [
     "name": "Incendie Vl 01",
     "url": icon1256,
     "collection": "SDMIS-Sinistres",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1
@@ -13839,7 +13839,7 @@ export const sdmisIcons: Icons = [
     "name": "Incendie Vl 02",
     "url": icon1257,
     "collection": "SDMIS-Sinistres",
-    "subcategory": "other",
+    "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 1

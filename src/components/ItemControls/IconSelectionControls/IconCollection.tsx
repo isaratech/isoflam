@@ -7,6 +7,7 @@ import {
 import { Icon as IconI, IconSubcategoryState } from 'src/types';
 import { Section } from 'src/components/ItemControls/components/Section';
 import { IconGrid } from './IconGrid';
+import { useTranslation } from 'src/hooks/useTranslation';
 
 interface Props {
   id?: string;
@@ -25,6 +26,7 @@ export const IconCollection = ({
   isExpanded: _isExpanded,
   subcategories
 }: Props) => {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(_isExpanded);
   const [expandedSubcategories, setExpandedSubcategories] = useState<
     Record<string, boolean>
@@ -95,7 +97,7 @@ export const IconCollection = ({
               onClick={onClick} 
             />
           )}
-          
+
           {/* Display subcategories */}
           {subcategories && subcategories.length > 0 && (
             <Box sx={{ mt: 1 }}>
@@ -119,7 +121,7 @@ export const IconCollection = ({
                         color="text.primary"
                         textTransform="capitalize"
                       >
-                        {subcategory.id}
+                        {t(subcategory.id as any)}
                       </Typography>
                       {expandedSubcategories[subcategory.id] ? (
                         <ChevronUpIcon color="action" fontSize="small" />
