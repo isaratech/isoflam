@@ -10,9 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial changelog file creation
 - Advanced settings accordion in UI components
+- Customizable corner radii for rectangles
+- Rectangle style options (SOLID, DASHED, NONE)
 
 ### Changed
 - Bumped version from 1.1 to 1.2
+- Removed package-lock.json and added it to .gitignore
+- Removed all .orig and .rej files from the repository
+- Adjusted scale factor for vehicle icons to improve visibility
 
 ## [1.1] - Initial Release
 
