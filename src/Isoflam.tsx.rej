@@ -1,0 +1,202 @@
+--- src/Isoflam.tsx	(revision Before)
++++ src/Isoflam.tsx	(revision After)
+@@ -1,9 +1,9 @@
+-import React, { useEffect } from 'react';
++import React, { useEffect, useRef } from 'react';
+ import { ThemeProvider } from '@mui/material/styles';
+ import { Box, GlobalStyles as MUIGlobalStyles } from '@mui/material';
+ import { theme } from 'src/styles/theme';
+ import { IsoflamProps } from 'src/types';
+-import { setWindowCursor, modelFromModelStore } from 'src/utils';
++import { setWindowCursor, modelFromModelStore, generateId } from 'src/utils';
+ import { useModelStore, ModelProvider } from 'src/stores/modelStore';
+ import { SceneProvider } from 'src/stores/sceneStore';
+ import 'react-quill/dist/quill.snow.css';
+@@ -111,12 +117,76 @@
+             uiStateActions.setItemControls(null);
+           }
+           break;
++
++        // Number shortcuts for tools
++        case '1': // Select tool
++          event.preventDefault();
++          uiStateActions.setMode({
++            type: 'CURSOR',
++            showCursor: true,
++            mousedownItem: null
++          });
++          break;
++        case '2': // Pan tool
++          event.preventDefault();
++          uiStateActions.setMode({
++            type: 'PAN',
++            showCursor: false
++          });
++          uiStateActions.setItemControls(null);
++          break;
++        case '3': // Add item tool
++          event.preventDefault();
++          uiStateActions.setItemControls({
++            type: 'ADD_ITEM'
++          });
++          uiStateActions.setMode({
++            type: 'PLACE_ICON',
++            showCursor: true,
++            id: null
++          });
++          break;
++        case '4': // Rectangle tool
++          event.preventDefault();
++          uiStateActions.setMode({
++            type: 'RECTANGLE.DRAW',
++            showCursor: true,
++            id: null
++          });
++          break;
++        case '5': // Connector tool
++          event.preventDefault();
++          uiStateActions.setMode({
++            type: 'CONNECTOR',
++            id: null,
++            showCursor: true
++          });
++          break;
++        case '6': // Text tool
++          event.preventDefault();
++          const textBoxId = generateId();
++          scene.createTextBox({
++            id: textBoxId,
++            tile: mouse.position.tile,
++            text: '',
++            fontSize: 14,
++            color: '#000000'
++          });
++          uiStateActions.setMode({
++            type: 'TEXTBOX',
++            showCursor: false,
++            id: textBoxId
++          });
++          break;
+ 
+         case 'z':
+         case 'Z':
+           if (event.ctrlKey || event.metaKey) {
+             event.preventDefault();
+-            // TODO: Implement undo functionality
++            // Implement undo functionality
++            console.log('Undo action triggered');
++            // This would typically call a history manager's undo method
++            // For now, we'll just log that the action was triggered
+           }
+           break;
+ 
+@@ -124,21 +194,106 @@
+         case 'Y':
+           if (event.ctrlKey || event.metaKey) {
+             event.preventDefault();
+-            // TODO: Implement redo functionality
++            // Implement redo functionality
++            console.log('Redo action triggered');
++            // This would typically call a history manager's redo method
++            // For now, we'll just log that the action was triggered
+           }
+           break;
+ 
+         case 'c':
+         case 'C':
+           if (event.ctrlKey || event.metaKey) {
+-            // Allow default copy behavior (do not call event.preventDefault())
++            event.preventDefault();
++            // Copy the currently selected item
++            if (itemControls) {
++              console.log('Copy action triggered for', itemControls.type);
++              copiedItemRef.current = {
++                type: itemControls.type,
++                id: itemControls.id
++              };
++            }
+           }
+           break;
+ 
+         case 'v':
+         case 'V':
+           if (event.ctrlKey || event.metaKey) {
+-            // Allow default paste behavior (do not call event.preventDefault())
++            event.preventDefault();
++            // Paste the copied item
++            if (copiedItemRef.current) {
++              console.log('Paste action triggered for', copiedItemRef.current.type);
++              const { type, id } = copiedItemRef.current;
++              
++              switch (type) {
++                case 'RECTANGLE':
++                  const originalRectangle = scene.getRectangle(id);
++                  if (originalRectangle) {
++                    const newRectangle = {
++                      ...originalRectangle,
++                      id: generateId(),
++                      from: {
++                        x: originalRectangle.from.x + 1,
++                        y: originalRectangle.from.y
++                      },
++                      to: {
++                        x: originalRectangle.to.x + 1,
++                        y: originalRectangle.to.y
++                      }
++                    };
++                    scene.createRectangle(newRectangle);
++                  }
++                  break;
++                case 'TEXTBOX':
++                  const originalTextBox = scene.getTextBox(id);
++                  if (originalTextBox) {
++                    const newTextBox = {
++                      ...originalTextBox,
++                      id: generateId(),
++                      tile: {
++                        x: originalTextBox.tile.x + 1,
++                        y: originalTextBox.tile.y
++                      }
++                    };
++                    scene.createTextBox(newTextBox);
++                  }
++                  break;
++                case 'ITEM':
++                  const originalItem = scene.getViewItem(id);
++                  if (originalItem) {
++                    const newItem = {
++                      ...originalItem,
++                      id: generateId(),
++                      tile: {
++                        x: originalItem.tile.x + 1,
++                        y: originalItem.tile.y
++                      }
++                    };
++                    scene.createViewItem(newItem);
++                  }
++                  break;
++                case 'CONNECTOR':
++                  const originalConnector = scene.getConnector(id);
++                  if (originalConnector) {
++                    const newConnector = {
++                      ...originalConnector,
++                      id: generateId(),
++                      from: {
++                        x: originalConnector.from.x + 1,
++                        y: originalConnector.from.y
++                      },
++                      to: {
++                        x: originalConnector.to.x + 1,
++                        y: originalConnector.to.y
++                      }
++                    };
++                    scene.createConnector(newConnector);
++                  }
++                  break;
++                default:
++                  break;
++              }
++            }
+           }
+           break;
+ 

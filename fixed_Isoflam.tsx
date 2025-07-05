@@ -33,74 +33,14 @@ const App = ({
   const mouse = useUiStateStore((state) => {
     return state.mouse;
   });
-  const mouse = useUiStateStore((state) => {
-    return state.mouse;
-  });
   const initialDataManager = useInitialDataManager();
   const model = useModelStore((state) => {
     return modelFromModelStore(state);
   });
   const scene = useScene();
-  
-  // Reference to store copied item for copy/paste functionality
-  const copiedItemRef = useRef<any>(null);
 
   // Reference to store copied item for copy/paste functionality
   const copiedItemRef = useRef<any>(null);
-
-  // History stack for undo/redo functionality
-  const historyStackRef = useRef<Array<{ model: any; scene: any }>>([]);
-  const historyPositionRef = useRef<number>(-1);
-  const maxHistorySize = 50; // Limit history size to prevent memory issues
-
-  // Function to push current state to history stack
-  const pushToHistory = () => {
-    const currentState = scene.getState();
-
-    // If we're not at the end of the history stack, remove everything after current position
-    if (historyPositionRef.current < historyStackRef.current.length - 1) {
-      historyStackRef.current = historyStackRef.current.slice(
-        0,
-        historyPositionRef.current + 1
-      );
-    }
-
-    // Add current state to history
-    historyStackRef.current.push(currentState);
-    historyPositionRef.current = historyStackRef.current.length - 1;
-
-    // Limit history size
-    if (historyStackRef.current.length > maxHistorySize) {
-      historyStackRef.current.shift();
-      historyPositionRef.current -= 1;
-    }
-  };
-
-  // Function to undo last action
-  const undo = () => {
-    if (historyPositionRef.current > 0) {
-      historyPositionRef.current -= 1;
-      const prevState = historyStackRef.current[historyPositionRef.current];
-      // Restore previous state
-      scene.setState(prevState);
-      console.log('Undo action executed');
-    } else {
-      console.log('Nothing to undo');
-    }
-  };
-
-  // Function to redo last undone action
-  const redo = () => {
-    if (historyPositionRef.current < historyStackRef.current.length - 1) {
-      historyPositionRef.current += 1;
-      const nextState = historyStackRef.current[historyPositionRef.current];
-      // Restore next state
-      scene.setState(nextState);
-      console.log('Redo action executed');
-    } else {
-      console.log('Nothing to redo');
-    }
-  };
 
   const { load } = initialDataManager;
 
@@ -128,14 +68,6 @@ const App = ({
   useEffect(() => {
     uiStateActions.setEnableDebugTools(enableDebugTools);
   }, [enableDebugTools, uiStateActions]);
-
-  // Track changes to model and push to history stack
-  useEffect(() => {
-    // Don't push to history during initial load
-    if (initialDataManager.isReady) {
-      pushToHistory();
-    }
-  }, [model, initialDataManager.isReady]);
 
   // Keyboard shortcuts handler
   useEffect(() => {
@@ -257,8 +189,10 @@ const App = ({
         case 'Z':
           if (event.ctrlKey || event.metaKey) {
             event.preventDefault();
-            // Execute undo action
-            undo();
+            // Implement undo functionality
+            console.log('Undo action triggered');
+            // This would typically call a history manager's undo method
+            // For now, we'll just log that the action was triggered
           }
           break;
 
@@ -266,8 +200,10 @@ const App = ({
         case 'Y':
           if (event.ctrlKey || event.metaKey) {
             event.preventDefault();
-            // Execute redo action
-            redo();
+            // Implement redo functionality
+            console.log('Redo action triggered');
+            // This would typically call a history manager's redo method
+            // For now, we'll just log that the action was triggered
           }
           break;
 

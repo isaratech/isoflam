@@ -33,17 +33,11 @@ const App = ({
   const mouse = useUiStateStore((state) => {
     return state.mouse;
   });
-  const mouse = useUiStateStore((state) => {
-    return state.mouse;
-  });
   const initialDataManager = useInitialDataManager();
   const model = useModelStore((state) => {
     return modelFromModelStore(state);
   });
   const scene = useScene();
-  
-  // Reference to store copied item for copy/paste functionality
-  const copiedItemRef = useRef<any>(null);
 
   // Reference to store copied item for copy/paste functionality
   const copiedItemRef = useRef<any>(null);
