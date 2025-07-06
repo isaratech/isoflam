@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { Box, SxProps } from '@mui/material';
 import { useUiStateStore } from 'src/stores/uiStateStore';
+import { applyLogarithmicScale } from 'src/utils/logarithmicScale';
 
 interface Props {
   children?: React.ReactNode;
@@ -25,6 +26,9 @@ export const SceneLayer = ({
   const zoom = useUiStateStore((state) => {
     return state.zoom;
   });
+  const isLogarithmicScale = useUiStateStore((state) => {
+    return state.isLogarithmicScale;
+  });
 
   useEffect(() => {
     if (!elementRef.current) return;
@@ -33,13 +37,13 @@ export const SceneLayer = ({
       duration: disableAnimation || isFirstRender ? 0 : 0.25,
       translateX: scroll.position.x,
       translateY: scroll.position.y,
-      scale: zoom
+      scale: applyLogarithmicScale(zoom, isLogarithmicScale)
     });
 
     if (isFirstRender) {
       setIsFirstRender(false);
     }
-  }, [zoom, scroll, disableAnimation, isFirstRender]);
+  }, [zoom, scroll, isLogarithmicScale, disableAnimation, isFirstRender]);
 
   return (
     <Box

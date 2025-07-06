@@ -3,6 +3,7 @@ import { useModelStore } from 'src/stores/modelStore';
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { ModeActions, State, SlimMouseEvent } from 'src/types';
 import { getMouse, getItemAtTile } from 'src/utils';
+import { applyLogarithmicScale } from 'src/utils/logarithmicScale';
 import { useResizeObserver } from 'src/hooks/useResizeObserver';
 import { useScene } from 'src/hooks/useScene';
 import { Cursor } from './modes/Cursor';
@@ -62,7 +63,7 @@ export const useInteractionManager = () => {
 
       const nextMouse = getMouse({
         interactiveElement: rendererRef.current,
-        zoom: uiState.zoom,
+        zoom: applyLogarithmicScale(uiState.zoom, uiState.isLogarithmicScale),
         scroll: uiState.scroll,
         lastMouse: uiState.mouse,
         mouseEvent: e,

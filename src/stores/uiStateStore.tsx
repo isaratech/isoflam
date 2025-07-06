@@ -30,6 +30,7 @@ const initialState = () => {
       },
       itemControls: null,
       enableDebugTools: false,
+      isLogarithmicScale: false,
       actions: {
         setView: (view) => {
           set({ view });
@@ -91,6 +92,10 @@ const initialState = () => {
         },
         setRendererEl: (el) => {
           set({ rendererEl: el });
+        },
+        toggleLogarithmicScale: () => {
+          const { isLogarithmicScale } = get();
+          set({ isLogarithmicScale: !isLogarithmicScale });
         }
       }
     };

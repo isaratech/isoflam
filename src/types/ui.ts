@@ -156,6 +156,7 @@ export interface UiState {
   mouse: Mouse;
   rendererEl: HTMLDivElement | null;
   enableDebugTools: boolean;
+  isLogarithmicScale: boolean;
 }
 
 export interface UiStateActions {
@@ -176,6 +177,7 @@ export interface UiStateActions {
   setMouse: (mouse: Mouse) => void;
   setRendererEl: (el: HTMLDivElement) => void;
   setEnableDebugTools: (enabled: boolean) => void;
+  toggleLogarithmicScale: () => void;
 }
 
 export type UiStateStore = UiState & {

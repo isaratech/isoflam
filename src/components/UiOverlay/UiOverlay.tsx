@@ -10,6 +10,7 @@ import { ToolMenu } from 'src/components/ToolMenu/ToolMenu';
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { MainMenu } from 'src/components/MainMenu/MainMenu';
 import { ZoomControls } from 'src/components/ZoomControls/ZoomControls';
+import { LogarithmicScaleControls } from 'src/components/LogarithmicScaleControls';
 import { DebugUtils } from 'src/components/DebugUtils/DebugUtils';
 import { useResizeObserver } from 'src/hooks/useResizeObserver';
 import { ContextMenuManager } from 'src/components/ContextMenu/ContextMenuManager';
@@ -22,6 +23,7 @@ import horusLogo from 'src/assets/horus.png';
 const ToolsEnum = {
   MAIN_MENU: 'MAIN_MENU',
   ZOOM_CONTROLS: 'ZOOM_CONTROLS',
+  LOGARITHMIC_SCALE_CONTROLS: 'LOGARITHMIC_SCALE_CONTROLS',
   TOOL_MENU: 'TOOL_MENU',
   ITEM_CONTROLS: 'ITEM_CONTROLS',
   VIEW_TITLE: 'VIEW_TITLE',
@@ -36,12 +38,18 @@ const EDITOR_MODE_MAPPING: EditorModeMapping = {
   [EditorModeEnum.EDITABLE]: [
     'ITEM_CONTROLS',
     'ZOOM_CONTROLS',
+    'LOGARITHMIC_SCALE_CONTROLS',
     'TOOL_MENU',
     'MAIN_MENU',
     'VIEW_TITLE',
     'FOOTER_CREDITS'
   ],
-  [EditorModeEnum.EXPLORABLE_READONLY]: ['ZOOM_CONTROLS', 'VIEW_TITLE', 'FOOTER_CREDITS'],
+  [EditorModeEnum.EXPLORABLE_READONLY]: [
+    'ZOOM_CONTROLS',
+    'LOGARITHMIC_SCALE_CONTROLS',
+    'VIEW_TITLE',
+    'FOOTER_CREDITS'
+  ],
   [EditorModeEnum.NON_INTERACTIVE]: []
 };
 
@@ -152,6 +160,36 @@ export const UiOverlay = () => {
             }}
           >
             <ZoomControls />
+          </Box>
+        )}
+
+        {availableTools.includes('LOGARITHMIC_SCALE_CONTROLS') && (
+          <Box
+            sx={{
+              position: 'absolute',
+              transformOrigin: 'bottom left'
+            }}
+            style={{
+              top: rendererSize.height - appPadding.y * 2 - 50, // Position above ZoomControls
+              left: appPadding.x
+            }}
+          >
+            <LogarithmicScaleControls />
+          </Box>
+        )}
+
+        {availableTools.includes('LOGARITHMIC_SCALE_CONTROLS') && (
+          <Box
+            sx={{
+              position: 'absolute',
+              transformOrigin: 'bottom left'
+            }}
+            style={{
+              top: rendererSize.height - appPadding.y * 2 - 50, // Position above ZoomControls
+              left: appPadding.x
+            }}
+          >
+            <LogarithmicScaleControls />
           </Box>
         )}
 
