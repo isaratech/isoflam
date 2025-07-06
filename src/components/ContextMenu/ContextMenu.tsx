@@ -31,7 +31,7 @@ export const ContextMenu = ({
       onClose={onClose}
     >
       {menuItems.map((item) => {
-        return <MenuItem onClick={item.onClick}>{item.label}</MenuItem>;
+        return <MenuItem key={item.label} onClick={item.onClick}>{item.label}</MenuItem>;
       })}
     </Menu>
   );
