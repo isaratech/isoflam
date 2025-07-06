@@ -78,7 +78,7 @@ export const NodeSettings = ({
               marks
               step={0.1}
               min={0.1}
-              value={node.scaleFactor ?? 1}
+              value={node.scaleFactor ?? (icon.scaleFactor ?? 1)}
               onChange={(e, newScale) => {
                 const scaleFactor = newScale as number;
                 // Calculate proportional label height based on scale factor
@@ -100,7 +100,7 @@ export const NodeSettings = ({
               min: 0.1,
               step: 0.1
             }}
-            value={node.scaleFactor ?? 1}
+            value={node.scaleFactor ?? (icon.scaleFactor ?? 1)}
             onChange={(e) => {
               const value = parseFloat(e.target.value);
               if (!Number.isNaN(value) && value >= 0.1) {
@@ -120,15 +120,15 @@ export const NodeSettings = ({
           <Tooltip title={t('Reset to default size')}>
             <IconButton
               onClick={() => {
-                // Use the default scale factor of 1 as defined in the icon schema
-                const defaultScaleFactor = 1;
-                // Calculate proportional label height based on default scale factor
+                // Use the icon's original scale factor, fallback to 1 if not defined
+                const originalScaleFactor = icon.scaleFactor ?? 1;
+                // Calculate proportional label height based on original scale factor
                 const baseLabelHeight = DEFAULTS_VIEW_ITEM.labelHeight;
                 const adjustedLabelHeight = Math.round(
-                  baseLabelHeight * defaultScaleFactor
+                  baseLabelHeight * originalScaleFactor
                 );
                 onViewItemUpdated({
-                  scaleFactor: defaultScaleFactor,
+                  scaleFactor: originalScaleFactor,
                   labelHeight: adjustedLabelHeight
                 });
               }}
