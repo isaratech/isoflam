@@ -8,6 +8,7 @@ import {
 } from 'src/utils';
 import { UiStateStore } from 'src/types';
 import { INITIAL_UI_STATE } from 'src/config';
+import { SupportedLanguage } from 'src/hooks/useTranslation';
 
 const initialState = () => {
   return createStore<UiStateStore>((set, get) => {
@@ -23,6 +24,7 @@ const initialState = () => {
       dialog: null,
       rendererEl: null,
       contextMenu: null,
+      language: 'fr' as SupportedLanguage,
       mouse: {
         position: { screen: CoordsUtils.zero(), tile: CoordsUtils.zero() },
         mousedown: null,
@@ -42,6 +44,9 @@ const initialState = () => {
         },
         setIconCategoriesState: (iconCategoriesState) => {
           set({ iconCategoriesState });
+        },
+        setLanguage: (language: SupportedLanguage) => {
+          set({ language });
         },
         resetUiState: () => {
           set({

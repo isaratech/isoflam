@@ -1,14 +1,21 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import { Menu, Typography, Divider, Card } from '@mui/material';
+import {
+  Menu,
+  Typography,
+  Divider,
+  Card,
+  MenuItem as MuiMenuItem,
+  Menu as MuiMenu
+} from '@mui/material';
 import {
   Menu as MenuIcon,
   GitHub as GitHubIcon,
-  QuestionAnswer as QuestionAnswerIcon,
   DataObject as ExportJsonIcon,
   ImageOutlined as ExportImageIcon,
   FolderOpen as FolderOpenIcon,
   DeleteOutline as DeleteOutlineIcon,
-  Info as InfoIcon
+  Info as InfoIcon,
+  Language as LanguageIcon
 } from '@mui/icons-material';
 import { UiElement } from 'src/components/UiElement/UiElement';
 import { IconButton } from 'src/components/IconButton/IconButton';
@@ -20,8 +27,9 @@ import { useTranslation } from 'src/hooks/useTranslation';
 import { MenuItem } from './MenuItem';
 
 export const MainMenu = () => {
-  const { t } = useTranslation();
+  const { t, language, changeLanguage } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [languageMenuAnchorEl, setLanguageMenuAnchorEl] = useState<null | HTMLElement>(null);
   const model = useModelStore((state) => {
     return modelFromModelStore(state);
   });
@@ -98,6 +106,19 @@ export const MainMenu = () => {
     clear();
     uiStateActions.setIsMainMenuOpen(false);
   }, [uiStateActions, clear]);
+  
+  const onOpenLanguageMenu = useCallback((event: React.MouseEvent<HTMLElement>) => {
+    setLanguageMenuAnchorEl(event.currentTarget);
+  }, []);
+
+  const onCloseLanguageMenu = useCallback(() => {
+    setLanguageMenuAnchorEl(null);
+  }, []);
+
+  const onSelectLanguage = useCallback((newLanguage: 'fr' | 'en') => {
+    changeLanguage(newLanguage);
+    onCloseLanguageMenu();
+  }, [changeLanguage, onCloseLanguageMenu]);
 
   const sectionVisibility = useMemo(() => {
     return {
@@ -192,6 +213,12 @@ export const MainMenu = () => {
             </>
           )}
 
+          {/* Language Selection */}
+          <Divider />
+          <MenuItem onClick={onOpenLanguageMenu} Icon={<LanguageIcon />}>
+            {t('Language')}
+          </MenuItem>
+
           {sectionVisibility.version && (
             <>
               <Divider />
@@ -207,6 +234,30 @@ export const MainMenu = () => {
           )}
         </Card>
       </Menu>
+
+      {/* Language Selection Menu */}
+      <MuiMenu
+        anchorEl={languageMenuAnchorEl}
+        open={Boolean(languageMenuAnchorEl)}
+        onClose={onCloseLanguageMenu}
+        elevation={0}
+        sx={{ mt: 2 }}
+      >
+        <Card sx={{ py: 1 }}>
+          <MuiMenuItem 
+            onClick={() => onSelectLanguage('fr')}
+            selected={language === 'fr'}
+          >
+            {t('French')}
+          </MuiMenuItem>
+          <MuiMenuItem 
+            onClick={() => onSelectLanguage('en')}
+            selected={language === 'en'}
+          >
+            {t('English')}
+          </MuiMenuItem>
+        </Card>
+      </MuiMenu>
     </UiElement>
   );
 };

@@ -7,6 +7,9 @@ export const frTranslations = {
   'Clear the canvas': 'Effacer le canevas',
   GitHub: 'GitHub',
   Discord: 'Discord',
+  Language: 'Langue',
+  French: 'Français',
+  English: 'Anglais',
 
   // ToolMenu
   Select: 'Sélectionner',
@@ -74,7 +77,7 @@ export const frTranslations = {
   SOLID: 'CONTINU',
   DOTTED: 'POINTILLÉ',
   DASHED: 'TIRETS',
-    NONE: 'AUCUN',
+  NONE: 'AUCUN',
 
   // ContextMenu
   'Send backward': 'Reculer',
