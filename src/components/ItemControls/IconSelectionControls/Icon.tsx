@@ -38,7 +38,12 @@ export const Icon = ({ icon, onClick, onMouseDown }: Props) => {
         <Typography
           variant="body2"
           color="text.secondary"
-          textOverflow="ellipsis"
+          sx={{
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            whiteSpace: 'nowrap',
+            width: '100%'
+          }}
         >
           {icon.name}
         </Typography>

@@ -35,6 +35,32 @@ export const IconSelectionControls = () => {
     [mode, uiStateActions]
   );
 
+  const onClick = useCallback(
+    (icon: Icon) => {
+      if (mode.type !== 'PLACE_ICON') return;
+
+      uiStateActions.setMode({
+        type: 'PLACE_ICON',
+        showCursor: true,
+        id: icon.id
+      });
+    },
+    [mode, uiStateActions]
+  );
+
+  const onClick = useCallback(
+    (icon: Icon) => {
+      if (mode.type !== 'PLACE_ICON') return;
+
+      uiStateActions.setMode({
+        type: 'PLACE_ICON',
+        showCursor: true,
+        id: icon.id
+      });
+    },
+    [mode, uiStateActions]
+  );
+
   return (
     <ControlsContainer
       header={
@@ -50,11 +76,19 @@ export const IconSelectionControls = () => {
     >
       {filteredIcons && (
         <Section>
-          <IconGrid icons={filteredIcons} onMouseDown={onMouseDown} />
+          <IconGrid
+            icons={filteredIcons}
+            onMouseDown={onMouseDown}
+            onClick={onClick}
+          />
         </Section>
       )}
       {!filteredIcons && (
-        <Icons iconCategories={iconCategories} onMouseDown={onMouseDown} />
+        <Icons
+          iconCategories={iconCategories}
+          onMouseDown={onMouseDown}
+          onClick={onClick}
+        />
       )}
     </ControlsContainer>
   );
