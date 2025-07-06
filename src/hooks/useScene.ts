@@ -11,8 +11,9 @@ import {
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { useModelStore } from 'src/stores/modelStore';
 import { useSceneStore } from 'src/stores/sceneStore';
+import { useHistoryStore } from 'src/stores/historyStore';
 import * as reducers from 'src/stores/reducers';
-import type { State } from 'src/stores/reducers/types';
+import type { State, ViewReducerParams } from 'src/stores/reducers/types';
 import { getItemByIdOrThrow } from 'src/utils';
 import {
   CONNECTOR_DEFAULTS,
@@ -31,6 +32,10 @@ export const useScene = () => {
 
   const currentViewId = useUiStateStore((state) => {
     return state.view;
+  });
+
+  const historyActions = useHistoryStore((state) => {
+    return state.actions;
   });
 
   const currentView = useMemo(() => {
@@ -122,14 +127,17 @@ export const useScene = () => {
 
   const createViewItem = useCallback(
     (newViewItem: ViewItem) => {
-      const newState = reducers.view({
+      const action: ViewReducerParams = {
         action: 'CREATE_VIEWITEM',
         payload: newViewItem,
         ctx: { viewId: currentViewId, state: getState() }
-      });
+      };
+      const newState = reducers.view(action);
       setState(newState);
+      // Record the action in the history
+      historyActions.recordAction(action);
     },
-    [getState, setState, currentViewId]
+    [getState, setState, currentViewId, historyActions]
   );
 
   const updateViewItem = useCallback(
@@ -276,6 +284,15 @@ export const useScene = () => {
     [getState, setState, currentViewId]
   );
 
+  // Apply an action from the history
+  const applyAction = useCallback(
+    (action: ViewReducerParams) => {
+      const newState = reducers.view(action);
+      setState(newState);
+    },
+    [setState]
+  );
+
   return {
     items,
     connectors,
@@ -298,6 +315,7 @@ export const useScene = () => {
     createRectangle,
     updateRectangle,
     deleteRectangle,
-    changeLayerOrder
+    changeLayerOrder,
+    applyAction
   };
 };
