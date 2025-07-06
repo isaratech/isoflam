@@ -1292,7 +1292,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_croix-rouge_02",
@@ -1302,7 +1302,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_croix-rouge_03",
@@ -1312,7 +1312,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_croix-rouge_04",
@@ -1322,7 +1322,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_croix-rouge_05",
@@ -1332,7 +1332,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_croix-rouge_06",
@@ -1342,7 +1342,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_croix-rouge_07",
@@ -1352,7 +1352,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_croix-rouge_08",
@@ -1362,7 +1362,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_medecin_01",
@@ -1372,7 +1372,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_medecin_02",
@@ -1382,7 +1382,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_medecin_03",
@@ -1392,7 +1392,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_medecin_04",
@@ -1402,7 +1402,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_medecin_05",
@@ -1412,7 +1412,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_medecin_06",
@@ -1422,7 +1422,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_medecin_07",
@@ -1432,7 +1432,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_medecin_08",
@@ -1442,7 +1442,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_samu_01",
@@ -1452,7 +1452,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_samu_02",
@@ -1462,7 +1462,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_samu_03",
@@ -1472,7 +1472,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_samu_04",
@@ -1482,7 +1482,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_samu_05",
@@ -1492,7 +1492,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_samu_06",
@@ -1502,7 +1502,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_samu_07",
@@ -1512,7 +1512,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_personnels_amu_samu_08",
@@ -1522,7 +1522,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_ambulance_01",
@@ -1532,7 +1532,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_ambulance_02",
@@ -1542,7 +1542,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_ambulance_03",
@@ -1552,7 +1552,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_ambulance_04",
@@ -1562,7 +1562,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_croix-rouge_ambulance_01",
@@ -1572,7 +1572,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_croix-rouge_ambulance_02",
@@ -1582,7 +1582,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_croix-rouge_ambulance_03",
@@ -1592,7 +1592,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_croix-rouge_ambulance_04",
@@ -1602,7 +1602,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_croix-rouge_vl_01",
@@ -1612,7 +1612,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_croix-rouge_vl_02",
@@ -1622,7 +1622,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_croix-rouge_vl_03",
@@ -1632,7 +1632,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_croix-rouge_vl_04",
@@ -1642,7 +1642,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_ambulance_01",
@@ -1652,7 +1652,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_ambulance_02",
@@ -1662,7 +1662,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_ambulance_03",
@@ -1672,7 +1672,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_ambulance_04",
@@ -1682,7 +1682,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_helico_01",
@@ -1692,7 +1692,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_helico_02",
@@ -1702,7 +1702,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_log_01",
@@ -1712,7 +1712,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_log_02",
@@ -1722,7 +1722,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_pc_01",
@@ -1732,7 +1732,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_pc_02",
@@ -1742,7 +1742,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_pc_03",
@@ -1752,7 +1752,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_pc_04",
@@ -1762,7 +1762,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_vl_01",
@@ -1772,7 +1772,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_vl_02",
@@ -1782,7 +1782,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_vl_03",
@@ -1792,7 +1792,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_amu_amu_vehicules_amu_samu_vl_04",
@@ -1802,7 +1802,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_autorit_s_autorites_maire_01",
@@ -1812,7 +1812,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_maire_02",
@@ -1822,7 +1822,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_maire_03",
@@ -1832,7 +1832,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_maire_04",
@@ -1842,7 +1842,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_ministre_01",
@@ -1852,7 +1852,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_ministre_01f",
@@ -1862,7 +1862,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_ministre_02",
@@ -1872,7 +1872,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_ministre_02f",
@@ -1882,7 +1882,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_ministre_03",
@@ -1892,7 +1892,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_ministre_03f",
@@ -1902,7 +1902,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_ministre_04",
@@ -1912,7 +1912,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_ministre_04f",
@@ -1922,7 +1922,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_prefet_01",
@@ -1932,7 +1932,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_prefet_02",
@@ -1942,7 +1942,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_prefet_03",
@@ -1952,7 +1952,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_prefet_04",
@@ -1962,7 +1962,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_prefete_01",
@@ -1972,7 +1972,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_prefete_02",
@@ -1982,7 +1982,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_prefete_03",
@@ -1992,7 +1992,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_autorit_s_autorites_prefete_04",
@@ -2002,7 +2002,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_batiments-environnements_alimentation",
@@ -2012,7 +2012,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_arbre-caduque_01",
@@ -2022,7 +2022,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_batiment_01",
@@ -2032,7 +2032,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_batiment_02",
@@ -2042,7 +2042,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_bureaux-gd",
@@ -2052,7 +2052,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_bureaux-pt",
@@ -2062,7 +2062,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_ecole_01",
@@ -2072,7 +2072,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_ecole_02",
@@ -2082,7 +2082,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_entrepot",
@@ -2092,7 +2092,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_entreprise_01",
@@ -2102,7 +2102,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_ferme",
@@ -2112,7 +2112,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_gymnase_01",
@@ -2122,7 +2122,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_habillement",
@@ -2132,7 +2132,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_hangar-agricole",
@@ -2142,7 +2142,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_hopital_01",
@@ -2152,7 +2152,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_hopital_02",
@@ -2162,7 +2162,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_igh",
@@ -2172,7 +2172,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_immeuble_01",
@@ -2182,7 +2182,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_immeuble_02",
@@ -2192,7 +2192,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_immeuble_03",
@@ -2202,7 +2202,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_lac",
@@ -2212,7 +2212,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_logements",
@@ -2222,7 +2222,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_mairie_01",
@@ -2232,7 +2232,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_maison_01",
@@ -2242,7 +2242,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_piscine",
@@ -2252,7 +2252,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_plan-d-eau",
@@ -2262,7 +2262,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_prefecture_01",
@@ -2272,7 +2272,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_batiments-environnements_usine-incineration-01",
@@ -2282,7 +2282,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_civils_materiels_barriere-automatique_01",
@@ -2292,7 +2292,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_barriere-automatique_02",
@@ -2302,7 +2302,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_barriere-automatique_03",
@@ -2312,7 +2312,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_barriere-automatique_04",
@@ -2322,7 +2322,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_barriere-automatique_05",
@@ -2332,7 +2332,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_barriere-automatique_06",
@@ -2342,7 +2342,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_barriere-automatique_07",
@@ -2352,7 +2352,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_barriere-automatique_08",
@@ -2362,7 +2362,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_barriere1",
@@ -2372,7 +2372,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_barriere2",
@@ -2382,7 +2382,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_poste-appel-urgence_01",
@@ -2392,7 +2392,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_poste-appel-urgence_02",
@@ -2402,7 +2402,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_poste-appel-urgence_03",
@@ -2412,7 +2412,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_poste-appel-urgence_04",
@@ -2422,7 +2422,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_rack_01",
@@ -2432,7 +2432,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_rack_02",
@@ -2442,7 +2442,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_table1",
@@ -2452,7 +2452,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_materiels_table2",
@@ -2462,7 +2462,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_agent-securite_01",
@@ -2472,7 +2472,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_agent-securite_02",
@@ -2482,7 +2482,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_agent-securite_03",
@@ -2492,7 +2492,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_agent-securite_04",
@@ -2502,7 +2502,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme-assise_masque_01",
@@ -2512,7 +2512,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme-assise_01",
@@ -2522,7 +2522,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme101",
@@ -2532,7 +2532,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme102",
@@ -2542,7 +2542,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme103",
@@ -2552,7 +2552,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme104",
@@ -2562,7 +2562,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme105",
@@ -2572,7 +2572,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme106",
@@ -2582,7 +2582,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme107",
@@ -2592,7 +2592,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme108",
@@ -2602,7 +2602,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme201",
@@ -2612,7 +2612,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme202-covid",
@@ -2622,7 +2622,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme202",
@@ -2632,7 +2632,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme_tablette_01",
@@ -2642,7 +2642,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme_tablette_02",
@@ -2652,7 +2652,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme_tablette_03",
@@ -2662,7 +2662,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_femme_tablette_04",
@@ -2672,7 +2672,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme101-covid",
@@ -2682,7 +2682,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme101",
@@ -2692,7 +2692,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme102",
@@ -2702,7 +2702,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme103",
@@ -2712,7 +2712,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme104",
@@ -2722,7 +2722,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme105",
@@ -2732,7 +2732,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme106",
@@ -2742,7 +2742,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme107",
@@ -2752,7 +2752,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme108",
@@ -2762,7 +2762,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme201",
@@ -2772,7 +2772,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme202",
@@ -2782,7 +2782,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme203",
@@ -2792,7 +2792,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme204",
@@ -2802,7 +2802,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme205",
@@ -2812,7 +2812,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme206",
@@ -2822,7 +2822,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme207",
@@ -2832,7 +2832,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme208",
@@ -2842,7 +2842,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme302",
@@ -2852,7 +2852,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme_tablette_01",
@@ -2862,7 +2862,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme_tablette_02",
@@ -2872,7 +2872,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme_tablette_03",
@@ -2882,7 +2882,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_homme_tablette_04",
@@ -2892,7 +2892,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_laborantin01",
@@ -2902,7 +2902,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_laborantin02",
@@ -2912,7 +2912,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_laborantin05",
@@ -2922,7 +2922,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_laborantin06",
@@ -2932,7 +2932,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_laborantine01",
@@ -2942,7 +2942,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_laborantine02",
@@ -2952,7 +2952,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_laborantine05",
@@ -2962,7 +2962,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_laborantine06",
@@ -2972,7 +2972,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicien01",
@@ -2982,7 +2982,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicien02",
@@ -2992,7 +2992,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicien03",
@@ -3002,7 +3002,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicien04",
@@ -3012,7 +3012,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicien05",
@@ -3022,7 +3022,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicien06",
@@ -3032,7 +3032,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicien07",
@@ -3042,7 +3042,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicien08",
@@ -3052,7 +3052,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicienne01",
@@ -3062,7 +3062,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicienne02",
@@ -3072,7 +3072,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicienne03",
@@ -3082,7 +3082,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicienne04",
@@ -3092,7 +3092,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicienne05",
@@ -3102,7 +3102,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicienne06",
@@ -3112,7 +3112,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicienne07",
@@ -3122,7 +3122,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_mecanicienne08",
@@ -3132,7 +3132,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_pats102-covid",
@@ -3142,7 +3142,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_sdmis_femme_01",
@@ -3152,7 +3152,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_sdmis_homme_01",
@@ -3162,7 +3162,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_01",
@@ -3172,7 +3172,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_02",
@@ -3182,7 +3182,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_03",
@@ -3192,7 +3192,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_04",
@@ -3202,7 +3202,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_05",
@@ -3212,7 +3212,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_06",
@@ -3222,7 +3222,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_07",
@@ -3232,7 +3232,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_08",
@@ -3242,7 +3242,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_femme_01",
@@ -3252,7 +3252,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_femme_02",
@@ -3262,7 +3262,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_femme_03",
@@ -3272,7 +3272,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_femme_04",
@@ -3282,7 +3282,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_femme_05",
@@ -3292,7 +3292,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_femme_06",
@@ -3302,7 +3302,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_femme_07",
@@ -3312,7 +3312,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_femme_08",
@@ -3322,7 +3322,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_masque_01",
@@ -3332,7 +3332,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_masque_02",
@@ -3342,7 +3342,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_masque_03",
@@ -3352,7 +3352,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_masque_04",
@@ -3362,7 +3362,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_masque_05",
@@ -3372,7 +3372,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_masque_06",
@@ -3382,7 +3382,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_masque_07",
@@ -3392,7 +3392,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_ssiap_masque_08",
@@ -3402,7 +3402,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_teleoperateur_01",
@@ -3412,7 +3412,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_personnes_teleoperatrice_01",
@@ -3422,7 +3422,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_civils_vehicules_enedis_util_01",
@@ -3432,7 +3432,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_enedis_util_02",
@@ -3442,7 +3442,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_enedis_util_03",
@@ -3452,7 +3452,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_enedis_util_04",
@@ -3462,7 +3462,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_enedis_vl_01",
@@ -3472,7 +3472,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_enedis_vl_02",
@@ -3482,7 +3482,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_enedis_vl_03",
@@ -3492,7 +3492,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_enedis_vl_04",
@@ -3502,7 +3502,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_grdf_util_01",
@@ -3512,7 +3512,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_grdf_util_02",
@@ -3522,7 +3522,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_grdf_util_03",
@@ -3532,7 +3532,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_grdf_util_04",
@@ -3542,7 +3542,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_grdf_vl_01",
@@ -3552,7 +3552,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_grdf_vl_02",
@@ -3562,7 +3562,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_grdf_vl_03",
@@ -3572,7 +3572,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_grdf_vl_04",
@@ -3582,7 +3582,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_sdmis_util_01",
@@ -3592,7 +3592,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_sdmis_util_02",
@@ -3602,7 +3602,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_sdmis_util_03",
@@ -3612,7 +3612,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_sdmis_util_04",
@@ -3622,7 +3622,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_sdmis_vl_01",
@@ -3632,7 +3632,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_sdmis_vl_02",
@@ -3642,7 +3642,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_sdmis_vl_03",
@@ -3652,7 +3652,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_sdmis_vl_04",
@@ -3662,7 +3662,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_avion_01",
@@ -3672,7 +3672,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_avion_02",
@@ -3682,7 +3682,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_benne_01",
@@ -3692,7 +3692,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_benne_02",
@@ -3702,7 +3702,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_bus_01",
@@ -3712,7 +3712,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_bus_02",
@@ -3722,7 +3722,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_camion-benne_01",
@@ -3732,7 +3732,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_camion-benne_02",
@@ -3742,7 +3742,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_camion_01",
@@ -3752,7 +3752,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_camion_02",
@@ -3762,7 +3762,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_car_01",
@@ -3772,7 +3772,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_car_02",
@@ -3782,7 +3782,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_citerne_01",
@@ -3792,7 +3792,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_civil_vl-citadine_01",
@@ -3802,7 +3802,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_civil_vl-citadine_02",
@@ -3812,7 +3812,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_civil_vl-compacte_01",
@@ -3822,7 +3822,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_civil_vl-compacte_02",
@@ -3832,7 +3832,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_civil_vl-monospace_01",
@@ -3842,7 +3842,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_civil_vl-monospace_02",
@@ -3852,7 +3852,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_civil_vl-suv_01",
@@ -3862,7 +3862,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_civil_vl-suv_02",
@@ -3872,7 +3872,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_livraisons",
@@ -3882,7 +3882,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_metro_ligne-b_01",
@@ -3892,7 +3892,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_metro_ligne-b_02",
@@ -3902,7 +3902,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_metro_ligne-d_01",
@@ -3912,7 +3912,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_metro_ligne-d_02",
@@ -3922,7 +3922,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_pelle-mecanique_01",
@@ -3932,7 +3932,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_pelle-mecanique_02",
@@ -3942,7 +3942,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_pelle-mecanique_03",
@@ -3952,7 +3952,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_pelle-mecanique_04",
@@ -3962,7 +3962,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_peniche_01",
@@ -3972,7 +3972,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_peniche_02",
@@ -3982,7 +3982,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_tracteur_01",
@@ -3992,7 +3992,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_tracteur_02",
@@ -4002,7 +4002,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_train_01",
@@ -4012,7 +4012,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_train_02",
@@ -4022,7 +4022,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_tram_01",
@@ -4032,7 +4032,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_vehicules_tram_02",
@@ -4042,7 +4042,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_civils_victimes_victime_o2",
@@ -4242,7 +4242,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-epb_02",
@@ -4252,7 +4252,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-epb_03",
@@ -4262,7 +4262,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-epb_04",
@@ -4272,7 +4272,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-epb_05",
@@ -4282,7 +4282,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-epb_06",
@@ -4292,7 +4292,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-epb_07",
@@ -4302,7 +4302,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-epb_08",
@@ -4312,7 +4312,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-gign_01",
@@ -4322,7 +4322,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-gign_02",
@@ -4332,7 +4332,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-gign_03",
@@ -4342,7 +4342,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-gign_04",
@@ -4352,7 +4352,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-gign_05",
@@ -4362,7 +4362,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-gign_06",
@@ -4372,7 +4372,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-gign_07",
@@ -4382,7 +4382,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-gign_08",
@@ -4392,7 +4392,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-gign_09",
@@ -4402,7 +4402,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie-gign_10",
@@ -4412,7 +4412,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie_01",
@@ -4422,7 +4422,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie_02",
@@ -4432,7 +4432,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie_03",
@@ -4442,7 +4442,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie_04",
@@ -4452,7 +4452,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie_05",
@@ -4462,7 +4462,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie_06",
@@ -4472,7 +4472,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie_07",
@@ -4482,7 +4482,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_gendarmerie_08",
@@ -4492,7 +4492,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_nrbce_01",
@@ -4502,7 +4502,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_nrbce_02",
@@ -4512,7 +4512,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_nrbce_03",
@@ -4522,7 +4522,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_nrbce_04",
@@ -4532,7 +4532,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_nrbce_05",
@@ -4542,7 +4542,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_nrbce_06",
@@ -4552,7 +4552,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_nrbce_07",
@@ -4562,7 +4562,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_nrbce_08",
@@ -4572,7 +4572,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-epb_01",
@@ -4582,7 +4582,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-epb_02",
@@ -4592,7 +4592,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-epb_03",
@@ -4602,7 +4602,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-epb_04",
@@ -4612,7 +4612,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-epb_05",
@@ -4622,7 +4622,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-epb_06",
@@ -4632,7 +4632,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-epb_07",
@@ -4642,7 +4642,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-epb_08",
@@ -4652,7 +4652,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-raid_01",
@@ -4662,7 +4662,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-raid_02",
@@ -4672,7 +4672,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-raid_03",
@@ -4682,7 +4682,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-raid_04",
@@ -4692,7 +4692,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-raid_05",
@@ -4702,7 +4702,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-raid_06",
@@ -4712,7 +4712,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-raid_07",
@@ -4722,7 +4722,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-raid_08",
@@ -4732,7 +4732,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-raid_09",
@@ -4742,7 +4742,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police-raid_10",
@@ -4752,7 +4752,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_01",
@@ -4762,7 +4762,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_02",
@@ -4772,7 +4772,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_03",
@@ -4782,7 +4782,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_04",
@@ -4792,7 +4792,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_05",
@@ -4802,7 +4802,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_06",
@@ -4812,7 +4812,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_07",
@@ -4822,7 +4822,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_08",
@@ -4832,7 +4832,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_01",
@@ -4842,7 +4842,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_02",
@@ -4852,7 +4852,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_03",
@@ -4862,7 +4862,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_04",
@@ -4872,7 +4872,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_05",
@@ -4882,7 +4882,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_06",
@@ -4892,7 +4892,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_07",
@@ -4902,7 +4902,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_08",
@@ -4912,7 +4912,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_epb_01",
@@ -4922,7 +4922,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_epb_02",
@@ -4932,7 +4932,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_epb_03",
@@ -4942,7 +4942,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_epb_04",
@@ -4952,7 +4952,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_epb_05",
@@ -4962,7 +4962,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_epb_06",
@@ -4972,7 +4972,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_epb_07",
@@ -4982,7 +4982,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_police_municipale_epb_08",
@@ -4992,7 +4992,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate-arme_01",
@@ -5002,7 +5002,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate-arme_02",
@@ -5012,7 +5012,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate-arme_03",
@@ -5022,7 +5022,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate-arme_04",
@@ -5032,7 +5032,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate-arme_05",
@@ -5042,7 +5042,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate-arme_06",
@@ -5052,7 +5052,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate-arme_07",
@@ -5062,7 +5062,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate-arme_08",
@@ -5072,7 +5072,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate_01",
@@ -5082,7 +5082,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate_02",
@@ -5092,7 +5092,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate_03",
@@ -5102,7 +5102,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate_04",
@@ -5112,7 +5112,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate_05",
@@ -5122,7 +5122,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate_06",
@@ -5132,7 +5132,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate_07",
@@ -5142,7 +5142,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_personnels_fsi_vigipirate_08",
@@ -5152,7 +5152,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_gendarmerie_drap_01",
@@ -5162,7 +5162,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_gendarmerie_drap_02",
@@ -5172,7 +5172,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_gendarmerie_helico_01",
@@ -5182,7 +5182,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_gendarmerie_helico_02",
@@ -5192,7 +5192,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_gendarmerie_moto_01",
@@ -5222,7 +5222,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_gendarmerie_vl_02",
@@ -5232,7 +5232,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_gendarmerie_vl_03",
@@ -5242,7 +5242,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_gendarmerie_vl_04",
@@ -5252,7 +5252,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_gendarmerie_vtp_01",
@@ -5262,7 +5262,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_gendarmerie_vtp_02",
@@ -5272,7 +5272,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_gendarmerie_vtp_03",
@@ -5282,7 +5282,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_gendarmerie_vtp_04",
@@ -5292,7 +5292,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_gign_blinde_01",
@@ -5302,7 +5302,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_gign_blinde_02",
@@ -5312,7 +5312,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police-municipale_vl_01",
@@ -5322,7 +5322,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police-municipale_vl_02",
@@ -5332,7 +5332,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police-municipale_vl_03",
@@ -5342,7 +5342,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police-municipale_vl_04",
@@ -5352,7 +5352,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police_constox_01",
@@ -5362,7 +5362,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police_constox_02",
@@ -5372,7 +5372,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police_constox_03",
@@ -5382,7 +5382,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police_constox_04",
@@ -5392,7 +5392,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police_moto_01",
@@ -5422,7 +5422,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police_vl_02",
@@ -5432,7 +5432,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police_vl_03",
@@ -5442,7 +5442,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police_vl_04",
@@ -5452,7 +5452,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police_vtp_01",
@@ -5462,7 +5462,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police_vtp_02",
@@ -5472,7 +5472,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police_vtp_03",
@@ -5482,7 +5482,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_police_vtp_04",
@@ -5492,7 +5492,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_raid_blinde_01",
@@ -5502,7 +5502,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_raid_blinde_02",
@@ -5512,7 +5512,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_raid_blinde_03",
@@ -5522,7 +5522,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_raid_blinde_04",
@@ -5532,7 +5532,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_securite-civile_vtu_01",
@@ -5542,7 +5542,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_securite-civile_vtu_02",
@@ -5552,7 +5552,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_securite-civile_vtu_03",
@@ -5562,7 +5562,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_securite-civile_vtu_04",
@@ -5572,7 +5572,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vigipirate_4x4_01",
@@ -5582,7 +5582,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vigipirate_4x4_02",
@@ -5592,7 +5592,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vigipirate_4x4_03",
@@ -5602,7 +5602,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vigipirate_4x4_04",
@@ -5612,7 +5612,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vigipirate_vl_01",
@@ -5622,7 +5622,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vigipirate_vl_02",
@@ -5632,7 +5632,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vigipirate_vl_03",
@@ -5642,7 +5642,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vigipirate_vl_04",
@@ -5652,7 +5652,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vpc-militaire_01",
@@ -5662,7 +5662,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vpc-militaire_02",
@@ -5672,7 +5672,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vpc-militaire_03",
@@ -5682,7 +5682,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vpc-militaire_04",
@@ -5692,7 +5692,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vpc_01",
@@ -5702,7 +5702,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vpc_02",
@@ -5712,7 +5712,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vpc_03",
@@ -5722,7 +5722,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_fsi_vehicules_fsi_vpc_04",
@@ -5732,7 +5732,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_att_prd",
@@ -5742,7 +5742,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_att_prep",
@@ -5752,7 +5752,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_att_pri",
@@ -5762,7 +5762,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_att_pri_sas-sortie",
@@ -5772,7 +5772,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_att_prv-medic",
@@ -5782,7 +5782,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_att_prv-medic_sas-decontamination",
@@ -5792,7 +5792,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_att_prv",
@@ -5802,7 +5802,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_att_prv_sas-decontamination",
@@ -5812,7 +5812,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_att_sas-interservice_1",
@@ -5822,7 +5822,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_att_sas-interservice_2",
@@ -5832,7 +5832,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_att_sas-sortie-impliques",
@@ -5842,7 +5842,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_att_tunnel-fpt",
@@ -5852,7 +5852,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_att_umd",
@@ -5862,7 +5862,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_att_umd_2",
@@ -5872,7 +5872,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_att_zone-tri",
@@ -5882,7 +5882,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres-nrbc_01",
@@ -5892,7 +5892,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres-nrbc_02",
@@ -5902,7 +5902,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres-nrbc_03",
@@ -5912,7 +5912,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres-nrbc_04",
@@ -5922,7 +5922,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres-nrbc_05",
@@ -5932,7 +5932,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres-nrbc_06",
@@ -5942,7 +5942,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres-nrbc_07",
@@ -5952,7 +5952,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres-nrbc_08",
@@ -5962,7 +5962,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres_01",
@@ -5972,7 +5972,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres_02",
@@ -5982,7 +5982,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres_03",
@@ -5992,7 +5992,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres_04",
@@ -6002,7 +6002,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres_05",
@@ -6012,7 +6012,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres_06",
@@ -6022,7 +6022,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres_07",
@@ -6032,7 +6032,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_gres_08",
@@ -6042,7 +6042,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_nrbc_01",
@@ -6052,7 +6052,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_nrbc_02",
@@ -6062,7 +6062,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_nrbc_03",
@@ -6072,7 +6072,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_nrbc_04",
@@ -6082,7 +6082,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_nrbc_05",
@@ -6092,7 +6092,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_nrbc_06",
@@ -6102,7 +6102,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_nrbc_07",
@@ -6112,7 +6112,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_nrbc_08",
@@ -6122,7 +6122,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_nrbc_09",
@@ -6132,7 +6132,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_nrbc_10",
@@ -6142,7 +6142,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_nrbc_11",
@@ -6152,7 +6152,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_nrbc_12",
@@ -6162,7 +6162,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_suap_01",
@@ -6172,7 +6172,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_suap_02",
@@ -6182,7 +6182,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_suap_03",
@@ -6192,7 +6192,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_suap_04",
@@ -6202,7 +6202,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_suap_05",
@@ -6212,7 +6212,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_suap_06",
@@ -6222,7 +6222,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_suap_07",
@@ -6232,7 +6232,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_suap_08",
@@ -6242,7 +6242,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_tenue-feu_01",
@@ -6252,7 +6252,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_tenue-feu_02",
@@ -6262,7 +6262,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_tenue-feu_03",
@@ -6272,7 +6272,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_tenue-feu_04",
@@ -6282,7 +6282,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_tenue-feu_05",
@@ -6292,7 +6292,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_tenue-feu_06",
@@ -6302,7 +6302,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_tenue-feu_07",
@@ -6312,7 +6312,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_brancardage_tenue-feu_08",
@@ -6322,7 +6322,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_action_deci_pompage1",
@@ -6332,7 +6332,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_sp_sp_action_nrbc_rosace_01",
@@ -6342,7 +6342,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_action_nrbc_rosace_02",
@@ -6352,7 +6352,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "actions",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sp_sp_batiments_sp_caserne_01",
@@ -6362,7 +6362,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_sp_sp_batiments_sp_caserne_02",
@@ -6372,7 +6372,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_sp_sp_batiments_sp_caserne_03",
@@ -6382,7 +6382,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_sp_sp_batiments_sp_caserne_04",
@@ -6392,7 +6392,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_sp_sp_batiments_sp_etat-major_01",
@@ -6402,7 +6402,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "buildings",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 5
   },
   {
     "id": "sdmis_sp_sp_materiels_ligne-guide_enrouleur_01",
@@ -6412,7 +6412,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_ligne-guide_enrouleur_02",
@@ -6422,7 +6422,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_nrbc_portique-radio",
@@ -6432,7 +6432,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_pharmacie_comptoir",
@@ -6442,7 +6442,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_ca_tablette",
@@ -6452,7 +6452,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_brancard_01",
@@ -6482,7 +6482,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_canon-2entrees",
@@ -6492,7 +6492,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_collecteur",
@@ -6502,7 +6502,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_couv-bacteriostatique",
@@ -6512,7 +6512,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_devidoir",
@@ -6522,7 +6522,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_division-mixte",
@@ -6532,7 +6532,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_ari-cagoule2",
@@ -6542,7 +6542,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_ari-masque1",
@@ -6552,7 +6552,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_ari-masque2",
@@ -6562,7 +6562,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_arico-gp",
@@ -6572,7 +6572,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_arico",
@@ -6582,7 +6582,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_bottes-feu",
@@ -6592,7 +6592,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_casque-fluo-jaune1",
@@ -6602,7 +6602,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_casque-fluo-jaune2",
@@ -6612,7 +6612,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_casque",
@@ -6622,7 +6622,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_gants-deblaiement",
@@ -6632,7 +6632,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_gants-feu",
@@ -6642,7 +6642,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_gants-nitrile",
@@ -6652,7 +6652,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_pantalon-cyno",
@@ -6662,7 +6662,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_pantalon-fdf",
@@ -6672,7 +6672,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_pantalon-feu",
@@ -6682,7 +6682,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_tenue-feu",
@@ -6692,7 +6692,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_tsi_pantalon",
@@ -6702,7 +6702,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_tsi_polo",
@@ -6712,7 +6712,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_tsi_pull",
@@ -6722,7 +6722,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_veste-cyno",
@@ -6732,7 +6732,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_epi_veste-feu",
@@ -6742,7 +6742,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_lance-ecran-eau",
@@ -6752,7 +6752,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_lance-ecran",
@@ -6762,7 +6762,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_lance-mousse-bf",
@@ -6772,7 +6772,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_lance-mousse-mf",
@@ -6782,7 +6782,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_lcps",
@@ -6792,7 +6792,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_ldv_01",
@@ -6802,7 +6802,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_ldv_02",
@@ -6812,7 +6812,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_oriflamme_evac",
@@ -6822,7 +6822,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_oriflamme_pev",
@@ -6832,7 +6832,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_oriflamme_pri",
@@ -6842,7 +6842,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_oriflamme_prv",
@@ -6852,7 +6852,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_oriflamme_ua",
@@ -6862,7 +6862,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_oriflamme_ur",
@@ -6872,7 +6872,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_pma_1",
@@ -6882,7 +6882,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_pma_2",
@@ -6892,7 +6892,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_pma_poinitilles-schema",
@@ -6902,7 +6902,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_sac-suap_01",
@@ -6912,7 +6912,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_sac-suap_02",
@@ -6922,7 +6922,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_tablette-rack",
@@ -6932,7 +6932,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_tuyau_01",
@@ -6942,7 +6942,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_tuyau_02",
@@ -6952,7 +6952,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_tuyau_03",
@@ -6962,7 +6962,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_umd_1",
@@ -6972,7 +6972,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sp_umd_2",
@@ -6982,7 +6982,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_bouteille_01",
@@ -6992,7 +6992,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_bouteille_02",
@@ -7002,7 +7002,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_bouteille_o2",
@@ -7012,7 +7012,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_carton",
@@ -7022,7 +7022,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_casier_01",
@@ -7032,7 +7032,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_casier_02",
@@ -7042,7 +7042,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_chariot_01",
@@ -7052,7 +7052,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_chariot_02",
@@ -7062,7 +7062,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_chasuble-blanc_01",
@@ -7072,7 +7072,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_chasuble-bleu_01",
@@ -7082,7 +7082,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_chasuble-jaune_01",
@@ -7092,7 +7092,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_chasuble-orange-damier_01",
@@ -7102,7 +7102,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_chasuble-orange_01",
@@ -7112,7 +7112,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_chasuble-rouge-damier_01",
@@ -7122,7 +7122,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_chasuble-rouge_01",
@@ -7132,7 +7132,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_chasuble-vert_01",
@@ -7142,7 +7142,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_chasuble-violet_01",
@@ -7152,7 +7152,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_combinaison",
@@ -7162,7 +7162,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_dasri",
@@ -7172,7 +7172,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_drone-dz",
@@ -7182,7 +7182,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_drone-gd",
@@ -7192,7 +7192,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_drone-pt",
@@ -7202,7 +7202,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_epi",
@@ -7212,7 +7212,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_lorri-charge",
@@ -7222,7 +7222,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_lorri-vide",
@@ -7232,7 +7232,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_lunettes-protection",
@@ -7242,7 +7242,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_masque-ffp2",
@@ -7252,7 +7252,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_operateur-cta",
@@ -7262,7 +7262,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_pei-bleu",
@@ -7272,7 +7272,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_pei-jaune",
@@ -7282,7 +7282,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_pei-rouge",
@@ -7292,7 +7292,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_pei-rouge_02",
@@ -7302,7 +7302,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_pena-artificiel",
@@ -7312,7 +7312,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_repere-lumineux_bleu",
@@ -7322,7 +7322,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_repere-lumineux_orange",
@@ -7332,7 +7332,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_repere-lumineux_rouge",
@@ -7342,7 +7342,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_repere-lumineux_vert",
@@ -7352,7 +7352,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_robot-brancard_01",
@@ -7382,7 +7382,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_robot-lance-rails_02",
@@ -7392,7 +7392,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_robot-lance_01",
@@ -7402,7 +7402,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_robot-lance_02",
@@ -7412,7 +7412,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sac-gris_plein",
@@ -7422,7 +7422,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sac-hydrosoluble",
@@ -7432,7 +7432,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sac-noir",
@@ -7442,7 +7442,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sac-orange_plein",
@@ -7452,7 +7452,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sac-poubelle",
@@ -7462,7 +7462,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sac-rouge",
@@ -7472,7 +7472,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sac-vert",
@@ -7482,7 +7482,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sac-violet",
@@ -7492,7 +7492,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sauvetage-aquatique_matelas_01",
@@ -7502,7 +7502,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sauvetage-aquatique_matelas_02",
@@ -7512,7 +7512,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sauvetage-aquatique_toboggan_01",
@@ -7522,7 +7522,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_sauvetage-aquatique_toboggan_02",
@@ -7532,7 +7532,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_materiels_tablette",
@@ -7542,7 +7542,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "equipment",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_chasuble_masque_01",
@@ -7552,7 +7552,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_chasuble_masque_02",
@@ -7562,7 +7562,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_chasuble_masque_03",
@@ -7572,7 +7572,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_chasuble_masque_04",
@@ -7582,7 +7582,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_chasuble_masque_05",
@@ -7592,7 +7592,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_chasuble_masque_06",
@@ -7602,7 +7602,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_chasuble_masque_07",
@@ -7612,7 +7612,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_chasuble_masque_08",
@@ -7622,7 +7622,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_chasuble-sans-lunettes_01",
@@ -7632,7 +7632,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_masque_01",
@@ -7642,7 +7642,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_masque_02",
@@ -7652,7 +7652,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_masque_03",
@@ -7662,7 +7662,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_masque_04",
@@ -7672,7 +7672,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_masque_05",
@@ -7682,7 +7682,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_masque_06",
@@ -7692,7 +7692,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_masque_07",
@@ -7702,7 +7702,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_epi_masque_08",
@@ -7712,7 +7712,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_epi-virus_02bf",
@@ -7722,7 +7722,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_epi-virus_02bh",
@@ -7732,7 +7732,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_epi-virus_02f",
@@ -7742,7 +7742,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_epi-virus_02h",
@@ -7752,7 +7752,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_gants_masque_lunettes_01f-b",
@@ -7762,7 +7762,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_gants_masque_lunettes_02f",
@@ -7772,7 +7772,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_gants_masque_lunettes_02h",
@@ -7782,7 +7782,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_gants_masque_01f-b",
@@ -7792,7 +7792,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_gants_masque_01f",
@@ -7802,7 +7802,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_gants_masque_01h",
@@ -7812,7 +7812,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_gants_masque_02f",
@@ -7822,7 +7822,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_gants_masque_02h",
@@ -7832,7 +7832,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_masque_01f",
@@ -7842,7 +7842,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_masque_01f2",
@@ -7852,7 +7852,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_f1_masque_01h",
@@ -7862,7 +7862,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_sssm_infirmier-amu_gants_masque_lunettes_01",
@@ -7872,7 +7872,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_sp_sssm_infirmier_gants_masque_lunettes_02",
@@ -7882,7 +7882,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_suap-amu1f",
@@ -7892,7 +7892,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_suap-amu1fb",
@@ -7902,7 +7902,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_suap-amu1h",
@@ -7912,7 +7912,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_suap-amu2f",
@@ -7922,7 +7922,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_suap-amu2h",
@@ -7932,7 +7932,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_covid-19_suap-amu2hb",
@@ -7942,7 +7942,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_ceremonie-femme_01",
@@ -7952,7 +7952,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_ceremonie-femme_02",
@@ -7962,7 +7962,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_ceremonie-femme_03",
@@ -7972,7 +7972,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_ceremonie-femme_04",
@@ -7982,7 +7982,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_ceremonie-homme_01",
@@ -7992,7 +7992,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_ceremonie-homme_02",
@@ -8002,7 +8002,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_ceremonie-homme_03",
@@ -8012,7 +8012,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_ceremonie-homme_04",
@@ -8022,7 +8022,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_ari_casque-fluo_01",
@@ -8032,7 +8032,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_ari_casque-fluo_02",
@@ -8042,7 +8042,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_ari_casque-fluo_03",
@@ -8052,7 +8052,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_ari_casque-fluo_04",
@@ -8062,7 +8062,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_ari_casque-fluo_05",
@@ -8072,7 +8072,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_ari_casque-fluo_06",
@@ -8082,7 +8082,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_ari_casque-fluo_07",
@@ -8092,7 +8092,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_ari_casque-fluo_08",
@@ -8102,7 +8102,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-blanc_01",
@@ -8112,7 +8112,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-blanc_02",
@@ -8122,7 +8122,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-blanc_03",
@@ -8132,7 +8132,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-blanc_04",
@@ -8142,7 +8142,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-blanc_05",
@@ -8152,7 +8152,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-blanc_06",
@@ -8162,7 +8162,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-blanc_07",
@@ -8172,7 +8172,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-blanc_08",
@@ -8182,7 +8182,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_01",
@@ -8192,7 +8192,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_02",
@@ -8202,7 +8202,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_03",
@@ -8212,7 +8212,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_04",
@@ -8222,7 +8222,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_05",
@@ -8232,7 +8232,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_06",
@@ -8242,7 +8242,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_07",
@@ -8252,7 +8252,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_08",
@@ -8262,7 +8262,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_chasuble_01",
@@ -8272,7 +8272,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_chasuble_02",
@@ -8282,7 +8282,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_chasuble_03",
@@ -8292,7 +8292,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_chasuble_04",
@@ -8302,7 +8302,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_chasuble_05",
@@ -8312,7 +8312,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_chasuble_06",
@@ -8322,7 +8322,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_chasuble_07",
@@ -8332,7 +8332,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_chasuble_08",
@@ -8342,7 +8342,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_01",
@@ -8352,7 +8352,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_02",
@@ -8362,7 +8362,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_03",
@@ -8372,7 +8372,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_04",
@@ -8382,7 +8382,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_05",
@@ -8392,7 +8392,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_06",
@@ -8402,7 +8402,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_07",
@@ -8412,7 +8412,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_08",
@@ -8422,7 +8422,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_ari_01",
@@ -8432,7 +8432,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_ari_02",
@@ -8442,7 +8442,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_ari_03",
@@ -8452,7 +8452,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_ari_04",
@@ -8462,7 +8462,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_ari_05",
@@ -8472,7 +8472,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_ari_06",
@@ -8482,7 +8482,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_ari_07",
@@ -8492,7 +8492,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_ari_08",
@@ -8502,7 +8502,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_chasuble_01",
@@ -8512,7 +8512,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_chasuble_02",
@@ -8522,7 +8522,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_chasuble_03",
@@ -8532,7 +8532,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_chasuble_04",
@@ -8542,7 +8542,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_chasuble_05",
@@ -8552,7 +8552,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_chasuble_06",
@@ -8562,7 +8562,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_chasuble_07",
@@ -8572,7 +8572,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-gris_chasuble_08",
@@ -8582,7 +8582,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-jaune_01",
@@ -8592,7 +8592,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-jaune_02",
@@ -8602,7 +8602,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-jaune_03",
@@ -8612,7 +8612,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-jaune_04",
@@ -8622,7 +8622,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-jaune_05",
@@ -8632,7 +8632,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-jaune_06",
@@ -8642,7 +8642,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-jaune_07",
@@ -8652,7 +8652,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-jaune_08",
@@ -8662,7 +8662,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_01",
@@ -8672,7 +8672,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_02",
@@ -8682,7 +8682,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_03",
@@ -8692,7 +8692,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_04",
@@ -8702,7 +8702,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_05",
@@ -8712,7 +8712,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_06",
@@ -8722,7 +8722,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_07",
@@ -8732,7 +8732,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_08",
@@ -8742,7 +8742,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_ari_01",
@@ -8752,7 +8752,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_ari_02",
@@ -8762,7 +8762,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_ari_03",
@@ -8772,7 +8772,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_ari_04",
@@ -8782,7 +8782,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_ari_05",
@@ -8792,7 +8792,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_ari_06",
@@ -8802,7 +8802,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_ari_07",
@@ -8812,7 +8812,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-orange_ari_08",
@@ -8822,7 +8822,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-rouge_01",
@@ -8832,7 +8832,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-rouge_02",
@@ -8842,7 +8842,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-rouge_03",
@@ -8852,7 +8852,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-rouge_04",
@@ -8862,7 +8862,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-rouge_05",
@@ -8872,7 +8872,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-rouge_06",
@@ -8882,7 +8882,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-rouge_07",
@@ -8892,7 +8892,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_epi_casque-rouge_08",
@@ -8902,7 +8902,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_gants_02f",
@@ -8912,7 +8912,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_gants_02h",
@@ -8922,7 +8922,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1-suap_01",
@@ -8932,7 +8932,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1-suap_01b",
@@ -8942,7 +8942,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1-suap_02",
@@ -8952,7 +8952,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1-suap_02b",
@@ -8962,7 +8962,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1-suap_03",
@@ -8972,7 +8972,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1-suap_03b",
@@ -8982,7 +8982,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1-suap_04",
@@ -8992,7 +8992,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1-suap_04b",
@@ -9002,7 +9002,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1-suap_05",
@@ -9012,7 +9012,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1-suap_06",
@@ -9022,7 +9022,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1-suap_07",
@@ -9032,7 +9032,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1-suap_08",
@@ -9042,7 +9042,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_01-f2",
@@ -9052,7 +9052,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_01-femme",
@@ -9062,7 +9062,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_01-h2",
@@ -9072,7 +9072,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_01",
@@ -9082,7 +9082,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_02-f2",
@@ -9092,7 +9092,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_02-femme",
@@ -9102,7 +9102,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_02-h2",
@@ -9112,7 +9112,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_02",
@@ -9122,7 +9122,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_03-f2",
@@ -9132,7 +9132,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_03-femme",
@@ -9142,7 +9142,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_03-h2",
@@ -9152,7 +9152,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_03",
@@ -9162,7 +9162,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_04-f2",
@@ -9172,7 +9172,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_04-femme",
@@ -9182,7 +9182,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_04-h2",
@@ -9192,7 +9192,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_04",
@@ -9202,7 +9202,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_05",
@@ -9212,7 +9212,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_05-f2",
@@ -9222,7 +9222,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_05-femme",
@@ -9232,7 +9232,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_05-h2",
@@ -9242,7 +9242,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_05",
@@ -9252,7 +9252,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_06-f2",
@@ -9262,7 +9262,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_06-femme",
@@ -9272,7 +9272,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_06-h2",
@@ -9282,7 +9282,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_06",
@@ -9292,7 +9292,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_07-f2",
@@ -9302,7 +9302,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_07-femme",
@@ -9312,7 +9312,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_07-h2",
@@ -9322,7 +9322,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_07",
@@ -9332,7 +9332,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_08-f2",
@@ -9342,7 +9342,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_08-femme",
@@ -9352,7 +9352,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_08-h2",
@@ -9362,7 +9362,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_08",
@@ -9372,7 +9372,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_brun",
@@ -9382,7 +9382,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_check_01",
@@ -9392,7 +9392,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_tablette_01",
@@ -9402,7 +9402,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_tablette_f-01",
@@ -9412,7 +9412,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_f1_tablette_f-02",
@@ -9422,7 +9422,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_officier-securite_01",
@@ -9432,7 +9432,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_officier-securite_02",
@@ -9442,7 +9442,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_officier-securite_03",
@@ -9452,7 +9452,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_officier-securite_04",
@@ -9462,7 +9462,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_officier-securite_05",
@@ -9472,7 +9472,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_officier-securite_06",
@@ -9482,7 +9482,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_officier-securite_07",
@@ -9492,7 +9492,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_officier-securite_08",
@@ -9502,7 +9502,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_operateur_1",
@@ -9512,7 +9512,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_operatrice_1",
@@ -9522,7 +9522,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_soins",
@@ -9532,7 +9532,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_01",
@@ -9542,7 +9542,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_02",
@@ -9552,7 +9552,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_03",
@@ -9562,7 +9562,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_04",
@@ -9572,7 +9572,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_05",
@@ -9582,7 +9582,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_06",
@@ -9592,7 +9592,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_07",
@@ -9602,7 +9602,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_08",
@@ -9612,7 +9612,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_01",
@@ -9622,7 +9622,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_02",
@@ -9632,7 +9632,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_03",
@@ -9642,7 +9642,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_04",
@@ -9652,7 +9652,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_05",
@@ -9662,7 +9662,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_06",
@@ -9672,7 +9672,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_07",
@@ -9682,7 +9682,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_08",
@@ -9692,7 +9692,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_infirmier_01",
@@ -9702,7 +9702,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_infirmier_02",
@@ -9712,7 +9712,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_infirmier_03",
@@ -9722,7 +9722,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_infirmier_04",
@@ -9732,7 +9732,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_infirmier_05",
@@ -9742,7 +9742,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_infirmier_06",
@@ -9752,7 +9752,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_infirmier_07",
@@ -9762,7 +9762,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_infirmier_08",
@@ -9772,7 +9772,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_medecin_01",
@@ -9782,7 +9782,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_medecin_02",
@@ -9792,7 +9792,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_medecin_03",
@@ -9802,7 +9802,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_medecin_04",
@@ -9812,7 +9812,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_medecin_05",
@@ -9822,7 +9822,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_medecin_06",
@@ -9832,7 +9832,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_medecin_07",
@@ -9842,7 +9842,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_medecin_08",
@@ -9852,7 +9852,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_f1_01",
@@ -9862,7 +9862,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_f1_02",
@@ -9872,7 +9872,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_f1_03",
@@ -9882,7 +9882,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sp_sssm_f1_04",
@@ -9892,7 +9892,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sssm-samu_01",
@@ -9902,7 +9902,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-blanc_01",
@@ -9912,7 +9912,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-blanc_02",
@@ -9922,7 +9922,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-blanc_03",
@@ -9932,7 +9932,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-blanc_04",
@@ -9942,7 +9942,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-blanc_05",
@@ -9952,7 +9952,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-blanc_06",
@@ -9962,7 +9962,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-blanc_07",
@@ -9972,7 +9972,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-blanc_08",
@@ -9982,7 +9982,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-jaune_01",
@@ -9992,7 +9992,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-jaune_02",
@@ -10002,7 +10002,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-jaune_03",
@@ -10012,7 +10012,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-jaune_04",
@@ -10022,7 +10022,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-jaune_05",
@@ -10032,7 +10032,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-jaune_06",
@@ -10042,7 +10042,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-jaune_07",
@@ -10052,7 +10052,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-jaune_08",
@@ -10062,7 +10062,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-rouge_01",
@@ -10072,7 +10072,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-rouge_02",
@@ -10082,7 +10082,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-rouge_03",
@@ -10092,7 +10092,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-rouge_04",
@@ -10102,7 +10102,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-rouge_05",
@@ -10112,7 +10112,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-rouge_06",
@@ -10122,7 +10122,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-rouge_07",
@@ -10132,7 +10132,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_cos_sp_cos_casque-rouge_08",
@@ -10142,7 +10142,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp1_a",
@@ -10152,7 +10152,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp1_b",
@@ -10162,7 +10162,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp1_c",
@@ -10172,7 +10172,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp1_d",
@@ -10182,7 +10182,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp2_a",
@@ -10192,7 +10192,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp2_b",
@@ -10202,7 +10202,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp2_c",
@@ -10212,7 +10212,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp2_d",
@@ -10222,7 +10222,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp3_a",
@@ -10232,7 +10232,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp3_b",
@@ -10242,7 +10242,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp3_c",
@@ -10252,7 +10252,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp3_d",
@@ -10262,7 +10262,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp4_a",
@@ -10272,7 +10272,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp4_b",
@@ -10282,7 +10282,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp4_c",
@@ -10292,7 +10292,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp4_d",
@@ -10302,7 +10302,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp_a",
@@ -10312,7 +10312,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp_b",
@@ -10322,7 +10322,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp_c",
@@ -10332,7 +10332,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_jsp_jsp_d",
@@ -10342,7 +10342,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_operateur-cta_01",
@@ -10352,7 +10352,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_operatrice-cta_01",
@@ -10362,7 +10362,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sal_01",
@@ -10372,7 +10372,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sal_02",
@@ -10382,7 +10382,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sal_03",
@@ -10392,7 +10392,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sal_04",
@@ -10402,7 +10402,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sal_05",
@@ -10412,7 +10412,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sal_06",
@@ -10422,7 +10422,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sal_07",
@@ -10432,7 +10432,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sal_08",
@@ -10442,7 +10442,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sav_01",
@@ -10452,7 +10452,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sav_02",
@@ -10462,7 +10462,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sav_03",
@@ -10472,7 +10472,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sav_04",
@@ -10482,7 +10482,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_cyno_01",
@@ -10492,7 +10492,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_cyno_02",
@@ -10502,7 +10502,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_cyno_03",
@@ -10512,7 +10512,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_cyno_04",
@@ -10522,7 +10522,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_cyno_05",
@@ -10532,7 +10532,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_cyno_06",
@@ -10542,7 +10542,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_cyno_07",
@@ -10552,7 +10552,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_cyno_08",
@@ -10562,7 +10562,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_drone_f01",
@@ -10572,7 +10572,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_drone_f02",
@@ -10582,7 +10582,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_drone_h01",
@@ -10592,7 +10592,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_drone_h02",
@@ -10602,7 +10602,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_fdf_01",
@@ -10612,7 +10612,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_fdf_02",
@@ -10622,7 +10622,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_fdf_03",
@@ -10632,7 +10632,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_fdf_04",
@@ -10642,7 +10642,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_fdf_05",
@@ -10652,7 +10652,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_fdf_06",
@@ -10662,7 +10662,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_fdf_07",
@@ -10672,7 +10672,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_fdf_08",
@@ -10682,7 +10682,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_01",
@@ -10692,7 +10692,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_02",
@@ -10702,7 +10702,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_03",
@@ -10712,7 +10712,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_04",
@@ -10722,7 +10722,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_05",
@@ -10732,7 +10732,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_06",
@@ -10742,7 +10742,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_07",
@@ -10752,7 +10752,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_08",
@@ -10762,7 +10762,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_09",
@@ -10772,7 +10772,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_10",
@@ -10782,7 +10782,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_11",
@@ -10792,7 +10792,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_12",
@@ -10802,7 +10802,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_13",
@@ -10812,7 +10812,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_14",
@@ -10822,7 +10822,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_15",
@@ -10832,7 +10832,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres-nrbc_16",
@@ -10842,7 +10842,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_01",
@@ -10852,7 +10852,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_02",
@@ -10862,7 +10862,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_03",
@@ -10872,7 +10872,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_04",
@@ -10882,7 +10882,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_05",
@@ -10892,7 +10892,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_06",
@@ -10902,7 +10902,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_07",
@@ -10912,7 +10912,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_08",
@@ -10922,7 +10922,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_09",
@@ -10932,7 +10932,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_10",
@@ -10942,7 +10942,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_11",
@@ -10952,7 +10952,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_12",
@@ -10962,7 +10962,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_13",
@@ -10972,7 +10972,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_14",
@@ -10982,7 +10982,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_15",
@@ -10992,7 +10992,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_gres_16",
@@ -11002,7 +11002,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_01",
@@ -11012,7 +11012,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_02",
@@ -11022,7 +11022,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_03",
@@ -11032,7 +11032,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_04",
@@ -11042,7 +11042,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_05",
@@ -11052,7 +11052,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_06",
@@ -11062,7 +11062,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_07",
@@ -11072,7 +11072,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_08",
@@ -11082,7 +11082,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_09",
@@ -11092,7 +11092,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_10",
@@ -11102,7 +11102,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_11",
@@ -11112,7 +11112,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_12",
@@ -11122,7 +11122,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_13",
@@ -11132,7 +11132,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_14",
@@ -11142,7 +11142,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_15",
@@ -11152,7 +11152,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_mc_16",
@@ -11162,7 +11162,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce-chimiste_01",
@@ -11172,7 +11172,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_01",
@@ -11182,7 +11182,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_02",
@@ -11192,7 +11192,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_03",
@@ -11202,7 +11202,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_04",
@@ -11212,7 +11212,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_05",
@@ -11222,7 +11222,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_06",
@@ -11232,7 +11232,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_07",
@@ -11242,7 +11242,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_08",
@@ -11252,7 +11252,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_ari_01",
@@ -11262,7 +11262,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_ari_02",
@@ -11272,7 +11272,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_ari_03",
@@ -11282,7 +11282,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_ari_04",
@@ -11292,7 +11292,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_ari_05",
@@ -11302,7 +11302,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_ari_06",
@@ -11312,7 +11312,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_ari_07",
@@ -11322,7 +11322,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_ari_08",
@@ -11332,7 +11332,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmic_01",
@@ -11342,7 +11342,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmic_02",
@@ -11352,7 +11352,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmic_03",
@@ -11362,7 +11362,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmic_04",
@@ -11372,7 +11372,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmic_05",
@@ -11382,7 +11382,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmic_06",
@@ -11392,7 +11392,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmic_08",
@@ -11402,7 +11402,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmir_01",
@@ -11412,7 +11412,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmir_02",
@@ -11422,7 +11422,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmir_03",
@@ -11432,7 +11432,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmir_04",
@@ -11442,7 +11442,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmir_05",
@@ -11452,7 +11452,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmir_06",
@@ -11462,7 +11462,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmir_07",
@@ -11472,7 +11472,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmir_08",
@@ -11482,7 +11482,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_sd_01",
@@ -11492,7 +11492,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_sd_02",
@@ -11502,7 +11502,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_sd_03",
@@ -11512,7 +11512,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_sd_04",
@@ -11522,7 +11522,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_sd_05",
@@ -11532,7 +11532,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_sd_06",
@@ -11542,7 +11542,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_sd_07",
@@ -11552,7 +11552,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_sd_08",
@@ -11562,7 +11562,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_01a",
@@ -11572,7 +11572,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_01b",
@@ -11582,7 +11582,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_01c",
@@ -11592,7 +11592,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_02a",
@@ -11602,7 +11602,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_02b",
@@ -11612,7 +11612,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_02c",
@@ -11622,7 +11622,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_03a",
@@ -11632,7 +11632,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_03b",
@@ -11642,7 +11642,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_03c",
@@ -11652,7 +11652,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_04a",
@@ -11662,7 +11662,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_04b",
@@ -11672,7 +11672,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_04c",
@@ -11682,7 +11682,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_05a",
@@ -11692,7 +11692,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_05b",
@@ -11702,7 +11702,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_05c",
@@ -11712,7 +11712,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_06a",
@@ -11722,7 +11722,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_06b",
@@ -11732,7 +11732,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_06c",
@@ -11742,7 +11742,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_07a",
@@ -11752,7 +11752,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_07b",
@@ -11762,7 +11762,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_07c",
@@ -11772,7 +11772,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_08a",
@@ -11782,7 +11782,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_08b",
@@ -11792,7 +11792,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_specialite_smpm_08c",
@@ -11802,7 +11802,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_sp_cialit_casque-blanc",
@@ -11812,7 +11812,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_specialites_sp_sp_cialit_casque-jaune",
@@ -11822,7 +11822,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport-femme_01",
@@ -11832,7 +11832,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport-femme_02",
@@ -11842,7 +11842,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport-femme_03",
@@ -11852,7 +11852,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport-femme_04",
@@ -11862,7 +11862,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport-killy_01",
@@ -11872,7 +11872,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_01",
@@ -11882,7 +11882,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_02",
@@ -11892,7 +11892,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_03",
@@ -11902,7 +11902,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_04",
@@ -11912,7 +11912,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_05",
@@ -11922,7 +11922,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_06",
@@ -11932,7 +11932,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_07",
@@ -11942,7 +11942,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_08",
@@ -11952,7 +11952,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_11",
@@ -11962,7 +11962,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_12",
@@ -11972,7 +11972,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_13",
@@ -11982,7 +11982,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_14",
@@ -11992,7 +11992,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_15",
@@ -12002,7 +12002,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_16",
@@ -12012,7 +12012,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_17",
@@ -12022,7 +12022,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_sp_sport_18",
@@ -12032,7 +12032,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_personnels_sport_podium",
@@ -12042,7 +12042,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "people",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 0.5
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_bea_01",
@@ -12052,7 +12052,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_bea_02",
@@ -12062,7 +12062,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_bls_01",
@@ -12072,7 +12072,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_bls_02",
@@ -12082,7 +12082,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_bms_01",
@@ -12092,7 +12092,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_bms_02",
@@ -12102,7 +12102,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_bps_01",
@@ -12112,7 +12112,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_bps_02",
@@ -12122,7 +12122,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_bps_03",
@@ -12132,7 +12132,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_bps_04",
@@ -12142,7 +12142,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_ccfm_01",
@@ -12152,7 +12152,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_ccfm_02",
@@ -12162,7 +12162,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_ccfm_03",
@@ -12172,7 +12172,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_ccfm_04",
@@ -12182,7 +12182,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_cci_01",
@@ -12192,7 +12192,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_cci_02",
@@ -12202,7 +12202,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_cci_03",
@@ -12212,7 +12212,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_cci_04",
@@ -12222,7 +12222,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_cdhr_01",
@@ -12232,7 +12232,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_cdhr_02",
@@ -12242,7 +12242,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_cdhr_03",
@@ -12252,7 +12252,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_cdhr_04",
@@ -12262,7 +12262,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_feld_01",
@@ -12272,7 +12272,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_feld_02",
@@ -12282,7 +12282,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_feld_03",
@@ -12292,7 +12292,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_feld_04",
@@ -12302,7 +12302,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fextract_01",
@@ -12312,7 +12312,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fextract_02",
@@ -12322,7 +12322,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fextract_03",
@@ -12332,7 +12332,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fextract_04",
@@ -12342,7 +12342,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fmc_01",
@@ -12352,7 +12352,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fmc_02",
@@ -12362,7 +12362,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fmc_03",
@@ -12372,7 +12372,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fmc_04",
@@ -12382,7 +12382,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fmogp_01",
@@ -12392,7 +12392,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fmogp_02",
@@ -12402,7 +12402,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fmogp_03",
@@ -12412,7 +12412,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fmogp_04",
@@ -12422,7 +12422,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fnrbc_01",
@@ -12432,7 +12432,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fnrbc_02",
@@ -12442,7 +12442,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fnrbc_03",
@@ -12452,7 +12452,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fnrbc_04",
@@ -12462,7 +12462,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fourgon_01",
@@ -12472,7 +12472,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fourgon_02",
@@ -12482,7 +12482,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fourgon_03",
@@ -12492,7 +12492,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fourgon_04",
@@ -12502,7 +12502,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fpt_01",
@@ -12512,7 +12512,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fpt_02",
@@ -12522,7 +12522,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fpt_03",
@@ -12532,7 +12532,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fpt_04",
@@ -12542,7 +12542,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fptasr_01",
@@ -12552,7 +12552,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fptasr_02",
@@ -12562,7 +12562,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fptasr_03",
@@ -12572,7 +12572,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fptasr_04",
@@ -12582,7 +12582,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fptl_01",
@@ -12592,7 +12592,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fsd_01",
@@ -12602,7 +12602,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fsd_02",
@@ -12612,7 +12612,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fsd_03",
@@ -12622,7 +12622,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fsd_04",
@@ -12632,7 +12632,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fsr_01",
@@ -12642,7 +12642,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fsr_02",
@@ -12652,7 +12652,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fsr_03",
@@ -12662,7 +12662,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fsr_04",
@@ -12672,7 +12672,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fsul_01",
@@ -12682,7 +12682,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fsul_02",
@@ -12692,7 +12692,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fsul_03",
@@ -12702,7 +12702,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_fsul_04",
@@ -12712,7 +12712,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_letai_01",
@@ -12722,7 +12722,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_letai_02",
@@ -12732,7 +12732,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_letai_03",
@@ -12742,7 +12742,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_letai_04",
@@ -12752,7 +12752,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_log_01",
@@ -12762,7 +12762,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_log_02",
@@ -12772,7 +12772,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_log_03",
@@ -12782,7 +12782,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_log_04",
@@ -12792,7 +12792,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_log_05",
@@ -12802,7 +12802,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_log_06",
@@ -12812,7 +12812,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_mea_01",
@@ -12822,7 +12822,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_mea_02",
@@ -12832,7 +12832,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_pco_01",
@@ -12842,7 +12842,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_pco_02",
@@ -12852,7 +12852,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_r2bls_01",
@@ -12862,7 +12862,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_r2bls_02",
@@ -12872,7 +12872,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_robot-inc-rail",
@@ -12882,7 +12882,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_robot-inc",
@@ -12892,7 +12892,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_robot-suap",
@@ -12902,7 +12902,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_rpo_01",
@@ -12912,7 +12912,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_rpo_02",
@@ -12922,7 +12922,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_rsat_01",
@@ -12932,7 +12932,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_rsat_02",
@@ -12942,7 +12942,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_smpm_01",
@@ -12952,7 +12952,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_smpm_02",
@@ -12962,7 +12962,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_smpm_03",
@@ -12972,7 +12972,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_smpm_04",
@@ -12982,7 +12982,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vamm_01",
@@ -12992,7 +12992,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vamm_02",
@@ -13002,7 +13002,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vamm_03",
@@ -13012,7 +13012,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vamm_04",
@@ -13022,7 +13022,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vdip_01",
@@ -13032,7 +13032,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vdip_02",
@@ -13042,7 +13042,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vdip_03",
@@ -13052,7 +13052,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vdip_04",
@@ -13062,7 +13062,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vepb_01",
@@ -13072,7 +13072,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vepb_02",
@@ -13082,7 +13082,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vepb_03",
@@ -13092,7 +13092,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vepb_04",
@@ -13102,7 +13102,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vfi_01",
@@ -13112,7 +13112,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vfi_02",
@@ -13122,7 +13122,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vfi_03",
@@ -13132,7 +13132,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vfi_04",
@@ -13142,7 +13142,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vfitt_01",
@@ -13152,7 +13152,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vfitt_02",
@@ -13162,7 +13162,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vfitt_03",
@@ -13172,7 +13172,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vfitt_04",
@@ -13182,7 +13182,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vid_01",
@@ -13192,7 +13192,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vid_02",
@@ -13202,7 +13202,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vid_03",
@@ -13212,7 +13212,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vid_04",
@@ -13222,7 +13222,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vimp_01",
@@ -13232,7 +13232,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vimp_02",
@@ -13242,7 +13242,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vimp_03",
@@ -13252,7 +13252,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vimp_04",
@@ -13262,7 +13262,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vimp_ancien",
@@ -13272,7 +13272,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vl-gris_01",
@@ -13282,7 +13282,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vl-gris_02",
@@ -13292,7 +13292,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vl-gris_03",
@@ -13302,7 +13302,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vl-gris_04",
@@ -13312,7 +13312,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vl-rouge_01",
@@ -13322,7 +13322,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vl-rouge_02",
@@ -13332,7 +13332,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vl-rouge_03",
@@ -13342,7 +13342,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vl-rouge_04",
@@ -13352,7 +13352,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vpc_01",
@@ -13362,7 +13362,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vpc_02",
@@ -13372,7 +13372,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vpc_03",
@@ -13382,7 +13382,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vpc_04",
@@ -13392,7 +13392,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsav_01",
@@ -13402,7 +13402,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsav_01b",
@@ -13412,7 +13412,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsav_02",
@@ -13422,7 +13422,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsav_02b",
@@ -13432,7 +13432,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsav_03",
@@ -13442,7 +13442,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsav_03_ouvert",
@@ -13452,7 +13452,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsav_03b",
@@ -13462,7 +13462,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsav_04",
@@ -13472,7 +13472,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsav_04_ouvert",
@@ -13482,7 +13482,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsav_04b",
@@ -13492,7 +13492,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsm_01",
@@ -13502,7 +13502,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsm_01b",
@@ -13512,7 +13512,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsm_02",
@@ -13522,7 +13522,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsm_02b",
@@ -13532,7 +13532,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsm_03",
@@ -13542,7 +13542,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsm_03b",
@@ -13552,7 +13552,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsm_04",
@@ -13562,7 +13562,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsm_04b",
@@ -13572,7 +13572,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsn_01",
@@ -13582,7 +13582,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsn_02",
@@ -13592,7 +13592,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsn_03",
@@ -13602,7 +13602,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vsn_04",
@@ -13612,7 +13612,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vtaqua_01",
@@ -13622,7 +13622,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vtaqua_02",
@@ -13632,7 +13632,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vtaqua_03",
@@ -13642,7 +13642,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vtaqua_04",
@@ -13652,7 +13652,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vtp_01",
@@ -13662,7 +13662,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vtp_02",
@@ -13672,7 +13672,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vtp_03",
@@ -13682,7 +13682,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vtp_04",
@@ -13692,7 +13692,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vtut_01",
@@ -13702,7 +13702,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vtut_02",
@@ -13712,7 +13712,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vtut_03",
@@ -13722,7 +13722,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_sp_vtut_04",
@@ -13732,7 +13732,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_securite-civile_bombardier-canadair_01",
@@ -13742,7 +13742,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_securite-civile_bombardier-canadair_02",
@@ -13752,7 +13752,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_securite-civile_bombardier-dash_01",
@@ -13762,7 +13762,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_securite-civile_bombardier-dash_02",
@@ -13772,7 +13772,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_securite-civile_dragon_01",
@@ -13782,7 +13782,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sp_sp_vehicules_securite-civile_dragon_02",
@@ -13792,7 +13792,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "vehicles",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 2
   },
   {
     "id": "sdmis_sinistres_incendie_habitation_01",
@@ -13802,7 +13802,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sinistres_incendie_pl_01",
@@ -13812,7 +13812,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sinistres_incendie_pl_02",
@@ -13822,7 +13822,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sinistres_incendie_vl_01",
@@ -13832,7 +13832,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   },
   {
     "id": "sdmis_sinistres_incendie_vl_02",
@@ -13842,7 +13842,7 @@ export const sdmisIcons: Icons = [
     "subcategory": "",
     "isIsometric": true,
     "colorizable": false,
-    "scaleFactor": 1
+    "scaleFactor": 3
   }
 ];
 

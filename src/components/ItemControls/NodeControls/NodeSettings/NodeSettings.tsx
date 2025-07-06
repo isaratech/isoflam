@@ -4,10 +4,13 @@ import {
   Box,
   TextField,
   ToggleButton,
-  ToggleButtonGroup
+  ToggleButtonGroup,
+  IconButton,
+  Tooltip
 } from '@mui/material';
-import { SwapHoriz, SwapVert } from '@mui/icons-material';
+import { SwapHoriz, SwapVert, RestartAlt } from '@mui/icons-material';
 import { ModelItem, ViewItem } from 'src/types';
+import { DEFAULTS_VIEW_ITEM } from 'src/config';
 import { MarkdownEditor } from 'src/components/MarkdownEditor/MarkdownEditor';
 import { useModelItem } from 'src/hooks/useModelItem';
 import { useIcon } from 'src/hooks/useIcon';
@@ -75,7 +78,7 @@ export const NodeSettings = ({
               marks
               step={0.1}
               min={0.1}
-              value={node.scaleFactor ?? 1}
+              value={node.scaleFactor ?? (icon.scaleFactor ?? 1)}
               onChange={(e, newScale) => {
                 const scaleFactor = newScale as number;
                 // Calculate proportional label height based on scale factor
@@ -97,7 +100,7 @@ export const NodeSettings = ({
               min: 0.1,
               step: 0.1
             }}
-            value={node.scaleFactor ?? 1}
+            value={node.scaleFactor ?? (icon.scaleFactor ?? 1)}
             onChange={(e) => {
               const value = parseFloat(e.target.value);
               if (!Number.isNaN(value) && value >= 0.1) {
@@ -114,6 +117,26 @@ export const NodeSettings = ({
             }}
             sx={{ width: '80px' }}
           />
+          <Tooltip title={t('Reset to default size')}>
+            <IconButton
+              onClick={() => {
+                // Use the icon's original scale factor, fallback to 1 if not defined
+                const originalScaleFactor = icon.scaleFactor ?? 1;
+                // Calculate proportional label height based on original scale factor
+                const baseLabelHeight = DEFAULTS_VIEW_ITEM.labelHeight;
+                const adjustedLabelHeight = Math.round(
+                  baseLabelHeight * originalScaleFactor
+                );
+                onViewItemUpdated({
+                  scaleFactor: originalScaleFactor,
+                  labelHeight: adjustedLabelHeight
+                });
+              }}
+              size="small"
+            >
+              <RestartAlt />
+            </IconButton>
+          </Tooltip>
         </Box>
       </Section>
       {icon.colorizable !== false && (
