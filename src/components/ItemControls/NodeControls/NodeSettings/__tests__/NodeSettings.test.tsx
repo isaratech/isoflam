@@ -2,6 +2,9 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { NodeSettings } from '../NodeSettings';
 import { ViewItem, ModelItem } from 'src/types';
+import { ModelProvider } from 'src/stores/modelStore';
+import { SceneProvider } from 'src/stores/sceneStore';
+import { UiStateProvider } from 'src/stores/uiStateStore';
 
 // Mock the hooks
 jest.mock('src/hooks/useModelItem', () => ({
@@ -29,6 +32,18 @@ jest.mock('src/hooks/useTranslation', () => ({
   }))
 }));
 
+jest.mock('src/components/MarkdownEditor/MarkdownEditor', () => ({
+  MarkdownEditor: ({ value, onChange }: any) => {
+    return (
+      <textarea
+        value={value}
+        onChange={(e) => onChange && onChange(e.target.value)}
+        data-testid="markdown-editor"
+      />
+    );
+  }
+}));
+
 describe('NodeSettings', () => {
   const mockNode: ViewItem = {
     id: 'test-id',
@@ -48,11 +63,20 @@ describe('NodeSettings', () => {
   };
 
   it('should display icon scaleFactor when node scaleFactor is undefined', () => {
-    render(<NodeSettings {...mockProps} />);
+    render(
+      <ModelProvider>
+        <SceneProvider>
+          <UiStateProvider>
+            <NodeSettings {...mockProps} />
+          </UiStateProvider>
+        </SceneProvider>
+      </ModelProvider>
+    );
 
     // The scale input should show 0.5 (from icon.scaleFactor) instead of 1
-    const scaleInput = screen.getByDisplayValue('0.5');
-    expect(scaleInput).toBeInTheDocument();
+    const scaleInputs = screen.getAllByDisplayValue('0.5');
+    const numberInput = scaleInputs.find(input => input.getAttribute('type') === 'number');
+    expect(numberInput).toBeInTheDocument();
   });
 
   it('should display node scaleFactor when it is defined', () => {
@@ -61,10 +85,19 @@ describe('NodeSettings', () => {
       scaleFactor: 1.5
     };
 
-    render(<NodeSettings {...mockProps} node={nodeWithScale} />);
+    render(
+      <ModelProvider>
+        <SceneProvider>
+          <UiStateProvider>
+            <NodeSettings {...mockProps} node={nodeWithScale} />
+          </UiStateProvider>
+        </SceneProvider>
+      </ModelProvider>
+    );
 
     // The scale input should show 1.5 (from node.scaleFactor)
-    const scaleInput = screen.getByDisplayValue('1.5');
-    expect(scaleInput).toBeInTheDocument();
+    const scaleInputs = screen.getAllByDisplayValue('1.5');
+    const numberInput = scaleInputs.find(input => input.getAttribute('type') === 'number');
+    expect(numberInput).toBeInTheDocument();
   });
 });
