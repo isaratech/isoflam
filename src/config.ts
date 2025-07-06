@@ -129,7 +129,9 @@ export const DEFAULTS_TEXTBOX: Required<
 > = {
   orientation: 'X',
   fontSize: 0.6,
-  content: 'Text'
+  content: 'Text',
+  isBold: true,
+  isItalic: false
 };
 
 /**
