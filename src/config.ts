@@ -160,20 +160,6 @@ export const DEFAULTS_VOLUME: Required<
   hasRoof: true
 };
 
-/**
- * Default configuration for volumes (3D area selections).
- * Defines default line style, height, and roof settings.
- */
-export const DEFAULTS_VOLUME: Required<
-  Omit<Volume, 'id' | 'from' | 'to' | 'color'>
-> = {
-  style: 'NONE',
-  width: 1,
-  radius: 22,
-  height: 1,
-  hasRoof: true
-};
-
 // =============================================================================
 // CONNECTOR SPECIFIC CONFIGURATION
 // =============================================================================

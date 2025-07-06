@@ -16,7 +16,8 @@ describe('viewItem reducer', () => {
           items: [],
           connectors: [],
           textBoxes: [],
-          rectangles: []
+          rectangles: [],
+          volumes: []
         }
       ]
     },

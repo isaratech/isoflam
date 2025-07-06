@@ -63,6 +63,7 @@ export const views: Model['views'] = [
           { id: 'anch2-2', ref: { item: 'node3' } }
         ]
       }
-    ]
+    ],
+    volumes: []
   }
 ];
