@@ -4,9 +4,11 @@ import {
   Box,
   TextField,
   ToggleButton,
-  ToggleButtonGroup
+  ToggleButtonGroup,
+  IconButton,
+  Tooltip
 } from '@mui/material';
-import { SwapHoriz, SwapVert } from '@mui/icons-material';
+import { SwapHoriz, SwapVert, RestartAlt } from '@mui/icons-material';
 import { ModelItem, ViewItem } from 'src/types';
 import { MarkdownEditor } from 'src/components/MarkdownEditor/MarkdownEditor';
 import { useModelItem } from 'src/hooks/useModelItem';
@@ -114,6 +116,21 @@ export const NodeSettings = ({
             }}
             sx={{ width: '80px' }}
           />
+          <Tooltip title={t('Reset to default size')}>
+            <IconButton
+              onClick={() => {
+                const defaultScaleFactor = 1;
+                const baseLabelHeight = 80;
+                onViewItemUpdated({
+                  scaleFactor: defaultScaleFactor,
+                  labelHeight: baseLabelHeight
+                });
+              }}
+              size="small"
+            >
+              <RestartAlt />
+            </IconButton>
+          </Tooltip>
         </Box>
       </Section>
       {icon.colorizable !== false && (

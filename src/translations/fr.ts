@@ -59,6 +59,7 @@ export const frTranslations = {
   Description: 'Description',
   'Label height': 'Hauteur du libellé',
   'Icon scale': "Taille de l'icône",
+  'Reset to default size': 'Réinitialiser à la taille par défaut',
 
   // ColorSelector
   'No colors available': 'Aucune couleur disponible',
@@ -74,7 +75,7 @@ export const frTranslations = {
   SOLID: 'CONTINU',
   DOTTED: 'POINTILLÉ',
   DASHED: 'TIRETS',
-    NONE: 'AUCUN',
+  NONE: 'AUCUN',
 
   // ContextMenu
   'Send backward': 'Reculer',
