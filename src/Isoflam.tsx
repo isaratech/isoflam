@@ -3,7 +3,12 @@ import { ThemeProvider } from '@mui/material/styles';
 import { Box, GlobalStyles as MUIGlobalStyles } from '@mui/material';
 import { theme } from 'src/styles/theme';
 import { IsoflamProps } from 'src/types';
-import { setWindowCursor, modelFromModelStore } from 'src/utils';
+import {
+  setWindowCursor,
+  modelFromModelStore,
+  hasSharedModelInUrl,
+  extractModelFromUrl
+} from 'src/utils';
 import { useModelStore, ModelProvider } from 'src/stores/modelStore';
 import { SceneProvider } from 'src/stores/sceneStore';
 import 'react-quill/dist/quill.snow.css';
@@ -39,6 +44,16 @@ const App = ({
   const { load } = initialDataManager;
 
   useEffect(() => {
+    // Check if there's a shared model in the URL
+    if (hasSharedModelInUrl()) {
+      const sharedModel = extractModelFromUrl();
+      if (sharedModel) {
+        // Load the shared model
+        load(sharedModel);
+        return;
+      }
+    }
+    // If no shared model or extraction failed, load the initial data
     load({ ...INITIAL_DATA, ...initialData });
   }, [initialData, load]);
 

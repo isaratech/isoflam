@@ -17,6 +17,7 @@ import { useScene } from 'src/hooks/useScene';
 import { useModelStore } from 'src/stores/modelStore';
 import { ExportImageDialog } from '../ExportImageDialog/ExportImageDialog';
 import { CreditsDialog } from '../CreditsDialog/CreditsDialog';
+import { ShareDialog } from '../ShareDialog/ShareDialog';
 import horusLogo from 'src/assets/horus.png';
 
 const ToolsEnum = {
@@ -296,6 +297,22 @@ export const UiOverlay = () => {
 
       {dialog === 'CREDITS' && (
         <CreditsDialog
+          onClose={() => {
+            return uiStateActions.setDialog(null);
+          }}
+        />
+      )}
+
+      {dialog === 'SHARE' && (
+        <ShareDialog
+          onClose={() => {
+            return uiStateActions.setDialog(null);
+          }}
+        />
+      )}
+
+      {dialog === 'SHARE' && (
+        <ShareDialog
           onClose={() => {
             return uiStateActions.setDialog(null);
           }}

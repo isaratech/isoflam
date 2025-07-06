@@ -76,6 +76,7 @@
     "file-saver": "^2.0.5",
     "gsap": "^3.11.4",
     "immer": "^10.0.2",
+    "lz-string": "^1.5.0",
     "mui-color-input": "^2.0.3",
     "paper": "^0.12.17",
     "pathfinding": "^0.4.18",

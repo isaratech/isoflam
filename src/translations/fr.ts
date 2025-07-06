@@ -4,9 +4,21 @@ export const frTranslations = {
   Open: 'Ouvrir un JSON',
   'Export as JSON': 'Exporter en JSON',
   'Export as image': 'Exporter en image',
+  'Share': 'Partager',
   'Clear the canvas': 'Effacer le canevas',
   GitHub: 'GitHub',
   Discord: 'Discord',
+  
+  // ShareDialog
+  'Share Scene': 'Partager la scène',
+  'Share your scene with others by copying this link:': 'Partagez votre scène avec d\'autres en copiant ce lien :',
+  'Copy': 'Copier',
+  'The scene is too large to share via URL. Try simplifying your scene.': 'La scène est trop volumineuse pour être partagée via URL. Essayez de simplifier votre scène.',
+  'Failed to generate shareable URL': 'Échec de la génération de l\'URL de partage',
+  'Failed to copy URL to clipboard': 'Échec de la copie de l\'URL dans le presse-papiers',
+  'Link copied to clipboard': 'Lien copié dans le presse-papiers',
+  'Anyone with this link can view and edit this scene. The link contains all scene data compressed into the URL.': 'Toute personne disposant de ce lien peut visualiser et modifier cette scène. Le lien contient toutes les données de la scène compressées dans l\'URL.',
+  'Close': 'Fermer',
 
   // ToolMenu
   Select: 'Sélectionner',
