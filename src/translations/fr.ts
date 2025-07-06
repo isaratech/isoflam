@@ -13,6 +13,7 @@ export const frTranslations = {
   Pan: 'Déplacer',
   'Add item': 'Ajouter un élément',
   Rectangle: 'Rectangle',
+  Volume: 'Volume',
   Connector: 'Connecteur',
   Text: 'Texte',
 
@@ -66,6 +67,9 @@ export const frTranslations = {
   // ConnectorControls
   Width: 'Largeur',
   Radius: 'Rayon',
+  Height: 'Hauteur',
+  Roof: 'Toit',
+  'Show Roof': 'Afficher le toit',
   Style: 'Style',
   Triangle: 'Triangle',
   'Show triangle': 'Afficher le triangle',

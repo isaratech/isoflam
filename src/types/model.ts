@@ -13,6 +13,7 @@ import {
   anchorSchema,
   textBoxSchema,
   rectangleSchema,
+  volumeSchema,
   connectorStyleOptions,
   rectangleStyleOptions
 } from 'src/schemas';
@@ -34,6 +35,7 @@ export type ConnectorAnchor = z.infer<typeof anchorSchema>;
 export type Connector = z.infer<typeof connectorSchema>;
 export type TextBox = z.infer<typeof textBoxSchema>;
 export type Rectangle = z.infer<typeof rectangleSchema>;
+export type Volume = z.infer<typeof volumeSchema>;
 
 export type ModelStore = Model & {
   actions: {

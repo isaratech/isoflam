@@ -6,3 +6,4 @@ export * from './views';
 export * from './connector';
 export * from './rectangle';
 export * from './textBox';
+export * from './volume';

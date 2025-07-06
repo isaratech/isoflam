@@ -5,6 +5,7 @@ import {
   Connector,
   TextBox,
   Rectangle,
+  Volume,
   ItemReference,
   LayerOrderingAction
 } from 'src/types';
@@ -68,6 +69,14 @@ export const useScene = () => {
       };
     });
   }, [currentView?.rectangles]);
+
+  const volumes = useMemo(() => {
+    return (currentView?.volumes ?? []).map((volume) => {
+      return {
+        ...volume
+      };
+    });
+  }, [currentView?.volumes]);
 
   const textBoxes = useMemo(() => {
     return (currentView?.textBoxes ?? []).map((textBox) => {
@@ -264,6 +273,42 @@ export const useScene = () => {
     [getState, setState, currentViewId]
   );
 
+  const createVolume = useCallback(
+    (newVolume: Volume) => {
+      const newState = reducers.view({
+        action: 'CREATE_VOLUME',
+        payload: newVolume,
+        ctx: { viewId: currentViewId, state: getState() }
+      });
+      setState(newState);
+    },
+    [getState, setState, currentViewId]
+  );
+
+  const updateVolume = useCallback(
+    (id: string, updates: Partial<Volume>) => {
+      const newState = reducers.view({
+        action: 'UPDATE_VOLUME',
+        payload: { id, ...updates },
+        ctx: { viewId: currentViewId, state: getState() }
+      });
+      setState(newState);
+    },
+    [getState, setState, currentViewId]
+  );
+
+  const deleteVolume = useCallback(
+    (id: string) => {
+      const newState = reducers.view({
+        action: 'DELETE_VOLUME',
+        payload: id,
+        ctx: { viewId: currentViewId, state: getState() }
+      });
+      setState(newState);
+    },
+    [getState, setState, currentViewId]
+  );
+
   const changeLayerOrder = useCallback(
     (action: LayerOrderingAction, item: ItemReference) => {
       const newState = reducers.view({
@@ -281,6 +326,7 @@ export const useScene = () => {
     connectors,
     colors,
     rectangles,
+    volumes,
     textBoxes,
     currentView,
     createModelItem,
@@ -298,6 +344,9 @@ export const useScene = () => {
     createRectangle,
     updateRectangle,
     deleteRectangle,
+    createVolume,
+    updateVolume,
+    deleteVolume,
     changeLayerOrder
   };
 };

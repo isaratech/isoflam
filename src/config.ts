@@ -8,6 +8,7 @@ import {
   ViewItem,
   View,
   Rectangle,
+  Volume,
   Colors
 } from 'src/types';
 import { CoordsUtils } from 'src/utils';
@@ -93,6 +94,7 @@ export const DEFAULTS_VIEW: Required<
   items: [],
   connectors: [],
   rectangles: [],
+  volumes: [],
   textBoxes: []
 };
 
@@ -142,6 +144,34 @@ export const DEFAULTS_RECTANGLE: Required<
   style: 'NONE',
   width: 1,
   radius: 22
+};
+
+/**
+ * Default configuration for volumes (3D area selections).
+ * Defines default line style, height, and roof settings.
+ */
+export const DEFAULTS_VOLUME: Required<
+  Omit<Volume, 'id' | 'from' | 'to' | 'color'>
+> = {
+  style: 'NONE',
+  width: 1,
+  radius: 22,
+  height: 1,
+  hasRoof: true
+};
+
+/**
+ * Default configuration for volumes (3D area selections).
+ * Defines default line style, height, and roof settings.
+ */
+export const DEFAULTS_VOLUME: Required<
+  Omit<Volume, 'id' | 'from' | 'to' | 'color'>
+> = {
+  style: 'NONE',
+  width: 1,
+  radius: 22,
+  height: 1,
+  hasRoof: true
 };
 
 // =============================================================================

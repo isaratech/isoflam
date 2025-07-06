@@ -6,6 +6,7 @@ import {
   AddOutlined as AddIcon,
   EastOutlined as ConnectorIcon,
   CropSquareOutlined as CropSquareIcon,
+  ViewInAr as VolumeIcon,
   Title as TitleIcon
 } from '@mui/icons-material';
 import { useUiStateStore } from 'src/stores/uiStateStore';
@@ -99,6 +100,18 @@ export const ToolMenu = () => {
             });
           }}
           isActive={mode.type === 'RECTANGLE.DRAW'}
+        />
+        <IconButton
+          name={t('Volume')}
+          Icon={<VolumeIcon />}
+          onClick={() => {
+            uiStateStoreActions.setMode({
+              type: 'VOLUME.DRAW',
+              showCursor: true,
+              id: null
+            });
+          }}
+          isActive={mode.type === 'VOLUME.DRAW'}
         />
         <IconButton
           name={t('Connector')}

@@ -65,6 +65,15 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
     onClose();
   }, [uiStateActions, onClose]);
 
+  const createNewVolume = useCallback(() => {
+    uiStateActions.setMode({
+      type: 'VOLUME.DRAW',
+      showCursor: true,
+      id: null
+    });
+    onClose();
+  }, [uiStateActions, onClose]);
+
   const createNewConnector = useCallback(() => {
     uiStateActions.setMode({
       type: 'CONNECTOR',
