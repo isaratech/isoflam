@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import { SwapHoriz, SwapVert, RestartAlt } from '@mui/icons-material';
 import { ModelItem, ViewItem } from 'src/types';
+import { DEFAULTS_VIEW_ITEM } from 'src/config';
 import { MarkdownEditor } from 'src/components/MarkdownEditor/MarkdownEditor';
 import { useModelItem } from 'src/hooks/useModelItem';
 import { useIcon } from 'src/hooks/useIcon';
@@ -119,11 +120,16 @@ export const NodeSettings = ({
           <Tooltip title={t('Reset to default size')}>
             <IconButton
               onClick={() => {
+                // Use the default scale factor of 1 as defined in the icon schema
                 const defaultScaleFactor = 1;
-                const baseLabelHeight = 80;
+                // Calculate proportional label height based on default scale factor
+                const baseLabelHeight = DEFAULTS_VIEW_ITEM.labelHeight;
+                const adjustedLabelHeight = Math.round(
+                  baseLabelHeight * defaultScaleFactor
+                );
                 onViewItemUpdated({
                   scaleFactor: defaultScaleFactor,
-                  labelHeight: baseLabelHeight
+                  labelHeight: adjustedLabelHeight
                 });
               }}
               size="small"
