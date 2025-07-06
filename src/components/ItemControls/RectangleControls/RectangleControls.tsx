@@ -11,6 +11,7 @@ import { ControlsContainer } from '../components/ControlsContainer';
 import { Section } from '../components/Section';
 import { DeleteButton } from '../components/DeleteButton';
 import { DuplicateButton } from '../components/DuplicateButton';
+import { ConvertButton } from '../components/ConvertButton';
 import { AdvancedSettings } from '../components/AdvancedSettings';
 
 interface Props {
@@ -23,7 +24,7 @@ export const RectangleControls = ({ id }: Props) => {
     return state.actions;
   });
   const rectangle = useRectangle(id);
-  const { updateRectangle, deleteRectangle, createRectangle } = useScene();
+  const { updateRectangle, deleteRectangle, createRectangle, createVolume } = useScene();
 
   return (
     <ControlsContainer>
@@ -86,6 +87,22 @@ export const RectangleControls = ({ id }: Props) => {
       {/* Action buttons */}
       <Section>
         <Box sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
+          <ConvertButton
+            onClick={() => {
+              // Create a volume from the rectangle
+              const newVolume = {
+                ...rectangle,
+                id: generateId(),
+                height: 1,
+                hasRoof: true
+              };
+              createVolume(newVolume);
+              
+              // Remove the original rectangle
+              uiStateActions.setItemControls(null);
+              deleteRectangle(rectangle.id);
+            }}
+          />
           <DuplicateButton
             onClick={() => {
               // Create a duplicate of the rectangle with position in adjacent cell and a unique ID

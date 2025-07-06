@@ -1,25 +1,31 @@
 import React, { useMemo } from 'react';
 import { useScene } from 'src/hooks/useScene';
-import { Svg } from 'src/components/Svg/Svg';
+import { IsoTileArea } from 'src/components/IsoTileArea/IsoTileArea';
 import { getColorVariant } from 'src/utils';
 import { useColor } from 'src/hooks/useColor';
 import { useIsoProjection } from 'src/hooks/useIsoProjection';
 import { UNPROJECTED_TILE_SIZE } from 'src/config';
+import { Svg } from 'src/components/Svg/Svg';
 
 type Props = ReturnType<typeof useScene>['volumes'][0];
 
 export const Volume = ({ from, to, color: colorId, style, width, radius, height = 1, hasRoof = true }: Props) => {
   const color = useColor(colorId);
-  
+
+  // Only apply stroke when style is not 'NONE'
+  const strokeProps = style && style !== 'NONE' ? {
+    stroke: {
+      color: getColorVariant(color.value, 'dark', { grade: 2 }),
+      width: width || 1,
+      style
+    }
+  } : {};
+
+  // For 3D extrusion
   const { css, pxSize } = useIsoProjection({
     from,
     to
   });
-
-  // Only apply stroke when style is not 'NONE'
-  const strokeColor = style && style !== 'NONE' ? getColorVariant(color.value, 'dark', { grade: 2 }) : undefined;
-  const strokeWidth = style && style !== 'NONE' ? width || 1 : undefined;
-  const strokeDasharray = style && style === 'DASHED' ? '5,5' : undefined;
 
   // Calculate the height in pixels
   const heightPx = height * UNPROJECTED_TILE_SIZE / 2;
@@ -57,6 +63,42 @@ export const Volume = ({ from, to, color: colorId, style, width, radius, height 
       bottomRightTop
     };
   }, [pxSize, heightPx]);
+
+  // If height is 0, render as a regular rectangle
+  if (height <= 0) {
+    return (
+      <IsoTileArea
+        from={from}
+        to={to}
+        fill={color.value}
+        cornerRadius={radius || 22}
+        {...strokeProps}
+      />
+    );
+  }
+
+  // Otherwise, render as a 3D volume
+  const strokeColor = style && style !== 'NONE' ? getColorVariant(color.value, 'dark', { grade: 2 }) : undefined;
+  const strokeWidth = style && style !== 'NONE' ? width || 1 : undefined;
+  const strokeDasharray = style && style === 'DASHED' ? '5,5' : undefined;
+
+  // If height is 0, render as a regular rectangle
+  if (height <= 0) {
+    return (
+      <IsoTileArea
+        from={from}
+        to={to}
+        fill={color.value}
+        cornerRadius={radius || 22}
+        {...strokeProps}
+      />
+    );
+  }
+
+  // Otherwise, render as a 3D volume
+  const strokeColor = style && style !== 'NONE' ? getColorVariant(color.value, 'dark', { grade: 2 }) : undefined;
+  const strokeWidth = style && style !== 'NONE' ? width || 1 : undefined;
+  const strokeDasharray = style && style === 'DASHED' ? '5,5' : undefined;
 
   return (
     <Svg viewboxSize={{
