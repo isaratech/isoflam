@@ -22,6 +22,7 @@ import { ControlsContainer } from '../components/ControlsContainer';
 import { Section } from '../components/Section';
 import { DeleteButton } from '../components/DeleteButton';
 import { DuplicateButton } from '../components/DuplicateButton';
+import { AdvancedSettings } from '../components/AdvancedSettings';
 
 interface Props {
   id: string;
@@ -87,50 +88,34 @@ export const TextBoxControls = ({ id }: Props) => {
           </ToggleButton>
         </ToggleButtonGroup>
       </Section>
-      <Section title={t('Text style')}>
-        <Box sx={{ display: 'flex', gap: 1 }}>
-          <ToggleButton
-            value="bold"
-            selected={textBox.isBold ?? true}
-            onChange={() => {
-              updateTextBox(textBox.id, { isBold: !(textBox.isBold ?? true) });
-            }}
-          >
-            <FormatBoldIcon />
-          </ToggleButton>
-          <ToggleButton
-            value="italic"
-            selected={textBox.isItalic ?? false}
-            onChange={() => {
-              updateTextBox(textBox.id, { isItalic: !(textBox.isItalic ?? false) });
-            }}
-          >
-            <FormatItalicIcon />
-          </ToggleButton>
-        </Box>
-      </Section>
-      <Section title={t('Text style')}>
-        <Box sx={{ display: 'flex', gap: 1 }}>
-          <ToggleButton
-            value="bold"
-            selected={textBox.isBold ?? true}
-            onChange={() => {
-              updateTextBox(textBox.id, { isBold: !(textBox.isBold ?? true) });
-            }}
-          >
-            <FormatBoldIcon />
-          </ToggleButton>
-          <ToggleButton
-            value="italic"
-            selected={textBox.isItalic ?? false}
-            onChange={() => {
-              updateTextBox(textBox.id, { isItalic: !(textBox.isItalic ?? false) });
-            }}
-          >
-            <FormatItalicIcon />
-          </ToggleButton>
-        </Box>
-      </Section>
+      <AdvancedSettings>
+        <Section title={t('Text style')}>
+          <Box sx={{ display: 'flex', gap: 1 }}>
+            <ToggleButton
+              value="bold"
+              selected={textBox.isBold ?? true}
+              onChange={() => {
+                updateTextBox(textBox.id, {
+                  isBold: !(textBox.isBold ?? true)
+                });
+              }}
+            >
+              <FormatBoldIcon />
+            </ToggleButton>
+            <ToggleButton
+              value="italic"
+              selected={textBox.isItalic ?? false}
+              onChange={() => {
+                updateTextBox(textBox.id, {
+                  isItalic: !(textBox.isItalic ?? false)
+                });
+              }}
+            >
+              <FormatItalicIcon />
+            </ToggleButton>
+          </Box>
+        </Section>
+      </AdvancedSettings>
       <Section>
         <Box sx={{ display: 'flex', gap: 1 }}>
           <DuplicateButton
