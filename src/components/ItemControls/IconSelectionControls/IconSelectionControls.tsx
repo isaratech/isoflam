@@ -53,7 +53,6 @@ export const IconSelectionControls = () => {
           <IconGrid
             icons={filteredIcons}
             onMouseDown={onMouseDown}
-            onClick={onClick}
           />
         </Section>
       )}
@@ -61,7 +60,6 @@ export const IconSelectionControls = () => {
         <Icons
           iconCategories={iconCategories}
           onMouseDown={onMouseDown}
-          onClick={onClick}
         />
       )}
     </ControlsContainer>
