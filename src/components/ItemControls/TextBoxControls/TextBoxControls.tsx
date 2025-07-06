@@ -7,7 +7,11 @@ import {
   ToggleButtonGroup,
   Slider
 } from '@mui/material';
-import { TextRotationNone as TextRotationNoneIcon } from '@mui/icons-material';
+import {
+  TextRotationNone as TextRotationNoneIcon,
+  FormatBold as FormatBoldIcon,
+  FormatItalic as FormatItalicIcon
+} from '@mui/icons-material';
 import { useTextBox } from 'src/hooks/useTextBox';
 import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
 import { useUiStateStore } from 'src/stores/uiStateStore';
@@ -82,6 +86,50 @@ export const TextBoxControls = ({ id }: Props) => {
             />
           </ToggleButton>
         </ToggleButtonGroup>
+      </Section>
+      <Section title={t('Text style')}>
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <ToggleButton
+            value="bold"
+            selected={textBox.isBold ?? true}
+            onChange={() => {
+              updateTextBox(textBox.id, { isBold: !(textBox.isBold ?? true) });
+            }}
+          >
+            <FormatBoldIcon />
+          </ToggleButton>
+          <ToggleButton
+            value="italic"
+            selected={textBox.isItalic ?? false}
+            onChange={() => {
+              updateTextBox(textBox.id, { isItalic: !(textBox.isItalic ?? false) });
+            }}
+          >
+            <FormatItalicIcon />
+          </ToggleButton>
+        </Box>
+      </Section>
+      <Section title={t('Text style')}>
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <ToggleButton
+            value="bold"
+            selected={textBox.isBold ?? true}
+            onChange={() => {
+              updateTextBox(textBox.id, { isBold: !(textBox.isBold ?? true) });
+            }}
+          >
+            <FormatBoldIcon />
+          </ToggleButton>
+          <ToggleButton
+            value="italic"
+            selected={textBox.isItalic ?? false}
+            onChange={() => {
+              updateTextBox(textBox.id, { isItalic: !(textBox.isItalic ?? false) });
+            }}
+          >
+            <FormatItalicIcon />
+          </ToggleButton>
+        </Box>
       </Section>
       <Section>
         <Box sx={{ display: 'flex', gap: 1 }}>

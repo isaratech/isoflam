@@ -53,6 +53,7 @@ export const frTranslations = {
   // TextBoxControls
   'Text size': 'Taille du texte',
   Alignment: 'Alignement',
+  'Text style': 'Style du texte',
 
   // NodeSettings
   Label: 'Libellé',
@@ -74,7 +75,7 @@ export const frTranslations = {
   SOLID: 'CONTINU',
   DOTTED: 'POINTILLÉ',
   DASHED: 'TIRETS',
-    NONE: 'AUCUN',
+  NONE: 'AUCUN',
 
   // ContextMenu
   'Send backward': 'Reculer',
