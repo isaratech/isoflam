@@ -1,7 +1,7 @@
-import { frTranslations } from 'src/translations/fr';
-import { enTranslations } from 'src/translations/en';
-import { useUiStateStore } from 'src/stores/uiStateStore';
-import { useEffect } from 'react';
+import {frTranslations} from 'src/translations/fr';
+import {enTranslations} from 'src/translations/en';
+import {useUiStateStore} from 'src/stores/uiStateStore';
+import {useEffect} from 'react';
 
 // Define a union type for all supported languages
 export type SupportedLanguage = 'fr' | 'en';
@@ -28,10 +28,10 @@ export const useTranslation = () => {
     const savedLanguage = localStorage.getItem(
       'language'
     ) as SupportedLanguage | null;
-    if (savedLanguage && savedLanguage !== language) {
+    if (savedLanguage) {
       setLanguage(savedLanguage);
     }
-  }, [setLanguage, language]);
+  }, []);
 
   // Save language to localStorage whenever it changes
   useEffect(() => {
