@@ -9,7 +9,6 @@ import {
   CONNECTOR_SEARCH_OFFSET,
   DEFAULT_FONT_FAMILY,
   TEXTBOX_DEFAULTS,
-  TEXTBOX_FONT_WEIGHT,
   PROJECT_BOUNDING_BOX_PADDING
 } from 'src/config';
 import {
@@ -553,6 +552,7 @@ interface FontProps {
   fontWeight: number | string;
   fontSize: number;
   fontFamily: string;
+  fontStyle?: string;
 }
 
 export const getTextWidth = (text: string, fontProps: FontProps) => {
@@ -567,7 +567,8 @@ export const getTextWidth = (text: string, fontProps: FontProps) => {
     throw new Error('Could not get canvas context');
   }
 
-  context.font = `${fontProps.fontWeight} ${fontSizePx} ${fontProps.fontFamily}`;
+  const fontStyle = fontProps.fontStyle || 'normal';
+  context.font = `${fontStyle} ${fontProps.fontWeight} ${fontSizePx} ${fontProps.fontFamily}`;
   const metrics = context.measureText(text);
 
   canvas.remove();
@@ -575,12 +576,18 @@ export const getTextWidth = (text: string, fontProps: FontProps) => {
   return (metrics.width + paddingX * 2) / UNPROJECTED_TILE_SIZE;
 };
 
-export const getTextBoxDimensions = (textBox: TextBox): Size => {
-  const width = getTextWidth(textBox.content, {
+const getTextBoxFontProps = (textBox: TextBox): FontProps => {
+  return {
     fontSize: textBox.fontSize ?? TEXTBOX_DEFAULTS.fontSize,
     fontFamily: DEFAULT_FONT_FAMILY,
-    fontWeight: TEXTBOX_FONT_WEIGHT
-  });
+    fontWeight: textBox.isBold ?? TEXTBOX_DEFAULTS.isBold ? 'bold' : 'normal',
+    fontStyle: textBox.isItalic ?? TEXTBOX_DEFAULTS.isItalic ? 'italic' : 'normal'
+  };
+};
+
+export const getTextBoxDimensions = (textBox: TextBox): Size => {
+  const fontProps = getTextBoxFontProps(textBox);
+  const width = getTextWidth(textBox.content, fontProps);
   const height = 1;
 
   return { width, height };

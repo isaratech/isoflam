@@ -13,5 +13,7 @@ export const textBoxSchema = z.object({
       z.literal(ProjectionOrientationEnum.X),
       z.literal(ProjectionOrientationEnum.Y)
     ])
-    .optional()
+    .optional(),
+  isBold: z.boolean().optional(),
+  isItalic: z.boolean().optional()
 });

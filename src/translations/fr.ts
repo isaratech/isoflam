@@ -56,12 +56,14 @@ export const frTranslations = {
   // TextBoxControls
   'Text size': 'Taille du texte',
   Alignment: 'Alignement',
+  'Text style': 'Style du texte',
 
   // NodeSettings
   Label: 'Libellé',
   Description: 'Description',
   'Label height': 'Hauteur du libellé',
   'Icon scale': "Taille de l'icône",
+  'Reset to default size': 'Réinitialiser à la taille par défaut',
 
   // ColorSelector
   'No colors available': 'Aucune couleur disponible',
