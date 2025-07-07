@@ -56,12 +56,14 @@ export const enTranslations = {
   // TextBoxControls
   'Text size': 'Text size',
   Alignment: 'Alignment',
+  'Text style': 'Text style',
 
   // NodeSettings
   Label: 'Label',
   Description: 'Description',
   'Label height': 'Label height',
   'Icon scale': 'Icon scale',
+  'Reset to default size': 'Reset to default size',
 
   // ColorSelector
   'No colors available': 'No colors available',
