@@ -33,7 +33,10 @@ describe('Rectangle', () => {
     width: 1,
       radius: 22,
       imageData: undefined,
-      imageName: undefined
+      imageName: undefined,
+      mirrorHorizontal: false,
+      mirrorVertical: false,
+      rotationAngle: 0
   };
 
   it('renders without stroke when style is NONE', () => {

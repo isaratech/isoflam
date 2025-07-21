@@ -15,6 +15,9 @@ interface Props {
     style?: 'NONE' | 'SOLID' | 'DOTTED' | 'DASHED';
   };
     imageData?: string; // Base64 encoded image data
+    mirrorHorizontal?: boolean; // Horizontal mirroring for images
+    mirrorVertical?: boolean; // Vertical mirroring for images
+    rotationAngle?: number; // Rotation angle in degrees (0, 90, 180, 270)
 }
 
 export const IsoTileArea = ({
@@ -23,7 +26,10 @@ export const IsoTileArea = ({
   fill = 'none',
   cornerRadius = 0,
                                 stroke,
-                                imageData
+                                imageData,
+                                mirrorHorizontal = false,
+                                mirrorVertical = false,
+                                rotationAngle = 0
 }: Props) => {
   const { css, pxSize } = useIsoProjection({
     from,
@@ -70,6 +76,37 @@ export const IsoTileArea = ({
         return fill;
     }, [imageData, patternId, fill]);
 
+    // Calculate transform for rotation and mirroring
+    const imageTransform = useMemo(() => {
+        if (!imageData || (!mirrorHorizontal && !mirrorVertical && !rotationAngle)) {
+            return undefined;
+        }
+
+        const transforms = [];
+        const centerX = pxSize.width / 2;
+        const centerY = pxSize.height / 2;
+
+        // Apply rotation first (around center)
+        if (rotationAngle) {
+            transforms.push(`translate(${centerX}, ${centerY})`);
+            transforms.push(`rotate(${rotationAngle})`);
+            transforms.push(`translate(${-centerX}, ${-centerY})`);
+        }
+
+        // Apply mirroring
+        if (mirrorHorizontal || mirrorVertical) {
+            const scaleX = mirrorHorizontal ? -1 : 1;
+            const scaleY = mirrorVertical ? -1 : 1;
+            const translateX = mirrorHorizontal ? pxSize.width : 0;
+            const translateY = mirrorVertical ? pxSize.height : 0;
+
+            transforms.push(`translate(${translateX}, ${translateY})`);
+            transforms.push(`scale(${scaleX}, ${scaleY})`);
+        }
+
+        return transforms.length > 0 ? transforms.join(' ') : undefined;
+    }, [imageData, mirrorHorizontal, mirrorVertical, rotationAngle, pxSize.width, pxSize.height]);
+
   return (
     <Svg viewboxSize={pxSize} style={css}>
         {imageData && patternId && (
@@ -85,6 +122,7 @@ export const IsoTileArea = ({
                         width={pxSize.width}
                         height={pxSize.height}
                         preserveAspectRatio="xMidYMid slice"
+                        transform={imageTransform}
                     />
                 </pattern>
             </defs>

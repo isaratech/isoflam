@@ -25,6 +25,14 @@ export const enTranslations = {
   'Zoom in': 'Zoom in',
   'Fit to screen': 'Fit to screen',
 
+    // UndoRedoControls
+    Undo: 'Undo',
+    Redo: 'Redo',
+
+    "Rotation": 'Rotation',
+    "Rotate left 90°": 'Rotate left 90°',
+    "Rotate right 90°": 'Rotate right 90°',
+
   // ExportImageDialog
   'Certain browsers may not support exporting images properly.':
     'Certain browsers may not support exporting images properly.',

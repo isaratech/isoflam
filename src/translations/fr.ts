@@ -25,6 +25,14 @@ export const frTranslations = {
   'Zoom in': 'Zoomer',
   'Fit to screen': "Ajuster à l'écran",
 
+    // UndoRedoControls
+    Undo: 'Annuler',
+    Redo: 'Rétablir',
+
+    "Rotation": 'Rotation',
+    "Rotate left 90°": 'Rotation gauche 90°',
+    "Rotate right 90°": 'Rotation droite 90°',
+
   // ExportImageDialog
   'Certain browsers may not support exporting images properly.':
     "Certains navigateurs peuvent ne pas prendre en charge l'exportation d'images correctement.",

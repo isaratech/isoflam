@@ -12,5 +12,8 @@ export const rectangleSchema = z.object({
     width: z.number().min(0).optional(),
     radius: z.number().min(0).optional(),
     imageData: z.string().optional(), // Base64 encoded image data
-    imageName: z.string().optional() // Original filename for reference
+    imageName: z.string().optional(), // Original filename for reference
+    mirrorHorizontal: z.boolean().optional(), // Horizontal mirroring for images
+    mirrorVertical: z.boolean().optional(), // Vertical mirroring for images
+    rotationAngle: z.number().optional() // Rotation angle in degrees (0, 90, 180, 270)
 });

@@ -1,6 +1,15 @@
 import React from 'react';
-import {Box, IconButton, MenuItem, Select, Slider} from '@mui/material';
-import {FlipToBack as SendToBackIcon, FlipToFront as BringToFrontIcon, KeyboardArrowDown as SendBackwardIcon, KeyboardArrowUp as BringForwardIcon} from '@mui/icons-material';
+import {Box, IconButton, MenuItem, Select, Slider, ToggleButton, ToggleButtonGroup} from '@mui/material';
+import {
+    FlipToBack as SendToBackIcon,
+    FlipToFront as BringToFrontIcon,
+    KeyboardArrowDown as SendBackwardIcon,
+    KeyboardArrowUp as BringForwardIcon,
+    RotateLeft,
+    RotateRight,
+    SwapHoriz,
+    SwapVert
+} from '@mui/icons-material';
 import {useRectangle} from 'src/hooks/useRectangle';
 import {ColorSelector} from 'src/components/ColorSelector/ColorSelector';
 import {useUiStateStore} from 'src/stores/uiStateStore';
@@ -118,6 +127,69 @@ export const RectangleControls = ({ id }: Props) => {
                   </IconButton>
               </Box>
           </Section>
+
+          {/* Mirroring controls - only for images */}
+          {rectangle.imageData && (
+              <Section title={t('Mirroring')}>
+                  <ToggleButtonGroup
+                      value={[
+                          rectangle.mirrorHorizontal ? 'horizontal' : null,
+                          rectangle.mirrorVertical ? 'vertical' : null
+                      ].filter(Boolean)}
+                      onChange={(e, newValues) => {
+                          const hasHorizontal = newValues.includes('horizontal');
+                          const hasVertical = newValues.includes('vertical');
+
+                          if (
+                              hasHorizontal !== rectangle.mirrorHorizontal ||
+                              hasVertical !== rectangle.mirrorVertical
+                          ) {
+                              updateRectangle(rectangle.id, {
+                                  mirrorHorizontal: hasHorizontal,
+                                  mirrorVertical: hasVertical
+                              });
+                          }
+                      }}
+                  >
+                      <ToggleButton value="horizontal">
+                          <SwapHoriz/>
+                      </ToggleButton>
+                      <ToggleButton value="vertical">
+                          <SwapVert/>
+                      </ToggleButton>
+                  </ToggleButtonGroup>
+              </Section>
+          )}
+
+          {/* Rotation controls - only for images */}
+          {rectangle.imageData && (
+              <Section title={t('Rotation')}>
+                  <Box sx={{display: 'flex', flexDirection: 'row', gap: 1, justifyContent: 'center'}}>
+                      <IconButton
+                          size="small"
+                          title={t('Rotate left 90°')}
+                          onClick={() => {
+                              const currentRotation = rectangle.rotationAngle || 0;
+                              const newRotation = (currentRotation - 90 + 360) % 360;
+                              updateRectangle(rectangle.id, {rotationAngle: newRotation});
+                          }}
+                      >
+                          <RotateLeft/>
+                      </IconButton>
+                      <IconButton
+                          size="small"
+                          title={t('Rotate right 90°')}
+                          onClick={() => {
+                              const currentRotation = rectangle.rotationAngle || 0;
+                              const newRotation = (currentRotation + 90) % 360;
+                              updateRectangle(rectangle.id, {rotationAngle: newRotation});
+                          }}
+                      >
+                          <RotateRight/>
+                      </IconButton>
+                  </Box>
+              </Section>
+          )}
       </AdvancedSettings>
 
       {/* Action buttons */}

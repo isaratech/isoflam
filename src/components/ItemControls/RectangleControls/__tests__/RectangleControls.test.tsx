@@ -52,7 +52,10 @@ describe('RectangleControls', () => {
       width: 1,
         radius: 22,
         imageData: undefined,
-        imageName: undefined
+        imageName: undefined,
+        mirrorHorizontal: false,
+        mirrorVertical: false,
+        rotationAngle: 0
     });
 
     render(<RectangleControls id="test-rectangle" />);
@@ -70,7 +73,10 @@ describe('RectangleControls', () => {
       width: 1,
         radius: 22,
         imageData: undefined,
-        imageName: undefined
+        imageName: undefined,
+        mirrorHorizontal: false,
+        mirrorVertical: false,
+        rotationAngle: 0
     });
 
     render(<RectangleControls id="test-rectangle" />);
@@ -88,7 +94,10 @@ describe('RectangleControls', () => {
       width: 1,
         radius: 22,
         imageData: undefined,
-        imageName: undefined
+        imageName: undefined,
+        mirrorHorizontal: false,
+        mirrorVertical: false,
+        rotationAngle: 0
     });
 
     render(<RectangleControls id="test-rectangle" />);
@@ -106,7 +115,10 @@ describe('RectangleControls', () => {
       width: 1,
         radius: 22,
         imageData: undefined,
-        imageName: undefined
+        imageName: undefined,
+        mirrorHorizontal: false,
+        mirrorVertical: false,
+        rotationAngle: 0
     });
 
     render(<RectangleControls id="test-rectangle" />);
@@ -124,7 +136,10 @@ describe('RectangleControls', () => {
             width: 1,
             radius: 22,
             imageData: undefined,
-            imageName: undefined
+            imageName: undefined,
+            mirrorHorizontal: false,
+            mirrorVertical: false,
+            rotationAngle: 0
         });
 
         render(<RectangleControls id="test-rectangle"/>);
@@ -142,7 +157,10 @@ describe('RectangleControls', () => {
             width: 1,
             radius: 22,
             imageData: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==',
-            imageName: 'test.png'
+            imageName: 'test.png',
+            mirrorHorizontal: false,
+            mirrorVertical: false,
+            rotationAngle: 0
         });
 
         render(<RectangleControls id="test-rectangle"/>);
