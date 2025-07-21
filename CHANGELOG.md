@@ -5,6 +5,24 @@ All notable changes to the Isoflam project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2025-07-21
+
+### Added
+
+- Allow user to import images and use them as rectangles
+- UndoRedo: implement undo and redo functionality with controls
+- RectangleControls: add mirroring and rotation controls for images
+- MainMenu: implement unsaved changes tracking and warning
+- RectangleControls: add layer control buttons for rectangle ordering and update translations
+
+### Changed
+
+- Update initial data
+
+### Fixed
+
+- ConnectorControls: add key prop to MenuItem for improved list rendering
+
 ## [1.2.1] - 2025-07-21
 
 ### Added
