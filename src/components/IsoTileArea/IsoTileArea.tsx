@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
-import { Coords } from 'src/types';
-import { Svg } from 'src/components/Svg/Svg';
-import { useIsoProjection } from 'src/hooks/useIsoProjection';
+import React, {useMemo} from 'react';
+import {Coords} from 'src/types';
+import {Svg} from 'src/components/Svg/Svg';
+import {useIsoProjection} from 'src/hooks/useIsoProjection';
 
 interface Props {
   from: Coords;
@@ -14,6 +14,7 @@ interface Props {
     color: string;
     style?: 'NONE' | 'SOLID' | 'DOTTED' | 'DASHED';
   };
+    imageData?: string; // Base64 encoded image data
 }
 
 export const IsoTileArea = ({
@@ -21,7 +22,8 @@ export const IsoTileArea = ({
   to,
   fill = 'none',
   cornerRadius = 0,
-  stroke
+                                stroke,
+                                imageData
 }: Props) => {
   const { css, pxSize } = useIsoProjection({
     from,
@@ -55,12 +57,42 @@ export const IsoTileArea = ({
     return params;
   }, [stroke]);
 
+    // Generate unique pattern ID for image background
+    const patternId = useMemo(() => {
+        return imageData ? `image-pattern-${Math.random().toString(36).substr(2, 9)}` : null;
+    }, [imageData]);
+
+    // Determine fill value - use pattern if image data exists, otherwise use provided fill
+    const fillValue = useMemo(() => {
+        if (imageData && patternId) {
+            return `url(#${patternId})`;
+        }
+        return fill;
+    }, [imageData, patternId, fill]);
+
   return (
     <Svg viewboxSize={pxSize} style={css}>
+        {imageData && patternId && (
+            <defs>
+                <pattern
+                    id={patternId}
+                    patternUnits="objectBoundingBox"
+                    width="1"
+                    height="1"
+                >
+                    <image
+                        href={imageData}
+                        width={pxSize.width}
+                        height={pxSize.height}
+                        preserveAspectRatio="xMidYMid slice"
+                    />
+                </pattern>
+            </defs>
+        )}
       <rect
         width={pxSize.width}
         height={pxSize.height}
-        fill={fill}
+        fill={fillValue}
         rx={cornerRadius}
         {...strokeParams}
       />

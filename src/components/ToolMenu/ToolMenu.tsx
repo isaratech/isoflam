@@ -1,24 +1,26 @@
-import React, { useCallback } from 'react';
-import { Stack } from '@mui/material';
+import React, {useCallback, useRef} from 'react';
+import {Stack} from '@mui/material';
 import {
-  PanToolOutlined as PanToolIcon,
-  NearMeOutlined as NearMeIcon,
-  AddOutlined as AddIcon,
-  EastOutlined as ConnectorIcon,
-  CropSquareOutlined as CropSquareIcon,
-  Title as TitleIcon
+    AddOutlined as AddIcon,
+    CropSquareOutlined as CropSquareIcon,
+    EastOutlined as ConnectorIcon,
+    ImageOutlined as ImageIcon,
+    NearMeOutlined as NearMeIcon,
+    PanToolOutlined as PanToolIcon,
+    Title as TitleIcon
 } from '@mui/icons-material';
-import { useUiStateStore } from 'src/stores/uiStateStore';
-import { IconButton } from 'src/components/IconButton/IconButton';
-import { UiElement } from 'src/components/UiElement/UiElement';
-import { useScene } from 'src/hooks/useScene';
-import { TEXTBOX_DEFAULTS } from 'src/config';
-import { generateId } from 'src/utils';
-import { useTranslation } from 'src/hooks/useTranslation';
+import {useUiStateStore} from 'src/stores/uiStateStore';
+import {IconButton} from 'src/components/IconButton/IconButton';
+import {UiElement} from 'src/components/UiElement/UiElement';
+import {useScene} from 'src/hooks/useScene';
+import {TEXTBOX_DEFAULTS} from 'src/config';
+import {generateId} from 'src/utils';
+import {useTranslation} from 'src/hooks/useTranslation';
 
 export const ToolMenu = () => {
   const { t } = useTranslation();
-  const { createTextBox } = useScene();
+    const {createTextBox, createRectangle} = useScene();
+    const fileInputRef = useRef<HTMLInputElement>(null);
   const mode = useUiStateStore((state) => {
     return state.mode;
   });
@@ -44,6 +46,58 @@ export const ToolMenu = () => {
       id: textBoxId
     });
   }, [uiStateStoreActions, createTextBox, mousePosition]);
+
+    const handleImageImport = useCallback(() => {
+        fileInputRef.current?.click();
+    }, []);
+
+    const handleFileChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (!file) return;
+
+        // Check if it's an image file
+        if (!file.type.startsWith('image/')) {
+            alert('Veuillez sélectionner un fichier image valide.');
+            return;
+        }
+
+        const fileReader = new FileReader();
+        fileReader.onload = (e) => {
+            const imageData = e.target?.result as string;
+
+            // Create a new image rectangle at the mouse position or center
+            const newRectangle = {
+                id: `image-rect-${Date.now()}`,
+                from: {x: mousePosition.x, y: mousePosition.y},
+                to: {x: mousePosition.x + 5, y: mousePosition.y + 5},
+                imageData,
+                imageName: file.name,
+                style: 'SOLID' as const,
+                width: 2,
+                radius: 0
+            };
+
+            createRectangle(newRectangle);
+
+            // Switch to rectangle transform mode to allow immediate editing
+            uiStateStoreActions.setMode({
+                type: 'RECTANGLE.TRANSFORM',
+                id: newRectangle.id,
+                showCursor: false,
+                selectedAnchor: null
+            });
+
+            uiStateStoreActions.setItemControls({
+                type: 'RECTANGLE',
+                id: newRectangle.id
+            });
+        };
+
+        fileReader.readAsDataURL(file);
+
+        // Reset the input value so the same file can be selected again
+        event.target.value = '';
+    }, [createRectangle, mousePosition, uiStateStoreActions]);
 
   return (
     <UiElement>
@@ -118,7 +172,20 @@ export const ToolMenu = () => {
           onClick={createTextBoxProxy}
           isActive={mode.type === 'TEXTBOX'}
         />
+          <IconButton
+              name={t('Import Image')}
+              Icon={<ImageIcon/>}
+              onClick={handleImageImport}
+              isActive={false}
+          />
       </Stack>
+        <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            style={{display: 'none'}}
+        />
     </UiElement>
   );
 };

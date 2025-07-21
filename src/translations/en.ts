@@ -16,6 +16,7 @@ export const enTranslations = {
   Pan: 'Pan',
   'Add item': 'Add item',
   Rectangle: 'Rectangle',
+    'Import Image': 'Import Image',
   Connector: 'Connector',
   Text: 'Text',
 

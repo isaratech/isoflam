@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { Rectangle } from '../Rectangle';
+import {render} from '@testing-library/react';
+import {Rectangle} from '../Rectangle';
 
 // Mock the hooks
 jest.mock('src/hooks/useColor', () => ({
@@ -31,7 +31,9 @@ describe('Rectangle', () => {
     color: 'red',
     style: 'SOLID' as const,
     width: 1,
-    radius: 22
+      radius: 22,
+      imageData: undefined,
+      imageName: undefined
   };
 
   it('renders without stroke when style is NONE', () => {

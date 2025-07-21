@@ -16,6 +16,7 @@ export const frTranslations = {
   Pan: 'Déplacer',
   'Add item': 'Ajouter un élément',
   Rectangle: 'Rectangle',
+    'Import Image': 'Importer une image',
   Connector: 'Connecteur',
   Text: 'Texte',
 

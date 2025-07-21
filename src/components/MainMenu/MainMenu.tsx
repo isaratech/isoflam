@@ -1,13 +1,13 @@
 import React, {useCallback, useMemo, useState} from 'react';
 import {Card, Divider, Menu, Typography} from '@mui/material';
 import {
-  DataObject as ExportJsonIcon,
-  DeleteOutline as DeleteOutlineIcon,
-  FolderOpen as FolderOpenIcon,
-  GitHub as GitHubIcon,
-  ImageOutlined as ExportImageIcon,
-  Info as InfoIcon,
-  Menu as MenuIcon
+    DataObject as ExportJsonIcon,
+    DeleteOutline as DeleteOutlineIcon,
+    FolderOpen as FolderOpenIcon,
+    GitHub as GitHubIcon,
+    ImageOutlined as ExportImageIcon,
+    Info as InfoIcon,
+    Menu as MenuIcon
 } from '@mui/icons-material';
 import {UiElement} from 'src/components/UiElement/UiElement';
 import {IconButton} from 'src/components/IconButton/IconButton';
@@ -58,18 +58,74 @@ export const MainMenu = () => {
       const file = (event.target as HTMLInputElement).files?.[0];
 
       if (!file) {
-        throw new Error('No file selected');
+          return; // User cancelled file selection
+      }
+
+        // Check file size (warn if larger than 5MB)
+        const maxFileSize = 5 * 1024 * 1024; // 5MB
+        if (file.size > maxFileSize) {
+            const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1);
+            const proceed = confirm(
+                `Le fichier JSON est volumineux (${fileSizeMB} MB). Le chargement pourrait prendre du temps et affecter les performances. Voulez-vous continuer ?`
+            );
+            if (!proceed) {
+                return;
+            }
       }
 
       const fileReader = new FileReader();
 
       fileReader.onload = async (e) => {
-        const modelData = JSON.parse(e.target?.result as string);
-        load(modelData);
-      };
-      fileReader.readAsText(file);
+          try {
+              const jsonString = e.target?.result as string;
 
-      uiStateActions.resetUiState();
+              // Check if the JSON string is extremely large
+              if (jsonString.length > 1000000) { // 1MB of text
+                  console.warn('Large JSON file detected, this may cause performance issues');
+              }
+
+              const modelData = JSON.parse(jsonString);
+
+              // Validate that it's a proper model structure
+              if (!modelData || typeof modelData !== 'object') {
+                  throw new Error('Le fichier JSON ne contient pas de données valides');
+              }
+
+              if (!modelData.title && !modelData.views && !modelData.items) {
+                  throw new Error('Le fichier JSON ne semble pas être un fichier Isoflam valide');
+              }
+
+              load(modelData);
+              uiStateActions.resetUiState();
+
+              // Success message for large files
+              if (file.size > maxFileSize / 2) {
+                  console.log('Large JSON file loaded successfully');
+              }
+
+          } catch (error) {
+              console.error('Error parsing JSON:', error);
+
+              // Provide more specific error messages
+              let errorMessage = 'Erreur lors du chargement du fichier JSON.';
+
+              if (error instanceof SyntaxError) {
+                  errorMessage += ' Le fichier contient du JSON invalide. Vérifiez la syntaxe du fichier.';
+              } else if (error instanceof Error) {
+                  errorMessage += ` ${error.message}`;
+              } else {
+                  errorMessage += ' Veuillez vérifier que le fichier est valide.';
+              }
+
+              alert(errorMessage);
+          }
+      };
+
+        fileReader.onerror = () => {
+            alert('Erreur lors de la lecture du fichier. Le fichier pourrait être corrompu.');
+        };
+
+        fileReader.readAsText(file);
     };
 
     await fileInput.click();

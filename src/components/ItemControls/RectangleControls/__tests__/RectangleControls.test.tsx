@@ -1,7 +1,7 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { RectangleControls } from '../RectangleControls';
-import { useRectangle } from 'src/hooks/useRectangle';
+import {render, screen} from '@testing-library/react';
+import {RectangleControls} from '../RectangleControls';
+import {useRectangle} from 'src/hooks/useRectangle';
 
 jest.mock('src/hooks/useRectangle', () => ({
   useRectangle: jest.fn()
@@ -50,7 +50,9 @@ describe('RectangleControls', () => {
       color: 'red',
       style: 'SOLID',
       width: 1,
-      radius: 22
+        radius: 22,
+        imageData: undefined,
+        imageName: undefined
     });
 
     render(<RectangleControls id="test-rectangle" />);
@@ -66,7 +68,9 @@ describe('RectangleControls', () => {
       color: 'red',
       style: 'NONE',
       width: 1,
-      radius: 22
+        radius: 22,
+        imageData: undefined,
+        imageName: undefined
     });
 
     render(<RectangleControls id="test-rectangle" />);
@@ -82,7 +86,9 @@ describe('RectangleControls', () => {
       color: 'red',
       style: 'DASHED',
       width: 1,
-      radius: 22
+        radius: 22,
+        imageData: undefined,
+        imageName: undefined
     });
 
     render(<RectangleControls id="test-rectangle" />);
@@ -98,11 +104,49 @@ describe('RectangleControls', () => {
       color: 'red',
       style: 'DASHED',
       width: 1,
-      radius: 22
+        radius: 22,
+        imageData: undefined,
+        imageName: undefined
     });
 
     render(<RectangleControls id="test-rectangle" />);
 
     expect(screen.getByText('Width')).toBeInTheDocument();
   });
+
+    it('shows color selector for regular rectangles', () => {
+        mockUseRectangle.mockReturnValue({
+            id: 'test-rectangle',
+            from: {x: 0, y: 0},
+            to: {x: 2, y: 2},
+            color: 'red',
+            style: 'SOLID',
+            width: 1,
+            radius: 22,
+            imageData: undefined,
+            imageName: undefined
+        });
+
+        render(<RectangleControls id="test-rectangle"/>);
+
+        expect(screen.getByTestId('color-selector')).toBeInTheDocument();
+    });
+
+    it('hides color selector for image rectangles', () => {
+        mockUseRectangle.mockReturnValue({
+            id: 'test-rectangle',
+            from: {x: 0, y: 0},
+            to: {x: 2, y: 2},
+            color: 'red',
+            style: 'SOLID',
+            width: 1,
+            radius: 22,
+            imageData: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==',
+            imageName: 'test.png'
+        });
+
+        render(<RectangleControls id="test-rectangle"/>);
+
+        expect(screen.queryByTestId('color-selector')).not.toBeInTheDocument();
+    });
 });

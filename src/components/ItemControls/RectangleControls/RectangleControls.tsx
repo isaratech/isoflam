@@ -1,17 +1,17 @@
 import React from 'react';
-import { Box, Select, MenuItem, Slider } from '@mui/material';
-import { useRectangle } from 'src/hooks/useRectangle';
-import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
-import { useUiStateStore } from 'src/stores/uiStateStore';
-import { useScene } from 'src/hooks/useScene';
-import { generateId } from 'src/utils';
-import { Rectangle, rectangleStyleOptions } from 'src/types';
-import { useTranslation } from 'src/hooks/useTranslation';
-import { ControlsContainer } from '../components/ControlsContainer';
-import { Section } from '../components/Section';
-import { DeleteButton } from '../components/DeleteButton';
-import { DuplicateButton } from '../components/DuplicateButton';
-import { AdvancedSettings } from '../components/AdvancedSettings';
+import {Box, MenuItem, Select, Slider} from '@mui/material';
+import {useRectangle} from 'src/hooks/useRectangle';
+import {ColorSelector} from 'src/components/ColorSelector/ColorSelector';
+import {useUiStateStore} from 'src/stores/uiStateStore';
+import {useScene} from 'src/hooks/useScene';
+import {generateId} from 'src/utils';
+import {Rectangle, rectangleStyleOptions} from 'src/types';
+import {useTranslation} from 'src/hooks/useTranslation';
+import {ControlsContainer} from '../components/ControlsContainer';
+import {Section} from '../components/Section';
+import {DeleteButton} from '../components/DeleteButton';
+import {DuplicateButton} from '../components/DuplicateButton';
+import {AdvancedSettings} from '../components/AdvancedSettings';
 
 interface Props {
   id: string;
@@ -28,14 +28,16 @@ export const RectangleControls = ({ id }: Props) => {
   return (
     <ControlsContainer>
       {/* Basic controls */}
-      <Section>
-        <ColorSelector
-          onChange={(color) => {
-            updateRectangle(rectangle.id, { color });
-          }}
-          activeColor={rectangle.color}
-        />
-      </Section>
+        {!rectangle.imageData && (
+            <Section>
+                <ColorSelector
+                    onChange={(color) => {
+                        updateRectangle(rectangle.id, {color});
+                    }}
+                    activeColor={rectangle.color}
+                />
+            </Section>
+        )}
 
       {/* Advanced settings */}
       <AdvancedSettings>

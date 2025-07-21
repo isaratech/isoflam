@@ -96,8 +96,149 @@ export const UiOverlay = () => {
 
     // Drag & Drop functionality
     const initialDataManager = useInitialDataManager();
+    const scene = useScene();
     const [isDragOver, setIsDragOver] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+
+    // Handle JSON file loading (existing functionality)
+    const handleJsonFile = useCallback((file: File) => {
+        setIsLoading(true);
+
+        // Check file size (warn if larger than 5MB)
+        const maxFileSize = 5 * 1024 * 1024; // 5MB
+        if (file.size > maxFileSize) {
+            const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1);
+            const proceed = confirm(
+                `Le fichier JSON est volumineux (${fileSizeMB} MB). Le chargement pourrait prendre du temps et affecter les performances. Voulez-vous continuer ?`
+            );
+            if (!proceed) {
+                setIsLoading(false);
+                return;
+            }
+        }
+
+        try {
+            const fileReader = new FileReader();
+
+            fileReader.onload = async (event) => {
+                try {
+                    const jsonString = event.target?.result as string;
+
+                    // Check if the JSON string is extremely large
+                    if (jsonString.length > 1000000) { // 1MB of text
+                        console.warn('Large JSON file detected, this may cause performance issues');
+                    }
+
+                    const modelData = JSON.parse(jsonString);
+
+                    // Validate that it's a proper model structure
+                    if (!modelData || typeof modelData !== 'object') {
+                        throw new Error('Le fichier JSON ne contient pas de données valides');
+                    }
+
+                    if (!modelData.title && !modelData.views && !modelData.items) {
+                        throw new Error('Le fichier JSON ne semble pas être un fichier Isoflam valide');
+                    }
+
+                    initialDataManager.load(modelData);
+                    uiStateActions.resetUiState();
+
+                    // Success message for large files
+                    if (file.size > maxFileSize / 2) {
+                        console.log('Large JSON file loaded successfully');
+                    }
+
+                } catch (error) {
+                    console.error('Error parsing JSON:', error);
+
+                    // Provide more specific error messages
+                    let errorMessage = 'Erreur lors du chargement du fichier JSON.';
+
+                    if (error instanceof SyntaxError) {
+                        errorMessage += ' Le fichier contient du JSON invalide. Vérifiez la syntaxe du fichier.';
+                    } else if (error instanceof Error) {
+                        errorMessage += ` ${error.message}`;
+                    } else {
+                        errorMessage += ' Veuillez vérifier que le fichier est valide.';
+                    }
+
+                    alert(errorMessage);
+                } finally {
+                    setIsLoading(false);
+                }
+            };
+
+            fileReader.onerror = () => {
+                alert('Erreur lors de la lecture du fichier. Le fichier pourrait être corrompu.');
+                setIsLoading(false);
+            };
+
+            fileReader.readAsText(file);
+        } catch (error) {
+            console.error('Error reading file:', error);
+            alert('Erreur lors de la lecture du fichier. Vérifiez que le fichier est accessible.');
+            setIsLoading(false);
+        }
+    }, [initialDataManager, uiStateActions]);
+
+    // Handle image file loading (new functionality)
+    const handleImageFile = useCallback((file: File) => {
+        setIsLoading(true);
+
+        try {
+            const fileReader = new FileReader();
+
+            fileReader.onload = async (event) => {
+                try {
+                    const imageData = event.target?.result as string;
+
+                    // Create a new image rectangle at the center of the view
+                    const newRectangle = {
+                        id: `image-rect-${Date.now()}`,
+                        from: {x: 5, y: 5},
+                        to: {x: 10, y: 10},
+                        imageData,
+                        imageName: file.name,
+                        style: 'SOLID' as const,
+                        width: 2,
+                        radius: 0
+                    };
+
+                    scene.createRectangle(newRectangle);
+
+                    // Switch to rectangle transform mode to allow immediate editing
+                    uiStateActions.setMode({
+                        type: 'RECTANGLE.TRANSFORM',
+                        id: newRectangle.id,
+                        showCursor: false,
+                        selectedAnchor: null
+                    });
+
+                    uiStateActions.setItemControls({
+                        type: 'RECTANGLE',
+                        id: newRectangle.id
+                    });
+
+                } catch (error) {
+                    console.error('Error processing image:', error);
+                    alert('Erreur lors du traitement de l\'image.');
+                } finally {
+                    setIsLoading(false);
+                }
+            };
+
+            fileReader.onerror = () => {
+                alert('Erreur lors de la lecture du fichier image.');
+                setIsLoading(false);
+            };
+
+            fileReader.readAsDataURL(file);
+        } catch (error) {
+            console.error('Error reading image file:', error);
+            alert('Erreur lors de la lecture du fichier image.');
+            setIsLoading(false);
+        }
+    }, [scene, uiStateActions]);
 
     const handleDragOver = useCallback((e: React.DragEvent) => {
         e.preventDefault();
@@ -123,47 +264,33 @@ export const UiOverlay = () => {
         const jsonFiles = files.filter(file =>
             file.type === 'application/json' || file.name.toLowerCase().endsWith('.json')
         );
+        const imageFiles = files.filter(file =>
+            file.type.startsWith('image/') ||
+            /\.(jpg|jpeg|png|gif|bmp|webp)$/i.test(file.name)
+        );
 
-        if (jsonFiles.length === 0) {
-            alert('Veuillez déposer un fichier JSON valide.');
+        // Handle JSON files (existing functionality)
+        if (jsonFiles.length > 0) {
+            if (jsonFiles.length > 1) {
+                alert('Veuillez déposer un seul fichier JSON à la fois.');
+                return;
+            }
+            handleJsonFile(jsonFiles[0]);
             return;
         }
 
-        if (jsonFiles.length > 1) {
-            alert('Veuillez déposer un seul fichier JSON à la fois.');
+        // Handle image files (new functionality)
+        if (imageFiles.length > 0) {
+            if (imageFiles.length > 1) {
+                alert('Veuillez déposer une seule image à la fois.');
+                return;
+            }
+            handleImageFile(imageFiles[0]);
             return;
         }
 
-        const file = jsonFiles[0];
-        setIsLoading(true);
-
-        try {
-            const fileReader = new FileReader();
-
-            fileReader.onload = async (event) => {
-                try {
-                    const modelData = JSON.parse(event.target?.result as string);
-                    initialDataManager.load(modelData);
-                    uiStateActions.resetUiState();
-                } catch (error) {
-                    console.error('Error parsing JSON:', error);
-                    alert('Erreur lors du chargement du fichier JSON. Veuillez vérifier que le fichier est valide.');
-                } finally {
-                    setIsLoading(false);
-                }
-            };
-
-            fileReader.onerror = () => {
-                alert('Erreur lors de la lecture du fichier.');
-                setIsLoading(false);
-            };
-
-            fileReader.readAsText(file);
-        } catch (error) {
-            console.error('Error reading file:', error);
-            alert('Erreur lors de la lecture du fichier.');
-            setIsLoading(false);
-        }
+        // No supported files found
+        alert('Veuillez déposer un fichier JSON ou une image valide.');
     }, [initialDataManager, uiStateActions]);
 
     // Global drag event listeners
