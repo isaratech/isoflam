@@ -1,6 +1,6 @@
-import React, { useMemo } from 'react';
-import { Button, Box, useTheme } from '@mui/material';
-import Tooltip, { TooltipProps } from '@mui/material/Tooltip';
+import React, {useMemo} from 'react';
+import {Box, Button, useTheme} from '@mui/material';
+import Tooltip, {TooltipProps} from '@mui/material/Tooltip';
 
 interface Props {
   name: string;
@@ -21,15 +21,15 @@ export const IconButton = ({
 }: Props) => {
   const theme = useTheme();
   const iconColor = useMemo(() => {
-    if (isActive) {
-      return 'grey.200';
+    if (disabled) {
+        return 'grey.400';
     }
 
-    if (disabled) {
+      if (isActive) {
       return 'grey.800';
     }
 
-    return 'grey.500';
+      return 'grey.600';
   }, [disabled, isActive]);
 
   return (

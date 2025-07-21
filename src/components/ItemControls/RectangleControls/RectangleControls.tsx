@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, IconButton, MenuItem, Select, Slider, ToggleButton, ToggleButtonGroup} from '@mui/material';
+import {Box, MenuItem, Select, Slider, ToggleButton, ToggleButtonGroup} from '@mui/material';
 import {
     FlipToBack as SendToBackIcon,
     FlipToFront as BringToFrontIcon,
@@ -96,36 +96,60 @@ export const RectangleControls = ({ id }: Props) => {
 
           {/* Layer controls */}
           <Section title={t('Layer')}>
-              <Box sx={{display: 'flex', flexDirection: 'row', gap: 1, justifyContent: 'center'}}>
-                  <IconButton
-                      size="small"
+              <ToggleButtonGroup
+                  value={[]} // No persistent selection for action buttons
+                  onChange={(e, newValues) => {
+                      // Handle layer actions based on the clicked button
+                      const target = e.target as HTMLElement;
+                      const button = target.closest('[data-layer-action]') as HTMLElement;
+                      if (button) {
+                          const action = button.getAttribute('data-layer-action');
+                          switch (action) {
+                              case 'BRING_TO_FRONT':
+                                  changeLayerOrder('BRING_TO_FRONT', {type: 'RECTANGLE', id: rectangle.id});
+                                  break;
+                              case 'BRING_FORWARD':
+                                  changeLayerOrder('BRING_FORWARD', {type: 'RECTANGLE', id: rectangle.id});
+                                  break;
+                              case 'SEND_BACKWARD':
+                                  changeLayerOrder('SEND_BACKWARD', {type: 'RECTANGLE', id: rectangle.id});
+                                  break;
+                              case 'SEND_TO_BACK':
+                                  changeLayerOrder('SEND_TO_BACK', {type: 'RECTANGLE', id: rectangle.id});
+                                  break;
+                          }
+                      }
+                  }}
+              >
+                  <ToggleButton
+                      value="bring-to-front"
+                      data-layer-action="BRING_TO_FRONT"
                       title={t('Bring to front')}
-                      onClick={() => changeLayerOrder('BRING_TO_FRONT', {type: 'RECTANGLE', id: rectangle.id})}
                   >
                       <BringToFrontIcon/>
-                  </IconButton>
-                  <IconButton
-                      size="small"
+                  </ToggleButton>
+                  <ToggleButton
+                      value="bring-forward"
+                      data-layer-action="BRING_FORWARD"
                       title={t('Bring forward')}
-                      onClick={() => changeLayerOrder('BRING_FORWARD', {type: 'RECTANGLE', id: rectangle.id})}
                   >
                       <BringForwardIcon/>
-                  </IconButton>
-                  <IconButton
-                      size="small"
+                  </ToggleButton>
+                  <ToggleButton
+                      value="send-backward"
+                      data-layer-action="SEND_BACKWARD"
                       title={t('Send backward')}
-                      onClick={() => changeLayerOrder('SEND_BACKWARD', {type: 'RECTANGLE', id: rectangle.id})}
                   >
                       <SendBackwardIcon/>
-                  </IconButton>
-                  <IconButton
-                      size="small"
+                  </ToggleButton>
+                  <ToggleButton
+                      value="send-to-back"
+                      data-layer-action="SEND_TO_BACK"
                       title={t('Send to back')}
-                      onClick={() => changeLayerOrder('SEND_TO_BACK', {type: 'RECTANGLE', id: rectangle.id})}
                   >
                       <SendToBackIcon/>
-                  </IconButton>
-              </Box>
+                  </ToggleButton>
+              </ToggleButtonGroup>
           </Section>
 
           {/* Mirroring controls - only for images */}
@@ -164,30 +188,37 @@ export const RectangleControls = ({ id }: Props) => {
           {/* Rotation controls - only for images */}
           {rectangle.imageData && (
               <Section title={t('Rotation')}>
-                  <Box sx={{display: 'flex', flexDirection: 'row', gap: 1, justifyContent: 'center'}}>
-                      <IconButton
-                          size="small"
-                          title={t('Rotate left 90°')}
-                          onClick={() => {
+                  <ToggleButtonGroup
+                      value={[]} // No persistent selection for action buttons
+                      onChange={(e, newValues) => {
+                          // Handle rotation actions based on the clicked button
+                          const target = e.target as HTMLElement;
+                          const button = target.closest('[data-rotation]') as HTMLElement;
+                          if (button) {
+                              const direction = button.getAttribute('data-rotation');
                               const currentRotation = rectangle.rotationAngle || 0;
-                              const newRotation = (currentRotation - 90 + 360) % 360;
+                              const newRotation = direction === 'left'
+                                  ? (currentRotation - 90 + 360) % 360
+                                  : (currentRotation + 90) % 360;
                               updateRectangle(rectangle.id, {rotationAngle: newRotation});
-                          }}
+                          }
+                      }}
+                  >
+                      <ToggleButton
+                          value="rotate-left"
+                          data-rotation="left"
+                          title={t('Rotate left 90°')}
                       >
                           <RotateLeft/>
-                      </IconButton>
-                      <IconButton
-                          size="small"
+                      </ToggleButton>
+                      <ToggleButton
+                          value="rotate-right"
+                          data-rotation="right"
                           title={t('Rotate right 90°')}
-                          onClick={() => {
-                              const currentRotation = rectangle.rotationAngle || 0;
-                              const newRotation = (currentRotation + 90) % 360;
-                              updateRectangle(rectangle.id, {rotationAngle: newRotation});
-                          }}
                       >
                           <RotateRight/>
-                      </IconButton>
-                  </Box>
+                      </ToggleButton>
+                  </ToggleButtonGroup>
               </Section>
           )}
       </AdvancedSettings>
