@@ -1,22 +1,22 @@
-import React, { useCallback, useMemo, useRef } from 'react';
-import { Box, useTheme, Typography, Stack } from '@mui/material';
-import { ChevronRight } from '@mui/icons-material';
-import { EditorModeEnum } from 'src/types';
-import { UiElement } from 'components/UiElement/UiElement';
-import { SceneLayer } from 'src/components/SceneLayer/SceneLayer';
-import { DragAndDrop } from 'src/components/DragAndDrop/DragAndDrop';
-import { ItemControlsManager } from 'src/components/ItemControls/ItemControlsManager';
-import { ToolMenu } from 'src/components/ToolMenu/ToolMenu';
-import { useUiStateStore } from 'src/stores/uiStateStore';
-import { MainMenu } from 'src/components/MainMenu/MainMenu';
-import { ZoomControls } from 'src/components/ZoomControls/ZoomControls';
-import { DebugUtils } from 'src/components/DebugUtils/DebugUtils';
-import { useResizeObserver } from 'src/hooks/useResizeObserver';
-import { ContextMenuManager } from 'src/components/ContextMenu/ContextMenuManager';
-import { useScene } from 'src/hooks/useScene';
-import { useModelStore } from 'src/stores/modelStore';
-import { ExportImageDialog } from '../ExportImageDialog/ExportImageDialog';
-import { CreditsDialog } from '../CreditsDialog/CreditsDialog';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {Box, Typography, useTheme} from '@mui/material';
+import {EditorModeEnum} from 'src/types';
+import {UiElement} from 'components/UiElement/UiElement';
+import {SceneLayer} from 'src/components/SceneLayer/SceneLayer';
+import {DragAndDrop} from 'src/components/DragAndDrop/DragAndDrop';
+import {ItemControlsManager} from 'src/components/ItemControls/ItemControlsManager';
+import {ToolMenu} from 'src/components/ToolMenu/ToolMenu';
+import {useUiStateStore} from 'src/stores/uiStateStore';
+import {MainMenu} from 'src/components/MainMenu/MainMenu';
+import {ZoomControls} from 'src/components/ZoomControls/ZoomControls';
+import {DebugUtils} from 'src/components/DebugUtils/DebugUtils';
+import {useResizeObserver} from 'src/hooks/useResizeObserver';
+import {ContextMenuManager} from 'src/components/ContextMenu/ContextMenuManager';
+import {useScene} from 'src/hooks/useScene';
+import {useModelStore} from 'src/stores/modelStore';
+import {useInitialDataManager} from 'src/hooks/useInitialDataManager';
+import {ExportImageDialog} from '../ExportImageDialog/ExportImageDialog';
+import {CreditsDialog} from '../CreditsDialog/CreditsDialog';
 import horusLogo from 'src/assets/horus.png';
 
 const ToolsEnum = {
@@ -93,6 +93,120 @@ export const UiOverlay = () => {
     return state.title;
   });
   const { size: rendererSize } = useResizeObserver(rendererEl);
+
+    // Drag & Drop functionality
+    const initialDataManager = useInitialDataManager();
+    const [isDragOver, setIsDragOver] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleDragOver = useCallback((e: React.DragEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsDragOver(true);
+    }, []);
+
+    const handleDragLeave = useCallback((e: React.DragEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // Only hide drag overlay if leaving the main container
+        if (e.currentTarget === e.target) {
+            setIsDragOver(false);
+        }
+    }, []);
+
+    const handleDrop = useCallback(async (e: React.DragEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsDragOver(false);
+
+        const files = Array.from(e.dataTransfer.files);
+        const jsonFiles = files.filter(file =>
+            file.type === 'application/json' || file.name.toLowerCase().endsWith('.json')
+        );
+
+        if (jsonFiles.length === 0) {
+            alert('Veuillez déposer un fichier JSON valide.');
+            return;
+        }
+
+        if (jsonFiles.length > 1) {
+            alert('Veuillez déposer un seul fichier JSON à la fois.');
+            return;
+        }
+
+        const file = jsonFiles[0];
+        setIsLoading(true);
+
+        try {
+            const fileReader = new FileReader();
+
+            fileReader.onload = async (event) => {
+                try {
+                    const modelData = JSON.parse(event.target?.result as string);
+                    initialDataManager.load(modelData);
+                    uiStateActions.resetUiState();
+                } catch (error) {
+                    console.error('Error parsing JSON:', error);
+                    alert('Erreur lors du chargement du fichier JSON. Veuillez vérifier que le fichier est valide.');
+                } finally {
+                    setIsLoading(false);
+                }
+            };
+
+            fileReader.onerror = () => {
+                alert('Erreur lors de la lecture du fichier.');
+                setIsLoading(false);
+            };
+
+            fileReader.readAsText(file);
+        } catch (error) {
+            console.error('Error reading file:', error);
+            alert('Erreur lors de la lecture du fichier.');
+            setIsLoading(false);
+        }
+    }, [initialDataManager, uiStateActions]);
+
+    // Global drag event listeners
+    useEffect(() => {
+        const handleGlobalDragEnter = (e: DragEvent) => {
+            e.preventDefault();
+            // Check if dragged items contain files
+            if (e.dataTransfer?.types.includes('Files')) {
+                setIsDragOver(true);
+            }
+        };
+
+        const handleGlobalDragOver = (e: DragEvent) => {
+            e.preventDefault();
+        };
+
+        const handleGlobalDragLeave = (e: DragEvent) => {
+            e.preventDefault();
+            // Only hide if leaving the window entirely
+            if (e.clientX === 0 && e.clientY === 0) {
+                setIsDragOver(false);
+            }
+        };
+
+        const handleGlobalDrop = (e: DragEvent) => {
+            e.preventDefault();
+            setIsDragOver(false);
+        };
+
+        // Add global event listeners
+        window.addEventListener('dragenter', handleGlobalDragEnter);
+        window.addEventListener('dragover', handleGlobalDragOver);
+        window.addEventListener('dragleave', handleGlobalDragLeave);
+        window.addEventListener('drop', handleGlobalDrop);
+
+        return () => {
+            // Cleanup event listeners
+            window.removeEventListener('dragenter', handleGlobalDragEnter);
+            window.removeEventListener('dragover', handleGlobalDragOver);
+            window.removeEventListener('dragleave', handleGlobalDragLeave);
+            window.removeEventListener('drop', handleGlobalDrop);
+        };
+    }, []);
 
   return (
     <>
@@ -306,6 +420,60 @@ export const UiOverlay = () => {
         <Box ref={contextMenuAnchorRef} />
         <ContextMenuManager anchorEl={contextMenuAnchorRef.current} />
       </SceneLayer>
+
+        {/* Drag & Drop Overlay */}
+        {(isDragOver || isLoading) && (
+            <Box
+                sx={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw',
+                    height: '100vh',
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: 9999,
+                    pointerEvents: isDragOver ? 'all' : 'none'
+                }}
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
+            >
+                <Box
+                    sx={{
+                        backgroundColor: 'background.paper',
+                        borderRadius: 2,
+                        p: 4,
+                        textAlign: 'center',
+                        border: '2px dashed',
+                        borderColor: 'primary.main',
+                        minWidth: 300
+                    }}
+                >
+                    {isLoading ? (
+                        <>
+                            <Typography variant="h6" gutterBottom>
+                                Chargement en cours...
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Veuillez patienter pendant le chargement du fichier JSON.
+                            </Typography>
+                        </>
+                    ) : (
+                        <>
+                            <Typography variant="h6" gutterBottom>
+                                Déposer le fichier JSON ici
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Relâchez pour charger le modèle dans l'application.
+                            </Typography>
+                        </>
+                    )}
+                </Box>
+            </Box>
+        )}
     </>
   );
 };
