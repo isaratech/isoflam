@@ -1,6 +1,6 @@
-import { produce } from 'immer';
-import { CoordsUtils, setWindowCursor } from 'src/utils';
-import { ModeActions } from 'src/types';
+import {produce} from 'immer';
+import {CoordsUtils, setWindowCursor} from 'src/utils';
+import {ModeActions} from 'src/types';
 
 export const Pan: ModeActions = {
   entry: () => {
@@ -38,6 +38,12 @@ export const Pan: ModeActions = {
   mouseup: ({ uiState }) => {
     // Only handle if we're in PAN mode
     if (uiState.mode.type === 'PAN') {
+        // In read-only mode, stay in PAN mode to prevent element selection
+        if (uiState.editorMode === 'EXPLORABLE_READONLY') {
+            setWindowCursor('grab');
+            return;
+        }
+      
       // If we have a previous mode stored, restore it
       if (uiState.mode.previousMode) {
         uiState.actions.setMode(uiState.mode.previousMode);

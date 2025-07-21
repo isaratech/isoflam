@@ -18,6 +18,7 @@ import {useInitialDataManager} from 'src/hooks/useInitialDataManager';
 import {ExportImageDialog} from '../ExportImageDialog/ExportImageDialog';
 import {CreditsDialog} from '../CreditsDialog/CreditsDialog';
 import {UndoRedoControls} from '../UndoRedoControls/UndoRedoControls';
+import {ReadOnlyToggle} from '../ReadOnlyToggle/ReadOnlyToggle';
 import horusLogo from 'src/assets/horus.png';
 
 const ToolsEnum = {
@@ -27,7 +28,8 @@ const ToolsEnum = {
   ITEM_CONTROLS: 'ITEM_CONTROLS',
   VIEW_TITLE: 'VIEW_TITLE',
     FOOTER_CREDITS: 'FOOTER_CREDITS',
-    UNDO_REDO_CONTROLS: 'UNDO_REDO_CONTROLS'
+    UNDO_REDO_CONTROLS: 'UNDO_REDO_CONTROLS',
+    READ_ONLY_TOGGLE: 'READ_ONLY_TOGGLE'
 } as const;
 
 interface EditorModeMapping {
@@ -42,9 +44,10 @@ const EDITOR_MODE_MAPPING: EditorModeMapping = {
     'MAIN_MENU',
     'VIEW_TITLE',
       'FOOTER_CREDITS',
-      'UNDO_REDO_CONTROLS'
+      'UNDO_REDO_CONTROLS',
+      'READ_ONLY_TOGGLE'
   ],
-  [EditorModeEnum.EXPLORABLE_READONLY]: ['ZOOM_CONTROLS', 'VIEW_TITLE', 'FOOTER_CREDITS'],
+    [EditorModeEnum.EXPLORABLE_READONLY]: ['ZOOM_CONTROLS', 'VIEW_TITLE', 'FOOTER_CREDITS', 'READ_ONLY_TOGGLE'],
   [EditorModeEnum.NON_INTERACTIVE]: []
 };
 
@@ -398,6 +401,21 @@ export const UiOverlay = () => {
             <ZoomControls />
           </Box>
         )}
+
+          {availableTools.includes('READ_ONLY_TOGGLE') && (
+              <Box
+                  sx={{
+                      position: 'absolute',
+                      transformOrigin: 'bottom left'
+                  }}
+                  style={{
+                      top: rendererSize.height - appPadding.y * 2,
+                      left: appPadding.x + 200 // Position to the right of ZoomControls
+                  }}
+              >
+                  <ReadOnlyToggle/>
+              </Box>
+          )}
 
         {availableTools.includes('MAIN_MENU') && (
           <Box

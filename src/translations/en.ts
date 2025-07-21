@@ -133,7 +133,13 @@ export const enTranslations = {
     'Mobile Device Detected': 'Mobile Device Detected',
     'This application currently works only on PC. For the best experience, please use a desktop or laptop computer.': 'This application currently works only on PC. For the best experience, please use a desktop or laptop computer.',
     'Continue Anyway': 'Continue Anyway',
-    'You can continue to use the application, but some features may not work properly on mobile devices.': 'You can continue to use the application, but some features may not work properly on mobile devices.'
+    'You can continue to use the application, but some features may not work properly on mobile devices.': 'You can continue to use the application, but some features may not work properly on mobile devices.',
+
+    // Read-only mode
+    'Read-only mode': 'Read-only mode',
+    'Toggle read-only mode': 'Toggle read-only mode',
+    'Enable read-only mode': 'Enable read-only mode',
+    'Disable read-only mode': 'Disable read-only mode'
 } as const;
 
 export type TranslationKey = keyof typeof enTranslations;
