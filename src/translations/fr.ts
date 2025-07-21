@@ -57,6 +57,7 @@ export const frTranslations = {
   'Text size': 'Taille du texte',
   Alignment: 'Alignement',
   'Text style': 'Style du texte',
+    'Text formatting': 'Mise en forme du texte',
 
   // NodeSettings
   Label: 'Libellé',

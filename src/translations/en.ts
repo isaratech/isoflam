@@ -64,6 +64,7 @@ export const enTranslations = {
   'Label height': 'Label height',
   'Icon scale': 'Icon scale',
   'Reset to default size': 'Reset to default size',
+    'Text formatting': 'Text formatting',
 
   // ColorSelector
   'No colors available': 'No colors available',
