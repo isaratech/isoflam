@@ -5,7 +5,7 @@ All notable changes to the Isoflam project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.2] - 2025-07-05
+## [1.2.0] - 2025-07-05
 
 ### Added
 - Advanced settings accordion in UI components
@@ -28,7 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Connector x-coordinates mirroring issue
 
-## [1.1] - 2025-06-01
+## [1.1.0] - 2025-06-01
 
 ### Added
 - Full scene modeling with detailed vehicles, personnel, and equipment placement
@@ -63,7 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Memory leaks during prolonged editing sessions
 - Browser compatibility issues with older versions of Edge and Firefox
 
-## [1.0] - 2025-05-01
+## [1.0.0] - 2025-05-01
 
 ### Added
 - Initial release of isometric drawing software for firefighters
