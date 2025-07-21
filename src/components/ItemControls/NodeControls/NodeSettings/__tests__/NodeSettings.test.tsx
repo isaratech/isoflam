@@ -1,10 +1,10 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { NodeSettings } from '../NodeSettings';
-import { ViewItem, ModelItem } from 'src/types';
-import { ModelProvider } from 'src/stores/modelStore';
-import { SceneProvider } from 'src/stores/sceneStore';
-import { UiStateProvider } from 'src/stores/uiStateStore';
+import {render, screen} from '@testing-library/react';
+import {NodeSettings} from '../NodeSettings';
+import {ViewItem} from 'src/types';
+import {ModelProvider} from 'src/stores/modelStore';
+import {SceneProvider} from 'src/stores/sceneStore';
+import {UiStateProvider} from 'src/stores/uiStateStore';
 
 // Mock the hooks
 jest.mock('src/hooks/useModelItem', () => ({
@@ -73,8 +73,8 @@ describe('NodeSettings', () => {
       </ModelProvider>
     );
 
-    // The scale input should show 0.5 (from icon.scaleFactor) instead of 1
-    const scaleInputs = screen.getAllByDisplayValue('0.5');
+      // The scale input should show 0.50 (formatted from icon.scaleFactor) instead of 1
+      const scaleInputs = screen.getAllByDisplayValue('0.50');
     const numberInput = scaleInputs.find(input => input.getAttribute('type') === 'number');
     expect(numberInput).toBeInTheDocument();
   });
