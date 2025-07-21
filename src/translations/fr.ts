@@ -127,7 +127,13 @@ export const frTranslations = {
     buildings: 'Bâtiments',
 
     // Unsaved changes warning
-    'Your unsaved changes will be lost': 'Vos modifications non enregistrées seront perdues'
+    'Your unsaved changes will be lost': 'Vos modifications non enregistrées seront perdues',
+
+    // Mobile warning
+    'Mobile Device Detected': 'Appareil mobile détecté',
+    'This application currently works only on PC. For the best experience, please use a desktop or laptop computer.': 'Cette application fonctionne actuellement uniquement sur PC. Pour une meilleure expérience, veuillez utiliser un ordinateur de bureau ou PC portable.',
+    'Continue Anyway': 'Continuer quand même',
+    'You can continue to use the application, but some features may not work properly on mobile devices.': 'Vous pouvez continuer à utiliser l\'application, mais certaines fonctionnalités peuvent ne pas fonctionner correctement sur les appareils mobiles.'
 } as const;
 
 export type TranslationKey = keyof typeof frTranslations;

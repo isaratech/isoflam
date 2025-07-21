@@ -127,7 +127,13 @@ export const enTranslations = {
     buildings: 'Buildings',
 
     // Unsaved changes warning
-    'Your unsaved changes will be lost': 'Your unsaved changes will be lost'
+    'Your unsaved changes will be lost': 'Your unsaved changes will be lost',
+
+    // Mobile warning
+    'Mobile Device Detected': 'Mobile Device Detected',
+    'This application currently works only on PC. For the best experience, please use a desktop or laptop computer.': 'This application currently works only on PC. For the best experience, please use a desktop or laptop computer.',
+    'Continue Anyway': 'Continue Anyway',
+    'You can continue to use the application, but some features may not work properly on mobile devices.': 'You can continue to use the application, but some features may not work properly on mobile devices.'
 } as const;
 
 export type TranslationKey = keyof typeof enTranslations;

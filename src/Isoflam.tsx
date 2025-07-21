@@ -16,6 +16,7 @@ import {useInitialDataManager} from 'src/hooks/useInitialDataManager';
 import {useScene} from 'src/hooks/useScene';
 import {useTranslation} from 'src/hooks/useTranslation';
 import {useUndoRedo} from 'src/hooks/useUndoRedo';
+import {MobileWarning} from 'src/components/MobileWarning/MobileWarning';
 
 const App = ({
   initialData,
@@ -186,6 +187,7 @@ const App = ({
           }
         }}
       />
+        <MobileWarning/>
       <Box
         sx={{
           width,
