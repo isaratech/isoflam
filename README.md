@@ -29,12 +29,13 @@ Try the application online: **[https://isaratech.github.io/isoflam/](https://isa
 ## Application Preview
 
 <div align="center">
-  <img src="docs/img1.png" alt="Application Screenshot 1" width="30%" style="margin: 0 1%;">
-  <img src="docs/img2.png" alt="Application Screenshot 2" width="30%" style="margin: 0 1%;">
-  <img src="docs/img3.png" alt="Application Screenshot 3" width="30%" style="margin: 0 1%;">
-</div>
+  <img src="docs/img1.png" alt="Application Screenshot 1" width="40%" style="margin: 0 1%;">
+  <img src="docs/img2.png" alt="Application Screenshot 2" width="40%" style="margin: 0 1%;">
+  <img src="docs/img3.png" alt="Application Screenshot 3" width="40%" style="margin: 0 1%;">
+    <img src="docs/img4.png" alt="Application Screenshot 4" width="40%" style="margin: 0 1%;">
 
 *Example of Isoflam application interface showing isometric scene modeling*
+</div>
 
 ## Key Features
 
