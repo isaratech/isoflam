@@ -15,21 +15,42 @@ const translations = {
 // Define a type for translation keys that works across all languages
 export type TranslationKey = keyof typeof frTranslations | keyof typeof enTranslations;
 
+// Function to detect browser locale and return supported language or fallback to English
+const getBrowserLocale = (): SupportedLanguage => {
+    const browserLanguage = navigator.language.toLowerCase();
+
+    // Check if browser language starts with 'fr' (French)
+    if (browserLanguage.startsWith('fr')) {
+        return 'fr';
+    }
+
+    // Check if browser language starts with 'en' (English)
+    if (browserLanguage.startsWith('en')) {
+        return 'en';
+    }
+
+    // For any other language, fallback to English
+    return 'en';
+};
+
 export const useTranslation = () => {
   const language = useUiStateStore((state) => {
-    return state.language || 'fr';
+      return state.language || getBrowserLocale();
   });
   const setLanguage = useUiStateStore((state) => {
     return state.actions.setLanguage;
   });
 
-  // Load language from localStorage on initial render
+    // Load language from localStorage on initial render, or use browser locale as default
   useEffect(() => {
     const savedLanguage = localStorage.getItem(
       'language'
     ) as SupportedLanguage | null;
     if (savedLanguage) {
       setLanguage(savedLanguage);
+    } else {
+        // No saved language, use browser locale
+        setLanguage(getBrowserLocale());
     }
   }, []);
 
@@ -39,7 +60,7 @@ export const useTranslation = () => {
   }, [language]);
 
   const t = (key: TranslationKey): string => {
-    const translationObj = translations[language] || translations.fr;
+      const translationObj = translations[language] || translations.en;
     return translationObj[key] || key;
   };
 
