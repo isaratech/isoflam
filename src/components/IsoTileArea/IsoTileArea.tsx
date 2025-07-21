@@ -121,7 +121,7 @@ export const IsoTileArea = ({
                         href={imageData}
                         width={pxSize.width}
                         height={pxSize.height}
-                        preserveAspectRatio="xMidYMid slice"
+                        preserveAspectRatio="xMidYMid meet"
                         transform={imageTransform}
                     />
                 </pattern>
