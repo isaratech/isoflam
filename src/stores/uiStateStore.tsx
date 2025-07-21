@@ -1,14 +1,9 @@
-import React, { createContext, useContext, useRef } from 'react';
-import { createStore, useStore } from 'zustand';
-import {
-  CoordsUtils,
-  incrementZoom,
-  decrementZoom,
-  getStartingMode
-} from 'src/utils';
-import { UiStateStore } from 'src/types';
-import { INITIAL_UI_STATE } from 'src/config';
-import { SupportedLanguage } from 'src/hooks/useTranslation';
+import React, {createContext, useContext, useRef} from 'react';
+import {createStore, useStore} from 'zustand';
+import {CoordsUtils, decrementZoom, getStartingMode, incrementZoom} from 'src/utils';
+import {UiStateStore} from 'src/types';
+import {INITIAL_UI_STATE} from 'src/config';
+import {SupportedLanguage} from 'src/hooks/useTranslation';
 
 const initialState = () => {
   return createStore<UiStateStore>((set, get) => {
@@ -32,6 +27,7 @@ const initialState = () => {
       },
       itemControls: null,
       enableDebugTools: false,
+        hasUnsavedChanges: false,
       actions: {
         setView: (view) => {
           set({ view });
@@ -96,6 +92,9 @@ const initialState = () => {
         },
         setRendererEl: (el) => {
           set({ rendererEl: el });
+        },
+          setHasUnsavedChanges: (hasUnsavedChanges) => {
+              set({hasUnsavedChanges});
         }
       }
     };

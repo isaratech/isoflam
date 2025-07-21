@@ -1,7 +1,7 @@
-import { SupportedLanguage } from 'src/hooks/useTranslation';
-import { Coords, EditorModeEnum, MainMenuOptions } from './common';
-import { Icon } from './model';
-import { ItemReference } from './scene';
+import {SupportedLanguage} from 'src/hooks/useTranslation';
+import {Coords, EditorModeEnum, MainMenuOptions} from './common';
+import {Icon} from './model';
+import {ItemReference} from './scene';
 
 interface AddItemControls {
   type: 'ADD_ITEM';
@@ -158,6 +158,7 @@ export interface UiState {
   rendererEl: HTMLDivElement | null;
   enableDebugTools: boolean;
   language: SupportedLanguage;
+    hasUnsavedChanges: boolean;
 }
 
 export interface UiStateActions {
@@ -179,6 +180,7 @@ export interface UiStateActions {
   setRendererEl: (el: HTMLDivElement) => void;
   setEnableDebugTools: (enabled: boolean) => void;
   setLanguage: (language: SupportedLanguage) => void;
+    setHasUnsavedChanges: (hasUnsavedChanges: boolean) => void;
 }
 
 export type UiStateStore = UiState & {

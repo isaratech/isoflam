@@ -97,6 +97,7 @@ export const MainMenu = () => {
 
               load(modelData);
               uiStateActions.resetUiState();
+              uiStateActions.setHasUnsavedChanges(false);
 
               // Success message for large files
               if (file.size > maxFileSize / 2) {
@@ -134,6 +135,7 @@ export const MainMenu = () => {
 
   const onExportAsJSON = useCallback(async () => {
     exportAsJSON(model);
+      uiStateActions.setHasUnsavedChanges(false);
     uiStateActions.setIsMainMenuOpen(false);
   }, [model, uiStateActions]);
 
@@ -151,6 +153,7 @@ export const MainMenu = () => {
 
   const onClearCanvas = useCallback(() => {
     clear();
+      uiStateActions.setHasUnsavedChanges(false);
     uiStateActions.setIsMainMenuOpen(false);
   }, [uiStateActions, clear]);
 

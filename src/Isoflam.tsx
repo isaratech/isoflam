@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react';
-import { ThemeProvider } from '@mui/material/styles';
-import { Box, GlobalStyles as MUIGlobalStyles } from '@mui/material';
-import { theme } from 'src/styles/theme';
-import { IsoflamProps } from 'src/types';
-import { setWindowCursor, modelFromModelStore } from 'src/utils';
-import { useModelStore, ModelProvider } from 'src/stores/modelStore';
-import { SceneProvider } from 'src/stores/sceneStore';
+import React, {useEffect} from 'react';
+import {ThemeProvider} from '@mui/material/styles';
+import {Box, GlobalStyles as MUIGlobalStyles} from '@mui/material';
+import {theme} from 'src/styles/theme';
+import {IsoflamProps} from 'src/types';
+import {modelFromModelStore, setWindowCursor} from 'src/utils';
+import {ModelProvider, useModelStore} from 'src/stores/modelStore';
+import {SceneProvider} from 'src/stores/sceneStore';
 import 'react-quill/dist/quill.snow.css';
-import { Renderer } from 'src/components/Renderer/Renderer';
-import { UiOverlay } from 'src/components/UiOverlay/UiOverlay';
-import { UiStateProvider, useUiStateStore } from 'src/stores/uiStateStore';
-import { INITIAL_DATA, MAIN_MENU_OPTIONS } from 'src/config';
-import { useInitialDataManager } from 'src/hooks/useInitialDataManager';
-import { useScene } from 'src/hooks/useScene';
+import {Renderer} from 'src/components/Renderer/Renderer';
+import {UiOverlay} from 'src/components/UiOverlay/UiOverlay';
+import {UiStateProvider, useUiStateStore} from 'src/stores/uiStateStore';
+import {INITIAL_DATA, MAIN_MENU_OPTIONS} from 'src/config';
+import {useInitialDataManager} from 'src/hooks/useInitialDataManager';
+import {useScene} from 'src/hooks/useScene';
+import {useTranslation} from 'src/hooks/useTranslation';
 
 const App = ({
   initialData,
@@ -30,11 +31,15 @@ const App = ({
   const itemControls = useUiStateStore((state) => {
     return state.itemControls;
   });
+    const hasUnsavedChanges = useUiStateStore((state) => {
+        return state.hasUnsavedChanges;
+    });
   const initialDataManager = useInitialDataManager();
   const model = useModelStore((state) => {
     return modelFromModelStore(state);
   });
   const scene = useScene();
+    const {t} = useTranslation();
 
   const { load } = initialDataManager;
 
@@ -62,6 +67,24 @@ const App = ({
   useEffect(() => {
     uiStateActions.setEnableDebugTools(enableDebugTools);
   }, [enableDebugTools, uiStateActions]);
+
+    // Handle beforeunload event to warn about unsaved changes
+    useEffect(() => {
+        const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+            if (hasUnsavedChanges) {
+                const message = t('Your unsaved changes will be lost');
+                event.preventDefault();
+                event.returnValue = message;
+                return message;
+            }
+        };
+
+        window.addEventListener('beforeunload', handleBeforeUnload);
+
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
+    }, [hasUnsavedChanges, t]);
 
   // Keyboard shortcuts handler
   useEffect(() => {

@@ -1,24 +1,12 @@
-import { useCallback, useMemo } from 'react';
-import {
-  ModelItem,
-  ViewItem,
-  Connector,
-  TextBox,
-  Rectangle,
-  ItemReference,
-  LayerOrderingAction
-} from 'src/types';
-import { useUiStateStore } from 'src/stores/uiStateStore';
-import { useModelStore } from 'src/stores/modelStore';
-import { useSceneStore } from 'src/stores/sceneStore';
+import {useCallback, useMemo} from 'react';
+import {Connector, ItemReference, LayerOrderingAction, ModelItem, Rectangle, TextBox, ViewItem} from 'src/types';
+import {useUiStateStore} from 'src/stores/uiStateStore';
+import {useModelStore} from 'src/stores/modelStore';
+import {useSceneStore} from 'src/stores/sceneStore';
 import * as reducers from 'src/stores/reducers';
-import type { State } from 'src/stores/reducers/types';
-import { getItemByIdOrThrow } from 'src/utils';
-import {
-  CONNECTOR_DEFAULTS,
-  RECTANGLE_DEFAULTS,
-  TEXTBOX_DEFAULTS
-} from 'src/config';
+import type {State} from 'src/stores/reducers/types';
+import {getItemByIdOrThrow} from 'src/utils';
+import {CONNECTOR_DEFAULTS, RECTANGLE_DEFAULTS, TEXTBOX_DEFAULTS} from 'src/config';
 
 export const useScene = () => {
   const model = useModelStore((state) => {
@@ -32,6 +20,10 @@ export const useScene = () => {
   const currentViewId = useUiStateStore((state) => {
     return state.view;
   });
+
+    const setHasUnsavedChanges = useUiStateStore((state) => {
+        return state.actions.setHasUnsavedChanges;
+    });
 
   const currentView = useMemo(() => {
     if (!currentViewId || currentViewId === '') {
@@ -92,8 +84,9 @@ export const useScene = () => {
     (newState: State) => {
       model.actions.set(newState.model);
       scene.actions.set(newState.scene);
+        setHasUnsavedChanges(true);
     },
-    [model.actions, scene.actions]
+      [model.actions, scene.actions, setHasUnsavedChanges]
   );
 
   const createModelItem = useCallback(

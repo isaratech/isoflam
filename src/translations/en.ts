@@ -112,7 +112,10 @@ export const enTranslations = {
   people: 'People',
   vehicles: 'Vehicles',
   other: 'Other',
-  buildings: 'Buildings'
+    buildings: 'Buildings',
+
+    // Unsaved changes warning
+    'Your unsaved changes will be lost': 'Your unsaved changes will be lost'
 } as const;
 
 export type TranslationKey = keyof typeof enTranslations;

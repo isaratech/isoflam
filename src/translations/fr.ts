@@ -112,7 +112,10 @@ export const frTranslations = {
   people: 'Personnes',
   vehicles: 'Véhicules',
   other: 'Autre',
-  buildings: 'Bâtiments'
+    buildings: 'Bâtiments',
+
+    // Unsaved changes warning
+    'Your unsaved changes will be lost': 'Vos modifications non enregistrées seront perdues'
 } as const;
 
 export type TranslationKey = keyof typeof frTranslations;
