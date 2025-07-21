@@ -49,6 +49,44 @@ export const RectangleControls = ({ id }: Props) => {
             </Section>
         )}
 
+
+        {/* Quick rotation controls (90°) - only for images */}
+        {rectangle.imageData && (
+            <Section title={t('Rotation')}>
+                <ToggleButtonGroup
+                    value={[]} // No persistent selection for action buttons
+                    onChange={(e, newValues) => {
+                        // Handle rotation actions based on the clicked button
+                        const target = e.target as HTMLElement;
+                        const button = target.closest('[data-rotation]') as HTMLElement;
+                        if (button) {
+                            const direction = button.getAttribute('data-rotation');
+                            const currentRotation = rectangle.rotationAngle || 0;
+                            const newRotation = direction === 'left'
+                                ? (currentRotation - 90 + 360) % 360
+                                : (currentRotation + 90) % 360;
+                            updateRectangle(rectangle.id, {rotationAngle: newRotation});
+                        }
+                    }}
+                >
+                    <ToggleButton
+                        value="rotate-left"
+                        data-rotation="left"
+                        title={t('Rotate left 90°')}
+                    >
+                        <RotateLeft/>
+                    </ToggleButton>
+                    <ToggleButton
+                        value="rotate-right"
+                        data-rotation="right"
+                        title={t('Rotate right 90°')}
+                    >
+                        <RotateRight/>
+                    </ToggleButton>
+                </ToggleButtonGroup>
+            </Section>
+        )}
+
       {/* Advanced settings */}
       <AdvancedSettings>
         <Section title={t('Style')}>
@@ -185,7 +223,7 @@ export const RectangleControls = ({ id }: Props) => {
               </Section>
           )}
 
-          {/* Rotation controls - only for images */}
+          {/* Fine rotation controls (10° and 5°) - only for images */}
           {rectangle.imageData && (
               <Section title={t('Rotation')}>
                   <ToggleButtonGroup
@@ -193,37 +231,59 @@ export const RectangleControls = ({ id }: Props) => {
                       onChange={(e, newValues) => {
                           // Handle rotation actions based on the clicked button
                           const target = e.target as HTMLElement;
-                          const button = target.closest('[data-rotation]') as HTMLElement;
+                          const button = target.closest('[data-rotation-fine]') as HTMLElement;
                           if (button) {
-                              const direction = button.getAttribute('data-rotation');
+                              const direction = button.getAttribute('data-rotation-fine');
+                              const angle = button.getAttribute('data-rotation-angle');
+                              const rotationAngle = parseInt(angle || '10', 10);
                               const currentRotation = rectangle.rotationAngle || 0;
                               const newRotation = direction === 'left'
-                                  ? (currentRotation - 90 + 360) % 360
-                                  : (currentRotation + 90) % 360;
+                                  ? (currentRotation - rotationAngle + 360) % 360
+                                  : (currentRotation + rotationAngle) % 360;
                               updateRectangle(rectangle.id, {rotationAngle: newRotation});
                           }
                       }}
                   >
                       <ToggleButton
-                          value="rotate-left"
-                          data-rotation="left"
-                          title={t('Rotate left 90°')}
+                          value="rotate-left-10"
+                          data-rotation-fine="left"
+                          data-rotation-angle="10"
+                          title={t('Rotate left 10°')}
                       >
-                          <RotateLeft/>
+                          10°&nbsp;<RotateLeft/>
+                      </ToggleButton>
+
+                      <ToggleButton
+                          value="rotate-left-5"
+                          data-rotation-fine="left"
+                          data-rotation-angle="5"
+                          title={t('Rotate left 5°')}
+                      >
+                          5°&nbsp;<RotateLeft/>
                       </ToggleButton>
                       <ToggleButton
-                          value="rotate-right"
-                          data-rotation="right"
-                          title={t('Rotate right 90°')}
+                          value="rotate-right-5"
+                          data-rotation-fine="right"
+                          data-rotation-angle="5"
+                          title={t('Rotate right 5°')}
                       >
-                          <RotateRight/>
+                          <RotateRight/>&nbsp;5°
+                      </ToggleButton>
+                      <ToggleButton
+                          value="rotate-right-10"
+                          data-rotation-fine="right"
+                          data-rotation-angle="10"
+                          title={t('Rotate right 10°')}
+                      >
+                          <RotateRight/>&nbsp;10°
                       </ToggleButton>
                   </ToggleButtonGroup>
               </Section>
           )}
       </AdvancedSettings>
 
-      {/* Action buttons */}
+
+        {/* Action buttons */}
       <Section>
         <Box sx={{ display: 'flex', flexDirection: 'row', gap: 1 }}>
           <DuplicateButton

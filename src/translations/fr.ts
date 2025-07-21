@@ -32,6 +32,10 @@ export const frTranslations = {
     "Rotation": 'Rotation',
     "Rotate left 90°": 'Rotation gauche 90°',
     "Rotate right 90°": 'Rotation droite 90°',
+    "Rotate left 10°": 'Rotation gauche 10°',
+    "Rotate right 10°": 'Rotation droite 10°',
+    "Rotate left 5°": 'Rotation gauche 5°',
+    "Rotate right 5°": 'Rotation droite 5°',
 
   // ExportImageDialog
   'Certain browsers may not support exporting images properly.':
