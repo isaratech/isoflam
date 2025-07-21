@@ -5,6 +5,35 @@ All notable changes to the Isoflam project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2025-07-21
+
+### Added
+
+- Enhanced font size selector with visual icons replacing traditional slider for better text size control
+- Logarithmic scale support for more precise icon resizing in node settings
+- Automatic browser locale detection with English fallback for improved internationalization
+- Drag & drop functionality for JSON model files directly onto the application interface
+- Comprehensive French user manual documentation
+- Bold and italic text formatting toggles for textbox elements
+- Reset button for icon scale slider to quickly restore default sizing
+- Flag icons for English and French language selection in main menu
+- Enhanced Jest test configuration with improved pattern matching
+- Complete English locale support with language switching capability
+
+### Changed
+
+- Optimized export file sizes by excluding color and icon data from JSON saves
+- Improved scale factor handling to prioritize icon-specific scaling settings
+- Streamlined language selection interface in main menu
+- Updated build configuration to remove unnecessary pull request triggers
+- Repositioned text style controls to advanced settings accordion for better organization
+
+### Fixed
+
+- Missing key properties in context menu items for improved React rendering
+- Icon scale slider precision with adjusted step and minimum values
+- Import functionality issues with large numerical values (rounding, stroke properties)
+
 ## [1.2.0] - 2025-07-05
 
 ### Added
