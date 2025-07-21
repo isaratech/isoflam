@@ -25,6 +25,7 @@ L'interface d'Isoflam est conçue pour être intuitive et facile à utiliser. El
 
 - **Ajouter un élément** (icône +) : Permet d'ajouter des icônes prédéfinies comme des véhicules, du personnel ou des équipements.
 - **Rectangle** (icône carré) : Permet de dessiner des rectangles pour délimiter des zones.
+- **Importer une image** (icône image) : Permet d'importer des images personnalisées à utiliser comme rectangles.
 - **Connecteur** (icône flèche droite) : Permet de créer des connecteurs entre les éléments.
 - **Texte** (icône T) : Permet d'ajouter des zones de texte pour les annotations.
 
@@ -58,8 +59,8 @@ Le menu principal offre les options suivantes :
 Isoflam prend en charge plusieurs raccourcis clavier pour accélérer votre travail :
 
 - **Supprimer / Retour arrière** : Supprime l'élément sélectionné.
-- **Ctrl/Cmd + Z** : Annule la dernière action (fonctionnalité à venir).
-- **Ctrl/Cmd + Y** : Rétablit la dernière action annulée (fonctionnalité à venir).
+- **Ctrl/Cmd + Z** : Annule la dernière action.
+- **Ctrl/Cmd + Y** : Rétablit la dernière action annulée.
 - **Ctrl/Cmd + C** : Copie l'élément sélectionné.
 - **Ctrl/Cmd + V** : Colle l'élément copié.
 
@@ -109,6 +110,44 @@ Pour exporter votre diagramme sous forme d'image :
 2. Cliquez sur la zone de dessin où vous souhaitez ajouter du texte.
 3. Saisissez votre texte dans la zone qui apparaît.
 4. Cliquez en dehors de la zone de texte pour confirmer.
+
+### Import d'images
+
+1. Cliquez sur l'outil "Importer une image" (icône image).
+2. Sélectionnez le fichier image depuis votre ordinateur.
+3. L'image sera importée et peut être utilisée comme un rectangle.
+4. Une fois sélectionnée, vous pouvez utiliser les contrôles de rotation et de miroir.
+
+### Contrôles d'annulation et de rétablissement
+
+- **Bouton Annuler** : Annule la dernière action effectuée.
+- **Bouton Rétablir** : Rétablit la dernière action annulée.
+- Ces contrôles sont disponibles dans la barre d'outils et via les raccourcis clavier Ctrl/Cmd + Z et Ctrl/Cmd + Y.
+
+### Manipulation d'images importées
+
+Lorsqu'une image importée est sélectionnée, des contrôles supplémentaires apparaissent :
+
+- **Rotation gauche 90°** : Fait pivoter l'image de 90 degrés vers la gauche.
+- **Rotation droite 90°** : Fait pivoter l'image de 90 degrés vers la droite.
+- **Miroir horizontal** : Inverse l'image horizontalement.
+- **Miroir vertical** : Inverse l'image verticalement.
+
+### Gestion des calques
+
+Les contrôles de calques permettent d'organiser l'ordre des éléments :
+
+- **Avancer** : Déplace l'élément d'un niveau vers l'avant.
+- **Reculer** : Déplace l'élément d'un niveau vers l'arrière.
+- **Mettre au premier plan** : Place l'élément au-dessus de tous les autres.
+- **Mettre en arrière-plan** : Place l'élément derrière tous les autres.
+
+### Protection contre la perte de données
+
+Isoflam surveille maintenant les modifications non enregistrées :
+
+- Un avertissement apparaît si vous tentez de quitter ou d'effacer le canevas avec des modifications non sauvegardées.
+- Le message "Vos modifications non enregistrées seront perdues" vous permet de confirmer ou d'annuler l'action.
 
 ## Conseils et astuces
 

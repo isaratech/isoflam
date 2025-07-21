@@ -8,7 +8,7 @@
 
 <div align="center">
 
-[![Version](https://img.shields.io/badge/version-1.2.1-blue.svg)](https://github.com/isaratech/isoflam/releases)
+[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](https://github.com/isaratech/isoflam/releases)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB.svg?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.1.6-3178C6.svg?logo=typescript)](https://www.typescriptlang.org/)
@@ -40,10 +40,15 @@ Try the application online: **[https://isaratech.github.io/isoflam/](https://isa
 ## Key Features
 
 - **Drag-and-drop editor** - Quickly place firefighting vehicles, personnel, and equipment on your scene
+- **Image import & manipulation** - Import custom images and use advanced rotation and mirroring controls
+- **Undo/Redo functionality** - Full editing history with comprehensive undo and redo capabilities
+- **Layer management** - Precise control over element ordering and layering
 - **Specialized icon library** - Comprehensive collection of firefighting-specific icons and symbols
-- **Drawing tools** - Create shapes, arrows, zones, and add text annotations
+- **Drawing tools** - Create shapes, arrows, zones, and add text annotations with rich formatting
+- **Unsaved changes protection** - Smart tracking system to prevent accidental data loss
 - **Export capabilities** - Export diagrams as high-quality images for reports and communications
 - **Isometric view** - Professional 3D-like perspective for clear scene representation
+- **Multi-language support** - Available in French and English with automatic locale detection
 
 ## 🛠️ Technology Stack
 
@@ -185,21 +190,22 @@ Isoflam supports multiple languages with automatic browser locale detection:
 - **English (en)** - Full English support with fallback capability
 - **Auto-detection** - Automatically detects browser language with English fallback
 
-## 📋 What's New in v1.2.1
+## 📋 What's New in v1.3.0
 
 ### Latest Features (July 2025)
 
-- ✨ **Enhanced Font Controls** - Visual font size selector with icons
-- 🎯 **Drag & Drop Support** - Import JSON model files directly
-- 🌐 **Complete Internationalization** - French and English language support
-- 📝 **Rich Text Formatting** - Bold and italic text controls
-- 🔧 **Improved UI** - Better organization with advanced settings accordion
-- 📖 **French Documentation** - Comprehensive user manual in French
+- 🖼️ **Image Import** - Import and use custom images as rectangles in your diagrams
+- ↩️ **Undo/Redo Functionality** - Full undo and redo controls for all editing operations
+- 🔄 **Image Controls** - Mirroring and rotation controls for imported images
+- ⚠️ **Unsaved Changes Tracking** - Warning system to prevent data loss
+- 📚 **Layer Management** - Layer control buttons for precise element ordering
+- 🎨 **Enhanced Rectangle Tools** - Advanced image manipulation capabilities
 
 For complete changelog, see [CHANGELOG.md](CHANGELOG.md).
 
 ## 📚 Documentation
 
+- **[User Manual (English)](docs/user_manual.md)** - Complete guide in English
 - **[User Manual (French)](docs/manuel_utilisateur.md)** - Complete guide in French
 - **[Changelog](CHANGELOG.md)** - Detailed version history
 - **[Docker Hub](https://hub.docker.com/r/isaratech/isoflam)** - Container deployment guide
