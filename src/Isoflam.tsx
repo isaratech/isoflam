@@ -10,10 +10,12 @@ import 'react-quill/dist/quill.snow.css';
 import {Renderer} from 'src/components/Renderer/Renderer';
 import {UiOverlay} from 'src/components/UiOverlay/UiOverlay';
 import {UiStateProvider, useUiStateStore} from 'src/stores/uiStateStore';
+import {HistoryProvider} from 'src/stores/historyStore';
 import {INITIAL_DATA, MAIN_MENU_OPTIONS} from 'src/config';
 import {useInitialDataManager} from 'src/hooks/useInitialDataManager';
 import {useScene} from 'src/hooks/useScene';
 import {useTranslation} from 'src/hooks/useTranslation';
+import {useUndoRedo} from 'src/hooks/useUndoRedo';
 
 const App = ({
   initialData,
@@ -40,6 +42,7 @@ const App = ({
   });
   const scene = useScene();
     const {t} = useTranslation();
+    const {undo, redo} = useUndoRedo();
 
   const { load } = initialDataManager;
 
@@ -133,7 +136,7 @@ const App = ({
         case 'Z':
           if (event.ctrlKey || event.metaKey) {
             event.preventDefault();
-            // TODO: Implement undo functionality
+              undo();
           }
           break;
 
@@ -141,7 +144,7 @@ const App = ({
         case 'Y':
           if (event.ctrlKey || event.metaKey) {
             event.preventDefault();
-            // TODO: Implement redo functionality
+              redo();
           }
           break;
 
@@ -170,7 +173,7 @@ const App = ({
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [editorMode, itemControls, scene, uiStateActions]);
+  }, [editorMode, itemControls, scene, uiStateActions, undo, redo]);
 
   if (!initialDataManager.isReady) return null;
 
@@ -203,11 +206,13 @@ export const Isoflam = (props: IsoflamProps) => {
   return (
     <ThemeProvider theme={theme}>
       <ModelProvider>
-        <SceneProvider>
-          <UiStateProvider>
-            <App {...props} />
-          </UiStateProvider>
-        </SceneProvider>
+          <HistoryProvider>
+              <SceneProvider>
+                  <UiStateProvider>
+                      <App {...props} />
+                  </UiStateProvider>
+              </SceneProvider>
+          </HistoryProvider>
       </ModelProvider>
     </ThemeProvider>
   );

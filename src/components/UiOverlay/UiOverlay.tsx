@@ -17,6 +17,7 @@ import {useModelStore} from 'src/stores/modelStore';
 import {useInitialDataManager} from 'src/hooks/useInitialDataManager';
 import {ExportImageDialog} from '../ExportImageDialog/ExportImageDialog';
 import {CreditsDialog} from '../CreditsDialog/CreditsDialog';
+import {UndoRedoControls} from '../UndoRedoControls/UndoRedoControls';
 import horusLogo from 'src/assets/horus.png';
 
 const ToolsEnum = {
@@ -25,7 +26,8 @@ const ToolsEnum = {
   TOOL_MENU: 'TOOL_MENU',
   ITEM_CONTROLS: 'ITEM_CONTROLS',
   VIEW_TITLE: 'VIEW_TITLE',
-  FOOTER_CREDITS: 'FOOTER_CREDITS'
+    FOOTER_CREDITS: 'FOOTER_CREDITS',
+    UNDO_REDO_CONTROLS: 'UNDO_REDO_CONTROLS'
 } as const;
 
 interface EditorModeMapping {
@@ -39,7 +41,8 @@ const EDITOR_MODE_MAPPING: EditorModeMapping = {
     'TOOL_MENU',
     'MAIN_MENU',
     'VIEW_TITLE',
-    'FOOTER_CREDITS'
+      'FOOTER_CREDITS',
+      'UNDO_REDO_CONTROLS'
   ],
   [EditorModeEnum.EXPLORABLE_READONLY]: ['ZOOM_CONTROLS', 'VIEW_TITLE', 'FOOTER_CREDITS'],
   [EditorModeEnum.NON_INTERACTIVE]: []
@@ -409,6 +412,20 @@ export const UiOverlay = () => {
             <MainMenu />
           </Box>
         )}
+
+          {availableTools.includes('UNDO_REDO_CONTROLS') && (
+              <Box
+                  sx={{
+                      position: 'absolute'
+                  }}
+                  style={{
+                      top: appPadding.y,
+                      left: appPadding.x + 60 // Position to the right of MainMenu
+                  }}
+              >
+                  <UndoRedoControls/>
+              </Box>
+          )}
 
         {/*{availableTools.includes('VIEW_TITLE') && (*/}
         {/*  <Box*/}
