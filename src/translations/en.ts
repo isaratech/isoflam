@@ -76,6 +76,7 @@ export const enTranslations = {
   Style: 'Style',
   Triangle: 'Triangle',
   'Show triangle': 'Show triangle',
+    Layer: 'Layer',
 
   // Connector Styles
   SOLID: 'SOLID',

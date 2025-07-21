@@ -1,5 +1,6 @@
 import React from 'react';
-import {Box, MenuItem, Select, Slider} from '@mui/material';
+import {Box, IconButton, MenuItem, Select, Slider} from '@mui/material';
+import {FlipToBack as SendToBackIcon, FlipToFront as BringToFrontIcon, KeyboardArrowDown as SendBackwardIcon, KeyboardArrowUp as BringForwardIcon} from '@mui/icons-material';
 import {useRectangle} from 'src/hooks/useRectangle';
 import {ColorSelector} from 'src/components/ColorSelector/ColorSelector';
 import {useUiStateStore} from 'src/stores/uiStateStore';
@@ -23,7 +24,7 @@ export const RectangleControls = ({ id }: Props) => {
     return state.actions;
   });
   const rectangle = useRectangle(id);
-  const { updateRectangle, deleteRectangle, createRectangle } = useScene();
+    const {updateRectangle, deleteRectangle, createRectangle, changeLayerOrder} = useScene();
 
   return (
     <ControlsContainer>
@@ -83,6 +84,40 @@ export const RectangleControls = ({ id }: Props) => {
             }}
           />
         </Section>
+
+          {/* Layer controls */}
+          <Section title={t('Layer')}>
+              <Box sx={{display: 'flex', flexDirection: 'row', gap: 1, justifyContent: 'center'}}>
+                  <IconButton
+                      size="small"
+                      title={t('Bring to front')}
+                      onClick={() => changeLayerOrder('BRING_TO_FRONT', {type: 'RECTANGLE', id: rectangle.id})}
+                  >
+                      <BringToFrontIcon/>
+                  </IconButton>
+                  <IconButton
+                      size="small"
+                      title={t('Bring forward')}
+                      onClick={() => changeLayerOrder('BRING_FORWARD', {type: 'RECTANGLE', id: rectangle.id})}
+                  >
+                      <BringForwardIcon/>
+                  </IconButton>
+                  <IconButton
+                      size="small"
+                      title={t('Send backward')}
+                      onClick={() => changeLayerOrder('SEND_BACKWARD', {type: 'RECTANGLE', id: rectangle.id})}
+                  >
+                      <SendBackwardIcon/>
+                  </IconButton>
+                  <IconButton
+                      size="small"
+                      title={t('Send to back')}
+                      onClick={() => changeLayerOrder('SEND_TO_BACK', {type: 'RECTANGLE', id: rectangle.id})}
+                  >
+                      <SendToBackIcon/>
+                  </IconButton>
+              </Box>
+          </Section>
       </AdvancedSettings>
 
       {/* Action buttons */}

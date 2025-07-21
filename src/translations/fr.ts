@@ -76,6 +76,7 @@ export const frTranslations = {
   Style: 'Style',
   Triangle: 'Triangle',
   'Show triangle': 'Afficher le triangle',
+    Layer: 'Calque',
 
   // Connector Styles
   SOLID: 'CONTINU',
