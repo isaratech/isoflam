@@ -1,4 +1,6 @@
-![Isoflam Logo](docs/logo.png)
+<div align="center">
+<img src="docs/logo.png" alt="Isoflam Logo" width="400">
+</div>
 
 <div align="center">
     <h1>Isoflam - Isometric Drawing Software for Firefighters</h1>
@@ -26,8 +28,12 @@ Try the application online: **[https://isaratech.github.io/isoflam/](https://isa
 
 ## Application Preview
 
-![Application Screenshot](docs/img1.png)
-![Application Screenshot](docs/img2.png)
+<div align="center">
+  <img src="docs/img1.png" alt="Application Screenshot 1" width="30%" style="margin: 0 1%;">
+  <img src="docs/img2.png" alt="Application Screenshot 2" width="30%" style="margin: 0 1%;">
+  <img src="docs/img3.png" alt="Application Screenshot 3" width="30%" style="margin: 0 1%;">
+</div>
+
 *Example of Isoflam application interface showing isometric scene modeling*
 
 ## Key Features
