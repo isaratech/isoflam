@@ -1,6 +1,6 @@
 import domtoimage from 'dom-to-image';
 import FileSaver from 'file-saver';
-import { Model, Size } from '../types';
+import {Model, Size} from '../types';
 
 export const generateGenericFilename = (extension: string) => {
   return `isoflam-export-${new Date().toISOString()}.${extension}`;
@@ -37,7 +37,10 @@ export const downloadFile = (data: Blob, filename: string) => {
 };
 
 export const exportAsJSON = (model: Model) => {
-  const data = new Blob([JSON.stringify(model)], {
+    // Create a copy of the model without icons and colors
+    const {icons, colors, ...modelWithoutIconsAndColors} = model;
+
+    const data = new Blob([JSON.stringify(modelWithoutIconsAndColors)], {
     type: 'application/json;charset=utf-8'
   });
 

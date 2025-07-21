@@ -1,6 +1,6 @@
-import { ModeActions } from 'src/types';
-import { produce } from 'immer';
-import { generateId, hasMovedTile, setWindowCursor } from 'src/utils';
+import {ModeActions} from 'src/types';
+import {produce} from 'immer';
+import {generateId, hasMovedTile, setWindowCursor} from 'src/utils';
 
 export const DrawRectangle: ModeActions = {
   entry: () => {
@@ -30,7 +30,7 @@ export const DrawRectangle: ModeActions = {
 
     scene.createRectangle({
       id: newRectangleId,
-      color: scene.colors[1].id,
+        color: scene.colors && scene.colors.length > 1 ? scene.colors[1].id : undefined,
       from: uiState.mouse.position.tile,
       to: uiState.mouse.position.tile
     });

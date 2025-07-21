@@ -1,7 +1,7 @@
-import { useMemo } from 'react';
-import { IconCollectionStateWithIcons } from 'src/types';
-import { useUiStateStore } from 'src/stores/uiStateStore';
-import { useModelStore } from 'src/stores/modelStore';
+import {useMemo} from 'react';
+import {IconCollectionStateWithIcons} from 'src/types';
+import {useUiStateStore} from 'src/stores/uiStateStore';
+import {useModelStore} from 'src/stores/modelStore';
 
 export const useIconCategories = () => {
   const icons = useModelStore((state) => {
@@ -14,12 +14,12 @@ export const useIconCategories = () => {
   const iconCategories = useMemo<IconCollectionStateWithIcons[]>(() => {
     return iconCategoriesState.map((collection) => {
       // Get all icons for this collection
-      const collectionIcons = icons.filter((icon) => {
+        const collectionIcons = (icons || []).filter((icon) => {
         return icon.collection === collection.id;
       });
       
       // Group icons by subcategory
-      const subcategoriesMap = new Map<string, typeof icons>();
+        const subcategoriesMap = new Map<string, typeof collectionIcons>();
       
       // Find icons with subcategories
       collectionIcons.forEach((icon) => {

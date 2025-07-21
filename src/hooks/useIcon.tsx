@@ -1,10 +1,10 @@
-import React, { useMemo, useEffect } from 'react';
-import { useModelStore } from 'src/stores/modelStore';
-import { getItemByIdOrThrow } from 'src/utils';
-import { IsometricIcon } from 'src/components/SceneLayers/Nodes/Node/IconTypes/IsometricIcon';
-import { NonIsometricIcon } from 'src/components/SceneLayers/Nodes/Node/IconTypes/NonIsometricIcon';
-import { DEFAULT_ICON } from 'src/config';
-import { useColor } from 'src/hooks/useColor';
+import React, {useEffect, useMemo} from 'react';
+import {useModelStore} from 'src/stores/modelStore';
+import {getItemByIdOrThrow} from 'src/utils';
+import {IsometricIcon} from 'src/components/SceneLayers/Nodes/Node/IconTypes/IsometricIcon';
+import {NonIsometricIcon} from 'src/components/SceneLayers/Nodes/Node/IconTypes/NonIsometricIcon';
+import {DEFAULT_ICON} from 'src/config';
+import {useColor} from 'src/hooks/useColor';
 
 export const useIcon = (
   id: string | undefined,
@@ -20,9 +20,14 @@ export const useIcon = (
   const color = useColor(colorId);
 
   const icon = useMemo(() => {
-    if (!id) return DEFAULT_ICON;
+      if (!id || !icons) return DEFAULT_ICON;
 
-    return getItemByIdOrThrow(icons, id).value;
+      try {
+          return getItemByIdOrThrow(icons, id).value;
+      } catch (e) {
+          // If the icon doesn't exist, return the default icon as fallback
+          return DEFAULT_ICON;
+      }
   }, [icons, id]);
 
   const colorizedIcon = useMemo(() => {

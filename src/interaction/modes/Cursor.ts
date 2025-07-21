@@ -1,30 +1,20 @@
-import { produce } from 'immer';
-import {
-  ConnectorAnchor,
-  SceneConnector,
-  ModeActions,
-  ModeActionsAction,
-  Coords,
-  View
-} from 'src/types';
-import {
-  getItemAtTile,
-  hasMovedTile,
-  getAnchorAtTile,
-  getItemByIdOrThrow,
-  generateId,
-  CoordsUtils,
-  getAnchorTile,
-  connectorPathTileToGlobal,
-  setWindowCursor
-} from 'src/utils';
-import { useScene } from 'src/hooks/useScene';
+import {produce} from 'immer';
+import {ConnectorAnchor, Coords, ModeActions, ModeActionsAction, SceneConnector, View} from 'src/types';
+import {connectorPathTileToGlobal, CoordsUtils, generateId, getAnchorAtTile, getAnchorTile, getItemAtTile, getItemByIdOrThrow, hasMovedTile, setWindowCursor} from 'src/utils';
+import {useScene} from 'src/hooks/useScene';
 
 const getAnchorOrdering = (
   anchor: ConnectorAnchor,
   connector: SceneConnector,
   view: View
 ) => {
+    // Guard against connectors with undefined paths
+    if (!connector.path || !connector.path.tiles) {
+        throw new Error(
+            `Connector path is undefined [anchorId: ${anchor.id}]`
+        );
+    }
+
   const anchorTile = getAnchorTile(anchor, view);
   const index = connector.path.tiles.findIndex((pathTile) => {
     const globalTile = connectorPathTileToGlobal(

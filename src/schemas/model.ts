@@ -1,11 +1,10 @@
-import { z } from 'zod';
-import { INITIAL_DATA } from '../config';
-import { constrainedStrings } from './common';
-import { modelItemsSchema } from './modelItems';
-import { viewsSchema } from './views';
-import { validateModel } from './validation';
-import { iconsSchema } from './icons';
-import { colorsSchema } from './colors';
+import {z} from 'zod';
+import {INITIAL_DATA} from '../config';
+import {constrainedStrings} from './common';
+import {modelItemsSchema} from './modelItems';
+import {viewsSchema} from './views';
+import {iconsSchema} from './icons';
+import {colorsSchema} from './colors';
 
 export const modelSchema = z
   .object({
@@ -14,17 +13,14 @@ export const modelSchema = z
     description: constrainedStrings.description.optional(),
     items: modelItemsSchema,
     views: viewsSchema,
-    icons: iconsSchema,
-    colors: colorsSchema
+      icons: iconsSchema.optional(),
+      colors: colorsSchema.optional()
   })
-  .superRefine((model, ctx) => {
-    const issues = validateModel({ ...INITIAL_DATA, ...model });
-
-    issues.forEach((issue) => {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        params: issue.params,
-        message: issue.message
-      });
-    });
+    .transform((model) => {
+        // Ensure icons and colors are always present by using defaults when missing
+        return {
+            ...model,
+            icons: model.icons || INITIAL_DATA.icons,
+            colors: model.colors || INITIAL_DATA.colors
+        };
   });

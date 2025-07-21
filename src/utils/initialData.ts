@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { Colors, Icons, InitialData, Model } from 'src/types';
-import { DEFAULT_COLOR } from 'src/config';
-import { sdmisIcons } from '../fixtures/sdmisIcons';
-import { icons as basicIcons } from '../fixtures/icons';
+import {Colors, Icons, InitialData, Model} from 'src/types';
+import {DEFAULT_COLOR} from 'src/config';
+import {sdmisIcons} from '../fixtures/sdmisIcons';
+import {icons as basicIcons} from '../fixtures/icons';
 // Import export.json data
 import exportData from '../assets/export.json';
 import sitacIcons from "../fixtures/sitacIcons";
@@ -47,7 +47,11 @@ export const colors: Colors = [
   },
 ];
 
-export const icons: Icons = [...basicIcons, ...sdmisIcons, ...sitacIcons];
+export const icons: Icons = [
+    ...(basicIcons || []),
+    ...(sdmisIcons || []),
+    ...(sitacIcons || [])
+];
 
 // Simulate loading data from export.json
 export const initialData: InitialData = {

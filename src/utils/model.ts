@@ -1,7 +1,7 @@
-import { produce } from 'immer';
-import { Model, ModelStore } from 'src/types';
-import { validateModel } from 'src/schemas/validation';
-import { getItemByIdOrThrow } from './common';
+import {produce} from 'immer';
+import {Model, ModelStore} from 'src/types';
+import {validateModel} from 'src/schemas/validation';
+import {getItemByIdOrThrow} from './common';
 
 export const fixModel = (model: Model): Model => {
   const issues = validateModel(model);
@@ -30,6 +30,45 @@ export const fixModel = (model: Model): Model => {
         draft.views[view.index].connectors?.splice(connector.index, 1);
       });
     }
+
+      if (issue.type === 'INVALID_RECTANGLE_COLOR_REF') {
+          return produce(acc, (draft) => {
+              const view = getItemByIdOrThrow(draft.views, issue.params.view);
+
+              const rectangle = getItemByIdOrThrow(
+                  view.value.rectangles ?? [],
+                  issue.params.rectangle
+              );
+
+              draft.views[view.index].rectangles![rectangle.index].color = undefined;
+          });
+      }
+
+      if (issue.type === 'INVALID_CONNECTOR_COLOR_REF') {
+          return produce(acc, (draft) => {
+              const view = getItemByIdOrThrow(draft.views, issue.params.view);
+
+              const connector = getItemByIdOrThrow(
+                  view.value.connectors ?? [],
+                  issue.params.connector
+              );
+
+              draft.views[view.index].connectors![connector.index].color = undefined;
+          });
+      }
+
+      if (issue.type === 'INVALID_VIEW_ITEM_COLOR_REF') {
+          return produce(acc, (draft) => {
+              const view = getItemByIdOrThrow(draft.views, issue.params.view);
+
+              const viewItem = getItemByIdOrThrow(
+                  view.value.items,
+                  issue.params.viewItem
+              );
+
+              draft.views[view.index].items[viewItem.index].color = undefined;
+          });
+      }
 
     if (issue.type === 'INVALID_ANCHOR_TO_ANCHOR_REF') {
       return produce(acc, (draft) => {

@@ -1,18 +1,12 @@
-import { useCallback, useState, useRef } from 'react';
-import { InitialData, IconCollectionState } from 'src/types';
-import { INITIAL_DATA, INITIAL_SCENE_STATE } from 'src/config';
-import {
-  getFitToViewParams,
-  CoordsUtils,
-  categoriseIcons,
-  generateId,
-  getItemByIdOrThrow
-} from 'src/utils';
+import {useCallback, useRef, useState} from 'react';
+import {IconCollectionState, InitialData} from 'src/types';
+import {INITIAL_DATA, INITIAL_SCENE_STATE} from 'src/config';
+import {categoriseIcons, CoordsUtils, generateId, getFitToViewParams, getItemByIdOrThrow} from 'src/utils';
 import * as reducers from 'src/stores/reducers';
-import { useModelStore } from 'src/stores/modelStore';
-import { useView } from 'src/hooks/useView';
-import { useUiStateStore } from 'src/stores/uiStateStore';
-import { modelSchema } from 'src/schemas/model';
+import {useModelStore} from 'src/stores/modelStore';
+import {useView} from 'src/hooks/useView';
+import {useUiStateStore} from 'src/stores/uiStateStore';
+import {modelSchema} from 'src/schemas/model';
 
 export const useInitialDataManager = () => {
   const [isReady, setIsReady] = useState(false);
@@ -34,7 +28,10 @@ export const useInitialDataManager = () => {
 
       setIsReady(false);
 
-      const validationResult = modelSchema.safeParse(_initialData);
+        // Extract InitialData-specific properties before validation
+        const {view: initialView, zoom: initialZoom, fitToView: initialFitToView, ...modelData} = _initialData;
+
+        const validationResult = modelSchema.safeParse(modelData);
 
       if (!validationResult.success) {
         // TODO: let's get better at reporting error messages here (starting with how we present them to users)
@@ -60,7 +57,8 @@ export const useInitialDataManager = () => {
         return;
       }
 
-      const initialData = _initialData;
+        // Use the validated data from the schema (now includes default icons and colors)
+        const initialData = validationResult.data;
 
       if (initialData.views.length === 0) {
         const updates = reducers.view({
@@ -75,19 +73,21 @@ export const useInitialDataManager = () => {
         Object.assign(initialData, updates.model);
       }
 
-      prevInitialData.current = initialData;
+        // Reconstruct the full InitialData object for prevInitialData
+        const fullInitialData = {...initialData, view: initialView, zoom: initialZoom, fitToView: initialFitToView};
+        prevInitialData.current = fullInitialData;
       model.actions.set(initialData);
 
       const view = getItemByIdOrThrow(
         initialData.views,
-        initialData.view ?? initialData.views[0].id
+          initialView ?? initialData.views[0].id
       );
 
       changeView(view.value.id, initialData);
 
-      if (initialData.zoom !== undefined) {
-        uiStateActions.setZoom(initialData.zoom);
-      } else if (initialData.fitToView) {
+        if (initialZoom !== undefined) {
+            uiStateActions.setZoom(initialZoom);
+        } else if (initialFitToView) {
         const rendererSize = rendererEl?.getBoundingClientRect();
 
         const { zoom, scroll } = getFitToViewParams(view.value, {
@@ -104,7 +104,7 @@ export const useInitialDataManager = () => {
       }
 
       const categoriesState: IconCollectionState[] = categoriseIcons(
-        initialData.icons
+          initialData.icons || []
       ).map((collection) => {
         return {
           id: collection.name,

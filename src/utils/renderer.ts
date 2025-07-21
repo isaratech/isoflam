@@ -1,43 +1,35 @@
-import { produce } from 'immer';
+import {produce} from 'immer';
 import {
-  UNPROJECTED_TILE_SIZE,
-  PROJECTED_TILE_SIZE,
-  ZOOM_INCREMENT,
-  MAX_ZOOM,
-  MIN_ZOOM,
-  TEXTBOX_PADDING,
-  CONNECTOR_SEARCH_OFFSET,
-  DEFAULT_FONT_FAMILY,
-  TEXTBOX_DEFAULTS,
-  PROJECT_BOUNDING_BOX_PADDING
+    CONNECTOR_SEARCH_OFFSET,
+    DEFAULT_FONT_FAMILY,
+    MAX_ZOOM,
+    MIN_ZOOM,
+    PROJECT_BOUNDING_BOX_PADDING,
+    PROJECTED_TILE_SIZE,
+    TEXTBOX_DEFAULTS,
+    TEXTBOX_PADDING,
+    UNPROJECTED_TILE_SIZE,
+    ZOOM_INCREMENT
 } from 'src/config';
 import {
-  Coords,
-  TileOrigin,
-  Connector,
-  Size,
-  Scroll,
-  Mouse,
-  ConnectorAnchor,
-  ItemReference,
-  Rect,
-  ProjectionOrientationEnum,
-  BoundingBox,
-  TextBox,
-  SlimMouseEvent,
-  View,
-  AnchorPosition
+    AnchorPosition,
+    BoundingBox,
+    Connector,
+    ConnectorAnchor,
+    Coords,
+    ItemReference,
+    Mouse,
+    ProjectionOrientationEnum,
+    Rect,
+    Scroll,
+    Size,
+    SlimMouseEvent,
+    TextBox,
+    TileOrigin,
+    View
 } from 'src/types';
-import {
-  CoordsUtils,
-  SizeUtils,
-  clamp,
-  roundToOneDecimalPlace,
-  findPath,
-  toPx,
-  getItemByIdOrThrow
-} from 'src/utils';
-import { useScene } from 'src/hooks/useScene';
+import {clamp, CoordsUtils, findPath, getItemByIdOrThrow, roundToOneDecimalPlace, SizeUtils, toPx} from 'src/utils';
+import {useScene} from 'src/hooks/useScene';
 
 interface ScreenToIso {
   mouse: Coords;
@@ -517,6 +509,11 @@ export const getItemAtTile = ({
   }
 
   const connector = scene.connectors.find((con) => {
+      // Guard against connectors with undefined paths
+      if (!con.path || !con.path.tiles) {
+          return false;
+      }
+    
     return con.path.tiles.find((pathTile) => {
       const globalPathTile = connectorPathTileToGlobal(
         pathTile,

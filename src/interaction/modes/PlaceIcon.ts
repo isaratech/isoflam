@@ -1,7 +1,7 @@
-import { produce } from 'immer';
-import { ModeActions, Icon, PlaceIconMode } from 'src/types';
-import { generateId, getItemAtTile } from 'src/utils';
-import { VIEW_ITEM_DEFAULTS } from 'src/config';
+import {produce} from 'immer';
+import {Icon, ModeActions, PlaceIconMode} from 'src/types';
+import {generateId, getItemAtTile} from 'src/utils';
+import {VIEW_ITEM_DEFAULTS} from 'src/config';
 
 export const PlaceIcon: ModeActions = {
   mousemove: () => {},
@@ -38,14 +38,14 @@ export const PlaceIcon: ModeActions = {
       });
 
       // Get the icon to check if it's colorizable
-      const icon = model.icons.find((i: Icon) => {
+        const icon = model.icons?.find((i: Icon) => {
         return i.id === mode.id;
       });
       const isColorizable = icon?.colorizable !== false;
 
       // Get the first color from the colors list for colorizable icons
       const firstColor =
-        scene.colors.length > 0 ? scene.colors[0].id : undefined;
+          scene.colors && scene.colors.length > 0 ? scene.colors[0].id : undefined;
       const defaultColor =
         isColorizable && firstColor ? firstColor : VIEW_ITEM_DEFAULTS.color;
 

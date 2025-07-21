@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react';
-import { useModelStore } from 'src/stores/modelStore';
-import { Icon } from 'src/types';
+import {useMemo, useState} from 'react';
+import {useModelStore} from 'src/stores/modelStore';
+import {Icon} from 'src/types';
 
 export const useIconFiltering = () => {
   const [filter, setFilter] = useState<string>('');
@@ -10,7 +10,7 @@ export const useIconFiltering = () => {
   });
 
   const filteredIcons = useMemo(() => {
-    if (filter === '') return null;
+      if (filter === '' || !icons) return null;
 
     const regex = new RegExp(filter, 'gi');
 

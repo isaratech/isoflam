@@ -1,25 +1,32 @@
 import z from 'zod';
 import {
-  iconSchema,
-  modelSchema,
-  modelItemSchema,
-  modelItemsSchema,
-  viewsSchema,
-  viewSchema,
-  viewItemSchema,
-  connectorSchema,
-  iconsSchema,
-  colorsSchema,
-  anchorSchema,
-  textBoxSchema,
-  rectangleSchema,
-  connectorStyleOptions,
-  rectangleStyleOptions
+    anchorSchema,
+    colorsSchema,
+    connectorSchema,
+    connectorStyleOptions,
+    iconSchema,
+    iconsSchema,
+    modelItemSchema,
+    modelItemsSchema,
+    rectangleSchema,
+    rectangleStyleOptions,
+    textBoxSchema,
+    viewItemSchema,
+    viewSchema,
+    viewsSchema
 } from 'src/schemas';
-import { StoreApi } from 'zustand';
+import {StoreApi} from 'zustand';
 
 export { connectorStyleOptions, rectangleStyleOptions } from 'src/schemas';
-export type Model = z.infer<typeof modelSchema>;
+export type Model = {
+    version?: string;
+    title: string;
+    description?: string;
+    items: ModelItems;
+    views: Views;
+    icons?: Icons;
+    colors?: Colors;
+};
 export type ModelItems = z.infer<typeof modelItemsSchema>;
 export type Icon = z.infer<typeof iconSchema>;
 export type Icons = z.infer<typeof iconsSchema>;

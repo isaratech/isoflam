@@ -1,16 +1,30 @@
-import {
-  Size,
-  InitialData,
-  MainMenuOptions,
-  Icon,
-  Connector,
-  TextBox,
-  ViewItem,
-  View,
-  Rectangle,
-  Colors
-} from 'src/types';
-import { CoordsUtils } from 'src/utils';
+import {Colors, Connector, Icon, Icons, InitialData, MainMenuOptions, Rectangle, Size, TextBox, View, ViewItem} from 'src/types';
+import {CoordsUtils} from 'src/utils';
+// Import icon fixtures with error handling for testing
+let sdmisIcons: any[] = [];
+let basicIcons: any[] = [];
+let sitacIcons: any[] = [];
+
+try {
+    const sdmisModule = require('./fixtures/sdmisIcons');
+    sdmisIcons = sdmisModule.sdmisIcons || [];
+} catch (e) {
+    console.warn('Could not load sdmisIcons:', e);
+}
+
+try {
+    const basicModule = require('./fixtures/icons');
+    basicIcons = basicModule.icons || [];
+} catch (e) {
+    console.warn('Could not load basicIcons:', e);
+}
+
+try {
+    const sitacModule = require('./fixtures/sitacIcons');
+    sitacIcons = sitacModule.default || [];
+} catch (e) {
+    console.warn('Could not load sitacIcons:', e);
+}
 
 // =============================================================================
 // TILE AND GRID CONFIGURATION
@@ -52,6 +66,60 @@ export const DEFAULT_COLOR: Colors[0] = {
   id: '__DEFAULT__',
   value: '#000000'
 };
+
+/**
+ * Complete color palette for the application.
+ * Includes default color plus additional color options.
+ */
+export const INITIAL_COLORS: Colors = [
+    DEFAULT_COLOR,
+    {
+        id: 'color0',
+        value: '#979797'
+    },
+    {
+        id: 'color1',
+        value: '#a5b8f3'
+    },
+    {
+        id: 'color2',
+        value: '#bbadfb'
+    },
+    {
+        id: 'color3',
+        value: '#f4eb8e'
+    },
+    {
+        id: 'color4',
+        value: '#f0aca9'
+    },
+    {
+        id: 'color5',
+        value: '#fad6ac'
+    },
+    {
+        id: 'color6',
+        value: '#a8dc9d'
+    },
+    {
+        id: 'color7',
+        value: '#b3e5e3'
+    },
+    {
+        id: 'color8',
+        value: '#ffffff'
+    }
+];
+
+/**
+ * Complete icon collection for the application.
+ * Combines icons from all fixture sources.
+ */
+export const INITIAL_ICONS: Icons = [
+    ...(basicIcons || []),
+    ...(sdmisIcons || []),
+    ...(sitacIcons || [])
+];
 
 /**
  * Default font family stack for text rendering.
@@ -213,13 +281,13 @@ export const UI_TRANSFORM_CONTROLS_COLOR = '#0392ff';
 
 /**
  * Initial data structure for new projects.
- * Provides empty state with default color configuration.
+ * Provides populated state with full icon and color configuration.
  */
 export const INITIAL_DATA: InitialData = {
   title: 'SITAC',
   version: '',
-  icons: [],
-  colors: [DEFAULT_COLOR],
+    icons: INITIAL_ICONS,
+    colors: INITIAL_COLORS,
   items: [],
   views: [],
   fitToView: false
