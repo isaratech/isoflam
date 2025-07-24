@@ -1,18 +1,18 @@
-import { useCallback, useEffect, useRef } from 'react';
-import { useModelStore } from 'src/stores/modelStore';
-import { useUiStateStore } from 'src/stores/uiStateStore';
-import { ModeActions, State, SlimMouseEvent } from 'src/types';
-import { getMouse, getItemAtTile } from 'src/utils';
-import { useResizeObserver } from 'src/hooks/useResizeObserver';
-import { useScene } from 'src/hooks/useScene';
-import { Cursor } from './modes/Cursor';
-import { DragItems } from './modes/DragItems';
-import { DrawRectangle } from './modes/Rectangle/DrawRectangle';
-import { TransformRectangle } from './modes/Rectangle/TransformRectangle';
-import { Connector } from './modes/Connector';
-import { Pan } from './modes/Pan';
-import { PlaceIcon } from './modes/PlaceIcon';
-import { TextBox } from './modes/TextBox';
+import {useCallback, useEffect, useRef} from 'react';
+import {useModelStore} from 'src/stores/modelStore';
+import {useUiStateStore} from 'src/stores/uiStateStore';
+import {ModeActions, SlimMouseEvent, State} from 'src/types';
+import {getItemAtTile, getMouse} from 'src/utils';
+import {useResizeObserver} from 'src/hooks/useResizeObserver';
+import {useScene} from 'src/hooks/useScene';
+import {Cursor} from './modes/Cursor';
+import {DragItems} from './modes/DragItems';
+import {DrawRectangle} from './modes/Rectangle/DrawRectangle';
+import {TransformRectangle} from './modes/Rectangle/TransformRectangle';
+import {Connector} from './modes/Connector';
+import {Pan} from './modes/Pan';
+import {PlaceIcon} from './modes/PlaceIcon';
+import {TextBox} from './modes/TextBox';
 
 const modes: { [k in string]: ModeActions } = {
   CURSOR: Cursor,
@@ -104,6 +104,11 @@ export const useInteractionManager = () => {
     (e: SlimMouseEvent) => {
       e.preventDefault();
 
+        // Disable right-click during readonly mode
+        if (uiState.editorMode === 'EXPLORABLE_READONLY') {
+            return;
+        }
+
       const itemAtTile = getItemAtTile({
         tile: uiState.mouse.position.tile,
         scene
@@ -121,7 +126,7 @@ export const useInteractionManager = () => {
         });
       }
     },
-    [uiState.mouse, scene, uiState.contextMenu, uiState.actions]
+      [uiState.mouse, scene, uiState.contextMenu, uiState.actions, uiState.editorMode]
   );
 
   useEffect(() => {
