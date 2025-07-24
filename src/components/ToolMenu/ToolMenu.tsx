@@ -100,7 +100,7 @@ export const ToolMenu = () => {
                 to: {x: position.x + 5, y: position.y + 5},
                 imageData,
                 imageName: file.name,
-                style: 'SOLID' as const,
+                style: 'NONE' as const,
                 width: 2,
                 radius: 0
             };
