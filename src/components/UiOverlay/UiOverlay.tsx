@@ -105,12 +105,10 @@ export const UiOverlay = () => {
     const scene = useScene();
     const [isDragOver, setIsDragOver] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [loadingType, setLoadingType] = useState<'json' | 'image' | null>(null);
 
     // Handle JSON file loading (existing functionality)
     const handleJsonFile = useCallback((file: File) => {
         setIsLoading(true);
-        setLoadingType('json');
 
         // Check file size (warn if larger than 5MB)
         const maxFileSize = 5 * 1024 * 1024; // 5MB
@@ -173,14 +171,12 @@ export const UiOverlay = () => {
                     alert(errorMessage);
                 } finally {
                     setIsLoading(false);
-                    setLoadingType(null);
                 }
             };
 
             fileReader.onerror = () => {
                 alert('Erreur lors de la lecture du fichier. Le fichier pourrait être corrompu.');
                 setIsLoading(false);
-                setLoadingType(null);
             };
 
             fileReader.readAsText(file);
@@ -188,14 +184,12 @@ export const UiOverlay = () => {
             console.error('Error reading file:', error);
             alert('Erreur lors de la lecture du fichier. Vérifiez que le fichier est accessible.');
             setIsLoading(false);
-            setLoadingType(null);
         }
     }, [initialDataManager, uiStateActions]);
 
     // Handle image file loading (new functionality)
     const handleImageFile = useCallback((file: File) => {
         setIsLoading(true);
-        setLoadingType('image');
 
         try {
             const fileReader = new FileReader();
@@ -236,14 +230,12 @@ export const UiOverlay = () => {
                     alert('Erreur lors du traitement de l\'image.');
                 } finally {
                     setIsLoading(false);
-                    setLoadingType(null);
                 }
             };
 
             fileReader.onerror = () => {
                 alert('Erreur lors de la lecture du fichier image.');
                 setIsLoading(false);
-                setLoadingType(null);
             };
 
             fileReader.readAsDataURL(file);
@@ -251,7 +243,6 @@ export const UiOverlay = () => {
             console.error('Error reading image file:', error);
             alert('Erreur lors de la lecture du fichier image.');
             setIsLoading(false);
-            setLoadingType(null);
         }
     }, [scene, uiStateActions]);
 
@@ -629,10 +620,7 @@ export const UiOverlay = () => {
                                 Chargement en cours...
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
-                                {loadingType === 'image'
-                                    ? "Veuillez patienter pendant le traitement de l'image."
-                                    : "Veuillez patienter pendant le chargement du fichier JSON."
-                                }
+                                Veuillez patienter pendant le chargement du fichier JSON.
                             </Typography>
                         </>
                     ) : (

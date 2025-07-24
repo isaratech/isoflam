@@ -49,11 +49,14 @@ export const PlaceIcon: ModeActions = {
       const defaultColor =
         isColorizable && firstColor ? firstColor : VIEW_ITEM_DEFAULTS.color;
 
+        // Set scaleFactor to icon's default or 1 to ensure proper bounding box calculation
+        const defaultScaleFactor = icon?.scaleFactor ?? 1;
+
       scene.createViewItem({
         ...VIEW_ITEM_DEFAULTS,
         id: modelItemId,
         tile: uiState.mouse.position.tile,
-        scaleFactor: undefined,
+          scaleFactor: defaultScaleFactor,
         color: defaultColor
       });
     }
