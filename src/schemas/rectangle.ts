@@ -15,5 +15,6 @@ export const rectangleSchema = z.object({
     imageName: z.string().optional(), // Original filename for reference
     mirrorHorizontal: z.boolean().optional(), // Horizontal mirroring for images
     mirrorVertical: z.boolean().optional(), // Vertical mirroring for images
-    rotationAngle: z.number().optional() // Rotation angle in degrees (0, 90, 180, 270)
+    rotationAngle: z.number().optional(), // Rotation angle in degrees (0, 90, 180, 270)
+    isometric: z.boolean().optional() // Whether to use isometric projection for images (default: true)
 });

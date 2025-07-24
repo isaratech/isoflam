@@ -6,7 +6,7 @@ import {useColor} from 'src/hooks/useColor';
 
 type Props = ReturnType<typeof useScene>['rectangles'][0];
 
-export const Rectangle = ({from, to, color: colorId, style, width, radius, imageData, mirrorHorizontal, mirrorVertical, rotationAngle}: Props) => {
+export const Rectangle = ({from, to, color: colorId, style, width, radius, imageData, mirrorHorizontal, mirrorVertical, rotationAngle, isometric}: Props) => {
   const color = useColor(colorId);
 
   // Only apply stroke when style is not 'NONE'
@@ -28,6 +28,7 @@ export const Rectangle = ({from, to, color: colorId, style, width, radius, image
       mirrorHorizontal={mirrorHorizontal}
       mirrorVertical={mirrorVertical}
       rotationAngle={rotationAngle}
+      isometric={isometric}
       {...strokeProps}
     />
   );

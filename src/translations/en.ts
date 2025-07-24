@@ -110,6 +110,8 @@ export const enTranslations = {
   Mirroring: 'Mirroring',
   Vertical: 'Vertical',
   Horizontal: 'Horizontal',
+    Projection: 'Projection',
+    Isometric: 'Isometric',
 
   // Credits Dialog
   Credits: 'Credits',

@@ -2,6 +2,8 @@ import React, {useMemo} from 'react';
 import {Coords} from 'src/types';
 import {Svg} from 'src/components/Svg/Svg';
 import {useIsoProjection} from 'src/hooks/useIsoProjection';
+import {UNPROJECTED_TILE_SIZE} from 'src/config';
+import {getBoundingBox, getTilePosition} from 'src/utils';
 
 interface Props {
   from: Coords;
@@ -18,6 +20,7 @@ interface Props {
     mirrorHorizontal?: boolean; // Horizontal mirroring for images
     mirrorVertical?: boolean; // Vertical mirroring for images
     rotationAngle?: number; // Rotation angle in degrees (0, 90, 180, 270)
+    isometric?: boolean; // Whether to use isometric projection (default: true)
 }
 
 export const IsoTileArea = ({
@@ -29,12 +32,49 @@ export const IsoTileArea = ({
                                 imageData,
                                 mirrorHorizontal = false,
                                 mirrorVertical = false,
-                                rotationAngle = 0
+                                rotationAngle = 0,
+                                isometric = true
 }: Props) => {
-  const { css, pxSize } = useIsoProjection({
+    const isoProjection = useIsoProjection({
     from,
     to
   });
+
+    // For standard mode, calculate non-isometric positioning using the same coordinate system as isometric
+    const standardProjection = useMemo(() => {
+        const gridSize = {
+            width: Math.abs(from.x - to.x) + 1,
+            height: Math.abs(from.y - to.y) + 1
+        };
+
+        const pxSize = {
+            width: gridSize.width * UNPROJECTED_TILE_SIZE,
+            height: gridSize.height * UNPROJECTED_TILE_SIZE
+        };
+
+        // Use the same coordinate system as isometric projection
+        const boundingBox = getBoundingBox([from, to]);
+        const origin = boundingBox[3]; // bottom-left corner, same as isometric
+        const position = getTilePosition({
+            tile: origin,
+            origin: 'CENTER'
+        });
+
+        return {
+            css: {
+                position: 'absolute' as const,
+                left: position.x,
+                top: position.y - pxSize.height / 2,
+                width: `${pxSize.width}px`,
+                height: `${pxSize.height}px`,
+                transform: 'none', // No isometric transform
+                transformOrigin: 'top left'
+            },
+            pxSize
+        };
+    }, [from, to]);
+
+    const {css, pxSize} = isometric ? isoProjection : standardProjection;
 
   const strokeParams = useMemo(() => {
     if (!stroke || stroke.style === 'NONE') return {};

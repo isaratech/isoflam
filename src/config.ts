@@ -207,7 +207,7 @@ export const DEFAULTS_TEXTBOX: Required<
  * Defines default line style.
  */
 export const DEFAULTS_RECTANGLE: Required<
-    Omit<Rectangle, 'id' | 'from' | 'to' | 'color' | 'imageData' | 'imageName' | 'mirrorHorizontal' | 'mirrorVertical' | 'rotationAngle'>
+    Omit<Rectangle, 'id' | 'from' | 'to' | 'color' | 'imageData' | 'imageName' | 'mirrorHorizontal' | 'mirrorVertical' | 'rotationAngle' | 'isometric'>
 > = {
   style: 'NONE',
   width: 1,

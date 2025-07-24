@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, MenuItem, Select, Slider, ToggleButton, ToggleButtonGroup} from '@mui/material';
+import {Box, Checkbox, FormControlLabel, MenuItem, Select, Slider, ToggleButton, ToggleButtonGroup} from '@mui/material';
 import {
     FlipToBack as SendToBackIcon,
     FlipToFront as BringToFrontIcon,
@@ -220,6 +220,25 @@ export const RectangleControls = ({ id }: Props) => {
                           <SwapVert/>
                       </ToggleButton>
                   </ToggleButtonGroup>
+              </Section>
+          )}
+
+          {/* Isometric mode toggle - only for images */}
+          {rectangle.imageData && (
+              <Section title={t('Projection')}>
+                  <FormControlLabel
+                      control={
+                          <Checkbox
+                              checked={rectangle.isometric !== false} // Default to true if undefined
+                              onChange={(e) => {
+                                  updateRectangle(rectangle.id, {
+                                      isometric: e.target.checked
+                                  });
+                              }}
+                          />
+                      }
+                      label={t('Isometric')}
+                  />
               </Section>
           )}
 

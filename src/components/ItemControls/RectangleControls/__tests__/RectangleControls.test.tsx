@@ -55,7 +55,8 @@ describe('RectangleControls', () => {
         imageName: undefined,
         mirrorHorizontal: false,
         mirrorVertical: false,
-        rotationAngle: 0
+        rotationAngle: 0,
+        isometric: true
     });
 
     render(<RectangleControls id="test-rectangle" />);
@@ -76,7 +77,8 @@ describe('RectangleControls', () => {
         imageName: undefined,
         mirrorHorizontal: false,
         mirrorVertical: false,
-        rotationAngle: 0
+        rotationAngle: 0,
+        isometric: true
     });
 
     render(<RectangleControls id="test-rectangle" />);
@@ -97,7 +99,8 @@ describe('RectangleControls', () => {
         imageName: undefined,
         mirrorHorizontal: false,
         mirrorVertical: false,
-        rotationAngle: 0
+        rotationAngle: 0,
+        isometric: true
     });
 
     render(<RectangleControls id="test-rectangle" />);
@@ -118,7 +121,8 @@ describe('RectangleControls', () => {
         imageName: undefined,
         mirrorHorizontal: false,
         mirrorVertical: false,
-        rotationAngle: 0
+        rotationAngle: 0,
+        isometric: false
     });
 
     render(<RectangleControls id="test-rectangle" />);
@@ -139,7 +143,8 @@ describe('RectangleControls', () => {
             imageName: undefined,
             mirrorHorizontal: false,
             mirrorVertical: false,
-            rotationAngle: 0
+            rotationAngle: 0,
+            isometric: true
         });
 
         render(<RectangleControls id="test-rectangle"/>);
@@ -160,7 +165,8 @@ describe('RectangleControls', () => {
             imageName: 'test.png',
             mirrorHorizontal: false,
             mirrorVertical: false,
-            rotationAngle: 0
+            rotationAngle: 0,
+            isometric: true
         });
 
         render(<RectangleControls id="test-rectangle"/>);
