@@ -12,6 +12,7 @@ import {TransformRectangle} from './modes/Rectangle/TransformRectangle';
 import {Connector} from './modes/Connector';
 import {Pan} from './modes/Pan';
 import {PlaceIcon} from './modes/PlaceIcon';
+import {PlaceImage} from './modes/PlaceImage';
 import {TextBox} from './modes/TextBox';
 
 const modes: { [k in string]: ModeActions } = {
@@ -23,6 +24,7 @@ const modes: { [k in string]: ModeActions } = {
   CONNECTOR: Connector,
   PAN: Pan,
   PLACE_ICON: PlaceIcon,
+    PLACE_IMAGE: PlaceImage,
   TEXTBOX: TextBox
 };
 
@@ -165,10 +167,19 @@ export const useInteractionManager = () => {
     };
 
     const onScroll = (e: WheelEvent) => {
+        // Get mouse position relative to the renderer element
+        const rect = rendererRef.current?.getBoundingClientRect();
+        if (!rect) return;
+
+        const mousePosition = {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+        };
+      
       if (e.deltaY > 0) {
-        uiState.actions.decrementZoom();
+          uiState.actions.decrementZoomAtPosition(mousePosition, rendererSize);
       } else {
-        uiState.actions.incrementZoom();
+          uiState.actions.incrementZoomAtPosition(mousePosition, rendererSize);
       }
     };
 

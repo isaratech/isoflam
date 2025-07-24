@@ -1,8 +1,8 @@
 import React, {createContext, useContext, useRef} from 'react';
 import {createStore, useStore} from 'zustand';
-import {CoordsUtils, decrementZoom, getStartingMode, incrementZoom, isoToScreen, screenToIso} from 'src/utils';
+import {CoordsUtils, decrementZoom, getStartingMode, incrementZoom, screenToIso} from 'src/utils';
 import {UiStateStore} from 'src/types';
-import {INITIAL_UI_STATE} from 'src/config';
+import {INITIAL_UI_STATE, PROJECTED_TILE_SIZE} from 'src/config';
 import {SupportedLanguage} from 'src/hooks/useTranslation';
 
 const initialState = () => {
@@ -87,11 +87,26 @@ const initialState = () => {
                   rendererSize
               });
 
-              // Calculate where this tile would appear on screen after zoom
-              const screenAfterZoom = isoToScreen({
-                  tile: tileBeforeZoom,
-                  rendererSize
-              });
+              // Calculate where this tile would appear on screen after zoom with new zoom level
+              // We need to reverse the screenToIso calculation with the new zoom
+              const projectedTileSize = {
+                  width: PROJECTED_TILE_SIZE.width * newZoom,
+                  height: PROJECTED_TILE_SIZE.height * newZoom
+              };
+              const halfW = projectedTileSize.width / 2;
+              const halfH = projectedTileSize.height / 2;
+
+              // Convert tile back to world position with new zoom
+              const worldPosition = {
+                  x: halfW * tileBeforeZoom.x - halfW * tileBeforeZoom.y,
+                  y: -(halfH * tileBeforeZoom.x + halfH * tileBeforeZoom.y)
+              };
+
+              // Convert world position to screen position with current scroll
+              const screenAfterZoom = {
+                  x: worldPosition.x + rendererSize.width * 0.5 + state.scroll.position.x,
+                  y: worldPosition.y + rendererSize.height * 0.5 + state.scroll.position.y
+              };
 
               // Calculate the difference and adjust scroll to compensate
               const screenDelta = {
@@ -100,8 +115,8 @@ const initialState = () => {
               };
 
               const newScrollPosition = {
-                  x: state.scroll.position.x + screenDelta.x,
-                  y: state.scroll.position.y + screenDelta.y
+                  x: state.scroll.position.x - screenDelta.x,
+                  y: state.scroll.position.y - screenDelta.y
               };
 
               set({
@@ -127,11 +142,26 @@ const initialState = () => {
                   rendererSize
               });
 
-              // Calculate where this tile would appear on screen after zoom
-              const screenAfterZoom = isoToScreen({
-                  tile: tileBeforeZoom,
-                  rendererSize
-              });
+              // Calculate where this tile would appear on screen after zoom with new zoom level
+              // We need to reverse the screenToIso calculation with the new zoom
+              const projectedTileSize = {
+                  width: PROJECTED_TILE_SIZE.width * newZoom,
+                  height: PROJECTED_TILE_SIZE.height * newZoom
+              };
+              const halfW = projectedTileSize.width / 2;
+              const halfH = projectedTileSize.height / 2;
+
+              // Convert tile back to world position with new zoom
+              const worldPosition = {
+                  x: halfW * tileBeforeZoom.x - halfW * tileBeforeZoom.y,
+                  y: -(halfH * tileBeforeZoom.x + halfH * tileBeforeZoom.y)
+              };
+
+              // Convert world position to screen position with current scroll
+              const screenAfterZoom = {
+                  x: worldPosition.x + rendererSize.width * 0.5 + state.scroll.position.x,
+                  y: worldPosition.y + rendererSize.height * 0.5 + state.scroll.position.y
+              };
 
               // Calculate the difference and adjust scroll to compensate
               const screenDelta = {
@@ -140,8 +170,8 @@ const initialState = () => {
               };
 
               const newScrollPosition = {
-                  x: state.scroll.position.x + screenDelta.x,
-                  y: state.scroll.position.y + screenDelta.y
+                  x: state.scroll.position.x - screenDelta.x,
+                  y: state.scroll.position.y - screenDelta.y
               };
 
               set({

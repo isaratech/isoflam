@@ -90,6 +90,11 @@ export interface TextBoxMode {
   id: string | null;
 }
 
+export interface PlaceImageMode {
+    type: 'PLACE_IMAGE';
+    showCursor: boolean;
+}
+
 export type Mode =
   | InteractionsDisabled
   | CursorMode
@@ -99,7 +104,8 @@ export type Mode =
   | DrawRectangleMode
   | TransformRectangleMode
   | DragItemsMode
-  | TextBoxMode;
+    | TextBoxMode
+    | PlaceImageMode;
 // End mode types
 
 export interface Scroll {
@@ -170,6 +176,8 @@ export interface UiStateActions {
   setMode: (mode: Mode) => void;
   incrementZoom: () => void;
   decrementZoom: () => void;
+    incrementZoomAtPosition: (screenPosition: { x: number; y: number }, rendererSize: { width: number; height: number }) => void;
+    decrementZoomAtPosition: (screenPosition: { x: number; y: number }, rendererSize: { width: number; height: number }) => void;
   setIsMainMenuOpen: (isOpen: boolean) => void;
   setDialog: (dialog: keyof typeof DialogTypeEnum | null) => void;
   setZoom: (zoom: number) => void;
