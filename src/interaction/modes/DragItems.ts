@@ -28,6 +28,12 @@ const dragItems = (
       const newTo = CoordsUtils.add(rectangle.to, delta);
 
       scene.updateRectangle(item.id, { from: newFrom, to: newTo });
+    } else if (item.type === 'VOLUME') {
+      const volume = getItemByIdOrThrow(scene.volumes, item.id).value;
+      const newFrom = CoordsUtils.add(volume.from, delta);
+      const newTo = CoordsUtils.add(volume.to, delta);
+
+      scene.updateVolume(item.id, { from: newFrom, to: newTo });
     } else if (item.type === 'TEXTBOX') {
       const textBox = getItemByIdOrThrow(scene.textBoxes, item.id).value;
 

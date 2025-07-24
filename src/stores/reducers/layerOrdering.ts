@@ -15,6 +15,9 @@ export const changeLayerOrder = (
       case 'RECTANGLE':
         arr = view.value.rectangles ?? [];
         break;
+      case 'VOLUME':
+        arr = view.value.volumes ?? [];
+        break;
       default:
         throw new Error('Invalid item type');
     }

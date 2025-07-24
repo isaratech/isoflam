@@ -85,11 +85,13 @@ export const enTranslations = {
 
   // ConnectorControls
   Width: 'Width',
+  Height: 'Height',
   Radius: 'Radius',
   Style: 'Style',
   Triangle: 'Triangle',
   'Show triangle': 'Show triangle',
     Layer: 'Layer',
+  ' units': ' units',
 
   // Connector Styles
   SOLID: 'SOLID',
