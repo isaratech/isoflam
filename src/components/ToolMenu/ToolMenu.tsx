@@ -1,4 +1,4 @@
-import React, {useCallback, useRef} from 'react';
+import React, {useCallback, useEffect, useRef} from 'react';
 import {Stack} from '@mui/material';
 import {
     AddOutlined as AddIcon,
@@ -16,11 +16,13 @@ import {useScene} from 'src/hooks/useScene';
 import {TEXTBOX_DEFAULTS} from 'src/config';
 import {generateId} from 'src/utils';
 import {useTranslation} from 'src/hooks/useTranslation';
+import {Coords} from 'src/types/common';
 
 export const ToolMenu = () => {
   const { t } = useTranslation();
     const {createTextBox, createRectangle} = useScene();
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const selectedImagePositionRef = useRef<Coords | null>(null);
   const mode = useUiStateStore((state) => {
     return state.mode;
   });
@@ -48,7 +50,27 @@ export const ToolMenu = () => {
   }, [uiStateStoreActions, createTextBox, mousePosition]);
 
     const handleImageImport = useCallback(() => {
-        fileInputRef.current?.click();
+        // Switch to PLACE_IMAGE mode to let user select position first
+        uiStateStoreActions.setMode({
+            type: 'PLACE_IMAGE',
+            showCursor: true
+        });
+    }, [uiStateStoreActions]);
+
+    // Event listener for position selection
+    useEffect(() => {
+        const handlePlaceImageAtPosition = (event: CustomEvent) => {
+            const position = event.detail.position as Coords;
+            selectedImagePositionRef.current = position;
+            // Open file dialog after position is selected
+            fileInputRef.current?.click();
+        };
+
+        window.addEventListener('placeImageAtPosition', handlePlaceImageAtPosition as EventListener);
+
+        return () => {
+            window.removeEventListener('placeImageAtPosition', handlePlaceImageAtPosition as EventListener);
+        };
     }, []);
 
     const handleFileChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,11 +87,17 @@ export const ToolMenu = () => {
         fileReader.onload = (e) => {
             const imageData = e.target?.result as string;
 
-            // Create a new image rectangle at the mouse position or center
+            // Use the selected position or fall back to current mouse position
+            const position = selectedImagePositionRef.current || mousePosition;
+
+            // Clear the selected position after use
+            selectedImagePositionRef.current = null;
+
+            // Create a new image rectangle at the selected position
             const newRectangle = {
                 id: `image-rect-${Date.now()}`,
-                from: {x: mousePosition.x, y: mousePosition.y},
-                to: {x: mousePosition.x + 5, y: mousePosition.y + 5},
+                from: {x: position.x, y: position.y},
+                to: {x: position.x + 5, y: position.y + 5},
                 imageData,
                 imageName: file.name,
                 style: 'SOLID' as const,
@@ -176,7 +204,7 @@ export const ToolMenu = () => {
               name={t('Import Image')}
               Icon={<ImageIcon/>}
               onClick={handleImageImport}
-              isActive={false}
+              isActive={mode.type === 'PLACE_IMAGE'}
           />
       </Stack>
         <input

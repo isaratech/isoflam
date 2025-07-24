@@ -1,6 +1,6 @@
 import React, {createContext, useContext, useRef} from 'react';
 import {createStore, useStore} from 'zustand';
-import {CoordsUtils, decrementZoom, getStartingMode, incrementZoom} from 'src/utils';
+import {CoordsUtils, decrementZoom, getStartingMode, incrementZoom, isoToScreen, screenToIso} from 'src/utils';
 import {UiStateStore} from 'src/types';
 import {INITIAL_UI_STATE} from 'src/config';
 import {SupportedLanguage} from 'src/hooks/useTranslation';
@@ -72,6 +72,86 @@ const initialState = () => {
           const { zoom } = get();
           set({ zoom: decrementZoom(zoom) });
         },
+          incrementZoomAtPosition: (screenPosition: { x: number; y: number }, rendererSize: { width: number; height: number }) => {
+              const state = get();
+              const oldZoom = state.zoom;
+              const newZoom = incrementZoom(oldZoom);
+
+              if (oldZoom === newZoom) return; // No zoom change
+
+              // Calculate the tile position at the mouse cursor before zoom
+              const tileBeforeZoom = screenToIso({
+                  mouse: screenPosition,
+                  zoom: oldZoom,
+                  scroll: state.scroll,
+                  rendererSize
+              });
+
+              // Calculate where this tile would appear on screen after zoom
+              const screenAfterZoom = isoToScreen({
+                  tile: tileBeforeZoom,
+                  rendererSize
+              });
+
+              // Calculate the difference and adjust scroll to compensate
+              const screenDelta = {
+                  x: screenAfterZoom.x - screenPosition.x,
+                  y: screenAfterZoom.y - screenPosition.y
+              };
+
+              const newScrollPosition = {
+                  x: state.scroll.position.x + screenDelta.x,
+                  y: state.scroll.position.y + screenDelta.y
+              };
+
+              set({
+                  zoom: newZoom,
+                  scroll: {
+                      ...state.scroll,
+                      position: newScrollPosition
+                  }
+              });
+          },
+          decrementZoomAtPosition: (screenPosition: { x: number; y: number }, rendererSize: { width: number; height: number }) => {
+              const state = get();
+              const oldZoom = state.zoom;
+              const newZoom = decrementZoom(oldZoom);
+
+              if (oldZoom === newZoom) return; // No zoom change
+
+              // Calculate the tile position at the mouse cursor before zoom
+              const tileBeforeZoom = screenToIso({
+                  mouse: screenPosition,
+                  zoom: oldZoom,
+                  scroll: state.scroll,
+                  rendererSize
+              });
+
+              // Calculate where this tile would appear on screen after zoom
+              const screenAfterZoom = isoToScreen({
+                  tile: tileBeforeZoom,
+                  rendererSize
+              });
+
+              // Calculate the difference and adjust scroll to compensate
+              const screenDelta = {
+                  x: screenAfterZoom.x - screenPosition.x,
+                  y: screenAfterZoom.y - screenPosition.y
+              };
+
+              const newScrollPosition = {
+                  x: state.scroll.position.x + screenDelta.x,
+                  y: state.scroll.position.y + screenDelta.y
+              };
+
+              set({
+                  zoom: newZoom,
+                  scroll: {
+                      ...state.scroll,
+                      position: newScrollPosition
+                  }
+              });
+          },
         setZoom: (zoom) => {
           set({ zoom });
         },
