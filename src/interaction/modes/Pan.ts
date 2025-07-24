@@ -43,17 +43,14 @@ export const Pan: ModeActions = {
             setWindowCursor('grab');
             return;
         }
-      
-      // If we have a previous mode stored, restore it
+
+        // Only restore previous mode if it exists (automatic pan activation)
+        // If no previousMode exists, it means pan was manually selected and should persist
       if (uiState.mode.previousMode) {
         uiState.actions.setMode(uiState.mode.previousMode);
       } else {
-        // Default to CURSOR mode if no previous mode
-        uiState.actions.setMode({
-          type: 'CURSOR',
-          showCursor: true,
-          mousedownItem: null
-        });
+          // Pan was manually selected - stay in PAN mode and just update cursor
+          setWindowCursor('grab');
       }
     } else {
       setWindowCursor('default');
