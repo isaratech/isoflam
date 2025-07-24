@@ -5,6 +5,22 @@ All notable changes to the Isoflam project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1] - 2025-07-24
+
+### Added
+
+- Import your own images directly into scenes using drag & drop or file upload
+- Toggle between flat and isometric projection views for imported images
+- New read-only mode to safely view and share scenes without accidental changes
+
+### Fixed
+
+- Improved zoom functionality that centers on your mouse cursor position
+- Right-click menus now properly disabled in read-only mode
+- Image scaling issues that could cause distortion in isometric view
+- Minor interface improvements for smoother user experience
+- Improved pan tool
+
 ## [1.3.0] - 2025-07-21
 
 ### Added
