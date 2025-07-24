@@ -151,52 +151,65 @@ export const IsoTileVolume = ({
 
   // Calculate proper isometric 3D dimensions
   const heightOffset = useMemo(() => {
-    // In isometric projection, height goes straight up in screen space
-    // Each tile unit of height = full tile size in pixels
+    // In isometric projection, height is represented as movement upward
+    // Use the unprojected tile size for height units
     return height * UNPROJECTED_TILE_SIZE;
   }, [height]);
 
-  // Calculate faces for the proper 3D isometric parallelepiped
+  // Calculate faces for the proper 3D isometric parallelepiped  
   const faces = useMemo(() => {
     if (!isometric || height <= 0) {
       return { topFace: null, rightFace: null, frontFace: null };
     }
 
-    // Top face: same size as base, offset up by height
+    // In isometric projection, we need to create proper 3D geometry
+    // The depth (third dimension) is represented by both X and Y offsets
+    
+    // Calculate the isometric depth offset based on height
+    // In isometric view, moving "up" in 3D space corresponds to moving
+    // both up and slightly left/right on screen
+    const depthOffsetX = heightOffset * 0.5; // Half width offset for depth
+    const depthOffsetY = heightOffset * 0.866; // Vertical offset (cos 30°)
+    
+    // Top face: offset by height with isometric depth
     const topFace = {
-      x: 0,
-      y: -heightOffset,
-      width: pxSize.width,
-      height: pxSize.height
+      points: [
+        // Top-left corner
+        -depthOffsetX, -depthOffsetY,
+        // Top-right corner  
+        pxSize.width - depthOffsetX, -depthOffsetY,
+        // Bottom-right corner
+        pxSize.width - depthOffsetX, pxSize.height - depthOffsetY,
+        // Bottom-left corner
+        -depthOffsetX, pxSize.height - depthOffsetY
+      ].join(',')
     };
 
     // Right wall: connects right edge of base to right edge of top
-    // In isometric view, this is the visible right side wall
     const rightFace = {
       points: [
-        // Bottom-right corner of base
+        // Bottom-right of base
         pxSize.width, pxSize.height,
-        // Bottom-right corner of top face
-        pxSize.width, pxSize.height - heightOffset,
-        // Top-right corner of top face
-        pxSize.width, -heightOffset,
-        // Top-right corner of base (at height 0)
-        pxSize.width, 0
+        // Top-right of base
+        pxSize.width, 0,
+        // Top-right of top face
+        pxSize.width - depthOffsetX, -depthOffsetY,
+        // Bottom-right of top face
+        pxSize.width - depthOffsetX, pxSize.height - depthOffsetY
       ].join(',')
     };
 
     // Front wall: connects front edge of base to front edge of top
-    // In isometric view, this is the visible front side wall
     const frontFace = {
       points: [
-        // Bottom-left corner of base
+        // Bottom-left of base
         0, pxSize.height,
-        // Bottom-right corner of base
+        // Bottom-right of base
         pxSize.width, pxSize.height,
-        // Bottom-right corner of top face
-        pxSize.width, pxSize.height - heightOffset,
-        // Bottom-left corner of top face
-        0, pxSize.height - heightOffset
+        // Bottom-right of top face
+        pxSize.width - depthOffsetX, pxSize.height - depthOffsetY,
+        // Bottom-left of top face
+        -depthOffsetX, pxSize.height - depthOffsetY
       ].join(',')
     };
 
@@ -260,13 +273,9 @@ export const IsoTileVolume = ({
 
           {/* Top face - brightest and fully opaque as it's the most visible */}
           {faces.topFace && (
-            <rect
-              x={faces.topFace.x}
-              y={faces.topFace.y}
-              width={faces.topFace.width}
-              height={faces.topFace.height}
+            <polygon
+              points={faces.topFace.points}
               fill={fillValue}
-              rx={cornerRadius}
               opacity={1.0}
               {...strokeParams}
             />
