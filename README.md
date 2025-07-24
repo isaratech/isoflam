@@ -8,7 +8,6 @@
 
 <div align="center">
 
-[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](https://github.com/isaratech/isoflam/releases)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB.svg?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.1.6-3178C6.svg?logo=typescript)](https://www.typescriptlang.org/)
