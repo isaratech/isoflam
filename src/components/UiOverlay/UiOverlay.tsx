@@ -16,6 +16,7 @@ import {useScene} from 'src/hooks/useScene';
 import {useModelStore} from 'src/stores/modelStore';
 import {useInitialDataManager} from 'src/hooks/useInitialDataManager';
 import {useImageHandler} from 'src/hooks/useImageHandler';
+import {screenToIso} from 'src/utils/renderer';
 import {ExportImageDialog} from '../ExportImageDialog/ExportImageDialog';
 import {CreditsDialog} from '../CreditsDialog/CreditsDialog';
 import {UndoRedoControls} from '../UndoRedoControls/UndoRedoControls';
@@ -100,6 +101,8 @@ export const UiOverlay = () => {
     return state.title;
   });
   const { size: rendererSize } = useResizeObserver(rendererEl);
+    const scroll = useUiStateStore((state) => state.scroll);
+    const zoom = useUiStateStore((state) => state.zoom);
 
     // Drag & Drop functionality
     const initialDataManager = useInitialDataManager();
@@ -191,10 +194,21 @@ export const UiOverlay = () => {
 
     // Handle image file loading (new functionality)
     const handleImageFile = useCallback((file: File) => {
+        // Calculate viewport center position in tile coordinates
+        const viewportCenter = screenToIso({
+            mouse: {
+                x: rendererSize.width / 2,
+                y: rendererSize.height / 2
+            },
+            zoom,
+            scroll,
+            rendererSize
+        });
+
         handleImageFileShared(
             file,
             {
-                position: {x: 5, y: 5},
+                position: {x: Math.round(viewportCenter.x), y: Math.round(viewportCenter.y)},
                 style: 'SOLID',
                 size: {width: 5, height: 5}
             },
@@ -204,7 +218,7 @@ export const UiOverlay = () => {
                 onError: () => setIsLoading(false)
             }
         );
-    }, [handleImageFileShared]);
+    }, [handleImageFileShared, rendererSize, zoom, scroll]);
 
     const handleDragOver = useCallback((e: React.DragEvent) => {
         e.preventDefault();
@@ -580,16 +594,16 @@ export const UiOverlay = () => {
                                 Chargement en cours...
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
-                                Veuillez patienter pendant le chargement du fichier JSON.
+                                Veuillez patienter pendant le chargement du fichier.
                             </Typography>
                         </>
                     ) : (
                         <>
                             <Typography variant="h6" gutterBottom>
-                                Déposer le fichier JSON ici
+                                Déposer un fichier JSON ou une image ici
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
-                                Relâchez pour charger le modèle dans l'application.
+                                Relâchez pour charger le modèle ou ajouter l'image dans l'application.
                             </Typography>
                         </>
                     )}
