@@ -1,4 +1,4 @@
-import type {Connector, ConnectorAnchor, Model, ModelItem, Rectangle, View} from 'src/types';
+import type {Connector, ConnectorAnchor, Model, ModelItem, Rectangle, Volume, View} from 'src/types';
 import {getAllAnchors, getItemByIdOrThrow} from 'src/utils';
 
 type IssueType =
@@ -23,6 +23,14 @@ type IssueType =
       type: 'INVALID_RECTANGLE_COLOR_REF';
       params: {
         rectangle: string;
+        view: string;
+        color: string;
+      };
+    }
+  | {
+      type: 'INVALID_VOLUME_COLOR_REF';
+      params: {
+        volume: string;
         view: string;
         color: string;
       };
@@ -224,6 +232,32 @@ export const validateRectangle = (
   return issues;
 };
 
+export const validateVolume = (
+  volume: Volume,
+  ctx: { view: View; model: Model }
+): Issue[] => {
+  const issues: Issue[] = [];
+
+    if (volume.color && ctx.model.colors) {
+    try {
+      getItemByIdOrThrow(ctx.model.colors, volume.color);
+    } catch (e) {
+      issues.push({
+        type: 'INVALID_VOLUME_COLOR_REF',
+        params: {
+          volume: volume.id,
+          view: ctx.view.id,
+          color: volume.color
+        },
+        message:
+          'Volume references a color that does not exist in the model.'
+      });
+    }
+  }
+
+  return issues;
+};
+
 export const validateView = (view: View, ctx: { model: Model }): Issue[] => {
   const issues: Issue[] = [];
 
@@ -245,6 +279,17 @@ export const validateView = (view: View, ctx: { model: Model }): Issue[] => {
     view.rectangles.forEach((rectangle) => {
       issues.push(
         ...validateRectangle(rectangle, {
+          view,
+          model: ctx.model
+        })
+      );
+    });
+  }
+
+  if (view.volumes) {
+    view.volumes.forEach((volume) => {
+      issues.push(
+        ...validateVolume(volume, {
           view,
           model: ctx.model
         })

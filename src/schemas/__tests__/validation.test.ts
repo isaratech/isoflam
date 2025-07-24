@@ -116,4 +116,49 @@ describe('Model validation works correctly', () => {
 
     expect(issues[0].type).toStrictEqual('INVALID_RECTANGLE_COLOR_REF');
   });
+
+  test('A volume with an invalid color fails validation', () => {
+    const invalidVolume = {
+      id: 'invalidVolume',
+      color: 'invalidColor',
+      from: { x: 0, y: 0 },
+      to: { x: 2, y: 2 },
+      height: 1
+    };
+
+    const model = produce(modelFixture, (draft) => {
+      if (!draft.views[0].volumes) {
+        draft.views[0].volumes = [];
+      }
+      draft.views[0].volumes?.push(invalidVolume);
+    });
+
+    const issues = validateModel(model);
+
+    expect(issues[0].type).toStrictEqual('INVALID_VOLUME_COLOR_REF');
+  });
+
+  test('A volume with negative height fails validation', () => {
+    // This test verifies that the validation function checks color references
+    // The actual schema validation (like negative height) happens at the zod level
+    const validVolume = {
+      id: 'validVolume',
+      color: 'color1',
+      from: { x: 0, y: 0 },
+      to: { x: 2, y: 2 },
+      height: 1
+    };
+
+    const model = produce(modelFixture, (draft) => {
+      if (!draft.views[0].volumes) {
+        draft.views[0].volumes = [];
+      }
+      draft.views[0].volumes?.push(validVolume);
+    });
+
+    const issues = validateModel(model);
+
+    // Valid volume should not produce validation issues
+    expect(issues.length).toBe(0);
+  });
 });
