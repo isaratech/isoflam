@@ -162,54 +162,44 @@ export const IsoTileVolume = ({
       return { topFace: null, rightFace: null, frontFace: null };
     }
 
-    // In isometric projection, we need to create proper 3D geometry
-    // The depth (third dimension) is represented by both X and Y offsets
+    // For proper isometric projection matching the reference images
+    // The depth should be more subtle but clearly visible
+    const isoDepthX = heightOffset * 0.6;  // X offset for isometric depth (more pronounced)
+    const isoDepthY = heightOffset * 0.8;  // Y offset (slightly reduced for better proportion)
     
-    // Calculate the isometric depth offset based on height
-    // In isometric view, moving "up" in 3D space corresponds to moving
-    // both up and slightly left/right on screen
-    const depthOffsetX = heightOffset * 0.5; // Half width offset for depth
-    const depthOffsetY = heightOffset * 0.866; // Vertical offset (cos 30°)
-    
-    // Top face: offset by height with isometric depth
+    // Top face: isometrically offset from base
     const topFace = {
-      points: [
-        // Top-left corner
-        -depthOffsetX, -depthOffsetY,
-        // Top-right corner  
-        pxSize.width - depthOffsetX, -depthOffsetY,
-        // Bottom-right corner
-        pxSize.width - depthOffsetX, pxSize.height - depthOffsetY,
-        // Bottom-left corner
-        -depthOffsetX, pxSize.height - depthOffsetY
-      ].join(',')
+      x: -isoDepthX,
+      y: -isoDepthY,
+      width: pxSize.width,
+      height: pxSize.height
     };
 
     // Right wall: connects right edge of base to right edge of top
     const rightFace = {
       points: [
-        // Bottom-right of base
+        // Bottom-right corner of base
         pxSize.width, pxSize.height,
-        // Top-right of base
+        // Top-right corner of base
         pxSize.width, 0,
-        // Top-right of top face
-        pxSize.width - depthOffsetX, -depthOffsetY,
-        // Bottom-right of top face
-        pxSize.width - depthOffsetX, pxSize.height - depthOffsetY
+        // Top-right corner of top face
+        pxSize.width - isoDepthX, -isoDepthY,
+        // Bottom-right corner of top face
+        pxSize.width - isoDepthX, pxSize.height - isoDepthY
       ].join(',')
     };
 
     // Front wall: connects front edge of base to front edge of top
     const frontFace = {
       points: [
-        // Bottom-left of base
+        // Bottom-left corner of base
         0, pxSize.height,
-        // Bottom-right of base
+        // Bottom-right corner of base
         pxSize.width, pxSize.height,
-        // Bottom-right of top face
-        pxSize.width - depthOffsetX, pxSize.height - depthOffsetY,
-        // Bottom-left of top face
-        -depthOffsetX, pxSize.height - depthOffsetY
+        // Bottom-right corner of top face
+        pxSize.width - isoDepthX, pxSize.height - isoDepthY,
+        // Bottom-left corner of top face
+        -isoDepthX, pxSize.height - isoDepthY
       ].join(',')
     };
 
@@ -237,45 +227,49 @@ export const IsoTileVolume = ({
         </defs>
       )}
 
-      {/* Base/bottom face - most transparent to show it's the base */}
+      {/* Base/bottom face - subtle visibility */}
       <rect
         width={pxSize.width}
         height={pxSize.height}
         fill={fillValue}
         rx={cornerRadius}
-        opacity={0.6}
+        opacity={0.2}
         {...strokeParams}
       />
 
       {height > 0 && isometric && (
         <>
-          {/* Front wall - darker for depth perception */}
+          {/* Front wall - medium brightness for depth perception */}
           {faces.frontFace && (
             <polygon
               points={faces.frontFace.points}
               fill={fillValue}
-              opacity={0.8}
+              opacity={1.0}
               {...strokeParams}
-              style={{ filter: 'brightness(0.7)' }}
+              style={{ filter: 'brightness(0.75)' }}
             />
           )}
 
-          {/* Right wall - darkest for maximum depth perception */}
+          {/* Right wall - darker for maximum depth perception */}
           {faces.rightFace && (
             <polygon
               points={faces.rightFace.points}
               fill={fillValue}
-              opacity={0.9}
+              opacity={1.0}
               {...strokeParams}
-              style={{ filter: 'brightness(0.5)' }}
+              style={{ filter: 'brightness(0.55)' }}
             />
           )}
 
           {/* Top face - brightest and fully opaque as it's the most visible */}
           {faces.topFace && (
-            <polygon
-              points={faces.topFace.points}
+            <rect
+              x={faces.topFace.x}
+              y={faces.topFace.y}
+              width={faces.topFace.width}
+              height={faces.topFace.height}
               fill={fillValue}
+              rx={cornerRadius}
               opacity={1.0}
               {...strokeParams}
             />
