@@ -16,11 +16,13 @@ import {useScene} from 'src/hooks/useScene';
 import {TEXTBOX_DEFAULTS} from 'src/config';
 import {generateId} from 'src/utils';
 import {useTranslation} from 'src/hooks/useTranslation';
+import {useImageHandler} from 'src/hooks/useImageHandler';
 import {Coords} from 'src/types/common';
 
 export const ToolMenu = () => {
   const { t } = useTranslation();
-    const {createTextBox, createRectangle} = useScene();
+    const {createTextBox} = useScene();
+    const {handleImageFile: handleImageFileShared} = useImageHandler();
     const fileInputRef = useRef<HTMLInputElement>(null);
     const selectedImagePositionRef = useRef<Coords | null>(null);
   const mode = useUiStateStore((state) => {
@@ -77,55 +79,24 @@ export const ToolMenu = () => {
         const file = event.target.files?.[0];
         if (!file) return;
 
-        // Check if it's an image file
-        if (!file.type.startsWith('image/')) {
-            alert('Veuillez sélectionner un fichier image valide.');
-            return;
-        }
+        // Use the selected position or fall back to current mouse position
+        const position = selectedImagePositionRef.current || mousePosition;
 
-        const fileReader = new FileReader();
-        fileReader.onload = (e) => {
-            const imageData = e.target?.result as string;
+        // Clear the selected position after use
+        selectedImagePositionRef.current = null;
 
-            // Use the selected position or fall back to current mouse position
-            const position = selectedImagePositionRef.current || mousePosition;
-
-            // Clear the selected position after use
-            selectedImagePositionRef.current = null;
-
-            // Create a new image rectangle at the selected position
-            const newRectangle = {
-                id: `image-rect-${Date.now()}`,
-                from: {x: position.x, y: position.y},
-                to: {x: position.x + 5, y: position.y + 5},
-                imageData,
-                imageName: file.name,
-                style: 'NONE' as const,
-                width: 2,
-                radius: 0
-            };
-
-            createRectangle(newRectangle);
-
-            // Switch to rectangle transform mode to allow immediate editing
-            uiStateStoreActions.setMode({
-                type: 'RECTANGLE.TRANSFORM',
-                id: newRectangle.id,
-                showCursor: false,
-                selectedAnchor: null
-            });
-
-            uiStateStoreActions.setItemControls({
-                type: 'RECTANGLE',
-                id: newRectangle.id
-            });
-        };
-
-        fileReader.readAsDataURL(file);
+        handleImageFileShared(
+            file,
+            {
+                position,
+                style: 'NONE',
+                size: {width: 5, height: 5}
+            }
+        );
 
         // Reset the input value so the same file can be selected again
         event.target.value = '';
-    }, [createRectangle, mousePosition, uiStateStoreActions]);
+    }, [handleImageFileShared, mousePosition]);
 
   return (
     <UiElement>

@@ -15,6 +15,7 @@ import {ContextMenuManager} from 'src/components/ContextMenu/ContextMenuManager'
 import {useScene} from 'src/hooks/useScene';
 import {useModelStore} from 'src/stores/modelStore';
 import {useInitialDataManager} from 'src/hooks/useInitialDataManager';
+import {useImageHandler} from 'src/hooks/useImageHandler';
 import {ExportImageDialog} from '../ExportImageDialog/ExportImageDialog';
 import {CreditsDialog} from '../CreditsDialog/CreditsDialog';
 import {UndoRedoControls} from '../UndoRedoControls/UndoRedoControls';
@@ -103,6 +104,7 @@ export const UiOverlay = () => {
     // Drag & Drop functionality
     const initialDataManager = useInitialDataManager();
     const scene = useScene();
+    const {handleImageFile: handleImageFileShared} = useImageHandler();
     const [isDragOver, setIsDragOver] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -189,62 +191,20 @@ export const UiOverlay = () => {
 
     // Handle image file loading (new functionality)
     const handleImageFile = useCallback((file: File) => {
-        setIsLoading(true);
-
-        try {
-            const fileReader = new FileReader();
-
-            fileReader.onload = async (event) => {
-                try {
-                    const imageData = event.target?.result as string;
-
-                    // Create a new image rectangle at the center of the view
-                    const newRectangle = {
-                        id: `image-rect-${Date.now()}`,
-                        from: {x: 5, y: 5},
-                        to: {x: 10, y: 10},
-                        imageData,
-                        imageName: file.name,
-                        style: 'SOLID' as const,
-                        width: 2,
-                        radius: 0
-                    };
-
-                    scene.createRectangle(newRectangle);
-
-                    // Switch to rectangle transform mode to allow immediate editing
-                    uiStateActions.setMode({
-                        type: 'RECTANGLE.TRANSFORM',
-                        id: newRectangle.id,
-                        showCursor: false,
-                        selectedAnchor: null
-                    });
-
-                    uiStateActions.setItemControls({
-                        type: 'RECTANGLE',
-                        id: newRectangle.id
-                    });
-
-                } catch (error) {
-                    console.error('Error processing image:', error);
-                    alert('Erreur lors du traitement de l\'image.');
-                } finally {
-                    setIsLoading(false);
-                }
-            };
-
-            fileReader.onerror = () => {
-                alert('Erreur lors de la lecture du fichier image.');
-                setIsLoading(false);
-            };
-
-            fileReader.readAsDataURL(file);
-        } catch (error) {
-            console.error('Error reading image file:', error);
-            alert('Erreur lors de la lecture du fichier image.');
-            setIsLoading(false);
-        }
-    }, [scene, uiStateActions]);
+        handleImageFileShared(
+            file,
+            {
+                position: {x: 5, y: 5},
+                style: 'SOLID',
+                size: {width: 5, height: 5}
+            },
+            {
+                onLoadingStart: () => setIsLoading(true),
+                onLoadingEnd: () => setIsLoading(false),
+                onError: () => setIsLoading(false)
+            }
+        );
+    }, [handleImageFileShared]);
 
     const handleDragOver = useCallback((e: React.DragEvent) => {
         e.preventDefault();
