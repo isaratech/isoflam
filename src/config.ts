@@ -1,4 +1,4 @@
-import {Colors, Connector, Icon, Icons, InitialData, MainMenuOptions, Rectangle, Size, TextBox, View, ViewItem} from 'src/types';
+import {Colors, Connector, Icon, Icons, InitialData, MainMenuOptions, Rectangle, Volume, Size, TextBox, View, ViewItem} from 'src/types';
 import {CoordsUtils} from 'src/utils';
 // Import icon fixtures with error handling for testing
 let sdmisIcons: any[] = [];
@@ -161,6 +161,7 @@ export const DEFAULTS_VIEW: Required<
   items: [],
   connectors: [],
   rectangles: [],
+  volumes: [],
   textBoxes: []
 };
 
@@ -212,6 +213,19 @@ export const DEFAULTS_RECTANGLE: Required<
   style: 'NONE',
   width: 1,
   radius: 22
+};
+
+/**
+ * Default configuration for volumes (3D rectangular selections).
+ * Defines default line style and height.
+ */
+export const DEFAULTS_VOLUME: Required<
+    Omit<Volume, 'id' | 'from' | 'to' | 'color' | 'imageData' | 'imageName' | 'mirrorHorizontal' | 'mirrorVertical' | 'rotationAngle' | 'isometric'>
+> = {
+  style: 'NONE',
+  width: 1,
+  radius: 22,
+  height: 1
 };
 
 // =============================================================================
@@ -374,6 +388,9 @@ export const TEXTBOX_DEFAULTS = DEFAULTS_TEXTBOX;
 
 /** @deprecated Use DEFAULTS_RECTANGLE instead */
 export const RECTANGLE_DEFAULTS = DEFAULTS_RECTANGLE;
+
+/** @deprecated Use DEFAULTS_VOLUME instead */
+export const VOLUME_DEFAULTS = DEFAULTS_VOLUME;
 
 /** @deprecated Use UI_ZOOM_INCREMENT instead */
 export const ZOOM_INCREMENT = UI_ZOOM_INCREMENT;

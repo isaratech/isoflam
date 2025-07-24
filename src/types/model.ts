@@ -10,6 +10,8 @@ import {
     modelItemsSchema,
     rectangleSchema,
     rectangleStyleOptions,
+    volumeSchema,
+    volumeStyleOptions,
     textBoxSchema,
     viewItemSchema,
     viewSchema,
@@ -17,7 +19,7 @@ import {
 } from 'src/schemas';
 import {StoreApi} from 'zustand';
 
-export { connectorStyleOptions, rectangleStyleOptions } from 'src/schemas';
+export { connectorStyleOptions, rectangleStyleOptions, volumeStyleOptions } from 'src/schemas';
 export type Model = {
     version?: string;
     title: string;
@@ -37,10 +39,12 @@ export type View = z.infer<typeof viewSchema>;
 export type ViewItem = z.infer<typeof viewItemSchema>;
 export type ConnectorStyle = keyof typeof connectorStyleOptions;
 export type RectangleStyle = keyof typeof rectangleStyleOptions;
+export type VolumeStyle = keyof typeof volumeStyleOptions;
 export type ConnectorAnchor = z.infer<typeof anchorSchema>;
 export type Connector = z.infer<typeof connectorSchema>;
 export type TextBox = z.infer<typeof textBoxSchema>;
 export type Rectangle = z.infer<typeof rectangleSchema>;
+export type Volume = z.infer<typeof volumeSchema>;
 
 export type ModelStore = Model & {
   actions: {

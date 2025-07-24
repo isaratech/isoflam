@@ -3,6 +3,7 @@ import {Stack} from '@mui/material';
 import {
     AddOutlined as AddIcon,
     CropSquareOutlined as CropSquareIcon,
+    ViewInArOutlined as VolumeIcon,
     EastOutlined as ConnectorIcon,
     ImageOutlined as ImageIcon,
     NearMeOutlined as NearMeIcon,
@@ -152,6 +153,18 @@ export const ToolMenu = () => {
             });
           }}
           isActive={mode.type === 'RECTANGLE.DRAW'}
+        />
+        <IconButton
+          name={t('Volume')}
+          Icon={<VolumeIcon />}
+          onClick={() => {
+            uiStateStoreActions.setMode({
+              type: 'VOLUME.DRAW',
+              showCursor: true,
+              id: null
+            });
+          }}
+          isActive={mode.type === 'VOLUME.DRAW'}
         />
         <IconButton
           name={t('Connector')}

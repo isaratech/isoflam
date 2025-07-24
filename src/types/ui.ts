@@ -68,6 +68,12 @@ export interface DrawRectangleMode {
   id: string | null;
 }
 
+export interface DrawVolumeMode {
+  type: 'VOLUME.DRAW';
+  showCursor: boolean;
+  id: string | null;
+}
+
 export const AnchorPositionOptions = {
   BOTTOM_LEFT: 'BOTTOM_LEFT',
   BOTTOM_RIGHT: 'BOTTOM_RIGHT',
@@ -79,6 +85,13 @@ export type AnchorPosition = keyof typeof AnchorPositionOptions;
 
 export interface TransformRectangleMode {
   type: 'RECTANGLE.TRANSFORM';
+  showCursor: boolean;
+  id: string;
+  selectedAnchor: AnchorPosition | null;
+}
+
+export interface TransformVolumeMode {
+  type: 'VOLUME.TRANSFORM';
   showCursor: boolean;
   id: string;
   selectedAnchor: AnchorPosition | null;
@@ -103,6 +116,8 @@ export type Mode =
   | ConnectorMode
   | DrawRectangleMode
   | TransformRectangleMode
+  | DrawVolumeMode
+  | TransformVolumeMode
   | DragItemsMode
     | TextBoxMode
     | PlaceImageMode;

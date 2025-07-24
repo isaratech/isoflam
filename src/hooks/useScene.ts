@@ -1,12 +1,12 @@
 import {useCallback, useMemo} from 'react';
-import {Connector, ItemReference, LayerOrderingAction, ModelItem, Rectangle, TextBox, ViewItem} from 'src/types';
+import {Connector, ItemReference, LayerOrderingAction, ModelItem, Rectangle, Volume, TextBox, ViewItem} from 'src/types';
 import {useUiStateStore} from 'src/stores/uiStateStore';
 import {useModelStore} from 'src/stores/modelStore';
 import {useSceneStore} from 'src/stores/sceneStore';
 import * as reducers from 'src/stores/reducers';
 import type {State} from 'src/stores/reducers/types';
 import {getItemByIdOrThrow} from 'src/utils';
-import {CONNECTOR_DEFAULTS, RECTANGLE_DEFAULTS, TEXTBOX_DEFAULTS} from 'src/config';
+import {CONNECTOR_DEFAULTS, RECTANGLE_DEFAULTS, VOLUME_DEFAULTS, TEXTBOX_DEFAULTS} from 'src/config';
 
 export const useScene = () => {
   const model = useModelStore((state) => {
@@ -60,6 +60,15 @@ export const useScene = () => {
       };
     });
   }, [currentView?.rectangles]);
+
+  const volumes = useMemo(() => {
+    return (currentView?.volumes ?? []).map((volume) => {
+      return {
+        ...VOLUME_DEFAULTS,
+        ...volume
+      };
+    });
+  }, [currentView?.volumes]);
 
   const textBoxes = useMemo(() => {
     return (currentView?.textBoxes ?? []).map((textBox) => {
@@ -257,6 +266,42 @@ export const useScene = () => {
     [getState, setState, currentViewId]
   );
 
+  const createVolume = useCallback(
+    (newVolume: Volume) => {
+      const newState = reducers.view({
+        action: 'CREATE_VOLUME',
+        payload: newVolume,
+        ctx: { viewId: currentViewId, state: getState() }
+      });
+      setState(newState);
+    },
+    [getState, setState, currentViewId]
+  );
+
+  const updateVolume = useCallback(
+    (id: string, updates: Partial<Volume>) => {
+      const newState = reducers.view({
+        action: 'UPDATE_VOLUME',
+        payload: { id, ...updates },
+        ctx: { viewId: currentViewId, state: getState() }
+      });
+      setState(newState);
+    },
+    [getState, setState, currentViewId]
+  );
+
+  const deleteVolume = useCallback(
+    (id: string) => {
+      const newState = reducers.view({
+        action: 'DELETE_VOLUME',
+        payload: id,
+        ctx: { viewId: currentViewId, state: getState() }
+      });
+      setState(newState);
+    },
+    [getState, setState, currentViewId]
+  );
+
   const changeLayerOrder = useCallback(
     (action: LayerOrderingAction, item: ItemReference) => {
       const newState = reducers.view({
@@ -274,6 +319,7 @@ export const useScene = () => {
     connectors,
     colors,
     rectangles,
+    volumes,
     textBoxes,
     currentView,
     createModelItem,
@@ -291,6 +337,9 @@ export const useScene = () => {
     createRectangle,
     updateRectangle,
     deleteRectangle,
+    createVolume,
+    updateVolume,
+    deleteVolume,
     changeLayerOrder
   };
 };

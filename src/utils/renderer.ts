@@ -542,6 +542,17 @@ export const getItemAtTile = ({
     };
   }
 
+  const volume = scene.volumes.find(({ from, to }) => {
+    return isWithinBounds(tile, [from, to]);
+  });
+
+  if (volume) {
+    return {
+      type: 'VOLUME',
+      id: volume.id
+    };
+  }
+
   return null;
 };
 
@@ -720,6 +731,11 @@ export const getProjectBounds = (
     return [...acc, rectangle.from, rectangle.to];
   }, []);
 
+  const volumes = view.volumes ?? [];
+  const volumeTiles = volumes.reduce<Coords[]>((acc, volume) => {
+    return [...acc, volume.from, volume.to];
+  }, []);
+
   const textBoxes = view.textBoxes ?? [];
   const textBoxTiles = textBoxes.reduce<Coords[]>((acc, textBox) => {
     const size = getTextBoxDimensions(textBox);
@@ -738,6 +754,7 @@ export const getProjectBounds = (
     ...itemTiles,
     ...connectorTiles,
     ...rectangleTiles,
+    ...volumeTiles,
     ...textBoxTiles
   ];
 

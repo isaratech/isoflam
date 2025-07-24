@@ -9,6 +9,8 @@ import {Cursor} from './modes/Cursor';
 import {DragItems} from './modes/DragItems';
 import {DrawRectangle} from './modes/Rectangle/DrawRectangle';
 import {TransformRectangle} from './modes/Rectangle/TransformRectangle';
+import {DrawVolume} from './modes/Volume/DrawVolume';
+import {TransformVolume} from './modes/Volume/TransformVolume';
 import {Connector} from './modes/Connector';
 import {Pan} from './modes/Pan';
 import {PlaceIcon} from './modes/PlaceIcon';
@@ -21,6 +23,8 @@ const modes: { [k in string]: ModeActions } = {
   // TODO: Adopt this notation for all modes (i.e. {node.type}.{action})
   'RECTANGLE.DRAW': DrawRectangle,
   'RECTANGLE.TRANSFORM': TransformRectangle,
+  'VOLUME.DRAW': DrawVolume,
+  'VOLUME.TRANSFORM': TransformVolume,
   CONNECTOR: Connector,
   PAN: Pan,
   PLACE_ICON: PlaceIcon,
@@ -116,7 +120,7 @@ export const useInteractionManager = () => {
         scene
       });
 
-      if (itemAtTile?.type === 'RECTANGLE') {
+      if (itemAtTile?.type === 'RECTANGLE' || itemAtTile?.type === 'VOLUME') {
         uiState.actions.setContextMenu({
           item: itemAtTile,
           tile: uiState.mouse.position.tile

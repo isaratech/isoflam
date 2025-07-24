@@ -9,6 +9,7 @@ import * as viewItemReducers from './viewItem';
 import * as connectorReducers from './connector';
 import * as textBoxReducers from './textBox';
 import * as rectangleReducers from './rectangle';
+import * as volumeReducers from './volume';
 import * as layerOrderingReducers from './layerOrdering';
 
 export const updateViewTimestamp = (ctx: ViewReducerContext): State => {
@@ -137,6 +138,15 @@ export const view = ({ action, payload, ctx }: ViewReducerParams) => {
       break;
     case 'DELETE_RECTANGLE':
       newState = rectangleReducers.deleteRectangle(payload, ctx);
+      break;
+    case 'CREATE_VOLUME':
+      newState = volumeReducers.createVolume(payload, ctx);
+      break;
+    case 'UPDATE_VOLUME':
+      newState = volumeReducers.updateVolume(payload, ctx);
+      break;
+    case 'DELETE_VOLUME':
+      newState = volumeReducers.deleteVolume(payload, ctx);
       break;
     case 'CHANGE_LAYER_ORDER':
       newState = layerOrderingReducers.changeLayerOrder(payload, ctx);
