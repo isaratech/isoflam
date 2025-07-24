@@ -149,55 +149,59 @@ export const IsoTileVolume = ({
     return transforms.length > 0 ? transforms.join(' ') : undefined;
   }, [imageData, mirrorHorizontal, mirrorVertical, rotationAngle, pxSize.width, pxSize.height]);
 
-  // Calculate dimensions for the 3D effect
+  // Calculate proper isometric 3D dimensions
   const heightOffset = useMemo(() => {
-    // For isometric projection, height creates a vertical offset
-    // Each unit of height moves the top face up by a portion of the tile height
-    return height * (isometric ? UNPROJECTED_TILE_SIZE * 0.3 : UNPROJECTED_TILE_SIZE * 0.5);
-  }, [height, isometric]);
+    // In isometric projection, height goes straight up in screen space
+    // Each tile unit of height = full tile size in pixels
+    return height * UNPROJECTED_TILE_SIZE;
+  }, [height]);
 
-  const depthOffset = useMemo(() => {
-    // For isometric projection, depth creates a diagonal offset
-    return height * (isometric ? UNPROJECTED_TILE_SIZE * 0.2 : 0);
-  }, [height, isometric]);
-
-  // Calculate faces for the 3D volume
+  // Calculate faces for the proper 3D isometric parallelepiped
   const faces = useMemo(() => {
+    if (!isometric || height <= 0) {
+      return { topFace: null, rightFace: null, frontFace: null };
+    }
+
+    // Top face: same size as base, offset up by height
     const topFace = {
-      x: depthOffset,
+      x: 0,
       y: -heightOffset,
       width: pxSize.width,
       height: pxSize.height
     };
 
-    const rightFace = isometric ? {
+    // Right wall: connects right edge of base to right edge of top
+    // In isometric view, this is the visible right side wall
+    const rightFace = {
       points: [
-        // Bottom right of base
+        // Bottom-right corner of base
         pxSize.width, pxSize.height,
-        // Top right of base  
-        pxSize.width + depthOffset, pxSize.height - heightOffset,
-        // Top right of top
-        pxSize.width + depthOffset, -heightOffset,
-        // Bottom right of top
+        // Bottom-right corner of top face
+        pxSize.width, pxSize.height - heightOffset,
+        // Top-right corner of top face
+        pxSize.width, -heightOffset,
+        // Top-right corner of base (at height 0)
         pxSize.width, 0
       ].join(',')
-    } : null;
+    };
 
-    const frontFace = isometric ? {
+    // Front wall: connects front edge of base to front edge of top
+    // In isometric view, this is the visible front side wall
+    const frontFace = {
       points: [
-        // Bottom left of base
+        // Bottom-left corner of base
         0, pxSize.height,
-        // Bottom right of base
+        // Bottom-right corner of base
         pxSize.width, pxSize.height,
-        // Bottom right of top
-        pxSize.width, 0,
-        // Bottom left of top
-        0, 0
+        // Bottom-right corner of top face
+        pxSize.width, pxSize.height - heightOffset,
+        // Bottom-left corner of top face
+        0, pxSize.height - heightOffset
       ].join(',')
-    } : null;
+    };
 
     return { topFace, rightFace, frontFace };
-  }, [pxSize, heightOffset, depthOffset, isometric]);
+  }, [pxSize, heightOffset, isometric, height]);
 
   return (
     <Svg viewboxSize={pxSize} style={css}>
@@ -220,51 +224,67 @@ export const IsoTileVolume = ({
         </defs>
       )}
 
-      {/* Base/bottom face */}
+      {/* Base/bottom face - most transparent to show it's the base */}
       <rect
         width={pxSize.width}
         height={pxSize.height}
         fill={fillValue}
         rx={cornerRadius}
-        opacity={0.8}
+        opacity={0.6}
         {...strokeParams}
       />
 
-      {height > 0 && (
+      {height > 0 && isometric && (
         <>
-          {/* Right face (visible in isometric view) */}
-          {faces.rightFace && isometric && (
-            <polygon
-              points={faces.rightFace.points}
-              fill={fillValue}
-              opacity={0.6}
-              {...strokeParams}
-              style={{ filter: 'brightness(0.8)' }}
-            />
-          )}
-
-          {/* Front face (visible in isometric view) */}
-          {faces.frontFace && isometric && (
+          {/* Front wall - darker for depth perception */}
+          {faces.frontFace && (
             <polygon
               points={faces.frontFace.points}
               fill={fillValue}
-              opacity={0.7}
+              opacity={0.8}
               {...strokeParams}
-              style={{ filter: 'brightness(0.9)' }}
+              style={{ filter: 'brightness(0.7)' }}
             />
           )}
 
-          {/* Top face */}
-          <rect
-            x={faces.topFace.x}
-            y={faces.topFace.y}
-            width={faces.topFace.width}
-            height={faces.topFace.height}
-            fill={fillValue}
-            rx={cornerRadius}
-            {...strokeParams}
-          />
+          {/* Right wall - darkest for maximum depth perception */}
+          {faces.rightFace && (
+            <polygon
+              points={faces.rightFace.points}
+              fill={fillValue}
+              opacity={0.9}
+              {...strokeParams}
+              style={{ filter: 'brightness(0.5)' }}
+            />
+          )}
+
+          {/* Top face - brightest and fully opaque as it's the most visible */}
+          {faces.topFace && (
+            <rect
+              x={faces.topFace.x}
+              y={faces.topFace.y}
+              width={faces.topFace.width}
+              height={faces.topFace.height}
+              fill={fillValue}
+              rx={cornerRadius}
+              opacity={1.0}
+              {...strokeParams}
+            />
+          )}
         </>
+      )}
+
+      {/* For non-isometric mode with height, just show elevated rectangle */}
+      {height > 0 && !isometric && (
+        <rect
+          x={0}
+          y={-heightOffset}
+          width={pxSize.width}
+          height={pxSize.height}
+          fill={fillValue}
+          rx={cornerRadius}
+          {...strokeParams}
+        />
       )}
     </Svg>
   );
