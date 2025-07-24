@@ -1,10 +1,10 @@
-import React, { useCallback } from 'react';
-import { useUiStateStore } from 'src/stores/uiStateStore';
-import { getTilePosition, CoordsUtils, generateId } from 'src/utils';
-import { useScene } from 'src/hooks/useScene';
-import { useTranslation } from 'src/hooks/useTranslation';
-import { TEXTBOX_DEFAULTS } from 'src/config';
-import { ContextMenu } from './ContextMenu';
+import React, {useCallback} from 'react';
+import {useUiStateStore} from 'src/stores/uiStateStore';
+import {CoordsUtils, generateId, getTilePosition} from 'src/utils';
+import {useScene} from 'src/hooks/useScene';
+import {useTranslation} from 'src/hooks/useTranslation';
+import {TEXTBOX_DEFAULTS} from 'src/config';
+import {ContextMenu} from './ContextMenu';
 
 interface Props {
   anchorEl?: HTMLElement;
@@ -74,6 +74,47 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
     onClose();
   }, [uiStateActions, onClose]);
 
+    const createNewImage = useCallback(() => {
+        // Create a hidden file input element
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*';
+        fileInput.style.display = 'none';
+
+        fileInput.onchange = (event) => {
+            const file = (event.target as HTMLInputElement).files?.[0];
+            if (file) {
+                const fileReader = new FileReader();
+
+                fileReader.onload = (loadEvent) => {
+                    const imageData = loadEvent.target?.result as string;
+
+                    // Create a new image rectangle at the context menu position
+                    const newRectangle = {
+                        id: generateId(),
+                        from: contextMenu?.tile || CoordsUtils.zero(),
+                        to: CoordsUtils.add(contextMenu?.tile || CoordsUtils.zero(), {x: 5, y: 5}),
+                        imageData,
+                        imageName: file.name
+                    };
+
+                    scene.createRectangle(newRectangle);
+                };
+
+                fileReader.readAsDataURL(file);
+            }
+
+            // Clean up the file input
+            document.body.removeChild(fileInput);
+        };
+
+        // Add to DOM and trigger click
+        document.body.appendChild(fileInput);
+        fileInput.click();
+
+        onClose();
+    }, [scene, contextMenu, onClose]);
+
   if (!contextMenu) {
     return null;
   }
@@ -126,6 +167,10 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
         {
           label: t('Create new link'),
           onClick: createNewConnector
+        },
+          {
+              label: t('Add image'),
+              onClick: createNewImage
         }
       ];
 

@@ -105,6 +105,7 @@ export const enTranslations = {
   'Create new text': 'Create new text',
   'Create new rectangle': 'Create new rectangle',
   'Create new link': 'Create new link',
+    'Add image': 'Add image',
 
   Mirroring: 'Mirroring',
   Vertical: 'Vertical',
