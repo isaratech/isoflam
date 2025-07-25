@@ -7,6 +7,7 @@ import { Cursor } from 'src/components/Cursor/Cursor';
 import { Nodes } from 'src/components/SceneLayers/Nodes/Nodes';
 import { Rectangles } from 'src/components/SceneLayers/Rectangles/Rectangles';
 import { Connectors } from 'src/components/SceneLayers/Connectors/Connectors';
+import { Roads } from 'src/components/SceneLayers/Roads/Roads';
 import { ConnectorLabels } from 'src/components/SceneLayers/ConnectorLabels/ConnectorLabels';
 import { TextBoxes } from 'src/components/SceneLayers/TextBoxes/TextBoxes';
 import { SizeIndicator } from 'src/components/DebugUtils/SizeIndicator';
@@ -28,7 +29,7 @@ export const Renderer = ({ showGrid, backgroundColor }: RendererProps) => {
     return state.actions;
   });
   const { setInteractionsElement } = useInteractionManager();
-  const { items, rectangles, connectors, textBoxes } = useScene();
+  const { items, rectangles, connectors, roads, textBoxes } = useScene();
 
   useEffect(() => {
     if (!containerRef.current || !interactionsRef.current) return;
@@ -77,6 +78,9 @@ export const Renderer = ({ showGrid, backgroundColor }: RendererProps) => {
       )}
       <SceneLayer>
         <Connectors connectors={connectors} />
+      </SceneLayer>
+      <SceneLayer>
+        <Roads roads={roads} />
       </SceneLayer>
       <SceneLayer>
         <TextBoxes textBoxes={textBoxes} />

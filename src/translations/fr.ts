@@ -18,6 +18,7 @@ export const frTranslations = {
   Rectangle: 'Rectangle',
     'Import Image': 'Importer une image',
   Connector: 'Connecteur',
+  Road: 'Route',
   Text: 'Texte',
 
   // ZoomControls

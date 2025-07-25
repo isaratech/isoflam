@@ -1,4 +1,4 @@
-import {Colors, Connector, Icon, Icons, InitialData, MainMenuOptions, Rectangle, Size, TextBox, View, ViewItem} from 'src/types';
+import {Colors, Connector, Icon, Icons, InitialData, MainMenuOptions, Rectangle, Road, Size, TextBox, View, ViewItem} from 'src/types';
 import {CoordsUtils} from 'src/utils';
 // Import icon fixtures with error handling for testing
 let sdmisIcons: any[] = [];
@@ -160,6 +160,7 @@ export const DEFAULTS_VIEW: Required<
   name: 'Untitled view',
   items: [],
   connectors: [],
+  roads: [],
   rectangles: [],
   textBoxes: []
 };
@@ -186,6 +187,17 @@ export const DEFAULTS_CONNECTOR: Required<Omit<Connector, 'id' | 'color'>> = {
   anchors: [],
   style: 'SOLID',
   showTriangle: true
+};
+
+/**
+ * Default configuration for roads.
+ * Includes width, styling, and visual properties for procedural road generation.
+ */
+export const DEFAULTS_ROAD: Required<Omit<Road, 'id' | 'color'>> = {
+  width: 2, // Minimum width as per requirements
+  description: '',
+  anchors: [],
+  style: 'SOLID'
 };
 
 /**
@@ -311,6 +323,7 @@ export const INITIAL_UI_STATE = {
  */
 export const INITIAL_SCENE_STATE = {
   connectors: {},
+  roads: {},
   textBoxes: {}
 };
 
@@ -368,6 +381,9 @@ export const VIEW_ITEM_DEFAULTS = DEFAULTS_VIEW_ITEM;
 
 /** @deprecated Use DEFAULTS_CONNECTOR instead */
 export const CONNECTOR_DEFAULTS = DEFAULTS_CONNECTOR;
+
+/** @deprecated Use DEFAULTS_ROAD instead */
+export const ROAD_DEFAULTS = DEFAULTS_ROAD;
 
 /** @deprecated Use DEFAULTS_TEXTBOX instead */
 export const TEXTBOX_DEFAULTS = DEFAULTS_TEXTBOX;

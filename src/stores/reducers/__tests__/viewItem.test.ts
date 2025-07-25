@@ -22,6 +22,7 @@ describe('viewItem reducer', () => {
     },
     scene: {
       connectors: {},
+      roads: {},
       textBoxes: {}
     }
   };

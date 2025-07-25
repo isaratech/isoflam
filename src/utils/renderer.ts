@@ -21,6 +21,8 @@ import {
     Mouse,
     ProjectionOrientationEnum,
     Rect,
+    Road,
+    RoadAnchor,
     Scroll,
     Size,
     SlimMouseEvent,
@@ -303,6 +305,12 @@ export const getAllAnchors = (connectors: Connector[]) => {
   return connectors.reduce((acc, connector) => {
     return [...acc, ...connector.anchors];
   }, [] as ConnectorAnchor[]);
+};
+
+export const getAllRoadAnchors = (roads: Road[]) => {
+  return roads.reduce((acc, road) => {
+    return [...acc, ...road.anchors];
+  }, [] as RoadAnchor[]);
 };
 
 export const getAnchorTile = (anchor: ConnectorAnchor, view: View): Coords => {
