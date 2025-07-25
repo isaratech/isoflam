@@ -539,6 +539,29 @@ export const getItemAtTile = ({
     };
   }
 
+  const road = scene.roads.find((road) => {
+    // Guard against roads with undefined paths
+    if (!road.path || !road.path.tiles) {
+      return false;
+    }
+    
+    return road.path.tiles.find((pathTile) => {
+      const globalPathTile = connectorPathTileToGlobal(
+        pathTile,
+        road.path.rectangle.from
+      );
+
+      return CoordsUtils.isEqual(globalPathTile, tile);
+    });
+  });
+
+  if (road) {
+    return {
+      type: 'ROAD',
+      id: road.id
+    };
+  }
+
   const rectangle = scene.rectangles.find(({ from, to }) => {
     return isWithinBounds(tile, [from, to]);
   });

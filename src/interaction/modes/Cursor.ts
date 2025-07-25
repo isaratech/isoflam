@@ -163,6 +163,11 @@ export const Cursor: ModeActions = {
           type: 'TEXTBOX',
           id: uiState.mode.mousedownItem.id
         });
+      } else if (uiState.mode.mousedownItem.type === 'ROAD') {
+        uiState.actions.setItemControls({
+          type: 'ROAD',
+          id: uiState.mode.mousedownItem.id
+        });
       }
     } else {
       uiState.actions.setItemControls(null);

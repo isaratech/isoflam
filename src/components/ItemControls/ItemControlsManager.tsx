@@ -6,6 +6,7 @@ import { NodeControls } from './NodeControls/NodeControls';
 import { ConnectorControls } from './ConnectorControls/ConnectorControls';
 import { TextBoxControls } from './TextBoxControls/TextBoxControls';
 import { RectangleControls } from './RectangleControls/RectangleControls';
+import { RoadControls } from './RoadControls/RoadControls';
 
 export const ItemControlsManager = () => {
   const itemControls = useUiStateStore((state) => {
@@ -22,6 +23,8 @@ export const ItemControlsManager = () => {
         return <TextBoxControls key={itemControls.id} id={itemControls.id} />;
       case 'RECTANGLE':
         return <RectangleControls key={itemControls.id} id={itemControls.id} />;
+      case 'ROAD':
+        return <RoadControls key={itemControls.id} id={itemControls.id} />;
       case 'ADD_ITEM':
         return <IconSelectionControls />;
       default:
