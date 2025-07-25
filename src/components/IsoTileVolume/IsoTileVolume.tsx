@@ -164,16 +164,14 @@ export const IsoTileVolume = ({
 
     // Use proper isometric projection ratios based on the tile positioning formula
     // From getTilePosition: x = halfW * tile.x - halfW * tile.y, y = -(halfH * tile.x + halfH * tile.y)
-    // For a height of 1 tile unit in the Z direction, this translates to:
-    // x offset = halfW * 1 = 50 (half of UNPROJECTED_TILE_SIZE)
-    // y offset = halfH * 1 = 50 (half of UNPROJECTED_TILE_SIZE)
+      // For height extending upward in isometric view, we need positive X and negative Y offsets
     const halfTile = UNPROJECTED_TILE_SIZE / 2;
-    const isoDepthX = halfTile * height;  // X offset for isometric depth
-    const isoDepthY = halfTile * height;  // Y offset for isometric depth
-    
-    // Top face: offset by the isometric depth
+      const isoDepthX = halfTile * height;  // Positive X offset for isometric depth (rightward)
+      const isoDepthY = halfTile * height;  // Y offset for isometric depth (upward)
+
+      // Top face: offset by the isometric depth (rightward and upward)
     const topFace = {
-      x: -isoDepthX,
+        x: isoDepthX,
       y: -isoDepthY,
       width: pxSize.width,
       height: pxSize.height
@@ -187,9 +185,9 @@ export const IsoTileVolume = ({
         // Top-right corner of base
         pxSize.width, 0,
         // Top-right corner of top face
-        pxSize.width - isoDepthX, -isoDepthY,
+          pxSize.width + isoDepthX, -isoDepthY,
         // Bottom-right corner of top face
-        pxSize.width - isoDepthX, pxSize.height - isoDepthY
+          pxSize.width + isoDepthX, pxSize.height - isoDepthY
       ].join(',')
     };
 
@@ -201,9 +199,9 @@ export const IsoTileVolume = ({
         // Bottom-right corner of base
         pxSize.width, pxSize.height,
         // Bottom-right corner of top face
-        pxSize.width - isoDepthX, pxSize.height - isoDepthY,
+          pxSize.width + isoDepthX, pxSize.height - isoDepthY,
         // Bottom-left corner of top face
-        -isoDepthX, pxSize.height - isoDepthY
+          isoDepthX, pxSize.height - isoDepthY
       ].join(',')
     };
 
