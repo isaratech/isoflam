@@ -1,10 +1,12 @@
-import React, {useCallback} from 'react';
-import {useUiStateStore} from 'src/stores/uiStateStore';
-import {CoordsUtils, generateId, getTilePosition} from 'src/utils';
-import {useScene} from 'src/hooks/useScene';
-import {useTranslation} from 'src/hooks/useTranslation';
-import {TEXTBOX_DEFAULTS} from 'src/config';
-import {ContextMenu} from './ContextMenu';
+import React, { useCallback } from 'react';
+import { Coords } from 'src/types';
+import { useUiStateStore } from 'src/stores/uiStateStore';
+import { CoordsUtils, generateId } from 'src/utils';
+import { useScene } from 'src/hooks/useScene';
+import { useTranslation } from 'src/hooks/useTranslation';
+import { useResizeObserver } from 'src/hooks/useResizeObserver';
+import { PROJECTED_TILE_SIZE, TEXTBOX_DEFAULTS } from 'src/config';
+import { ContextMenu } from './ContextMenu';
 
 interface Props {
   anchorEl?: HTMLElement;
@@ -16,9 +18,16 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
   const zoom = useUiStateStore((state) => {
     return state.zoom;
   });
+  const scroll = useUiStateStore((state) => {
+    return state.scroll;
+  });
   const contextMenu = useUiStateStore((state) => {
     return state.contextMenu;
   });
+  const rendererEl = useUiStateStore((state) => {
+    return state.rendererEl;
+  });
+  const { size: rendererSize } = useResizeObserver(rendererEl);
 
   const uiStateActions = useUiStateStore((state) => {
     return state.actions;
@@ -74,46 +83,49 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
     onClose();
   }, [uiStateActions, onClose]);
 
-    const createNewImage = useCallback(() => {
-        // Create a hidden file input element
-        const fileInput = document.createElement('input');
-        fileInput.type = 'file';
-        fileInput.accept = 'image/*';
-        fileInput.style.display = 'none';
+  const createNewImage = useCallback(() => {
+    // Create a hidden file input element
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+    fileInput.style.display = 'none';
 
-        fileInput.onchange = (event) => {
-            const file = (event.target as HTMLInputElement).files?.[0];
-            if (file) {
-                const fileReader = new FileReader();
+    fileInput.onchange = (event) => {
+      const file = (event.target as HTMLInputElement).files?.[0];
+      if (file) {
+        const fileReader = new FileReader();
 
-                fileReader.onload = (loadEvent) => {
-                    const imageData = loadEvent.target?.result as string;
+        fileReader.onload = (loadEvent) => {
+          const imageData = loadEvent.target?.result as string;
 
-                    // Create a new image rectangle at the context menu position
-                    const newRectangle = {
-                        id: generateId(),
-                        from: contextMenu?.tile || CoordsUtils.zero(),
-                        to: CoordsUtils.add(contextMenu?.tile || CoordsUtils.zero(), {x: 5, y: 5}),
-                        imageData,
-                        imageName: file.name
-                    };
+          // Create a new image rectangle at the context menu position
+          const newRectangle = {
+            id: generateId(),
+            from: contextMenu?.tile || CoordsUtils.zero(),
+            to: CoordsUtils.add(contextMenu?.tile || CoordsUtils.zero(), {
+              x: 5,
+              y: 5
+            }),
+            imageData,
+            imageName: file.name
+          };
 
-                    scene.createRectangle(newRectangle);
-                };
-
-                fileReader.readAsDataURL(file);
-            }
-
-            // Clean up the file input
-            document.body.removeChild(fileInput);
+          scene.createRectangle(newRectangle);
         };
 
-        // Add to DOM and trigger click
-        document.body.appendChild(fileInput);
-        fileInput.click();
+        fileReader.readAsDataURL(file);
+      }
 
-        onClose();
-    }, [scene, contextMenu, onClose]);
+      // Clean up the file input
+      document.body.removeChild(fileInput);
+    };
+
+    // Add to DOM and trigger click
+    document.body.appendChild(fileInput);
+    fileInput.click();
+
+    onClose();
+  }, [scene, contextMenu, onClose]);
 
   if (!contextMenu) {
     return null;
@@ -168,19 +180,46 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
           label: t('Create new link'),
           onClick: createNewConnector
         },
-          {
-              label: t('Add image'),
-              onClick: createNewImage
+        {
+          label: t('Add image'),
+          onClick: createNewImage
         }
       ];
+
+  // Calculate position with zoom correctly applied
+  const getZoomedTilePosition = (tile: Coords): Coords => {
+    if (!rendererSize) {
+      // Fallback to the old calculation if renderer size is not available
+      const halfW = (PROJECTED_TILE_SIZE.width * zoom) / 2;
+      const halfH = (PROJECTED_TILE_SIZE.height * zoom) / 2;
+      return {
+        x: halfW * tile.x - halfW * tile.y,
+        y: -(halfH * tile.x + halfH * tile.y)
+      };
+    }
+
+    // Calculate world position using the zoomed tile size
+    const halfW = (PROJECTED_TILE_SIZE.width * zoom) / 2;
+    const halfH = (PROJECTED_TILE_SIZE.height * zoom) / 2;
+    const worldPosition = {
+      x: halfW * tile.x - halfW * tile.y,
+      y: -(halfH * tile.x + halfH * tile.y)
+    };
+
+    // Convert world position to screen position
+    return {
+      x: worldPosition.x + rendererSize.width * 0.5,
+      y: worldPosition.y + rendererSize.height * 0.5
+    };
+  };
 
   return (
     <ContextMenu
       anchorEl={anchorEl}
       onClose={onClose}
-      position={CoordsUtils.multiply(
-        getTilePosition({ tile: contextMenu.tile }),
-        zoom
+      position={CoordsUtils.add(
+        getZoomedTilePosition(contextMenu.tile),
+        scroll.position
       )}
       menuItems={menuItems}
     />
