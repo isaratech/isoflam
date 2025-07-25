@@ -84,15 +84,14 @@ export const IsoTileVolume = ({
       return css;
     }
 
-    // For 3D volumes, we need to offset the positioning to account for the expanded viewbox
+    // For 3D volumes, we need to expand the viewbox but keep the base position fixed
     const halfTile = UNPROJECTED_TILE_SIZE / 2;
     const isoDepthX = halfTile * height;  // X offset for isometric depth (rightward)
     const isoDepthY = halfTile * height;  // Y offset for isometric depth (upward)
 
     return {
       ...css,
-      // Adjust position and size to account for the expanded viewbox
-      top: (css.top as number) - isoDepthY,
+      // Only expand size to accommodate 3D faces, don't adjust top position
       width: `${(pxSize.width + isoDepthX)}px`,
       height: `${(pxSize.height + isoDepthY)}px`
     };
@@ -197,13 +196,13 @@ export const IsoTileVolume = ({
       height: pxSize.height + isoDepthY  // Add space for front wall extending down
     };
 
-    // Base rectangle offset within expanded viewbox (no offset needed as base stays at origin)
-    const baseOffset = { x: 0, y: isoDepthY };  // Offset base down to make room for top face
+    // Base rectangle offset within expanded viewbox (keep base at fixed position)
+    const baseOffset = { x: 0, y: 0 };  // Keep base at origin - no offset
 
     // Top face: offset by the isometric depth (rightward and upward from base)
     const topFace = {
       x: baseOffset.x + isoDepthX,
-      y: baseOffset.y - isoDepthY,
+      y: baseOffset.y - isoDepthY,  // Move up from base by height
       width: pxSize.width,
       height: pxSize.height
     };
@@ -216,9 +215,9 @@ export const IsoTileVolume = ({
         // Top-right corner of base
         baseOffset.x + pxSize.width, baseOffset.y,
         // Top-right corner of top face
-        baseOffset.x + pxSize.width + isoDepthX, baseOffset.y - isoDepthY,
+        topFace.x + pxSize.width, topFace.y,
         // Bottom-right corner of top face
-        baseOffset.x + pxSize.width + isoDepthX, baseOffset.y + pxSize.height - isoDepthY
+        topFace.x + pxSize.width, topFace.y + pxSize.height
       ].join(',')
     };
 
@@ -230,9 +229,9 @@ export const IsoTileVolume = ({
         // Bottom-right corner of base
         baseOffset.x + pxSize.width, baseOffset.y + pxSize.height,
         // Bottom-right corner of top face
-        baseOffset.x + pxSize.width + isoDepthX, baseOffset.y + pxSize.height - isoDepthY,
+        topFace.x + pxSize.width, topFace.y + pxSize.height,
         // Bottom-left corner of top face
-        baseOffset.x + isoDepthX, baseOffset.y + pxSize.height - isoDepthY
+        topFace.x, topFace.y + pxSize.height
       ].join(',')
     };
 
