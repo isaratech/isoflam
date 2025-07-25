@@ -162,12 +162,16 @@ export const IsoTileVolume = ({
       return { topFace: null, rightFace: null, frontFace: null };
     }
 
-    // For proper isometric projection matching the reference images
-    // The depth should be more subtle but clearly visible
-    const isoDepthX = heightOffset * 0.6;  // X offset for isometric depth (more pronounced)
-    const isoDepthY = heightOffset * 0.8;  // Y offset (slightly reduced for better proportion)
+    // Use proper isometric projection ratios based on the tile positioning formula
+    // From getTilePosition: x = halfW * tile.x - halfW * tile.y, y = -(halfH * tile.x + halfH * tile.y)
+    // For a height of 1 tile unit in the Z direction, this translates to:
+    // x offset = halfW * 1 = 50 (half of UNPROJECTED_TILE_SIZE)
+    // y offset = halfH * 1 = 50 (half of UNPROJECTED_TILE_SIZE)
+    const halfTile = UNPROJECTED_TILE_SIZE / 2;
+    const isoDepthX = halfTile * height;  // X offset for isometric depth
+    const isoDepthY = halfTile * height;  // Y offset for isometric depth
     
-    // Top face: isometrically offset from base
+    // Top face: offset by the isometric depth
     const topFace = {
       x: -isoDepthX,
       y: -isoDepthY,
@@ -204,7 +208,7 @@ export const IsoTileVolume = ({
     };
 
     return { topFace, rightFace, frontFace };
-  }, [pxSize, heightOffset, isometric, height]);
+  }, [pxSize, isometric, height]);
 
   return (
     <Svg viewboxSize={pxSize} style={css}>
@@ -227,13 +231,13 @@ export const IsoTileVolume = ({
         </defs>
       )}
 
-      {/* Base/bottom face - subtle visibility */}
+      {/* Base/bottom face - more visible for better foundation */}
       <rect
         width={pxSize.width}
         height={pxSize.height}
         fill={fillValue}
         rx={cornerRadius}
-        opacity={0.2}
+        opacity={0.3}
         {...strokeParams}
       />
 
@@ -246,18 +250,18 @@ export const IsoTileVolume = ({
               fill={fillValue}
               opacity={1.0}
               {...strokeParams}
-              style={{ filter: 'brightness(0.75)' }}
+              style={{ filter: 'brightness(0.7)' }}
             />
           )}
 
-          {/* Right wall - darker for maximum depth perception */}
+          {/* Right wall - darkest for maximum depth perception */}
           {faces.rightFace && (
             <polygon
               points={faces.rightFace.points}
               fill={fillValue}
               opacity={1.0}
               {...strokeParams}
-              style={{ filter: 'brightness(0.55)' }}
+              style={{ filter: 'brightness(0.45)' }}
             />
           )}
 
