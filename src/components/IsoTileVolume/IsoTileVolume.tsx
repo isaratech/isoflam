@@ -87,13 +87,12 @@ export const IsoTileVolume = ({
     // For 3D volumes, we need to expand the viewbox but keep the base position fixed
     const halfTile = UNPROJECTED_TILE_SIZE / 2;
     const isoDepthX = halfTile * height;  // X offset for isometric depth (rightward)
-    const isoDepthY = halfTile * height;  // Y offset for isometric depth (upward)
 
     return {
       ...css,
       // Only expand size to accommodate 3D faces, don't adjust top position
       width: `${(pxSize.width + isoDepthX)}px`,
-      height: `${(pxSize.height + isoDepthY)}px`
+      height: `${(pxSize.height + heightOffset)}px`
     };
   }, [css, isometric, height, pxSize]);
 
@@ -188,21 +187,20 @@ export const IsoTileVolume = ({
     // Calculate isometric depth offsets
     const halfTile = UNPROJECTED_TILE_SIZE / 2;
     const isoDepthX = halfTile * height;  // Positive X offset for isometric depth (rightward)
-    const isoDepthY = halfTile * height;  // Y offset for isometric depth (upward)
 
     // Expand viewbox to accommodate 3D faces extending outside base rectangle
     const expandedPxSize = {
       width: pxSize.width + isoDepthX,  // Add space for right wall
-      height: pxSize.height + isoDepthY  // Add space for front wall extending down
+      height: pxSize.height + heightOffset  // Add space for volume height (unprojected)
     };
 
     // Base rectangle offset within expanded viewbox (keep base at fixed position)
     const baseOffset = { x: 0, y: 0 };  // Keep base at origin - no offset
 
-    // Top face: offset by the isometric depth (rightward and upward from base)
+    // Top face: offset by the isometric depth (rightward and unprojected upward from base)
     const topFace = {
       x: baseOffset.x + isoDepthX,
-      y: baseOffset.y - isoDepthY,  // Move up from base by height
+      y: baseOffset.y - heightOffset,  // Move up from base by unprojected height
       width: pxSize.width,
       height: pxSize.height
     };
