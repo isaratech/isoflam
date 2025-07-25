@@ -1,4 +1,4 @@
-import {Colors, Connector, Icon, Icons, InitialData, MainMenuOptions, Rectangle, Volume, Size, TextBox, View, ViewItem} from 'src/types';
+import {Colors, Connector, Icon, Icons, InitialData, MainMenuOptions, Rectangle, Size, TextBox, View, ViewItem, Volume} from 'src/types';
 import {CoordsUtils} from 'src/utils';
 // Import icon fixtures with error handling for testing
 let sdmisIcons: any[] = [];
@@ -212,7 +212,7 @@ export const DEFAULTS_RECTANGLE: Required<
 > = {
   style: 'NONE',
   width: 1,
-  radius: 22
+    radius: 0
 };
 
 /**
@@ -224,7 +224,6 @@ export const DEFAULTS_VOLUME: Required<
 > = {
   style: 'NONE',
   width: 1,
-  radius: 22,
   height: 1
 };
 

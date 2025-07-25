@@ -1,4 +1,4 @@
-import { volumeSchema } from '../volume';
+import {volumeSchema} from '../volume';
 
 describe('Volume schema validation', () => {
   it('accepts valid volume data', () => {
@@ -9,8 +9,7 @@ describe('Volume schema validation', () => {
       to: { x: 2, y: 2 },
       height: 1,
       style: 'SOLID',
-      width: 1,
-      radius: 22
+        width: 1
     };
 
     const result = volumeSchema.safeParse(validVolume);

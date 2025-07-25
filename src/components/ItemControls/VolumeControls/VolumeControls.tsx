@@ -135,17 +135,6 @@ export const VolumeControls = ({ id }: Props) => {
             />
           </Section>
         )}
-        <Section title={t('Radius')}>
-          <Slider
-            marks
-            step={20}
-            min={-1}
-            value={volume.radius || 20}
-            onChange={(e, newRadius) => {
-              updateVolume(volume.id, { radius: newRadius as number });
-            }}
-          />
-        </Section>
 
         {/* Layer controls */}
         <Section title={t('Layer')}>

@@ -181,7 +181,7 @@ export const IsoTileVolume = ({
       return {
         expandedPxSize: pxSize,
         baseOffset: { x: 0, y: 0 },
-        faces: { topFace: null, rightFace: null, frontFace: null }
+          faces: {topFace: null, frontFace: null, leftFace: null}
       };
     }
 
@@ -207,20 +207,6 @@ export const IsoTileVolume = ({
       height: pxSize.height
     };
 
-    // Right wall: connects right edge of base to right edge of top
-    const rightFace = {
-      points: [
-        // Bottom-right corner of base
-        baseOffset.x + pxSize.width, baseOffset.y + pxSize.height,
-        // Top-right corner of base
-        baseOffset.x + pxSize.width, baseOffset.y,
-        // Top-right corner of top face
-        topFace.x + pxSize.width, topFace.y,
-        // Bottom-right corner of top face
-        topFace.x + pxSize.width, topFace.y + pxSize.height
-      ].join(',')
-    };
-
     // Front wall: connects front edge of base to front edge of top
     const frontFace = {
       points: [
@@ -235,10 +221,24 @@ export const IsoTileVolume = ({
       ].join(',')
     };
 
+      // Left wall: connects left edge of base to left edge of top
+      const leftFace = {
+          points: [
+              // Top-left corner of base
+              baseOffset.x, baseOffset.y,
+              // Bottom-left corner of base
+              baseOffset.x, baseOffset.y + pxSize.height,
+              // Bottom-left corner of top face
+              topFace.x, topFace.y + pxSize.height,
+              // Top-left corner of top face
+              topFace.x, topFace.y
+      ].join(',')
+    };
+
     return {
       expandedPxSize,
       baseOffset,
-      faces: { topFace, rightFace, frontFace }
+        faces: {topFace, frontFace, leftFace}
     };
   }, [pxSize, isometric, height]);
 
@@ -273,7 +273,7 @@ export const IsoTileVolume = ({
         width={pxSize.width}
         height={pxSize.height}
         fill={fillValue}
-        rx={cornerRadius}
+        rx={0}
         opacity={0.3}
         {...strokeParams}
       />
@@ -291,14 +291,14 @@ export const IsoTileVolume = ({
             />
           )}
 
-          {/* Right wall - darkest for maximum depth perception */}
-          {volumeProjection.faces.rightFace && (
+            {/* Left wall - medium-dark brightness for depth perception */}
+            {volumeProjection.faces.leftFace && (
             <polygon
-              points={volumeProjection.faces.rightFace.points}
+                points={volumeProjection.faces.leftFace.points}
               fill={fillValue}
               opacity={1.0}
               {...strokeParams}
-              style={{ filter: 'brightness(0.45)' }}
+                style={{filter: 'brightness(0.6)'}}
             />
           )}
 
@@ -310,7 +310,7 @@ export const IsoTileVolume = ({
               width={volumeProjection.faces.topFace.width}
               height={volumeProjection.faces.topFace.height}
               fill={fillValue}
-              rx={cornerRadius}
+              rx={0}
               opacity={1.0}
               {...strokeParams}
             />
@@ -326,7 +326,7 @@ export const IsoTileVolume = ({
           width={pxSize.width}
           height={pxSize.height}
           fill={fillValue}
-          rx={cornerRadius}
+          rx={0}
           {...strokeParams}
         />
       )}

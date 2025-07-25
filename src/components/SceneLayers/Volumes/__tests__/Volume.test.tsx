@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { Volume } from '../Volume';
+import {render} from '@testing-library/react';
+import {Volume} from '../Volume';
 
 // Mock the config file to avoid icon loading issues in tests
 jest.mock('src/config', () => ({
@@ -45,7 +45,6 @@ const mockVolumeProps = {
   color: '__DEFAULT__',
   style: 'SOLID' as const,
   width: 1,
-  radius: 22,
   imageData: undefined,
   mirrorHorizontal: false,
   mirrorVertical: false,

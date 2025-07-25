@@ -11,7 +11,6 @@ export const volumeSchema = z.object({
   height: z.number().min(0).default(1), // Height in tile units for the volume
   style: z.enum(volumeStyleOptions).optional(),
   width: z.number().min(0).optional(),
-  radius: z.number().min(0).optional(),
   imageData: z.string().optional(), // Base64 encoded image data
   imageName: z.string().optional(), // Original filename for reference
   mirrorHorizontal: z.boolean().optional(), // Horizontal mirroring for images
