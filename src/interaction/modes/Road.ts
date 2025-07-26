@@ -83,14 +83,9 @@ export const Road: ModeActions = {
     if (uiState.mode.type !== 'ROAD' || !uiState.mode.id) return;
 
     const road = getItemByIdOrThrow(scene.roads, uiState.mode.id);
-    const firstAnchor = road.value.anchors[0];
-    const lastAnchor =
-      road.value.anchors[road.value.anchors.length - 1];
 
-    if (
-      road.value.path.tiles.length < 2 ||
-      !(firstAnchor.ref.item && lastAnchor.ref.item)
-    ) {
+    // Only check path length - allow placement between any tiles (items or empty)
+    if (road.value.path.tiles.length < 2) {
       scene.deleteRoad(uiState.mode.id);
     }
 
