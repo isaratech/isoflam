@@ -78,12 +78,24 @@ export const IsoTileVolume = ({
 
   const {css, pxSize} = isometric ? isoProjection : standardProjection;
 
-  // Calculate proper isometric 3D dimensions
-  const heightOffset = useMemo(() => {
-    // In isometric projection, height is represented as movement upward
-    // Use the unprojected tile size for height units
-    return height * UNPROJECTED_TILE_SIZE;
-  }, [height]);
+  // Calculate isometric 3D offsets - simpler approach
+  const volumeOffsets = useMemo(() => {
+    if (!isometric || height <= 0) {
+      return { heightOffset: 0, depthOffsetX: 0, depthOffsetY: 0 };
+    }
+    
+    // Height offset is simple: straight up
+    const heightOffset = height * UNPROJECTED_TILE_SIZE;
+    
+    // For isometric depth, we need to move right and slightly up
+    // Using standard isometric 30-degree angles: 
+    // - Rightward movement is cos(30°) ≈ 0.866 of height
+    // - Upward movement is sin(30°) ≈ 0.5 of height  
+    const depthOffsetX = height * UNPROJECTED_TILE_SIZE * 0.866; // cos(30°)
+    const depthOffsetY = height * UNPROJECTED_TILE_SIZE * 0.5;   // sin(30°)
+    
+    return { heightOffset, depthOffsetX, depthOffsetY };
+  }, [height, isometric]);
 
   // Adjust CSS positioning for expanded 3D volumes
   const finalCss = useMemo(() => {
@@ -91,17 +103,13 @@ export const IsoTileVolume = ({
       return css;
     }
 
-    // For 3D volumes, we need to expand the viewbox but keep the base position fixed
-    const halfTile = UNPROJECTED_TILE_SIZE / 2;
-    const isoDepthX = halfTile * height;  // X offset for isometric depth (rightward)
-
+    // Expand the container to fit the 3D volume extending beyond the base
     return {
       ...css,
-      // Only expand size to accommodate 3D faces, don't adjust top position
-      width: `${(pxSize.width + isoDepthX)}px`,
-      height: `${(pxSize.height + heightOffset)}px`
+      width: `${(pxSize.width + volumeOffsets.depthOffsetX)}px`,
+      height: `${(pxSize.height + volumeOffsets.heightOffset)}px`
     };
-  }, [css, isometric, height, pxSize, heightOffset]);
+  }, [css, isometric, height, pxSize, volumeOffsets]);
 
   const strokeParams = useMemo(() => {
     if (!stroke || stroke.style === 'NONE') return {};
@@ -174,77 +182,68 @@ export const IsoTileVolume = ({
     return transforms.length > 0 ? transforms.join(' ') : undefined;
   }, [imageData, mirrorHorizontal, mirrorVertical, rotationAngle, pxSize.width, pxSize.height]);
 
-  // Calculate expanded viewbox and repositioned elements for 3D rendering
-  const volumeProjection = useMemo(() => {
+  // Calculate faces for 3D rendering - simplified approach
+  const volumeFaces = useMemo(() => {
     if (!isometric || height <= 0) {
-      return {
-        expandedPxSize: pxSize,
-        baseOffset: { x: 0, y: 0 },
-          faces: {topFace: null, frontFace: null, leftFace: null}
-      };
+      return { base: null, top: null, front: null, right: null };
     }
 
-    // Calculate isometric depth offsets
-    const halfTile = UNPROJECTED_TILE_SIZE / 2;
-    const isoDepthX = halfTile * height;  // Positive X offset for isometric depth (rightward)
-
-    // Expand viewbox to accommodate 3D faces extending outside base rectangle
-    const expandedPxSize = {
-      width: pxSize.width + isoDepthX,  // Add space for right wall
-      height: pxSize.height + heightOffset  // Add space for volume height (unprojected)
-    };
-
-    // Base rectangle offset within expanded viewbox (keep base at fixed position)
-    const baseOffset = { x: 0, y: 0 };  // Keep base at origin - no offset
-
-    // Top face: offset by the isometric depth (rightward and unprojected upward from base)
-    const topFace = {
-      x: baseOffset.x + isoDepthX,
-      y: baseOffset.y - heightOffset,  // Move up from base by unprojected height
+    // Base face: the original rectangle position (unchanged)
+    const base = {
+      x: 0,
+      y: 0,
       width: pxSize.width,
       height: pxSize.height
     };
 
-    // Front wall: connects front edge of base to front edge of top
-    const frontFace = {
+    // Top face: displaced by height and depth offsets
+    const top = {
+      x: volumeOffsets.depthOffsetX,
+      y: volumeOffsets.depthOffsetY - volumeOffsets.heightOffset,
+      width: pxSize.width,
+      height: pxSize.height
+    };
+
+    // Front face: connects the front edges of base and top
+    const front = {
       points: [
-        // Bottom-left corner of base
-        baseOffset.x, baseOffset.y + pxSize.height,
-        // Bottom-right corner of base
-        baseOffset.x + pxSize.width, baseOffset.y + pxSize.height,
-        // Bottom-right corner of top face
-        topFace.x + pxSize.width, topFace.y + pxSize.height,
-        // Bottom-left corner of top face
-        topFace.x, topFace.y + pxSize.height
-      ].join(',')
+        // Bottom edge of front face (base front edge)
+        `${base.x},${base.y + base.height}`,
+        `${base.x + base.width},${base.y + base.height}`,
+        // Top edge of front face (top front edge)
+        `${top.x + top.width},${top.y + top.height}`,
+        `${top.x},${top.y + top.height}`
+      ].join(' ')
     };
 
-      // Left wall: connects left edge of base to left edge of top
-      const leftFace = {
-          points: [
-              // Top-left corner of base
-              baseOffset.x, baseOffset.y,
-              // Bottom-left corner of base
-              baseOffset.x, baseOffset.y + pxSize.height,
-              // Bottom-left corner of top face
-              topFace.x, topFace.y + pxSize.height,
-              // Top-left corner of top face
-              topFace.x, topFace.y
-      ].join(',')
+    // Right face: connects the right edges of base and top
+    const right = {
+      points: [
+        // Right edge of base (bottom to top of right side)
+        `${base.x + base.width},${base.y + base.height}`,
+        `${base.x + base.width},${base.y}`,
+        // Right edge of top (top to bottom of right side)
+        `${top.x + top.width},${top.y}`,
+        `${top.x + top.width},${top.y + top.height}`
+      ].join(' ')
     };
 
+    return { base, top, front, right };
+  }, [pxSize, isometric, height, volumeOffsets]);
+
+  // Calculate final viewbox size for 3D volumes
+  const finalViewboxSize = useMemo(() => {
+    if (!isometric || height <= 0) {
+      return pxSize;
+    }
     return {
-      expandedPxSize,
-      baseOffset,
-        faces: {topFace, frontFace, leftFace}
+      width: pxSize.width + volumeOffsets.depthOffsetX,
+      height: pxSize.height + volumeOffsets.heightOffset
     };
-  }, [pxSize, isometric, height]);
-
-  // Use expanded size for 3D volumes, original size for 2D rectangles
-  const finalPxSize = height > 0 && isometric ? volumeProjection.expandedPxSize : pxSize;
+  }, [pxSize, isometric, height, volumeOffsets]);
 
   return (
-    <Svg viewboxSize={finalPxSize} style={finalCss}>
+    <Svg viewboxSize={finalViewboxSize} style={finalCss}>
       {imageData && patternId && (
         <defs>
           <pattern
@@ -264,55 +263,49 @@ export const IsoTileVolume = ({
         </defs>
       )}
 
-      {/* Base/bottom face - positioned within expanded viewbox */}
+      {/* Base/floor face - slightly transparent foundation */}
       <rect
-        x={height > 0 && isometric ? volumeProjection.baseOffset.x : 0}
-        y={height > 0 && isometric ? volumeProjection.baseOffset.y : 0}
+        x={volumeFaces.base?.x || 0}
+        y={volumeFaces.base?.y || 0}
         width={pxSize.width}
         height={pxSize.height}
         fill={fillValue}
         rx={0}
-        opacity={0.3}
+        opacity={height > 0 && isometric ? 0.3 : 1.0}
         {...strokeParams}
       />
 
-      {height > 0 && isometric && (
+      {height > 0 && isometric && volumeFaces.front && volumeFaces.right && volumeFaces.top && (
         <>
-          {/* Front wall - medium brightness for depth perception */}
-          {volumeProjection.faces.frontFace && (
-            <polygon
-              points={volumeProjection.faces.frontFace.points}
-              fill={fillValue}
-              opacity={1.0}
-              {...strokeParams}
-              style={{ filter: 'brightness(0.7)' }}
-            />
-          )}
+          {/* Front wall - medium brightness */}
+          <polygon
+            points={volumeFaces.front.points}
+            fill={fillValue}
+            opacity={1.0}
+            {...strokeParams}
+            style={{ filter: 'brightness(0.7)' }}
+          />
 
-            {/* Left wall - medium-dark brightness for depth perception */}
-            {volumeProjection.faces.leftFace && (
-            <polygon
-                points={volumeProjection.faces.leftFace.points}
-              fill={fillValue}
-              opacity={1.0}
-              {...strokeParams}
-                style={{filter: 'brightness(0.6)'}}
-            />
-          )}
+          {/* Right wall - darker for depth perception */}
+          <polygon
+            points={volumeFaces.right.points}
+            fill={fillValue}
+            opacity={1.0}
+            {...strokeParams}
+            style={{ filter: 'brightness(0.5)' }}
+          />
 
-          {/* Top face - brightest and fully opaque as it's the most visible */}
-          {volumeProjection.faces.topFace && (
-            <rect
-              x={volumeProjection.faces.topFace.x}
-              y={volumeProjection.faces.topFace.y}
-              width={volumeProjection.faces.topFace.width}
-              height={volumeProjection.faces.topFace.height}
-              fill={fillValue}
-              rx={0}
-              opacity={1.0}
-              {...strokeParams}
-            />
-          )}
+          {/* Top face - brightest and fully opaque */}
+          <rect
+            x={volumeFaces.top.x}
+            y={volumeFaces.top.y}
+            width={volumeFaces.top.width}
+            height={volumeFaces.top.height}
+            fill={fillValue}
+            rx={0}
+            opacity={1.0}
+            {...strokeParams}
+          />
         </>
       )}
 
@@ -320,7 +313,7 @@ export const IsoTileVolume = ({
       {height > 0 && !isometric && (
         <rect
           x={0}
-          y={-heightOffset}
+          y={-volumeOffsets.heightOffset}
           width={pxSize.width}
           height={pxSize.height}
           fill={fillValue}
