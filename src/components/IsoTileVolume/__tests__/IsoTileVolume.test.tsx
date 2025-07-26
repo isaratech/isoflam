@@ -70,10 +70,10 @@ describe('IsoTileVolume', () => {
     render(<IsoTileVolume {...mockVolumeProps} />);
   });
 
-  it('renders base rectangle', () => {
+  it('renders base face', () => {
     const { container } = render(<IsoTileVolume {...mockVolumeProps} />);
-    const rect = container.querySelector('rect');
-    expect(rect).toBeInTheDocument();
+    const basePolygon = container.querySelector('polygon');
+    expect(basePolygon).toBeInTheDocument();
   });
 
   it('renders 3D faces when height > 0', () => {
@@ -81,12 +81,14 @@ describe('IsoTileVolume', () => {
       <IsoTileVolume {...mockVolumeProps} height={2} />
     );
     
-    // Should have base rect + top rect + 2 polygons (front and left walls)
-    const rects = container.querySelectorAll('rect');
+    // Should have base polygon + top polygon + 2 polygons (front and right walls)
     const polygons = container.querySelectorAll('polygon');
+    const rects = container.querySelectorAll('rect');
     
-    expect(rects.length).toBeGreaterThanOrEqual(2); // base + top
-    expect(polygons.length).toBeGreaterThanOrEqual(2); // front + left walls
+    // We should have at least 4 polygons (base, top, front, right)
+    expect(polygons.length).toBeGreaterThanOrEqual(4);
+    // Non-isometric mode still uses rect, so there might be some
+    expect(rects.length).toBeGreaterThanOrEqual(0);
   });
 
   it('does not render 3D faces when height is 0', () => {
@@ -94,12 +96,10 @@ describe('IsoTileVolume', () => {
       <IsoTileVolume {...mockVolumeProps} height={0} />
     );
     
-    // Should only have base rect
-    const rects = container.querySelectorAll('rect');
+    // Should only have base polygon
     const polygons = container.querySelectorAll('polygon');
     
-    expect(rects.length).toBe(1); // only base
-    expect(polygons.length).toBe(0); // no walls
+    expect(polygons.length).toBe(1); // only base
   });
 
   it('applies stroke when provided', () => {
@@ -113,10 +113,10 @@ describe('IsoTileVolume', () => {
     };
     
     const { container } = render(<IsoTileVolume {...strokeProps} />);
-    const rect = container.querySelector('rect');
+    const polygon = container.querySelector('polygon');
     
-    expect(rect).toHaveAttribute('stroke', '#000000');
-    expect(rect).toHaveAttribute('stroke-width', '2');
+    expect(polygon).toHaveAttribute('stroke', '#000000');
+    expect(polygon).toHaveAttribute('stroke-width', '2');
   });
 
   it('applies dashed stroke style', () => {
@@ -130,9 +130,9 @@ describe('IsoTileVolume', () => {
     };
     
     const { container } = render(<IsoTileVolume {...strokeProps} />);
-    const rect = container.querySelector('rect');
+    const polygon = container.querySelector('polygon');
     
-    expect(rect).toHaveAttribute('stroke-dasharray');
+    expect(polygon).toHaveAttribute('stroke-dasharray');
   });
 
   it('handles non-isometric mode', () => {

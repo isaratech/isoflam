@@ -188,31 +188,51 @@ export const IsoTileVolume = ({
       return { base: null, top: null, front: null, right: null };
     }
 
-    // Base face: the original rectangle position (unchanged)
-    const base = {
+    // Base face: using real world coordinates for points
+    const baseRect = {
       x: 0,
       y: 0,
       width: pxSize.width,
       height: pxSize.height
     };
+    
+    const base = {
+      rect: baseRect,
+      points: [
+        `${baseRect.x},${baseRect.y}`,                                  // Top-left
+        `${baseRect.x + baseRect.width},${baseRect.y}`,                 // Top-right
+        `${baseRect.x + baseRect.width},${baseRect.y + baseRect.height}`, // Bottom-right
+        `${baseRect.x},${baseRect.y + baseRect.height}`                 // Bottom-left
+      ].join(' ')
+    };
 
-    // Top face: displaced horizontally for isometric effect, vertically by pure height
-    const top = {
+    // Top face: using real world coordinates for points
+    const topRect = {
       x: volumeOffsets.depthOffsetX,
       y: -volumeOffsets.heightOffset, // Pure vertical displacement (negative Y = up in screen coordinates)
       width: pxSize.width,
       height: pxSize.height
+    };
+    
+    const top = {
+      rect: topRect,
+      points: [
+        `${topRect.x},${topRect.y}`,                                  // Top-left
+        `${topRect.x + topRect.width},${topRect.y}`,                 // Top-right
+        `${topRect.x + topRect.width},${topRect.y + topRect.height}`, // Bottom-right
+        `${topRect.x},${topRect.y + topRect.height}`                 // Bottom-left
+      ].join(' ')
     };
 
     // Front face: connects the front edges of base and top
     const front = {
       points: [
         // Bottom edge of front face (base front edge)
-        `${base.x},${base.y + base.height}`,
-        `${base.x + base.width},${base.y + base.height}`,
+        `${baseRect.x},${baseRect.y + baseRect.height}`,
+        `${baseRect.x + baseRect.width},${baseRect.y + baseRect.height}`,
         // Top edge of front face (top front edge) 
-        `${top.x + top.width},${top.y + top.height}`,
-        `${top.x},${top.y + top.height}`
+        `${topRect.x + topRect.width},${topRect.y + topRect.height}`,
+        `${topRect.x},${topRect.y + topRect.height}`
       ].join(' ')
     };
 
@@ -220,14 +240,89 @@ export const IsoTileVolume = ({
     const right = {
       points: [
         // Right edge of base (bottom to top of right side)
-        `${base.x + base.width},${base.y + base.height}`,
-        `${base.x + base.width},${base.y}`,
+        `${baseRect.x + baseRect.width},${baseRect.y + baseRect.height}`,
+        `${baseRect.x + baseRect.width},${baseRect.y}`,
         // Right edge of top (top to bottom of right side)
-        `${top.x + top.width},${top.y}`,
-        `${top.x + top.width},${top.y + top.height}`
+        `${topRect.x + topRect.width},${topRect.y}`,
+        `${topRect.x + topRect.width},${topRect.y + topRect.height}`
       ].join(' ')
     };
 
+    // Debug console logs for volume face positions with real world coordinates, rect parameters, and CSS coordinates
+    console.log('[DEBUG] Volume Face Positions:');
+    
+    // Base face debug info
+    console.log('[DEBUG] Base Face:');
+    console.log('  Real World Coordinates:', { 
+      from, 
+      to 
+    });
+    console.log('  Rect Parameters:', baseRect);
+    console.log('  CSS Coordinates:', { 
+      left: typeof css.left === 'number' ? css.left : String(css.left), 
+      top: typeof css.top === 'number' ? css.top : String(css.top), 
+      width: css.width, 
+      height: css.height 
+    });
+    console.log('  Points:', base.points.split(' '));
+    
+    // Top face debug info
+    console.log('[DEBUG] Top Face:');
+    console.log('  Real World Coordinates:', { 
+      from: { x: from.x, y: from.y, z: height }, 
+      to: { x: to.x, y: to.y, z: height } 
+    });
+    console.log('  Rect Parameters:', topRect);
+    
+    // Safely calculate CSS coordinates for top face
+    const topFaceCssLeft = typeof css.left === 'number' 
+      ? css.left + volumeOffsets.depthOffsetX 
+      : `${css.left} + ${volumeOffsets.depthOffsetX}px`;
+      
+    const topFaceCssTop = typeof css.top === 'number' 
+      ? css.top - volumeOffsets.heightOffset 
+      : `${css.top} - ${volumeOffsets.heightOffset}px`;
+      
+    console.log('  CSS Coordinates:', { 
+      left: topFaceCssLeft, 
+      top: topFaceCssTop, 
+      width: css.width, 
+      height: css.height 
+    });
+    console.log('  Points:', top.points.split(' '));
+    
+    // Front face debug info
+    console.log('[DEBUG] Front Face:');
+    console.log('  Real World Coordinates:', { 
+      bottomLeft: { x: from.x, y: to.y, z: 0 },
+      bottomRight: { x: to.x, y: to.y, z: 0 },
+      topRight: { x: to.x, y: to.y, z: height },
+      topLeft: { x: from.x, y: to.y, z: height }
+    });
+    console.log('  CSS Coordinates:', { 
+      bottomLeft: { x: baseRect.x, y: baseRect.y + baseRect.height },
+      bottomRight: { x: baseRect.x + baseRect.width, y: baseRect.y + baseRect.height },
+      topRight: { x: topRect.x + topRect.width, y: topRect.y + topRect.height },
+      topLeft: { x: topRect.x, y: topRect.y + topRect.height }
+    });
+    console.log('  Points:', front.points.split(' '));
+    
+    // Left face debug info (actually right face in the code)
+    console.log('[DEBUG] Left Face:');
+    console.log('  Real World Coordinates:', { 
+      bottomLeft: { x: to.x, y: to.y, z: 0 },
+      bottomRight: { x: to.x, y: from.y, z: 0 },
+      topRight: { x: to.x, y: from.y, z: height },
+      topLeft: { x: to.x, y: to.y, z: height }
+    });
+    console.log('  CSS Coordinates:', { 
+      bottomLeft: { x: baseRect.x + baseRect.width, y: baseRect.y + baseRect.height },
+      bottomRight: { x: baseRect.x + baseRect.width, y: baseRect.y },
+      topRight: { x: topRect.x + topRect.width, y: topRect.y },
+      topLeft: { x: topRect.x + topRect.width, y: topRect.y + topRect.height }
+    });
+    console.log('  Points:', right.points.split(' '));
+    
     return { base, top, front, right };
   }, [pxSize, isometric, height, volumeOffsets]);
 
@@ -264,11 +359,8 @@ export const IsoTileVolume = ({
       )}
 
       {/* Base/floor face - slightly transparent foundation */}
-      <rect
-        x={volumeFaces.base?.x || 0}
-        y={volumeFaces.base?.y || 0}
-        width={pxSize.width}
-        height={pxSize.height}
+      <polygon
+        points={volumeFaces.base?.points || `0,0 ${pxSize.width},0 ${pxSize.width},${pxSize.height} 0,${pxSize.height}`}
         fill={fillValue}
         rx={0}
         opacity={height > 0 && isometric ? 0.3 : 1.0}
@@ -296,13 +388,9 @@ export const IsoTileVolume = ({
           />
 
           {/* Top face - brightest and fully opaque */}
-          <rect
-            x={volumeFaces.top.x}
-            y={volumeFaces.top.y}
-            width={volumeFaces.top.width}
-            height={volumeFaces.top.height}
+          <polygon
+            points={volumeFaces.top.points}
             fill={fillValue}
-            rx={0}
             opacity={1.0}
             {...strokeParams}
           />
