@@ -6,6 +6,7 @@ const initialState = () => {
   return createStore<SceneStore>((set, get) => {
     return {
       connectors: {},
+      roads: {},
       textBoxes: {},
       actions: {
         get,

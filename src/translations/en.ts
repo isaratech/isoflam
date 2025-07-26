@@ -18,6 +18,7 @@ export const enTranslations = {
   Rectangle: 'Rectangle',
     'Import Image': 'Import Image',
   Connector: 'Connector',
+  Road: 'Road',
   Text: 'Text',
 
   // ZoomControls

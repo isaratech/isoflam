@@ -15,6 +15,8 @@ export const ItemReferenceTypeOptions = {
   ITEM: 'ITEM',
   CONNECTOR: 'CONNECTOR',
   CONNECTOR_ANCHOR: 'CONNECTOR_ANCHOR',
+  ROAD: 'ROAD',
+  ROAD_ANCHOR: 'ROAD_ANCHOR',
   TEXTBOX: 'TEXTBOX',
   RECTANGLE: 'RECTANGLE'
 } as const;
@@ -35,6 +37,10 @@ export interface SceneConnector {
   path: ConnectorPath;
 }
 
+export interface SceneRoad {
+  path: ConnectorPath; // Roads use same path structure as connectors
+}
+
 export interface SceneTextBox {
   size: Size;
 }
@@ -42,6 +48,9 @@ export interface SceneTextBox {
 export interface Scene {
   connectors: {
     [key: string]: SceneConnector;
+  };
+  roads: {
+    [key: string]: SceneRoad;
   };
   textBoxes: {
     [key: string]: SceneTextBox;

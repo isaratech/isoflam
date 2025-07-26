@@ -1,8 +1,8 @@
 import {produce} from 'immer';
 import {generateId, getItemAtTile, getItemByIdOrThrow, hasMovedTile, setWindowCursor} from 'src/utils';
-import {Connector as ConnectorI, ModeActions} from 'src/types';
+import {Road as RoadI, ModeActions} from 'src/types';
 
-export const Connector: ModeActions = {
+export const Road: ModeActions = {
   entry: () => {
     setWindowCursor('crosshair');
   },
@@ -11,14 +11,14 @@ export const Connector: ModeActions = {
   },
   mousemove: ({ uiState, scene }) => {
     if (
-      uiState.mode.type !== 'CONNECTOR' ||
+      uiState.mode.type !== 'ROAD' ||
       !uiState.mode.id ||
       !hasMovedTile(uiState.mouse)
     )
       return;
 
-    const connector = getItemByIdOrThrow(
-      scene.currentView?.connectors ?? [],
+    const road = getItemByIdOrThrow(
+      scene.currentView?.roads ?? [],
       uiState.mode.id
     );
 
@@ -28,28 +28,29 @@ export const Connector: ModeActions = {
     });
 
     if (itemAtTile?.type === 'ITEM') {
-      const newConnector = produce(connector.value, (draft) => {
+      const newRoad = produce(road.value, (draft) => {
         draft.anchors[1] = { id: generateId(), ref: { item: itemAtTile.id } };
       });
 
-      scene.updateConnector(uiState.mode.id, newConnector);
+      scene.updateRoad(uiState.mode.id, newRoad);
     } else {
-      const newConnector = produce(connector.value, (draft) => {
+      const newRoad = produce(road.value, (draft) => {
         draft.anchors[1] = {
           id: generateId(),
           ref: { tile: uiState.mouse.position.tile }
         };
       });
 
-      scene.updateConnector(uiState.mode.id, newConnector);
+      scene.updateRoad(uiState.mode.id, newRoad);
     }
   },
   mousedown: ({ uiState, scene, isRendererInteraction }) => {
-    if (uiState.mode.type !== 'CONNECTOR' || !isRendererInteraction) return;
+    if (uiState.mode.type !== 'ROAD' || !isRendererInteraction) return;
 
-    const newConnector: ConnectorI = {
+    const newRoad: RoadI = {
       id: generateId(),
-        color: scene.colors && scene.colors.length > 0 ? scene.colors[0].id : undefined,
+      color: scene.colors && scene.colors.length > 0 ? scene.colors[0].id : undefined,
+      width: 2, // Default width as per requirements
       anchors: []
     };
 
@@ -59,33 +60,33 @@ export const Connector: ModeActions = {
     });
 
     if (itemAtTile && itemAtTile.type === 'ITEM') {
-      newConnector.anchors = [
+      newRoad.anchors = [
         { id: generateId(), ref: { item: itemAtTile.id } },
         { id: generateId(), ref: { item: itemAtTile.id } }
       ];
     } else {
-      newConnector.anchors = [
+      newRoad.anchors = [
         { id: generateId(), ref: { tile: uiState.mouse.position.tile } },
         { id: generateId(), ref: { tile: uiState.mouse.position.tile } }
       ];
     }
 
-    scene.createConnector(newConnector);
+    scene.createRoad(newRoad);
 
     uiState.actions.setMode({
-      type: 'CONNECTOR',
+      type: 'ROAD',
       showCursor: true,
-      id: newConnector.id
+      id: newRoad.id
     });
   },
   mouseup: ({ uiState, scene }) => {
-    if (uiState.mode.type !== 'CONNECTOR' || !uiState.mode.id) return;
+    if (uiState.mode.type !== 'ROAD' || !uiState.mode.id) return;
 
-    const connector = getItemByIdOrThrow(scene.connectors, uiState.mode.id);
+    const road = getItemByIdOrThrow(scene.roads, uiState.mode.id);
 
     // Only check path length - allow placement between any tiles (items or empty)
-    if (connector.value.path.tiles.length < 2) {
-      scene.deleteConnector(uiState.mode.id);
+    if (road.value.path.tiles.length < 2) {
+      scene.deleteRoad(uiState.mode.id);
     }
 
     uiState.actions.setMode({

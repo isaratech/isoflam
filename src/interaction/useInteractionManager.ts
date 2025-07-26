@@ -10,6 +10,7 @@ import {DragItems} from './modes/DragItems';
 import {DrawRectangle} from './modes/Rectangle/DrawRectangle';
 import {TransformRectangle} from './modes/Rectangle/TransformRectangle';
 import {Connector} from './modes/Connector';
+import {Road} from './modes/Road';
 import {Pan} from './modes/Pan';
 import {PlaceIcon} from './modes/PlaceIcon';
 import {PlaceImage} from './modes/PlaceImage';
@@ -22,6 +23,7 @@ const modes: { [k in string]: ModeActions } = {
   'RECTANGLE.DRAW': DrawRectangle,
   'RECTANGLE.TRANSFORM': TransformRectangle,
   CONNECTOR: Connector,
+  ROAD: Road,
   PAN: Pan,
   PLACE_ICON: PlaceIcon,
     PLACE_IMAGE: PlaceImage,
@@ -116,7 +118,7 @@ export const useInteractionManager = () => {
         scene
       });
 
-      if (itemAtTile?.type === 'RECTANGLE') {
+      if (itemAtTile?.type === 'RECTANGLE' || itemAtTile?.type === 'ROAD') {
         uiState.actions.setContextMenu({
           item: itemAtTile,
           tile: uiState.mouse.position.tile

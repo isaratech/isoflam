@@ -62,6 +62,12 @@ export interface ConnectorMode {
   id: string | null;
 }
 
+export interface RoadMode {
+  type: 'ROAD';
+  showCursor: boolean;
+  id: string | null;
+}
+
 export interface DrawRectangleMode {
   type: 'RECTANGLE.DRAW';
   showCursor: boolean;
@@ -101,6 +107,7 @@ export type Mode =
   | PanMode
   | PlaceIconMode
   | ConnectorMode
+  | RoadMode
   | DrawRectangleMode
   | TransformRectangleMode
   | DragItemsMode

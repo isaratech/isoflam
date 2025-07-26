@@ -2,6 +2,7 @@ import { Model, Scene } from 'src/types';
 import type * as viewReducers from './view';
 import type * as viewItemReducers from './viewItem';
 import type * as connectorReducers from './connector';
+import type * as roadReducers from './road';
 import type * as textBoxReducers from './textBox';
 import type * as rectangleReducers from './rectangle';
 import type * as layerOrderingReducers from './layerOrdering';
@@ -60,6 +61,22 @@ type ViewReducerAction =
   | {
       action: 'SYNC_CONNECTOR';
       payload: Parameters<typeof connectorReducers.syncConnector>[0];
+    }
+  | {
+      action: 'CREATE_ROAD';
+      payload: Parameters<typeof roadReducers.createRoad>[0];
+    }
+  | {
+      action: 'UPDATE_ROAD';
+      payload: Parameters<typeof roadReducers.updateRoad>[0];
+    }
+  | {
+      action: 'DELETE_ROAD';
+      payload: Parameters<typeof roadReducers.deleteRoad>[0];
+    }
+  | {
+      action: 'SYNC_ROAD';
+      payload: Parameters<typeof roadReducers.syncRoad>[0];
     }
   | {
       action: 'CREATE_TEXTBOX';

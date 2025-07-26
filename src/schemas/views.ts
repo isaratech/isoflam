@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { id, constrainedStrings, coords } from './common';
 import { rectangleSchema } from './rectangle';
 import { connectorSchema } from './connector';
+import { roadSchema } from './road';
 import { textBoxSchema } from './textBox';
 
 export const viewItemSchema = z.object({
@@ -22,6 +23,7 @@ export const viewSchema = z.object({
   items: z.array(viewItemSchema),
   rectangles: z.array(rectangleSchema).optional(),
   connectors: z.array(connectorSchema).optional(),
+  roads: z.array(roadSchema).optional(),
   textBoxes: z.array(textBoxSchema).optional()
 });
 

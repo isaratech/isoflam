@@ -4,9 +4,11 @@ import { getItemByIdOrThrow } from 'src/utils';
 import { VIEW_DEFAULTS, INITIAL_SCENE_STATE } from 'src/config';
 import type { ViewReducerContext, State, ViewReducerParams } from './types';
 import { syncConnector } from './connector';
+import { syncRoad } from './road';
 import { syncTextBox } from './textBox';
 import * as viewItemReducers from './viewItem';
 import * as connectorReducers from './connector';
+import * as roadReducers from './road';
 import * as textBoxReducers from './textBox';
 import * as rectangleReducers from './rectangle';
 import * as layerOrderingReducers from './layerOrdering';
@@ -37,11 +39,17 @@ export const syncScene = ({ viewId, state }: ViewReducerContext): State => {
     return syncConnector(connector.id, { viewId, state: acc });
   }, startingState);
 
+  const stateAfterRoadsSynced = [
+    ...(view.value.roads ?? [])
+  ].reduce<State>((acc, road) => {
+    return syncRoad(road.id, { viewId, state: acc });
+  }, stateAfterConnectorsSynced);
+
   const stateAfterTextBoxesSynced = [
     ...(view.value.textBoxes ?? [])
   ].reduce<State>((acc, textBox) => {
     return syncTextBox(textBox.id, { viewId, state: acc });
-  }, stateAfterConnectorsSynced);
+  }, stateAfterRoadsSynced);
 
   return stateAfterTextBoxesSynced;
 };
@@ -119,6 +127,18 @@ export const view = ({ action, payload, ctx }: ViewReducerParams) => {
       break;
     case 'DELETE_CONNECTOR':
       newState = connectorReducers.deleteConnector(payload, ctx);
+      break;
+    case 'CREATE_ROAD':
+      newState = roadReducers.createRoad(payload, ctx);
+      break;
+    case 'UPDATE_ROAD':
+      newState = roadReducers.updateRoad(payload, ctx);
+      break;
+    case 'SYNC_ROAD':
+      newState = roadReducers.syncRoad(payload, ctx);
+      break;
+    case 'DELETE_ROAD':
+      newState = roadReducers.deleteRoad(payload, ctx);
       break;
     case 'CREATE_TEXTBOX':
       newState = textBoxReducers.createTextBox(payload, ctx);

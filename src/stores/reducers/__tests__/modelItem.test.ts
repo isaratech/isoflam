@@ -9,6 +9,7 @@ import {
 
 const scene = {
   connectors: {},
+  roads: {},
   textBoxes: {}
 };
 

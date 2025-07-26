@@ -27,6 +27,7 @@ const getModel = () => {
 
 const scene = {
   connectors: {},
+  roads: {},
   textBoxes: {}
 };
 

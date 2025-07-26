@@ -5,4 +5,5 @@ export * from './modelItems';
 export * from './views';
 export * from './connector';
 export * from './rectangle';
+export * from './road';
 export * from './textBox';

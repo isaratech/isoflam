@@ -1,12 +1,12 @@
 import {useCallback, useMemo} from 'react';
-import {Connector, ItemReference, LayerOrderingAction, ModelItem, Rectangle, TextBox, ViewItem} from 'src/types';
+import {Connector, ItemReference, LayerOrderingAction, ModelItem, Rectangle, Road, TextBox, ViewItem} from 'src/types';
 import {useUiStateStore} from 'src/stores/uiStateStore';
 import {useModelStore} from 'src/stores/modelStore';
 import {useSceneStore} from 'src/stores/sceneStore';
 import * as reducers from 'src/stores/reducers';
 import type {State} from 'src/stores/reducers/types';
 import {getItemByIdOrThrow} from 'src/utils';
-import {CONNECTOR_DEFAULTS, RECTANGLE_DEFAULTS, TEXTBOX_DEFAULTS} from 'src/config';
+import {CONNECTOR_DEFAULTS, RECTANGLE_DEFAULTS, ROAD_DEFAULTS, TEXTBOX_DEFAULTS} from 'src/config';
 
 export const useScene = () => {
   const model = useModelStore((state) => {
@@ -51,6 +51,18 @@ export const useScene = () => {
       };
     });
   }, [currentView?.connectors, scene.connectors]);
+
+  const roads = useMemo(() => {
+    return (currentView?.roads ?? []).map((road) => {
+      const sceneRoad = scene.roads[road.id];
+
+      return {
+        ...ROAD_DEFAULTS,
+        ...road,
+        ...sceneRoad
+      };
+    });
+  }, [currentView?.roads, scene.roads]);
 
   const rectangles = useMemo(() => {
     return (currentView?.rectangles ?? []).map((rectangle) => {
@@ -185,6 +197,42 @@ export const useScene = () => {
     [getState, setState, currentViewId]
   );
 
+  const createRoad = useCallback(
+    (newRoad: Road) => {
+      const newState = reducers.view({
+        action: 'CREATE_ROAD',
+        payload: newRoad,
+        ctx: { viewId: currentViewId, state: getState() }
+      });
+      setState(newState);
+    },
+    [getState, setState, currentViewId]
+  );
+
+  const updateRoad = useCallback(
+    (id: string, updates: Partial<Road>) => {
+      const newState = reducers.view({
+        action: 'UPDATE_ROAD',
+        payload: { id, ...updates },
+        ctx: { viewId: currentViewId, state: getState() }
+      });
+      setState(newState);
+    },
+    [getState, setState, currentViewId]
+  );
+
+  const deleteRoad = useCallback(
+    (id: string) => {
+      const newState = reducers.view({
+        action: 'DELETE_ROAD',
+        payload: id,
+        ctx: { viewId: currentViewId, state: getState() }
+      });
+      setState(newState);
+    },
+    [getState, setState, currentViewId]
+  );
+
   const createTextBox = useCallback(
     (newTextBox: TextBox) => {
       const newState = reducers.view({
@@ -272,6 +320,7 @@ export const useScene = () => {
   return {
     items,
     connectors,
+    roads,
     colors,
     rectangles,
     textBoxes,
@@ -285,6 +334,9 @@ export const useScene = () => {
     createConnector,
     updateConnector,
     deleteConnector,
+    createRoad,
+    updateRoad,
+    deleteRoad,
     createTextBox,
     updateTextBox,
     deleteTextBox,

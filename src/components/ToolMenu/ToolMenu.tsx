@@ -7,6 +7,7 @@ import {
     ImageOutlined as ImageIcon,
     NearMeOutlined as NearMeIcon,
     PanToolOutlined as PanToolIcon,
+    RouteOutlined as RoadIcon,
     Title as TitleIcon
 } from '@mui/icons-material';
 import {useUiStateStore} from 'src/stores/uiStateStore';
@@ -164,6 +165,18 @@ export const ToolMenu = () => {
             });
           }}
           isActive={mode.type === 'CONNECTOR'}
+        />
+        <IconButton
+          name={t('Road')}
+          Icon={<RoadIcon />}
+          onClick={() => {
+            uiStateStoreActions.setMode({
+              type: 'ROAD',
+              id: null,
+              showCursor: true
+            });
+          }}
+          isActive={mode.type === 'ROAD'}
         />
         <IconButton
           name={t('Text')}

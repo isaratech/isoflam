@@ -1,5 +1,5 @@
-import type {Connector, ConnectorAnchor, Model, ModelItem, Rectangle, View} from 'src/types';
-import {getAllAnchors, getItemByIdOrThrow} from 'src/utils';
+import type {Connector, ConnectorAnchor, Model, ModelItem, Rectangle, Road, RoadAnchor, View} from 'src/types';
+import {getAllAnchors, getAllRoadAnchors, getItemByIdOrThrow} from 'src/utils';
 
 type IssueType =
   | {
@@ -25,6 +25,40 @@ type IssueType =
         rectangle: string;
         view: string;
         color: string;
+      };
+    }
+  | {
+      type: 'INVALID_ROAD_COLOR_REF';
+      params: {
+        road: string;
+        view: string;
+        color: string;
+      };
+    }
+  | {
+      type: 'INVALID_ROAD_ANCHOR_REF';
+      params: {
+        anchor: string;
+        view: string;
+        road: string;
+      };
+    }
+  | {
+      type: 'INVALID_ROAD_ANCHOR_TO_VIEW_ITEM_REF';
+      params: {
+        anchor: string;
+        viewItem: string;
+        view: string;
+        road: string;
+      };
+    }
+  | {
+      type: 'INVALID_ROAD_ANCHOR_TO_ANCHOR_REF';
+      params: {
+        srcAnchor: string;
+        destAnchor: string;
+        view: string;
+        road: string;
       };
     }
   | {
@@ -224,6 +258,108 @@ export const validateRectangle = (
   return issues;
 };
 
+export const validateRoadAnchor = (
+  anchor: RoadAnchor,
+  ctx: {
+    view: View;
+    road: Road;
+    allAnchors: RoadAnchor[];
+  }
+): Issue[] => {
+  const issues: Issue[] = [];
+
+  if (Object.keys(anchor.ref).length !== 1) {
+    issues.push({
+      type: 'INVALID_ROAD_ANCHOR_REF',
+      params: {
+        anchor: anchor.id,
+        view: ctx.view.id,
+        road: ctx.road.id
+      },
+      message:
+        'Road includes an anchor that references more than one item. An anchor can only reference one item.'
+    });
+  }
+
+  if (anchor.ref.item && ctx.view.items) {
+    try {
+      getItemByIdOrThrow(ctx.view.items, anchor.ref.item);
+    } catch (e) {
+      issues.push({
+        type: 'INVALID_ROAD_ANCHOR_TO_VIEW_ITEM_REF',
+        params: {
+          anchor: anchor.id,
+          viewItem: anchor.ref.item,
+          view: ctx.view.id,
+          road: ctx.road.id
+        },
+        message:
+          'Road includes an anchor that references a view item that does not exist in this view.'
+      });
+    }
+  }
+
+  if (anchor.ref.anchor) {
+    try {
+      getItemByIdOrThrow(ctx.allAnchors, anchor.ref.anchor);
+    } catch (e) {
+      issues.push({
+        type: 'INVALID_ROAD_ANCHOR_TO_ANCHOR_REF',
+        params: {
+          srcAnchor: anchor.id,
+          destAnchor: anchor.ref.anchor,
+          view: ctx.view.id,
+          road: ctx.road.id
+        },
+        message:
+          'Road includes an anchor that references another road anchor that does not exist in this view.'
+      });
+    }
+  }
+
+  return issues;
+};
+
+export const validateRoad = (
+  road: Road,
+  ctx: {
+    view: View;
+    model: Model;
+    allAnchors: RoadAnchor[];
+  }
+): Issue[] => {
+  const issues: Issue[] = [];
+
+  if (road.color && ctx.model.colors) {
+    try {
+      getItemByIdOrThrow(ctx.model.colors, road.color);
+    } catch (e) {
+      issues.push({
+        type: 'INVALID_ROAD_COLOR_REF',
+        params: {
+          road: road.id,
+          view: ctx.view.id,
+          color: road.color
+        },
+        message:
+          'Road references a color that does not exist in the model.'
+      });
+    }
+  }
+
+  road.anchors.forEach((anchor) => {
+    const anchorIssues = validateRoadAnchor(anchor, {
+      view: ctx.view,
+      road,
+      allAnchors: ctx.allAnchors
+    });
+
+    issues.push(...anchorIssues);
+  });
+
+  return issues;
+};
+
 export const validateView = (view: View, ctx: { model: Model }): Issue[] => {
   const issues: Issue[] = [];
 
@@ -233,6 +369,20 @@ export const validateView = (view: View, ctx: { model: Model }): Issue[] => {
     view.connectors.forEach((connector) => {
       issues.push(
         ...validateConnector(connector, {
+          view,
+          model: ctx.model,
+          allAnchors
+        })
+      );
+    });
+  }
+
+  if (view.roads) {
+    const allAnchors = getAllRoadAnchors(view.roads);
+
+    view.roads.forEach((road) => {
+      issues.push(
+        ...validateRoad(road, {
           view,
           model: ctx.model,
           allAnchors

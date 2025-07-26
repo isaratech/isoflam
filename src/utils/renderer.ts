@@ -21,6 +21,8 @@ import {
     Mouse,
     ProjectionOrientationEnum,
     Rect,
+    Road,
+    RoadAnchor,
     Scroll,
     Size,
     SlimMouseEvent,
@@ -305,6 +307,12 @@ export const getAllAnchors = (connectors: Connector[]) => {
   }, [] as ConnectorAnchor[]);
 };
 
+export const getAllRoadAnchors = (roads: Road[]) => {
+  return roads.reduce((acc, road) => {
+    return [...acc, ...road.anchors];
+  }, [] as RoadAnchor[]);
+};
+
 export const getAnchorTile = (anchor: ConnectorAnchor, view: View): Coords => {
   if (anchor.ref.item) {
     const viewItem = getItemByIdOrThrow(view.items, anchor.ref.item).value;
@@ -528,6 +536,29 @@ export const getItemAtTile = ({
     return {
       type: 'CONNECTOR',
       id: connector.id
+    };
+  }
+
+  const road = scene.roads.find((road) => {
+    // Guard against roads with undefined paths
+    if (!road.path || !road.path.tiles) {
+      return false;
+    }
+    
+    return road.path.tiles.find((pathTile) => {
+      const globalPathTile = connectorPathTileToGlobal(
+        pathTile,
+        road.path.rectangle.from
+      );
+
+      return CoordsUtils.isEqual(globalPathTile, tile);
+    });
+  });
+
+  if (road) {
+    return {
+      type: 'ROAD',
+      id: road.id
     };
   }
 
