@@ -78,6 +78,13 @@ export const IsoTileVolume = ({
 
   const {css, pxSize} = isometric ? isoProjection : standardProjection;
 
+  // Calculate proper isometric 3D dimensions
+  const heightOffset = useMemo(() => {
+    // In isometric projection, height is represented as movement upward
+    // Use the unprojected tile size for height units
+    return height * UNPROJECTED_TILE_SIZE;
+  }, [height]);
+
   // Adjust CSS positioning for expanded 3D volumes
   const finalCss = useMemo(() => {
     if (!isometric || height <= 0) {
@@ -94,7 +101,7 @@ export const IsoTileVolume = ({
       width: `${(pxSize.width + isoDepthX)}px`,
       height: `${(pxSize.height + heightOffset)}px`
     };
-  }, [css, isometric, height, pxSize]);
+  }, [css, isometric, height, pxSize, heightOffset]);
 
   const strokeParams = useMemo(() => {
     if (!stroke || stroke.style === 'NONE') return {};
@@ -166,13 +173,6 @@ export const IsoTileVolume = ({
 
     return transforms.length > 0 ? transforms.join(' ') : undefined;
   }, [imageData, mirrorHorizontal, mirrorVertical, rotationAngle, pxSize.width, pxSize.height]);
-
-  // Calculate proper isometric 3D dimensions
-  const heightOffset = useMemo(() => {
-    // In isometric projection, height is represented as movement upward
-    // Use the unprojected tile size for height units
-    return height * UNPROJECTED_TILE_SIZE;
-  }, [height]);
 
   // Calculate expanded viewbox and repositioned elements for 3D rendering
   const volumeProjection = useMemo(() => {
