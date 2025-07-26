@@ -274,10 +274,8 @@ export const IsoTileVolume = ({
     });
     console.log('  Rect Parameters:', topRect);
     
-    // Safely calculate CSS coordinates for top face
-    const topFaceCssLeft = typeof css.left === 'number' 
-      ? css.left + volumeOffsets.depthOffsetX 
-      : `${css.left} + ${volumeOffsets.depthOffsetX}px`;
+    // Top face should have same CSS left as base face - only offset vertically
+    const topFaceCssLeft = css.left; // Same left position as base face
       
     const topFaceCssTop = typeof css.top === 'number' 
       ? css.top - volumeOffsets.heightOffset 
