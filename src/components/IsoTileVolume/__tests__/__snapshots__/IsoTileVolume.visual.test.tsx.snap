@@ -1,0 +1,1283 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IsoTileVolume Visual Tests renders blue-volume: volume-blue-volume 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      blue-volume
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 473.2px; height: 500px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="500"
+        style="display: block;"
+        viewBox="0 0 473.2 500"
+        width="473.2"
+      >
+        <rect
+          fill="#3498DB"
+          height="300"
+          opacity="0.3"
+          rx="0"
+          width="300"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#3498DB"
+          opacity="1"
+          points="0,300 300,300 473.2,100 173.2,100"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#3498DB"
+          opacity="1"
+          points="300,300 300,0 473.2,-200 473.2,100"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#3498DB"
+          height="300"
+          opacity="1"
+          rx="0"
+          width="300"
+          x="173.2"
+          y="-200"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders green-volume: volume-green-volume 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      green-volume
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 473.2px; height: 500px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="500"
+        style="display: block;"
+        viewBox="0 0 473.2 500"
+        width="473.2"
+      >
+        <rect
+          fill="#2ECC71"
+          height="300"
+          opacity="0.3"
+          rx="0"
+          width="300"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#2ECC71"
+          opacity="1"
+          points="0,300 300,300 473.2,100 173.2,100"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#2ECC71"
+          opacity="1"
+          points="300,300 300,0 473.2,-200 473.2,100"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#2ECC71"
+          height="300"
+          opacity="1"
+          rx="0"
+          width="300"
+          x="173.2"
+          y="-200"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders height-0.5: volume-height-0.5 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      height-0.5
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 343.3px; height: 350px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="350"
+        style="display: block;"
+        viewBox="0 0 343.3 350"
+        width="343.3"
+      >
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="0.3"
+          rx="0"
+          width="300"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="0,300 300,300 343.3,250 43.3,250"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="300,300 300,0 343.3,-50 343.3,250"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="1"
+          rx="0"
+          width="300"
+          x="43.3"
+          y="-50"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders height-1: volume-height-1 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      height-1
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 386.6px; height: 400px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="400"
+        style="display: block;"
+        viewBox="0 0 386.6 400"
+        width="386.6"
+      >
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="0.3"
+          rx="0"
+          width="300"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="0,300 300,300 386.6,200 86.6,200"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="300,300 300,0 386.6,-100 386.6,200"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="1"
+          rx="0"
+          width="300"
+          x="86.6"
+          y="-100"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders height-2: volume-height-2 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      height-2
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 473.2px; height: 500px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="500"
+        style="display: block;"
+        viewBox="0 0 473.2 500"
+        width="473.2"
+      >
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="0.3"
+          rx="0"
+          width="300"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="0,300 300,300 473.2,100 173.2,100"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="300,300 300,0 473.2,-200 473.2,100"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="1"
+          rx="0"
+          width="300"
+          x="173.2"
+          y="-200"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders height-3: volume-height-3 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      height-3
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 559.8px; height: 600px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="600"
+        style="display: block;"
+        viewBox="0 0 559.8 600"
+        width="559.8"
+      >
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="0.3"
+          rx="0"
+          width="300"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="0,300 300,300 559.8,0 259.8,0"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="300,300 300,0 559.8,-300 559.8,0"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="1"
+          rx="0"
+          width="300"
+          x="259.8"
+          y="-300"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders height-5: volume-height-5 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      height-5
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 733px; height: 800px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="800"
+        style="display: block;"
+        viewBox="0 0 733 800"
+        width="733"
+      >
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="0.3"
+          rx="0"
+          width="300"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="0,300 300,300 733,-200 433,-200"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="300,300 300,0 733,-500 733,-200"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="1"
+          rx="0"
+          width="300"
+          x="433"
+          y="-500"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders large-4x3: volume-large-4x3 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      large-4x3
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 573.2px; height: 500px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="500"
+        style="display: block;"
+        viewBox="0 0 573.2 500"
+        width="573.2"
+      >
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="0.3"
+          rx="0"
+          width="400"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="0,300 400,300 573.2,100 173.2,100"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="400,300 400,0 573.2,-200 573.2,100"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="1"
+          rx="0"
+          width="400"
+          x="173.2"
+          y="-200"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders medium-2x2: volume-medium-2x2 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      medium-2x2
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 373.2px; height: 400px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="400"
+        style="display: block;"
+        viewBox="0 0 373.2 400"
+        width="373.2"
+      >
+        <rect
+          fill="#4A90E2"
+          height="200"
+          opacity="0.3"
+          rx="0"
+          width="200"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="0,200 200,200 373.2,0 173.2,0"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="200,200 200,0 373.2,-200 373.2,0"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#4A90E2"
+          height="200"
+          opacity="1"
+          rx="0"
+          width="200"
+          x="173.2"
+          y="-200"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders multiple volumes comparison: multiple-volumes-comparison 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255); display: flex; flex-wrap: wrap; gap: 20px;"
+  >
+    <h2>
+      Volume Tool Visual Comparison
+    </h2>
+    <div
+      style="display: flex; gap: 20px; align-items: flex-end;"
+    >
+      <div>
+        <h4>
+          Height 1
+        </h4>
+        <div
+          data-testid="svg-container"
+          style="position: relative; left: 0px; top: 0px; width: 286.6px; height: 300px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+        >
+          <svg
+            height="300"
+            style="display: block;"
+            viewBox="0 0 286.6 300"
+            width="286.6"
+          >
+            <rect
+              fill="#E74C3C"
+              height="200"
+              opacity="0.3"
+              rx="0"
+              width="200"
+              x="0"
+              y="0"
+            />
+            <polygon
+              fill="#E74C3C"
+              opacity="1"
+              points="0,200 200,200 286.6,100 86.6,100"
+              style="filter: brightness(0.7);"
+            />
+            <polygon
+              fill="#E74C3C"
+              opacity="1"
+              points="200,200 200,0 286.6,-100 286.6,100"
+              style="filter: brightness(0.5);"
+            />
+            <rect
+              fill="#E74C3C"
+              height="200"
+              opacity="1"
+              rx="0"
+              width="200"
+              x="86.6"
+              y="-100"
+            />
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h4>
+          Height 2
+        </h4>
+        <div
+          data-testid="svg-container"
+          style="position: relative; left: 0px; top: 0px; width: 373.2px; height: 400px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+        >
+          <svg
+            height="400"
+            style="display: block;"
+            viewBox="0 0 373.2 400"
+            width="373.2"
+          >
+            <rect
+              fill="#3498DB"
+              height="200"
+              opacity="0.3"
+              rx="0"
+              width="200"
+              x="0"
+              y="0"
+            />
+            <polygon
+              fill="#3498DB"
+              opacity="1"
+              points="0,200 200,200 373.2,0 173.2,0"
+              style="filter: brightness(0.7);"
+            />
+            <polygon
+              fill="#3498DB"
+              opacity="1"
+              points="200,200 200,0 373.2,-200 373.2,0"
+              style="filter: brightness(0.5);"
+            />
+            <rect
+              fill="#3498DB"
+              height="200"
+              opacity="1"
+              rx="0"
+              width="200"
+              x="173.2"
+              y="-200"
+            />
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h4>
+          Height 3
+        </h4>
+        <div
+          data-testid="svg-container"
+          style="position: relative; left: 0px; top: 0px; width: 459.8px; height: 500px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+        >
+          <svg
+            height="500"
+            style="display: block;"
+            viewBox="0 0 459.8 500"
+            width="459.8"
+          >
+            <rect
+              fill="#2ECC71"
+              height="200"
+              opacity="0.3"
+              rx="0"
+              width="200"
+              x="0"
+              y="0"
+            />
+            <polygon
+              fill="#2ECC71"
+              opacity="1"
+              points="0,200 200,200 459.8,-100 259.8,-100"
+              style="filter: brightness(0.7);"
+            />
+            <polygon
+              fill="#2ECC71"
+              opacity="1"
+              points="200,200 200,0 459.8,-300 459.8,-100"
+              style="filter: brightness(0.5);"
+            />
+            <rect
+              fill="#2ECC71"
+              height="200"
+              opacity="1"
+              rx="0"
+              width="200"
+              x="259.8"
+              y="-300"
+            />
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h4>
+          Height 4
+        </h4>
+        <div
+          data-testid="svg-container"
+          style="position: relative; left: 0px; top: 0px; width: 546.4px; height: 600px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+        >
+          <svg
+            height="600"
+            style="display: block;"
+            viewBox="0 0 546.4 600"
+            width="546.4"
+          >
+            <rect
+              fill="#F39C12"
+              height="200"
+              opacity="0.3"
+              rx="0"
+              width="200"
+              x="0"
+              y="0"
+            />
+            <polygon
+              fill="#F39C12"
+              opacity="1"
+              points="0,200 200,200 546.4,-200 346.4,-200"
+              style="filter: brightness(0.7);"
+            />
+            <polygon
+              fill="#F39C12"
+              opacity="1"
+              points="200,200 200,0 546.4,-400 546.4,-200"
+              style="filter: brightness(0.5);"
+            />
+            <rect
+              fill="#F39C12"
+              height="200"
+              opacity="1"
+              rx="0"
+              width="200"
+              x="346.4"
+              y="-400"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders negative-coordinates: volume-negative-coordinates 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      negative-coordinates
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: -100px; top: -100px; width: 473.2px; height: 500px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="500"
+        style="display: block;"
+        viewBox="0 0 473.2 500"
+        width="473.2"
+      >
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="0.3"
+          rx="0"
+          width="300"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="0,300 300,300 473.2,100 173.2,100"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="300,300 300,0 473.2,-200 473.2,100"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="1"
+          rx="0"
+          width="300"
+          x="173.2"
+          y="-200"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders non-isometric: volume-non-isometric 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      non-isometric
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 50px; width: 300px; height: 300px; transform: none; transform-origin: top left; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="300"
+        style="display: block;"
+        viewBox="0 0 300 300"
+        width="300"
+      >
+        <rect
+          fill="#F39C12"
+          height="300"
+          opacity="1"
+          rx="0"
+          width="300"
+          x="0"
+          y="0"
+        />
+        <rect
+          fill="#F39C12"
+          height="300"
+          rx="0"
+          width="300"
+          x="0"
+          y="0"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders red-volume: volume-red-volume 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      red-volume
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 473.2px; height: 500px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="500"
+        style="display: block;"
+        viewBox="0 0 473.2 500"
+        width="473.2"
+      >
+        <rect
+          fill="#E74C3C"
+          height="300"
+          opacity="0.3"
+          rx="0"
+          width="300"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#E74C3C"
+          opacity="1"
+          points="0,300 300,300 473.2,100 173.2,100"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#E74C3C"
+          opacity="1"
+          points="300,300 300,0 473.2,-200 473.2,100"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#E74C3C"
+          height="300"
+          opacity="1"
+          rx="0"
+          width="300"
+          x="173.2"
+          y="-200"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders small-1x1: volume-small-1x1 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      small-1x1
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 273.2px; height: 300px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="300"
+        style="display: block;"
+        viewBox="0 0 273.2 300"
+        width="273.2"
+      >
+        <rect
+          fill="#4A90E2"
+          height="100"
+          opacity="0.3"
+          rx="0"
+          width="100"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="0,100 100,100 273.2,-100 173.2,-100"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="100,100 100,0 273.2,-200 273.2,-100"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#4A90E2"
+          height="100"
+          opacity="1"
+          rx="0"
+          width="100"
+          x="173.2"
+          y="-200"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders tall-thin-volume: volume-tall-thin-volume 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      tall-thin-volume
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 446.4px; height: 800px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="800"
+        style="display: block;"
+        viewBox="0 0 446.4 800"
+        width="446.4"
+      >
+        <rect
+          fill="#1ABC9C"
+          height="400"
+          opacity="0.3"
+          rx="0"
+          width="100"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#1ABC9C"
+          opacity="1"
+          points="0,400 100,400 446.4,0 346.4,0"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#1ABC9C"
+          opacity="1"
+          points="100,400 100,0 446.4,-400 446.4,0"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#1ABC9C"
+          height="400"
+          opacity="1"
+          rx="0"
+          width="100"
+          x="346.4"
+          y="-400"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders wide-flat-volume: volume-wide-flat-volume 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      wide-flat-volume
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 586.6px; height: 200px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="200"
+        style="display: block;"
+        viewBox="0 0 586.6 200"
+        width="586.6"
+      >
+        <rect
+          fill="#F1C40F"
+          height="100"
+          opacity="0.3"
+          rx="0"
+          width="500"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#F1C40F"
+          opacity="1"
+          points="0,100 500,100 586.6,0 86.6,0"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#F1C40F"
+          opacity="1"
+          points="500,100 500,0 586.6,-100 586.6,0"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#F1C40F"
+          height="100"
+          opacity="1"
+          rx="0"
+          width="500"
+          x="86.6"
+          y="-100"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders with-corner-radius: volume-with-corner-radius 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      with-corner-radius
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 473.2px; height: 500px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="500"
+        style="display: block;"
+        viewBox="0 0 473.2 500"
+        width="473.2"
+      >
+        <rect
+          fill="#E91E63"
+          height="300"
+          opacity="0.3"
+          rx="0"
+          width="300"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#E91E63"
+          opacity="1"
+          points="0,300 300,300 473.2,100 173.2,100"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#E91E63"
+          opacity="1"
+          points="300,300 300,0 473.2,-200 473.2,100"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#E91E63"
+          height="300"
+          opacity="1"
+          rx="0"
+          width="300"
+          x="173.2"
+          y="-200"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders with-dashed-stroke: volume-with-dashed-stroke 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      with-dashed-stroke
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 473.2px; height: 500px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="500"
+        style="display: block;"
+        viewBox="0 0 473.2 500"
+        width="473.2"
+      >
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="0.3"
+          rx="0"
+          stroke="#E67E22"
+          stroke-dasharray="4, 4"
+          stroke-width="2"
+          width="300"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="0,300 300,300 473.2,100 173.2,100"
+          stroke="#E67E22"
+          stroke-dasharray="4, 4"
+          stroke-width="2"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="300,300 300,0 473.2,-200 473.2,100"
+          stroke="#E67E22"
+          stroke-dasharray="4, 4"
+          stroke-width="2"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="1"
+          rx="0"
+          stroke="#E67E22"
+          stroke-dasharray="4, 4"
+          stroke-width="2"
+          width="300"
+          x="173.2"
+          y="-200"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders with-dotted-stroke: volume-with-dotted-stroke 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      with-dotted-stroke
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 473.2px; height: 500px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="500"
+        style="display: block;"
+        viewBox="0 0 473.2 500"
+        width="473.2"
+      >
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="0.3"
+          rx="0"
+          stroke="#9B59B6"
+          stroke-dasharray="0, 3.6"
+          stroke-width="2"
+          width="300"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="0,300 300,300 473.2,100 173.2,100"
+          stroke="#9B59B6"
+          stroke-dasharray="0, 3.6"
+          stroke-width="2"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="300,300 300,0 473.2,-200 473.2,100"
+          stroke="#9B59B6"
+          stroke-dasharray="0, 3.6"
+          stroke-width="2"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="1"
+          rx="0"
+          stroke="#9B59B6"
+          stroke-dasharray="0, 3.6"
+          stroke-width="2"
+          width="300"
+          x="173.2"
+          y="-200"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders with-solid-stroke: volume-with-solid-stroke 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      with-solid-stroke
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 473.2px; height: 500px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="500"
+        style="display: block;"
+        viewBox="0 0 473.2 500"
+        width="473.2"
+      >
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="0.3"
+          rx="0"
+          stroke="#2C3E50"
+          stroke-width="2"
+          width="300"
+          x="0"
+          y="0"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="0,300 300,300 473.2,100 173.2,100"
+          stroke="#2C3E50"
+          stroke-width="2"
+          style="filter: brightness(0.7);"
+        />
+        <polygon
+          fill="#4A90E2"
+          opacity="1"
+          points="300,300 300,0 473.2,-200 473.2,100"
+          stroke="#2C3E50"
+          stroke-width="2"
+          style="filter: brightness(0.5);"
+        />
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="1"
+          rx="0"
+          stroke="#2C3E50"
+          stroke-width="2"
+          width="300"
+          x="173.2"
+          y="-200"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IsoTileVolume Visual Tests renders zero-height: volume-zero-height 1`] = `
+<div>
+  <div
+    style="padding: 50px; background-color: rgb(255, 255, 255);"
+  >
+    <h3>
+      zero-height
+    </h3>
+    <div
+      data-testid="svg-container"
+      style="position: relative; left: 0px; top: 0px; width: 300px; height: 300px; transform: rotateX(60deg) rotateZ(45deg); transform-origin: center; border: 1px solid #ccc; background-color: rgb(249, 249, 249);"
+    >
+      <svg
+        height="300"
+        style="display: block;"
+        viewBox="0 0 300 300"
+        width="300"
+      >
+        <rect
+          fill="#4A90E2"
+          height="300"
+          opacity="1"
+          rx="0"
+          width="300"
+          x="0"
+          y="0"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
