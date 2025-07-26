@@ -196,10 +196,10 @@ export const IsoTileVolume = ({
       height: pxSize.height
     };
 
-    // Top face: displaced by height and depth offsets
+    // Top face: displaced horizontally for isometric effect, vertically by pure height
     const top = {
       x: volumeOffsets.depthOffsetX,
-      y: volumeOffsets.depthOffsetY - volumeOffsets.heightOffset,
+      y: -volumeOffsets.heightOffset, // Pure vertical displacement (negative Y = up in screen coordinates)
       width: pxSize.width,
       height: pxSize.height
     };
@@ -210,7 +210,7 @@ export const IsoTileVolume = ({
         // Bottom edge of front face (base front edge)
         `${base.x},${base.y + base.height}`,
         `${base.x + base.width},${base.y + base.height}`,
-        // Top edge of front face (top front edge)
+        // Top edge of front face (top front edge) 
         `${top.x + top.width},${top.y + top.height}`,
         `${top.x},${top.y + top.height}`
       ].join(' ')
