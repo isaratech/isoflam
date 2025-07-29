@@ -19,7 +19,7 @@ export const useIconFiltering = () => {
         return true;
       }
 
-      return regex.test(icon.name);
+        return regex.test(icon.name) || regex.test(icon.id);
     });
   }, [icons, filter]);
 
