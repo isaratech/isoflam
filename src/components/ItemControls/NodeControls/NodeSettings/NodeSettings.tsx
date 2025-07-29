@@ -56,6 +56,7 @@ export const NodeSettings = ({
             marks
             step={20}
             min={60}
+            max={600}
             value={node.labelHeight}
             onChange={(e, newHeight) => {
               const labelHeight = newHeight as number;
