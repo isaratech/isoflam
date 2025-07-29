@@ -2,7 +2,7 @@
 // Generated on 2025-07-05T06:59:24.260Z
 // Total icons: 1258
 
-import { Icons } from '../types';
+import {Icons} from '../types';
 
 import icon0 from '../assets/Banque icones SDMIS/AMU/AMU_materiels/AMU_brancard_01.png';
 import icon1 from '../assets/Banque icones SDMIS/AMU/AMU_materiels/AMU_brancard_02.png';
@@ -1262,6 +1262,7 @@ import icon1254 from '../assets/Banque icones SDMIS/Sinistres/incendie_pl_01.png
 import icon1255 from '../assets/Banque icones SDMIS/Sinistres/incendie_pl_02.png';
 import icon1256 from '../assets/Banque icones SDMIS/Sinistres/incendie_vl_01.png';
 import icon1257 from '../assets/Banque icones SDMIS/Sinistres/incendie_vl_02.png';
+import icon1258 from '../assets/Banque icones SDMIS/Sinistres/incendie.png';
 
 export const sdmisIcons: Icons = [
   {
@@ -13843,6 +13844,16 @@ export const sdmisIcons: Icons = [
     "isIsometric": true,
     "colorizable": false,
     "scaleFactor": 3
+  },
+    {
+        "id": "sdmis_sinistres_incendie",
+        "name": "Incendie",
+        "url": icon1258,
+        "collection": "SDMIS-Sinistres",
+        "subcategory": "",
+        "isIsometric": true,
+        "colorizable": false,
+        "scaleFactor": 3
   }
 ];
 
