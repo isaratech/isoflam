@@ -52,7 +52,7 @@
       "name": "Nouveau dessin",
       "short_name": "Nouveau",
       "description": "Créer un nouveau dessin isométrique",
-      "url": "/?action=new",
+      "url": "?action=new",
       "icons": [
         {
           "src": "icons/android-launchericon-96-96.png",
