@@ -65,7 +65,10 @@ module.exports = {
       new InjectManifest({
           swSrc: path.resolve(__dirname, '../src/sw.js'),
           swDest: 'sw.js',
-          exclude: [/\.map$/, /manifest$/, /\.htaccess$/]
+          exclude: [/\.map$/, /manifest$/, /\.htaccess$/],
+          maximumFileSizeToCacheInBytes: 20 * 1024 * 1024, // 20MB
+          dontCacheBustURLsMatching: /\.\w{8}\./,
+          mode: 'production'
     })
   ],
   resolve: {

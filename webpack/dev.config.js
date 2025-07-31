@@ -59,6 +59,9 @@ module.exports = {
       PACKAGE_VERSION: JSON.stringify(require("../package.json").version),
       REPOSITORY_URL: JSON.stringify(require("../package.json").repository.url),
     }),
+      // PWA plugins disabled in development mode for localhost
+      // Uncomment the following plugins if you need to test PWA functionality in development
+      /*
       new CopyWebpackPlugin({
           patterns: [
               {
@@ -80,7 +83,11 @@ module.exports = {
       new InjectManifest({
           swSrc: path.resolve(__dirname, '../src/sw.js'),
           swDest: 'sw.js',
-          exclude: [/\.map$/, /manifest$/, /\.htaccess$/]
-    })
+          exclude: [/\.map$/, /manifest$/, /\.htaccess$/],
+          maximumFileSizeToCacheInBytes: 20 * 1024 * 1024, // 20MB
+          dontCacheBustURLsMatching: /\.\w{8}\./,
+          mode: 'development'
+      })
+      */
   ]
 };
