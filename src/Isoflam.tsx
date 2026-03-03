@@ -45,11 +45,26 @@ const App = ({
     const {t} = useTranslation();
     const {undo, redo} = useUndoRedo();
 
-  const { load } = initialDataManager;
+    const {load, clear} = initialDataManager;
 
   useEffect(() => {
     load({ ...INITIAL_DATA, ...initialData });
   }, [initialData, load]);
+
+    // Handle ?action=new URL parameter for PWA shortcut
+    useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const action = urlParams.get('action');
+
+        if (action === 'new' && initialDataManager.isReady) {
+            // Clear the current drawing to create a new one
+            clear();
+            // Remove the action parameter from URL to avoid repeated execution
+            const newUrl = new URL(window.location.href);
+            newUrl.searchParams.delete('action');
+            window.history.replaceState({}, '', newUrl.toString());
+        }
+    }, [clear, initialDataManager.isReady]);
 
   useEffect(() => {
     uiStateActions.setEditorMode(editorMode);

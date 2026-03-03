@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { Box, SxProps } from '@mui/material';
+import React, {useRef} from 'react';
+import {Box, SxProps} from '@mui/material';
 
 const CONNECTOR_DOT_SIZE = 3;
 
@@ -37,7 +37,8 @@ export const Label = ({
           sx={{
             position: 'absolute',
             top: -labelHeight,
-            left: -CONNECTOR_DOT_SIZE / 2
+              left: -CONNECTOR_DOT_SIZE / 2,
+              zIndex: -1
           }}
         >
           <line
@@ -69,6 +70,7 @@ export const Label = ({
             expandDirection === 'BOTTOM' ? '-100%' : '-50%'
           })`,
           overflow: 'hidden',
+            zIndex: 1,
           ...sx
         }}
         style={{

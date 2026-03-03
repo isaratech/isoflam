@@ -5,6 +5,29 @@ All notable changes to the Isoflam project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.3] - 2025-07-31
+
+### Added
+
+- Progressive Web App (PWA) functionality with complete offline support
+- Service worker implementation for asset caching and offline functionality
+- PWA manifest with app metadata, icons, and installation capabilities
+- Complete set of PWA icons (72x72 to 512x512) for various device sizes
+- Offline fallback page and navigation preload support
+-
+
+## [1.3.2] - 2025-07-29
+
+### Added
+
+- sdmisIcons: add new 'Incendie' icon to SDMIS-Sinistres collection
+- NodeSettings: increase maximum label height to 600
+
+### Fixed
+
+- useIconFiltering: include icon ID in regex test
+- Label: adjust zIndex values for correct rendering order
+
 ## [1.3.1] - 2025-07-24
 
 ### Added
