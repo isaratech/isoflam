@@ -1,4 +1,4 @@
-import { produce } from 'immer';
+import {produce} from 'immer';
 import {
   CONNECTOR_SEARCH_OFFSET,
   DEFAULT_FONT_FAMILY,
@@ -28,16 +28,8 @@ import {
   TileOrigin,
   View
 } from 'src/types';
-import {
-  clamp,
-  CoordsUtils,
-  findPath,
-  getItemByIdOrThrow,
-  roundToOneDecimalPlace,
-  SizeUtils,
-  toPx
-} from 'src/utils';
-import { useScene } from 'src/hooks/useScene';
+import {clamp, CoordsUtils, findPath, getItemByIdOrThrow, roundToOneDecimalPlace, SizeUtils, toPx} from 'src/utils';
+import {useScene} from 'src/hooks/useScene';
 
 interface ScreenToIso {
   mouse: Coords;
@@ -453,8 +445,8 @@ export const getItemAtTile = ({
   scene
 }: GetItemAtTile): ItemReference | null => {
   // First check for scaled icons - they can span multiple cells
-  // Use findLast/reverse to select the top layer (last rendered) item first
-  const scaledViewItem = [...scene.items].reverse().find((item) => {
+  // Use find to select the top layer item first (index 0 is rendered last)
+  const scaledViewItem = scene.items.find((item) => {
     // If the item has a scaleFactor > 1, check if the tile is within its bounds
     if (item.scaleFactor && item.scaleFactor > 1) {
       // Calculate the size of the icon in tiles based on scale factor
@@ -483,7 +475,7 @@ export const getItemAtTile = ({
   }
 
   // Then check for exact tile matches for non-scaled items
-  const viewItem = [...scene.items].reverse().find((item) => {
+  const viewItem = scene.items.find((item) => {
     return CoordsUtils.isEqual(item.tile, tile);
   });
 
@@ -494,7 +486,7 @@ export const getItemAtTile = ({
     };
   }
 
-  const textBox = [...scene.textBoxes].reverse().find((tb) => {
+  const textBox = scene.textBoxes.find((tb) => {
     const textBoxTo = getTextBoxEndTile(tb, tb.size);
     const textBoxBounds = getBoundingBox([
       tb.tile,
@@ -517,7 +509,7 @@ export const getItemAtTile = ({
     };
   }
 
-  const connector = [...scene.connectors].reverse().find((con) => {
+  const connector = scene.connectors.find((con) => {
     // Guard against connectors with undefined paths
     if (!con.path || !con.path.tiles) {
       return false;
@@ -540,7 +532,7 @@ export const getItemAtTile = ({
     };
   }
 
-  const rectangle = [...scene.rectangles].reverse().find(({ from, to }) => {
+  const rectangle = scene.rectangles.find(({from, to}) => {
     return isWithinBounds(tile, [from, to]);
   });
 

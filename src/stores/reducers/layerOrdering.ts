@@ -1,7 +1,7 @@
-import { produce } from 'immer';
-import { ItemReference, LayerOrderingAction, View } from 'src/types';
-import { getItemByIdOrThrow } from 'src/utils';
-import { State, ViewReducerContext } from './types';
+import {produce} from 'immer';
+import {ItemReference, LayerOrderingAction} from 'src/types';
+import {getItemByIdOrThrow} from 'src/utils';
+import {State, ViewReducerContext} from './types';
 
 export const changeLayerOrder = (
   { action, item }: { action: LayerOrderingAction; item: ItemReference },
@@ -9,11 +9,20 @@ export const changeLayerOrder = (
 ): State => {
   const newState = produce(state, (draft) => {
     const view = getItemByIdOrThrow(draft.model.views, viewId);
-    let arr: View['rectangles'];
+    let arr: any[];
 
     switch (item.type) {
       case 'RECTANGLE':
         arr = view.value.rectangles ?? [];
+        break;
+      case 'ITEM':
+        arr = view.value.items ?? [];
+        break;
+      case 'TEXTBOX':
+        arr = view.value.textBoxes ?? [];
+        break;
+      case 'CONNECTOR':
+        arr = view.value.connectors ?? [];
         break;
       default:
         throw new Error('Invalid item type');
