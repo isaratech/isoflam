@@ -1,35 +1,43 @@
-import {produce} from 'immer';
+import { produce } from 'immer';
 import {
-    CONNECTOR_SEARCH_OFFSET,
-    DEFAULT_FONT_FAMILY,
-    MAX_ZOOM,
-    MIN_ZOOM,
-    PROJECT_BOUNDING_BOX_PADDING,
-    PROJECTED_TILE_SIZE,
-    TEXTBOX_DEFAULTS,
-    TEXTBOX_PADDING,
-    UNPROJECTED_TILE_SIZE,
-    ZOOM_INCREMENT
+  CONNECTOR_SEARCH_OFFSET,
+  DEFAULT_FONT_FAMILY,
+  MAX_ZOOM,
+  MIN_ZOOM,
+  PROJECT_BOUNDING_BOX_PADDING,
+  PROJECTED_TILE_SIZE,
+  TEXTBOX_DEFAULTS,
+  TEXTBOX_PADDING,
+  UNPROJECTED_TILE_SIZE,
+  ZOOM_INCREMENT
 } from 'src/config';
 import {
-    AnchorPosition,
-    BoundingBox,
-    Connector,
-    ConnectorAnchor,
-    Coords,
-    ItemReference,
-    Mouse,
-    ProjectionOrientationEnum,
-    Rect,
-    Scroll,
-    Size,
-    SlimMouseEvent,
-    TextBox,
-    TileOrigin,
-    View
+  AnchorPosition,
+  BoundingBox,
+  Connector,
+  ConnectorAnchor,
+  Coords,
+  ItemReference,
+  Mouse,
+  ProjectionOrientationEnum,
+  Rect,
+  Scroll,
+  Size,
+  SlimMouseEvent,
+  TextBox,
+  TileOrigin,
+  View
 } from 'src/types';
-import {clamp, CoordsUtils, findPath, getItemByIdOrThrow, roundToOneDecimalPlace, SizeUtils, toPx} from 'src/utils';
-import {useScene} from 'src/hooks/useScene';
+import {
+  clamp,
+  CoordsUtils,
+  findPath,
+  getItemByIdOrThrow,
+  roundToOneDecimalPlace,
+  SizeUtils,
+  toPx
+} from 'src/utils';
+import { useScene } from 'src/hooks/useScene';
 
 interface ScreenToIso {
   mouse: Coords;
@@ -445,7 +453,8 @@ export const getItemAtTile = ({
   scene
 }: GetItemAtTile): ItemReference | null => {
   // First check for scaled icons - they can span multiple cells
-  const scaledViewItem = scene.items.find((item) => {
+  // Use findLast/reverse to select the top layer (last rendered) item first
+  const scaledViewItem = [...scene.items].reverse().find((item) => {
     // If the item has a scaleFactor > 1, check if the tile is within its bounds
     if (item.scaleFactor && item.scaleFactor > 1) {
       // Calculate the size of the icon in tiles based on scale factor
@@ -474,7 +483,7 @@ export const getItemAtTile = ({
   }
 
   // Then check for exact tile matches for non-scaled items
-  const viewItem = scene.items.find((item) => {
+  const viewItem = [...scene.items].reverse().find((item) => {
     return CoordsUtils.isEqual(item.tile, tile);
   });
 
@@ -485,7 +494,7 @@ export const getItemAtTile = ({
     };
   }
 
-  const textBox = scene.textBoxes.find((tb) => {
+  const textBox = [...scene.textBoxes].reverse().find((tb) => {
     const textBoxTo = getTextBoxEndTile(tb, tb.size);
     const textBoxBounds = getBoundingBox([
       tb.tile,
@@ -508,12 +517,12 @@ export const getItemAtTile = ({
     };
   }
 
-  const connector = scene.connectors.find((con) => {
-      // Guard against connectors with undefined paths
-      if (!con.path || !con.path.tiles) {
-          return false;
-      }
-    
+  const connector = [...scene.connectors].reverse().find((con) => {
+    // Guard against connectors with undefined paths
+    if (!con.path || !con.path.tiles) {
+      return false;
+    }
+
     return con.path.tiles.find((pathTile) => {
       const globalPathTile = connectorPathTileToGlobal(
         pathTile,
@@ -531,7 +540,7 @@ export const getItemAtTile = ({
     };
   }
 
-  const rectangle = scene.rectangles.find(({ from, to }) => {
+  const rectangle = [...scene.rectangles].reverse().find(({ from, to }) => {
     return isWithinBounds(tile, [from, to]);
   });
 
@@ -578,7 +587,8 @@ const getTextBoxFontProps = (textBox: TextBox): FontProps => {
     fontSize: textBox.fontSize ?? TEXTBOX_DEFAULTS.fontSize,
     fontFamily: DEFAULT_FONT_FAMILY,
     fontWeight: textBox.isBold ?? TEXTBOX_DEFAULTS.isBold ? 'bold' : 'normal',
-    fontStyle: textBox.isItalic ?? TEXTBOX_DEFAULTS.isItalic ? 'italic' : 'normal'
+    fontStyle:
+      textBox.isItalic ?? TEXTBOX_DEFAULTS.isItalic ? 'italic' : 'normal'
   };
 };
 
