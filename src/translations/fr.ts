@@ -4,6 +4,7 @@ export const frTranslations = {
   Open: 'Ouvrir un JSON',
   'Export as JSON': 'Exporter en JSON',
   'Export as image': 'Exporter en image',
+    'Share via URL': 'Partager via URL',
   'Clear the canvas': 'Effacer le canevas',
   GitHub: 'GitHub',
   Discord: 'Discord',
@@ -142,7 +143,12 @@ export const frTranslations = {
     'Read-only mode': 'Mode lecture seule',
     'Toggle read-only mode': 'Basculer en mode lecture seule',
     'Enable read-only mode': 'Activer le mode lecture seule',
-    'Disable read-only mode': 'Désactiver le mode lecture seule'
+    'Disable read-only mode': 'Désactiver le mode lecture seule',
+
+    // Share via URL
+    'Link copied to clipboard!': 'Le lien a été copié dans le presse-papier !',
+    'Scene too large for URL sharing': "La scène est trop volumineuse pour être partagée par URL. Les images importées augmentent considérablement la taille. Essayez de les retirer ou d'exporter en fichier JSON.",
+    'Error creating link': "Une erreur est survenue lors de la création du lien."
 } as const;
 
 export type TranslationKey = keyof typeof frTranslations;

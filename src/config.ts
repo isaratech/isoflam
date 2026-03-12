@@ -326,6 +326,7 @@ export const MENU_MAIN_OPTIONS: MainMenuOptions = [
   'ACTION.OPEN',
   'EXPORT.JSON',
   'EXPORT.PNG',
+    'EXPORT.URL',
   'ACTION.CLEAR_CANVAS',
   'LINK.GITHUB',
   'LINK.CREDITS',

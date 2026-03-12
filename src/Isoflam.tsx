@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {ThemeProvider} from '@mui/material/styles';
 import {Box, GlobalStyles as MUIGlobalStyles} from '@mui/material';
 import {theme} from 'src/styles/theme';
 import {IsoflamProps} from 'src/types';
-import {modelFromModelStore, setWindowCursor} from 'src/utils';
+import {decompress, modelFromModelStore, setWindowCursor} from 'src/utils';
 import {ModelProvider, useModelStore} from 'src/stores/modelStore';
 import {SceneProvider} from 'src/stores/sceneStore';
 import 'react-quill/dist/quill.snow.css';
@@ -31,6 +31,10 @@ const App = ({
   const uiStateActions = useUiStateStore((state) => {
     return state.actions;
   });
+  const rendererEl = useUiStateStore((state) => {
+    return state.rendererEl;
+  });
+  const hasLoadedFromUrlRef = useRef(false);
   const itemControls = useUiStateStore((state) => {
     return state.itemControls;
   });
@@ -45,9 +49,12 @@ const App = ({
     const {t} = useTranslation();
     const {undo, redo} = useUndoRedo();
 
-    const {load} = initialDataManager;
+  const {load, clear} = initialDataManager;
 
   useEffect(() => {
+    if (window.location.hash.length > 1 || hasLoadedFromUrlRef.current) {
+      return;
+    }
     load({ ...INITIAL_DATA, ...initialData });
   }, [initialData, load]);
 
@@ -89,6 +96,42 @@ const App = ({
             window.removeEventListener('beforeunload', handleBeforeUnload);
         };
     }, [hasUnsavedChanges, t]);
+
+  // Handle URL hash for shared scenes
+  useEffect(() => {
+    const loadFromHash = async () => {
+      const hash = window.location.hash;
+      if (hash && hash.length > 1) {
+        hasLoadedFromUrlRef.current = true;
+        try {
+          const compressed = hash.slice(1); // remove '#'
+          const jsonString = await decompress(compressed);
+          const modelData = JSON.parse(jsonString);
+          load(modelData);
+          // Remove hash after load to clean URL
+          window.history.replaceState({}, '', window.location.pathname + window.location.search);
+        } catch (error) {
+          console.error("Failed to load scene from URL:", error);
+          window.alert("Impossible de charger la scène depuis l'URL. Le lien est peut-être corrompu.");
+          // Fallback to initial data so the app doesn't stay on a blank screen
+          load({...INITIAL_DATA, ...initialData});
+        }
+      }
+    };
+
+    loadFromHash();
+  }, [load, initialData]);
+
+  // Handle URL parameter ?new to clear canvas
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('new')) {
+      clear();
+      // Remove the parameter from URL without page reload
+      const newUrl = window.location.pathname;
+      window.history.replaceState({}, '', newUrl);
+    }
+  }, [clear]);
 
   // Keyboard shortcuts handler
   useEffect(() => {

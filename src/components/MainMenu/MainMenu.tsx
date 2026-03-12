@@ -7,12 +7,13 @@ import {
     GitHub as GitHubIcon,
     ImageOutlined as ExportImageIcon,
     Info as InfoIcon,
+    Link as LinkIcon,
     Menu as MenuIcon
 } from '@mui/icons-material';
 import {UiElement} from 'src/components/UiElement/UiElement';
 import {IconButton} from 'src/components/IconButton/IconButton';
 import {useUiStateStore} from 'src/stores/uiStateStore';
-import {exportAsJSON, modelFromModelStore} from 'src/utils';
+import {copyToClipboard, exportAsJSON, exportAsUrl, modelFromModelStore} from 'src/utils';
 import {useInitialDataManager} from 'src/hooks/useInitialDataManager';
 import {useModelStore} from 'src/stores/modelStore';
 import {useTranslation} from 'src/hooks/useTranslation';
@@ -144,6 +145,22 @@ export const MainMenu = () => {
     uiStateActions.setDialog('EXPORT_IMAGE');
   }, [uiStateActions]);
 
+    const onExportAsUrl = useCallback(async () => {
+        try {
+            const url = await exportAsUrl(model);
+            await copyToClipboard(url);
+            window.alert(t('Link copied to clipboard!'));
+            uiStateActions.setIsMainMenuOpen(false);
+        } catch (error) {
+            if (error instanceof Error && error.message === "SCENE_TOO_LARGE") {
+                window.alert(t('Scene too large for URL sharing'));
+            } else {
+                console.error(error);
+                window.alert(t('Error creating link'));
+            }
+        }
+    }, [model, t, uiStateActions]);
+
   const onShowCredits = useCallback(() => {
     uiStateActions.setIsMainMenuOpen(false);
     uiStateActions.setDialog('CREDITS');
@@ -225,6 +242,12 @@ export const MainMenu = () => {
               {t('Export as image')}
             </MenuItem>
           )}
+
+            {mainMenuOptions.includes('EXPORT.URL') && (
+                <MenuItem onClick={onExportAsUrl} Icon={<LinkIcon/>}>
+                    {t('Share via URL')}
+                </MenuItem>
+            )}
 
           {mainMenuOptions.includes('ACTION.CLEAR_CANVAS') && (
             <MenuItem onClick={onClearCanvas} Icon={<DeleteOutlineIcon />}>

@@ -4,6 +4,7 @@ export const enTranslations = {
   Open: 'Open JSON',
   'Export as JSON': 'Export as JSON',
   'Export as image': 'Export as image',
+  'Share via URL': 'Share via URL',
   'Clear the canvas': 'Clear the canvas',
   GitHub: 'GitHub',
   Discord: 'Discord',
@@ -142,7 +143,12 @@ export const enTranslations = {
     'Read-only mode': 'Read-only mode',
     'Toggle read-only mode': 'Toggle read-only mode',
     'Enable read-only mode': 'Enable read-only mode',
-    'Disable read-only mode': 'Disable read-only mode'
+  'Disable read-only mode': 'Disable read-only mode',
+
+  // Share via URL
+  'Link copied to clipboard!': 'Link copied to clipboard!',
+  'Scene too large for URL sharing': "Scene is too large to be shared via URL. Imported images significantly increase size. Try removing them or exporting as JSON.",
+  'Error creating link': "An error occurred while creating the link."
 } as const;
 
 export type TranslationKey = keyof typeof enTranslations;
