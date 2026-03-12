@@ -1,6 +1,6 @@
 import React from 'react';
-import { Menu, MenuItem } from '@mui/material';
-import { Coords } from 'src/types';
+import {Menu, MenuItem} from '@mui/material';
+import {Coords} from 'src/types';
 
 interface MenuItemI {
   label: string;
@@ -23,8 +23,8 @@ export const ContextMenu = ({
   return (
     <Menu
       open
-      anchorEl={anchorEl}
-      style={{
+      anchorReference="anchorPosition"
+      anchorPosition={{
         left: position.x,
         top: position.y
       }}

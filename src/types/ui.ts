@@ -137,6 +137,7 @@ export const DialogTypeEnum = {
 export interface ContextMenu {
   item?: ItemReference;
   tile: Coords;
+    position: Coords;
 }
 
 export const LayerOrderingActionOptions = {

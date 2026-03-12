@@ -1,10 +1,10 @@
-import React, { useCallback } from 'react';
-import { useUiStateStore } from 'src/stores/uiStateStore';
-import { CoordsUtils, generateId, getTilePosition } from 'src/utils';
-import { useScene } from 'src/hooks/useScene';
-import { useTranslation } from 'src/hooks/useTranslation';
-import { TEXTBOX_DEFAULTS } from 'src/config';
-import { ContextMenu } from './ContextMenu';
+import React, {useCallback} from 'react';
+import {useUiStateStore} from 'src/stores/uiStateStore';
+import {CoordsUtils, generateId} from 'src/utils';
+import {useScene} from 'src/hooks/useScene';
+import {useTranslation} from 'src/hooks/useTranslation';
+import {TEXTBOX_DEFAULTS} from 'src/config';
+import {ContextMenu} from './ContextMenu';
 
 interface Props {
   anchorEl?: HTMLElement;
@@ -184,10 +184,7 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
     <ContextMenu
       anchorEl={anchorEl}
       onClose={onClose}
-      position={CoordsUtils.add(
-        CoordsUtils.multiply(getTilePosition({ tile: contextMenu.tile }), zoom),
-        scroll.position
-      )}
+      position={contextMenu.position}
       menuItems={menuItems}
     />
   );

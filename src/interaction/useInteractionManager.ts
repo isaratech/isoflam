@@ -119,12 +119,14 @@ export const useInteractionManager = () => {
       if (itemAtTile?.type === 'RECTANGLE') {
         uiState.actions.setContextMenu({
           item: itemAtTile,
-          tile: uiState.mouse.position.tile
+            tile: uiState.mouse.position.tile,
+            position: {x: e.clientX, y: e.clientY}
         });
       } else {
         // Show context menu for empty space
         uiState.actions.setContextMenu({
-          tile: uiState.mouse.position.tile
+            tile: uiState.mouse.position.tile,
+            position: {x: e.clientX, y: e.clientY}
         });
       }
     },
