@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const webpack = require('webpack');
+const imageMinimizer = require('./imageMinimizer');
 const {InjectManifest} = require('workbox-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -71,6 +72,10 @@ module.exports = {
           mode: 'production'
     })
   ],
+  optimization: {
+    // '...' keeps webpack's default JS minimizer
+    minimizer: ['...', imageMinimizer]
+  },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     plugins: [new TsconfigPathsPlugin()]

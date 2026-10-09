@@ -1,6 +1,7 @@
 const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const webpack = require('webpack');
+const imageMinimizer = require('./imageMinimizer');
 
 module.exports = {
   mode: 'production',
@@ -55,6 +56,10 @@ module.exports = {
       REPOSITORY_URL: JSON.stringify(require("../package.json").repository.url),
     })
   ],
+  optimization: {
+    // '...' keeps webpack's default JS minimizer
+    minimizer: ['...', imageMinimizer]
+  },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     plugins: [new TsconfigPathsPlugin()]
