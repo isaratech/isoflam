@@ -7,7 +7,8 @@ import {
   ImageOutlined as ImageIcon,
   NearMeOutlined as NearMeIcon,
   PanToolOutlined as PanToolIcon,
-  Title as TitleIcon
+  Title as TitleIcon,
+  ViewInArOutlined as VolumeIcon
 } from '@mui/icons-material';
 import { useUiStateStore, useUiStateStoreApi } from 'src/stores/uiStateStore';
 import { IconButton } from 'src/components/IconButton/IconButton';
@@ -159,7 +160,20 @@ export const ToolMenu = () => {
               id: null
             });
           }}
-          isActive={mode.type === 'RECTANGLE.DRAW'}
+          isActive={mode.type === 'RECTANGLE.DRAW' && !mode.volume}
+        />
+        <IconButton
+          name={t('Volume')}
+          Icon={<VolumeIcon />}
+          onClick={() => {
+            uiStateStoreActions.setMode({
+              type: 'RECTANGLE.DRAW',
+              showCursor: true,
+              id: null,
+              volume: true
+            });
+          }}
+          isActive={mode.type === 'RECTANGLE.DRAW' && Boolean(mode.volume)}
         />
         <IconButton
           name={t('Connector')}

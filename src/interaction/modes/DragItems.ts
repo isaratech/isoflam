@@ -6,7 +6,7 @@ import {
   CoordsUtils,
   hasMovedTile,
   getAnchorParent,
-  getConnectorTileOffset,
+  getElevationTileOffset,
   getItemAtTile
 } from 'src/utils';
 
@@ -67,7 +67,7 @@ const dragItems = (
                 // Keep the end of a raised connector under the cursor
                 tile: CoordsUtils.subtract(
                   tile,
-                  getConnectorTileOffset(connector.height)
+                  getElevationTileOffset(connector.height)
                 )
               }
             };

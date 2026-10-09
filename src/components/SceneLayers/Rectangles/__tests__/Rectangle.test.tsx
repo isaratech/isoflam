@@ -35,6 +35,16 @@ jest.mock('src/components/IsoTileArea/IsoTileArea', () => {
   };
 });
 
+jest.mock('../Volume', () => {
+  return {
+    Volume: ({ height, roof }: any) => {
+      return (
+        <div data-testid="volume" data-height={height} data-roof={`${roof}`} />
+      );
+    }
+  };
+});
+
 describe('Rectangle', () => {
   const defaultProps = {
     id: 'test-rectangle',
@@ -48,8 +58,21 @@ describe('Rectangle', () => {
     imageName: undefined,
     mirrorHorizontal: false,
     mirrorVertical: false,
-    rotationAngle: 0
+    rotationAngle: 0,
+    height: 0,
+    roof: true
   };
+
+  it('renders a volume instead of a flat area when it has a height', () => {
+    const { getByTestId, queryByTestId } = render(
+      <Rectangle {...defaultProps} height={2} roof={false} />
+    );
+
+    const volume = getByTestId('volume');
+    expect(volume.getAttribute('data-height')).toBe('2');
+    expect(volume.getAttribute('data-roof')).toBe('false');
+    expect(queryByTestId('iso-tile-area')).toBeNull();
+  });
 
   it('renders without stroke when style is NONE', () => {
     const { getByTestId } = render(

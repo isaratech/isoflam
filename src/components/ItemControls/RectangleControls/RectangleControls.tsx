@@ -63,6 +63,38 @@ export const RectangleControls = ({ id }: Props) => {
         </Section>
       )}
 
+      {/* Volume controls - not for images */}
+      {!rectangle.imageData && (
+        <Section title={t('Height')}>
+          <Slider
+            marks
+            step={1}
+            min={0}
+            max={20}
+            valueLabelDisplay="auto"
+            value={rectangle.height}
+            onChange={(e, newHeight) => {
+              updateRectangle(rectangle.id, { height: newHeight as number });
+            }}
+          />
+        </Section>
+      )}
+      {!rectangle.imageData && rectangle.height > 0 && (
+        <Section title={t('Roof')}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={rectangle.roof}
+                onChange={(e) => {
+                  updateRectangle(rectangle.id, { roof: e.target.checked });
+                }}
+              />
+            }
+            label={t('Closed volume')}
+          />
+        </Section>
+      )}
+
       {/* Quick rotation controls (90°) - only for images */}
       {rectangle.imageData && (
         <Section title={t('Rotation')}>
@@ -134,17 +166,20 @@ export const RectangleControls = ({ id }: Props) => {
             />
           </Section>
         )}
-        <Section title={t('Radius')}>
-          <Slider
-            marks
-            step={20}
-            min={0}
-            value={rectangle.radius}
-            onChange={(e, newRadius) => {
-              updateRectangle(rectangle.id, { radius: newRadius as number });
-            }}
-          />
-        </Section>
+        {/* Volumes have sharp corners */}
+        {!(rectangle.height > 0 && !rectangle.imageData) && (
+          <Section title={t('Radius')}>
+            <Slider
+              marks
+              step={20}
+              min={0}
+              value={rectangle.radius}
+              onChange={(e, newRadius) => {
+                updateRectangle(rectangle.id, { radius: newRadius as number });
+              }}
+            />
+          </Section>
+        )}
 
         {/* Layer controls */}
         <Section title={t('Layer')}>

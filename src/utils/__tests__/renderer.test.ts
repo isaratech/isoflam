@@ -2,10 +2,12 @@ import { Coords, Size, Scroll } from 'src/types';
 import { CoordsUtils, SizeUtils } from 'src/utils';
 import { PROJECTED_TILE_SIZE } from 'src/config';
 import {
-  getConnectorElevation,
-  getConnectorTileOffset,
+  getElevation,
+  getElevationTileOffset,
   getGridSubset,
   getTilePosition,
+  getVolumeFaces,
+  isWithinVolume,
   isWithinBounds,
   screenToIso
 } from '../renderer';
@@ -134,22 +136,62 @@ describe('Tests renderer utils', () => {
 });
 
 describe('Connector height', () => {
-  test('getConnectorElevation() is zero on the ground and one tile per height unit', () => {
-    expect(getConnectorElevation()).toBe(0);
-    expect(getConnectorElevation(0)).toBe(0);
-    expect(getConnectorElevation(2)).toBe(PROJECTED_TILE_SIZE.height * 2);
+  test('getElevation() is zero on the ground and one tile per height unit', () => {
+    expect(getElevation()).toBe(0);
+    expect(getElevation(0)).toBe(0);
+    expect(getElevation(2)).toBe(PROJECTED_TILE_SIZE.height * 2);
   });
 
   test('a raised connector is drawn over the ground tile shifted by its height', () => {
     const groundTile = { x: 3, y: -1 };
-    const shifted = CoordsUtils.add(groundTile, getConnectorTileOffset(2));
+    const shifted = CoordsUtils.add(groundTile, getElevationTileOffset(2));
 
     // Same horizontal screen position, two tile heights higher
     expect(getTilePosition({ tile: shifted }).x).toBeCloseTo(
       getTilePosition({ tile: groundTile }).x
     );
     expect(getTilePosition({ tile: shifted }).y).toBeCloseTo(
-      getTilePosition({ tile: groundTile }).y - getConnectorElevation(2)
+      getTilePosition({ tile: groundTile }).y - getElevation(2)
     );
+  });
+});
+
+describe('Volumes', () => {
+  const from = { x: 0, y: 0 };
+  const to = { x: 2, y: 1 };
+
+  test('a closed volume has a floor, two front walls and a roof raised by its height', () => {
+    const faces = getVolumeFaces({ from, to, height: 3, roof: true });
+
+    expect(
+      faces.map((face) => {
+        return face.side;
+      })
+    ).toEqual(['FLOOR', 'LEFT', 'RIGHT', 'ROOF']);
+
+    const [floor, , , roof] = faces;
+    roof.points.forEach((point, index) => {
+      expect(point.x).toBeCloseTo(floor.points[index].x);
+      expect(point.y).toBeCloseTo(floor.points[index].y - getElevation(3));
+    });
+  });
+
+  test('an open volume only has the floor and the two back walls', () => {
+    const faces = getVolumeFaces({ from, to, height: 1, roof: false });
+    const floorTop = faces[0].points[2];
+
+    expect(faces).toHaveLength(3);
+    // Both walls rise from the back (top) corner of the floor
+    expect(faces[1].points).toContainEqual(floorTop);
+    expect(faces[2].points).toContainEqual(floorTop);
+  });
+
+  test('isWithinVolume() covers the footprint and the raised walls', () => {
+    const volume = { from, to, height: 2 };
+
+    expect(isWithinVolume({ x: 1, y: 1 }, volume)).toBe(true);
+    expect(isWithinVolume({ x: 4, y: 3 }, volume)).toBe(true);
+    expect(isWithinVolume({ x: 5, y: 4 }, volume)).toBe(false);
+    expect(isWithinVolume({ x: 4, y: 3 }, { from, to })).toBe(false);
   });
 });

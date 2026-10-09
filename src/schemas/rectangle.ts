@@ -16,5 +16,7 @@ export const rectangleSchema = z.object({
   mirrorHorizontal: z.boolean().optional(), // Horizontal mirroring for images
   mirrorVertical: z.boolean().optional(), // Vertical mirroring for images
   rotationAngle: z.number().optional(), // Rotation angle in degrees (0, 90, 180, 270)
-  isometric: z.boolean().optional() // Whether to use isometric projection for images (default: true)
+  isometric: z.boolean().optional(), // Whether to use isometric projection for images (default: true)
+  height: z.number().int().min(0).max(20).optional(), // Extrusion in tiles; > 0 makes the rectangle a volume
+  roof: z.boolean().optional() // Volume only: closed box if true, otherwise only the two back walls
 });
