@@ -152,7 +152,29 @@ export const frTranslations = {
 
     // Misc
     "Unable to load the scene from the URL. The link may be corrupted.": "Impossible de charger la scène depuis l'URL. Le lien est peut-être corrompu.",
-    "No icons found": "Aucune icône trouvée"
+    "No icons found": "Aucune icône trouvée",
+
+    // Files, drag & drop and images
+    "Your unsaved changes will be lost. Continue?": "Vos modifications non enregistrées seront perdues. Continuer ?",
+    "The JSON file is large ({size} MB). Loading it may take time and affect performance. Continue?": "Le fichier JSON est volumineux ({size} Mo). Le chargement pourrait prendre du temps et affecter les performances. Voulez-vous continuer ?",
+    "The file does not contain valid data.": "Le fichier JSON ne contient pas de données valides.",
+    "The file does not look like an Isoflam file.": "Le fichier JSON ne semble pas être un fichier Isoflam valide.",
+    "Error while loading the JSON file.": "Erreur lors du chargement du fichier JSON.",
+    "The file contains invalid JSON.": "Le fichier contient du JSON invalide. Vérifiez la syntaxe du fichier.",
+    "Error while reading the file. It may be corrupted.": "Erreur lors de la lecture du fichier. Le fichier pourrait être corrompu.",
+    "The drawing contains errors:": "Le dessin contient des erreurs :",
+    "Please drop a single JSON file at a time.": "Veuillez déposer un seul fichier JSON à la fois.",
+    "Please drop a single image at a time.": "Veuillez déposer une seule image à la fois.",
+    "Please drop a JSON file or a valid image.": "Veuillez déposer un fichier JSON ou une image valide.",
+    "Loading...": "Chargement en cours...",
+    "Please wait while the file is loading.": "Veuillez patienter pendant le chargement du fichier.",
+    "Drop a JSON file or an image here": "Déposer un fichier JSON ou une image ici",
+    "Release to open the drawing or add the image to it.": "Relâchez pour charger le modèle ou ajouter l'image dans l'application.",
+    "Developed with ❤️ by": "Développé avec ❤️ par",
+    "Please select a valid image file.": "Veuillez sélectionner un fichier image valide.",
+    "Error while processing the image.": "Erreur lors du traitement de l'image.",
+    "Error while reading the image file.": "Erreur lors de la lecture du fichier image.",
+    "Copy the link below:": "Copiez le lien ci-dessous :"
 } as const;
 
 export type TranslationKey = keyof typeof frTranslations;

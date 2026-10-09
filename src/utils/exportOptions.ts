@@ -57,7 +57,8 @@ export const exportAsImage = async (el: HTMLDivElement, size?: Size) => {
   return imageData;
 };
 
-export const copyToClipboard = (text: string) => {
+// promptMessage is shown with the text when it can't be copied automatically
+export const copyToClipboard = (text: string, promptMessage: string) => {
     if (navigator.clipboard && window.isSecureContext) {
         return navigator.clipboard.writeText(text);
     } else {
@@ -78,12 +79,12 @@ export const copyToClipboard = (text: string) => {
                     resolve();
                 } else {
                     // If execCommand fails (e.g. because of async context), fallback to prompt
-                    window.prompt("Copiez le lien ci-dessous :", text);
+                    window.prompt(promptMessage, text);
                     resolve();
                 }
             } catch (err) {
                 document.body.removeChild(textArea);
-                window.prompt("Copiez le lien ci-dessous :", text);
+                window.prompt(promptMessage, text);
                 resolve();
             }
         });

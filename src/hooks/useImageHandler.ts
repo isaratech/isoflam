@@ -2,6 +2,7 @@ import {useCallback} from 'react';
 import {useScene} from 'src/hooks/useScene';
 import {useUiStateStore} from 'src/stores/uiStateStore';
 import {Coords} from 'src/types/common';
+import {useTranslation} from 'src/hooks/useTranslation';
 
 export interface ImageRectangleOptions {
     position?: Coords;
@@ -18,6 +19,7 @@ export interface ImageHandlerCallbacks {
 export const useImageHandler = () => {
     const scene = useScene();
     const uiStateActions = useUiStateStore((state) => state.actions);
+    const {t} = useTranslation();
 
     const createImageRectangle = useCallback((
         imageData: string,
@@ -43,12 +45,12 @@ export const useImageHandler = () => {
 
         scene.createRectangle(newRectangle);
 
-        // Switch to rectangle transform mode to allow immediate editing
+        // Back to the select tool: the image stays selected, with its resize handles. (The
+        // transform mode without a selected anchor swallowed the next click.)
         uiStateActions.setMode({
-            type: 'RECTANGLE.TRANSFORM',
-            id: newRectangle.id,
-            showCursor: false,
-            selectedAnchor: null
+            type: 'CURSOR',
+            showCursor: true,
+            mousedownItem: null
         });
 
         uiStateActions.setItemControls({
@@ -68,7 +70,7 @@ export const useImageHandler = () => {
 
         // Validate file type
         if (!file.type.startsWith('image/')) {
-            const errorMessage = 'Veuillez sélectionner un fichier image valide.';
+            const errorMessage = t('Please select a valid image file.');
             onError?.(errorMessage);
             alert(errorMessage);
             return;
@@ -85,7 +87,7 @@ export const useImageHandler = () => {
                     createImageRectangle(imageData, file.name, options);
                 } catch (error) {
                     console.error('Error processing image:', error);
-                    const errorMessage = 'Erreur lors du traitement de l\'image.';
+                    const errorMessage = t('Error while processing the image.');
                     onError?.(errorMessage);
                     alert(errorMessage);
                 } finally {
@@ -94,7 +96,7 @@ export const useImageHandler = () => {
             };
 
             fileReader.onerror = () => {
-                const errorMessage = 'Erreur lors de la lecture du fichier image.';
+                const errorMessage = t('Error while reading the image file.');
                 onError?.(errorMessage);
                 alert(errorMessage);
                 onLoadingEnd?.();
@@ -103,12 +105,12 @@ export const useImageHandler = () => {
             fileReader.readAsDataURL(file);
         } catch (error) {
             console.error('Error reading image file:', error);
-            const errorMessage = 'Erreur lors de la lecture du fichier image.';
+            const errorMessage = t('Error while reading the image file.');
             onError?.(errorMessage);
             alert(errorMessage);
             onLoadingEnd?.();
         }
-    }, [createImageRectangle]);
+    }, [createImageRectangle, t]);
 
     return {
         handleImageFile,

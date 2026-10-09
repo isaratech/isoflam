@@ -7,6 +7,7 @@ import {useModelStore} from 'src/stores/modelStore';
 import {useView} from 'src/hooks/useView';
 import {useUiStateStore} from 'src/stores/uiStateStore';
 import {modelSchema} from 'src/schemas/model';
+import {useTranslation} from 'src/hooks/useTranslation';
 
 export const useInitialDataManager = () => {
   const [isReady, setIsReady] = useState(false);
@@ -21,10 +22,12 @@ export const useInitialDataManager = () => {
     return state.rendererEl;
   });
   const { changeView } = useView();
+  const { t } = useTranslation();
 
   const load = useCallback(
-    (_initialData: InitialData) => {
-      if (!_initialData || prevInitialData.current === _initialData) return;
+    // Returns true if the data was loaded
+    (_initialData: InitialData): boolean => {
+      if (!_initialData || prevInitialData.current === _initialData) return false;
 
       setIsReady(false);
 
@@ -47,14 +50,10 @@ export const useInitialDataManager = () => {
           }
         );
 
-        const detailedErrorMessage = `There ${
-          validationResult.error.errors.length === 1
-            ? 'is an error'
-            : 'are errors'
-        } in your model:\n\n${errorMessages.join('\n\n')}`;
+        const detailedErrorMessage = `${t('The drawing contains errors:')}\n\n${errorMessages.join('\n\n')}`;
 
         window.alert(detailedErrorMessage);
-        return;
+        return false;
       }
 
         // Use the validated data from the schema (now includes default icons and colors)
@@ -115,8 +114,9 @@ export const useInitialDataManager = () => {
       uiStateActions.setIconCategoriesState(categoriesState);
 
       setIsReady(true);
+      return true;
     },
-    [changeView, model.actions, rendererEl, uiStateActions]
+    [changeView, model.actions, rendererEl, uiStateActions, t]
   );
 
   const clear = useCallback(() => {

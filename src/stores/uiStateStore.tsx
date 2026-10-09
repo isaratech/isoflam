@@ -52,7 +52,12 @@ const initialState = () => {
           set({ mainMenuOptions });
         },
         setEditorMode: (mode) => {
-          set({ editorMode: mode, mode: getStartingMode(mode) });
+          set({
+            editorMode: mode,
+            mode: getStartingMode(mode),
+            // Editing panels must not stay open (and usable) in read-only mode
+            ...(mode !== 'EDITABLE' && { itemControls: null })
+          });
         },
         setIconCategoriesState: (iconCategoriesState) => {
           set({ iconCategoriesState });

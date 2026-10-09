@@ -124,8 +124,8 @@ export const RectangleControls = ({ id }: Props) => {
           <Slider
             marks
             step={20}
-            min={-1}
-            value={rectangle.radius || 20}
+            min={0}
+            value={rectangle.radius}
             onChange={(e, newRadius) => {
               updateRectangle(rectangle.id, { radius: newRadius as number });
             }}
