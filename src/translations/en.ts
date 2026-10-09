@@ -87,6 +87,7 @@ export const enTranslations = {
   Width: 'Width',
   Radius: 'Radius',
   Style: 'Style',
+  Height: 'Height',
   Triangle: 'Triangle',
   'Show triangle': 'Show triangle',
   Layer: 'Layer',

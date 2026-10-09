@@ -434,6 +434,11 @@ export const connectorPathTileToGlobal = (
   );
 };
 
+// Vertical screen offset (in px) of a connector raised `height` tiles above the ground.
+export const getConnectorElevation = (height = 0) => {
+  return height * PROJECTED_TILE_SIZE.height;
+};
+
 export const getTextBoxEndTile = (textBox: TextBox, size: Size) => {
   if (textBox.orientation === ProjectionOrientationEnum.X) {
     return CoordsUtils.add(textBox.tile, {

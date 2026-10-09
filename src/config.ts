@@ -175,7 +175,8 @@ export const DEFAULTS_CONNECTOR: Required<Omit<Connector, 'id' | 'color'>> = {
   description: '',
   anchors: [],
   style: 'SOLID',
-  showTriangle: true
+  showTriangle: true,
+  height: 0
 };
 
 /**
