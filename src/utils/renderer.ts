@@ -518,8 +518,11 @@ export const getVolumeFaces = ({
 // (the slice raised k tiles is drawn over the footprint shifted by (k, k)).
 export const isWithinVolume = (
   tile: Coords,
-  { from, to, height = 0 }: { from: Coords; to: Coords; height?: number }
+  rectangle: Parameters<typeof isVolume>[0] & { from: Coords; to: Coords }
 ) => {
+  const { from, to } = rectangle;
+  const height = isVolume(rectangle) ? rectangle.height ?? 0 : 0;
+
   // An open volume covers the same screen area: what the roof and front walls would hide
   // is the floor and the back walls
   for (let k = 0; k <= height; k += 1) {
@@ -628,6 +631,13 @@ export const getItemsAtTile = ({
   const rectangles = scene.rectangles.filter((rectangle) => {
     return isWithinVolume(tile, rectangle);
   });
+  // Volumes are drawn above flat rectangles, so they are hit first
+  const sortedRectangles = [
+    ...rectangles.filter(isVolume),
+    ...rectangles.filter((rectangle) => {
+      return !isVolume(rectangle);
+    })
+  ];
 
   return [
     ...[...exactViewItems, ...scaledViewItems].map((item): ItemReference => {
@@ -639,7 +649,7 @@ export const getItemsAtTile = ({
     ...connectors.map((connector): ItemReference => {
       return { type: 'CONNECTOR', id: connector.id };
     }),
-    ...rectangles.map((rectangle): ItemReference => {
+    ...sortedRectangles.map((rectangle): ItemReference => {
       return { type: 'RECTANGLE', id: rectangle.id };
     })
   ];
@@ -829,7 +839,9 @@ export const getProjectBounds = (
 
   const rectangles = view.rectangles ?? [];
   const rectangleTiles = rectangles.reduce<Coords[]>((acc, rectangle) => {
-    const offset = getElevationTileOffset(rectangle.height);
+    const offset = getElevationTileOffset(
+      isVolume(rectangle) ? rectangle.height : 0
+    );
 
     return [
       ...acc,

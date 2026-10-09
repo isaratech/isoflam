@@ -66,3 +66,43 @@ describe('getItemsAtTile with a raised connector', () => {
     ).toBeNull();
   });
 });
+
+describe('getItemsAtTile with volumes', () => {
+  const volumeScene = {
+    items: [],
+    textBoxes: [],
+    connectors: [],
+    rectangles: [
+      { id: 'flat', from: { x: 0, y: 0 }, to: { x: 3, y: 3 } },
+      { id: 'volume', from: { x: 1, y: 1 }, to: { x: 2, y: 2 }, height: 2 },
+      {
+        id: 'road',
+        from: { x: 10, y: 10 },
+        to: { x: 12, y: 10 },
+        height: 2,
+        texture: 'ROAD'
+      }
+    ]
+  } as any;
+
+  it('picks a volume before the flat rectangle it stands on', () => {
+    expect(
+      getItemsAtTile({ tile: { x: 1, y: 1 }, scene: volumeScene })
+    ).toEqual([
+      { type: 'RECTANGLE', id: 'volume' },
+      { type: 'RECTANGLE', id: 'flat' }
+    ]);
+  });
+
+  it('hits a volume on its raised part', () => {
+    expect(getItemAtTile({ tile: { x: 4, y: 4 }, scene: volumeScene })).toEqual(
+      { type: 'RECTANGLE', id: 'volume' }
+    );
+  });
+
+  it('ignores the height of a textured rectangle, which is drawn flat', () => {
+    expect(
+      getItemAtTile({ tile: { x: 14, y: 12 }, scene: volumeScene })
+    ).toBeNull();
+  });
+});

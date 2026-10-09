@@ -169,8 +169,8 @@ export const RectangleControls = ({ id }: Props) => {
             />
           </Section>
         )}
-        {/* Volumes have sharp corners */}
-        {!isVolume(rectangle) && (
+        {/* Volumes and roads have sharp corners */}
+        {!isVolume(rectangle) && !rectangle.texture && (
           <Section title={t('Radius')}>
             <Slider
               marks

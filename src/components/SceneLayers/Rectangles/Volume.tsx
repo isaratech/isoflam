@@ -17,13 +17,24 @@ interface Props {
   };
 }
 
-// Shade each face like a light coming from the top left; plain darkening keeps greys grey
+// Plain darkening keeps greys grey; very dark colours are lightened instead so faces stay distinct
+const shade = (color: string, amount: number) => {
+  const chromaColor = chroma(color);
+
+  return (
+    chromaColor.luminance() < 0.1
+      ? chromaColor.brighten(amount)
+      : chromaColor.darken(amount)
+  ).css();
+};
+
+// Shade each face like a light coming from the top left
 const getFaceFill = (color: string, side: VolumeFace['side']) => {
   switch (side) {
     case 'LEFT':
-      return chroma(color).darken(0.4).css();
+      return shade(color, 0.4);
     case 'RIGHT':
-      return chroma(color).darken(0.8).css();
+      return shade(color, 0.8);
     case 'ROOF':
       return chroma(color).brighten(0.3).css();
     case 'FLOOR':
@@ -61,7 +72,7 @@ export const Volume = ({ from, to, height, roof, color, stroke }: Props) => {
     if (!stroke || stroke.style === 'NONE') {
       // Keep the edges readable when the faces share a similar color
       return {
-        stroke: chroma(color).darken(1.2).css(),
+        stroke: shade(color, 1.2),
         strokeWidth: 1
       };
     }
