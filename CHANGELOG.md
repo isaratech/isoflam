@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Right-click menu: create a volume, a wall or a road
+
 ### Fixed
 
 - Walls with several diagonal sections: walls now have a thickness (the connector width, 0.2 tile by default), with mitred corners and a visible top, so a section along the screen-vertical diagonal no longer vanishes into a line

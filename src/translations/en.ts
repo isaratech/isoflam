@@ -116,6 +116,9 @@ export const enTranslations = {
   'Create new icon': 'Create new icon',
   'Create new text': 'Create new text',
   'Create new rectangle': 'Create new rectangle',
+  'Create new volume': 'Create new volume',
+  'Create new wall': 'Create new wall',
+  'Create new road': 'Create new road',
   'Create new link': 'Create new link',
   'Add image': 'Add image',
 

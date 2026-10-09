@@ -5,6 +5,7 @@ import { useScene } from 'src/hooks/useScene';
 import { useTranslation } from 'src/hooks/useTranslation';
 import { TEXTBOX_DEFAULTS } from 'src/config';
 import { useImageHandler } from 'src/hooks/useImageHandler';
+import { ConnectorMode, DrawRectangleMode } from 'src/types';
 import { ContextMenu } from './ContextMenu';
 
 export const ContextMenuManager = () => {
@@ -51,23 +52,14 @@ export const ContextMenuManager = () => {
     onClose();
   }, [uiStateActions, scene, contextMenu, onClose]);
 
-  const createNewRectangle = useCallback(() => {
-    uiStateActions.setMode({
-      type: 'RECTANGLE.DRAW',
-      showCursor: true,
-      id: null
-    });
-    onClose();
-  }, [uiStateActions, onClose]);
-
-  const createNewConnector = useCallback(() => {
-    uiStateActions.setMode({
-      type: 'CONNECTOR',
-      id: null,
-      showCursor: true
-    });
-    onClose();
-  }, [uiStateActions, onClose]);
+  // The drawing tools: the next drag on the canvas draws the shape
+  const startDrawing = useCallback(
+    (mode: DrawRectangleMode | ConnectorMode) => {
+      uiStateActions.setMode(mode);
+      onClose();
+    },
+    [uiStateActions, onClose]
+  );
 
   const createNewImage = useCallback(() => {
     // Same import path as the toolbar and drag & drop (validation, size limit, selection).
@@ -141,11 +133,52 @@ export const ContextMenuManager = () => {
         },
         {
           label: t('Create new rectangle'),
-          onClick: createNewRectangle
+          onClick: () => {
+            startDrawing({
+              type: 'RECTANGLE.DRAW',
+              showCursor: true,
+              id: null
+            });
+          }
+        },
+        {
+          label: t('Create new volume'),
+          onClick: () => {
+            startDrawing({
+              type: 'RECTANGLE.DRAW',
+              showCursor: true,
+              id: null,
+              preset: 'VOLUME'
+            });
+          }
+        },
+        {
+          label: t('Create new wall'),
+          onClick: () => {
+            startDrawing({
+              type: 'CONNECTOR',
+              showCursor: true,
+              id: null,
+              preset: 'WALL'
+            });
+          }
+        },
+        {
+          label: t('Create new road'),
+          onClick: () => {
+            startDrawing({
+              type: 'CONNECTOR',
+              showCursor: true,
+              id: null,
+              preset: 'ROAD'
+            });
+          }
         },
         {
           label: t('Create new link'),
-          onClick: createNewConnector
+          onClick: () => {
+            startDrawing({ type: 'CONNECTOR', showCursor: true, id: null });
+          }
         },
         {
           label: t('Add image'),
