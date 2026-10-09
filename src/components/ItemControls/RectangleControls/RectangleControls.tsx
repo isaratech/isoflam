@@ -23,7 +23,7 @@ import { useRectangle } from 'src/hooks/useRectangle';
 import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { useScene } from 'src/hooks/useScene';
-import { generateId } from 'src/utils';
+import { generateId, isVolume } from 'src/utils';
 import { Rectangle, rectangleStyleOptions } from 'src/types';
 import { useTranslation } from 'src/hooks/useTranslation';
 import { ControlsContainer } from '../components/ControlsContainer';
@@ -49,10 +49,13 @@ export const RectangleControls = ({ id }: Props) => {
     changeLayerOrder
   } = useScene();
 
+  // Images and roads are drawn with their own content instead of a plain colour
+  const hasPlainFill = !rectangle.imageData && !rectangle.texture;
+
   return (
     <ControlsContainer>
       {/* Basic controls */}
-      {!rectangle.imageData && (
+      {hasPlainFill && (
         <Section>
           <ColorSelector
             onChange={(color) => {
@@ -63,8 +66,8 @@ export const RectangleControls = ({ id }: Props) => {
         </Section>
       )}
 
-      {/* Volume controls - not for images */}
-      {!rectangle.imageData && (
+      {/* Volume controls - not for images and roads */}
+      {hasPlainFill && (
         <Section title={t('Height')}>
           <Slider
             marks
@@ -79,7 +82,7 @@ export const RectangleControls = ({ id }: Props) => {
           />
         </Section>
       )}
-      {!rectangle.imageData && rectangle.height > 0 && (
+      {isVolume(rectangle) && (
         <Section title={t('Roof')}>
           <FormControlLabel
             control={
@@ -166,8 +169,8 @@ export const RectangleControls = ({ id }: Props) => {
             />
           </Section>
         )}
-        {/* Volumes have sharp corners */}
-        {!(rectangle.height > 0 && !rectangle.imageData) && (
+        {/* Volumes and roads have sharp corners */}
+        {!isVolume(rectangle) && !rectangle.texture && (
           <Section title={t('Radius')}>
             <Slider
               marks

@@ -70,8 +70,8 @@ export interface DrawRectangleMode {
   type: 'RECTANGLE.DRAW';
   showCursor: boolean;
   id: string | null;
-  // Draw a volume (extruded rectangle) instead of a flat rectangle
-  volume?: boolean;
+  // Draw a preset instead of a plain flat rectangle
+  preset?: 'VOLUME' | 'WALL' | 'ROAD';
 }
 
 export const AnchorPositionOptions = {

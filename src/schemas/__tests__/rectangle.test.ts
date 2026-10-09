@@ -18,4 +18,13 @@ describe('rectangleSchema', () => {
       );
     });
   });
+
+  test('accepts the road texture and rejects unknown ones', () => {
+    expect(
+      rectangleSchema.safeParse({ ...rectangle, texture: 'ROAD' }).success
+    ).toBe(true);
+    expect(
+      rectangleSchema.safeParse({ ...rectangle, texture: 'GRASS' }).success
+    ).toBe(false);
+  });
 });

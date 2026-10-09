@@ -7,6 +7,8 @@ import {
   ImageOutlined as ImageIcon,
   NearMeOutlined as NearMeIcon,
   PanToolOutlined as PanToolIcon,
+  AddRoadOutlined as RoadIcon,
+  FenceOutlined as WallIcon,
   Title as TitleIcon,
   ViewInArOutlined as VolumeIcon
 } from '@mui/icons-material';
@@ -19,6 +21,19 @@ import { generateId } from 'src/utils';
 import { useTranslation } from 'src/hooks/useTranslation';
 import { useImageHandler } from 'src/hooks/useImageHandler';
 import { Coords } from 'src/types/common';
+import { DrawRectangleMode } from 'src/types';
+
+// Tools drawing a rectangle, or a preset built on it, by dragging over the grid
+const drawRectangleTools: {
+  name: 'Rectangle' | 'Volume' | 'Wall' | 'Road';
+  icon: React.ReactNode;
+  preset?: DrawRectangleMode['preset'];
+}[] = [
+  { name: 'Rectangle', icon: <CropSquareIcon /> },
+  { name: 'Volume', icon: <VolumeIcon />, preset: 'VOLUME' },
+  { name: 'Wall', icon: <WallIcon />, preset: 'WALL' },
+  { name: 'Road', icon: <RoadIcon />, preset: 'ROAD' }
+];
 
 export const ToolMenu = () => {
   const { t } = useTranslation();
@@ -150,31 +165,26 @@ export const ToolMenu = () => {
           }}
           isActive={mode.type === 'PLACE_ICON'}
         />
-        <IconButton
-          name={t('Rectangle')}
-          Icon={<CropSquareIcon />}
-          onClick={() => {
-            uiStateStoreActions.setMode({
-              type: 'RECTANGLE.DRAW',
-              showCursor: true,
-              id: null
-            });
-          }}
-          isActive={mode.type === 'RECTANGLE.DRAW' && !mode.volume}
-        />
-        <IconButton
-          name={t('Volume')}
-          Icon={<VolumeIcon />}
-          onClick={() => {
-            uiStateStoreActions.setMode({
-              type: 'RECTANGLE.DRAW',
-              showCursor: true,
-              id: null,
-              volume: true
-            });
-          }}
-          isActive={mode.type === 'RECTANGLE.DRAW' && Boolean(mode.volume)}
-        />
+        {drawRectangleTools.map(({ name, icon, preset }) => {
+          return (
+            <IconButton
+              key={name}
+              name={t(name)}
+              Icon={icon}
+              onClick={() => {
+                uiStateStoreActions.setMode({
+                  type: 'RECTANGLE.DRAW',
+                  showCursor: true,
+                  id: null,
+                  preset
+                });
+              }}
+              isActive={
+                mode.type === 'RECTANGLE.DRAW' && mode.preset === preset
+              }
+            />
+          );
+        })}
         <IconButton
           name={t('Connector')}
           Icon={<ConnectorIcon />}

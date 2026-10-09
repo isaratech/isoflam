@@ -21,7 +21,10 @@ interface Props {
   mirrorVertical?: boolean; // Vertical mirroring for images
   rotationAngle?: number; // Rotation angle in degrees (0, 90, 180, 270)
   isometric?: boolean; // Whether to use isometric projection (default: true)
+  texture?: 'ROAD'; // Drawn pattern replacing the fill
 }
+
+const ROAD_COLORS = { asphalt: '#5f6368', marking: '#ffffff' };
 
 export const IsoTileArea = ({
   from,
@@ -33,7 +36,8 @@ export const IsoTileArea = ({
   mirrorHorizontal = false,
   mirrorVertical = false,
   rotationAngle = 0,
-  isometric = true
+  isometric = true,
+  texture
 }: Props) => {
   const isoProjection = useIsoProjection({
     from,
@@ -115,8 +119,32 @@ export const IsoTileArea = ({
     if (imageData && patternId) {
       return `url(#${patternId})`;
     }
+    if (texture === 'ROAD') {
+      return ROAD_COLORS.asphalt;
+    }
     return fill;
-  }, [imageData, patternId, fill]);
+  }, [imageData, patternId, fill, texture]);
+
+  // Dashed centre line of a road, along its longest side
+  const roadMarking = useMemo(() => {
+    if (texture !== 'ROAD') return null;
+
+    const isAlongX = pxSize.width >= pxSize.height;
+
+    return isAlongX
+      ? {
+          x1: 0,
+          y1: pxSize.height / 2,
+          x2: pxSize.width,
+          y2: pxSize.height / 2
+        }
+      : {
+          x1: pxSize.width / 2,
+          y1: 0,
+          x2: pxSize.width / 2,
+          y2: pxSize.height
+        };
+  }, [texture, pxSize.width, pxSize.height]);
 
   // Calculate transform for rotation and mirroring
   const imageTransform = useMemo(() => {
@@ -186,6 +214,16 @@ export const IsoTileArea = ({
         rx={cornerRadius}
         {...strokeParams}
       />
+      {roadMarking && (
+        <line
+          {...roadMarking}
+          stroke={ROAD_COLORS.marking}
+          strokeWidth={UNPROJECTED_TILE_SIZE * 0.06}
+          strokeDasharray={`${UNPROJECTED_TILE_SIZE * 0.4}, ${
+            UNPROJECTED_TILE_SIZE * 0.3
+          }`}
+        />
+      )}
     </Svg>
   );
 };

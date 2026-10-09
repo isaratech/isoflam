@@ -14,6 +14,7 @@ import { SceneLayer } from 'src/components/SceneLayer/SceneLayer';
 import { TransformControlsManager } from 'src/components/TransformControlsManager/TransformControlsManager';
 import { useScene } from 'src/hooks/useScene';
 import { RendererProps } from 'src/types/rendererProps';
+import { isVolume } from 'src/utils';
 
 export const Renderer = ({ showGrid, backgroundColor }: RendererProps) => {
   const containerRef = useRef<HTMLDivElement>();
@@ -29,6 +30,14 @@ export const Renderer = ({ showGrid, backgroundColor }: RendererProps) => {
   });
   const { setInteractionsElement } = useInteractionManager();
   const { items, rectangles, connectors, textBoxes } = useScene();
+  const [flatRectangles, volumes] = useMemo(() => {
+    return [
+      rectangles.filter((rectangle) => {
+        return !isVolume(rectangle);
+      }),
+      rectangles.filter(isVolume)
+    ];
+  }, [rectangles]);
 
   useEffect(() => {
     if (!containerRef.current || !interactionsRef.current) return;
@@ -57,7 +66,7 @@ export const Renderer = ({ showGrid, backgroundColor }: RendererProps) => {
       }}
     >
       <SceneLayer>
-        <Rectangles rectangles={rectangles} />
+        <Rectangles rectangles={flatRectangles} />
       </SceneLayer>
       <Box
         sx={{
@@ -70,6 +79,10 @@ export const Renderer = ({ showGrid, backgroundColor }: RendererProps) => {
       >
         {isShowGrid && <Grid />}
       </Box>
+      {/* Volumes stand above the ground grid */}
+      <SceneLayer>
+        <Rectangles rectangles={volumes} />
+      </SceneLayer>
       {mode.showCursor && (
         <SceneLayer>
           <Cursor />

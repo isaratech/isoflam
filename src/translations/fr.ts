@@ -18,6 +18,8 @@ export const frTranslations = {
   'Add item': 'Ajouter un élément',
   Rectangle: 'Rectangle',
   Volume: 'Volume',
+  Wall: 'Mur',
+  Road: 'Route',
   'Import Image': 'Importer une image',
   Connector: 'Connecteur',
   Text: 'Texte',

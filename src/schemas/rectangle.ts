@@ -3,6 +3,8 @@ import { coords, id } from './common';
 
 export const rectangleStyleOptions = ['NONE', 'SOLID', 'DASHED'] as const;
 
+export const rectangleTextureOptions = ['ROAD'] as const;
+
 export const rectangleSchema = z.object({
   id,
   color: id.optional(),
@@ -18,5 +20,6 @@ export const rectangleSchema = z.object({
   rotationAngle: z.number().optional(), // Rotation angle in degrees (0, 90, 180, 270)
   isometric: z.boolean().optional(), // Whether to use isometric projection for images (default: true)
   height: z.number().int().min(0).max(20).optional(), // Extrusion in tiles; > 0 makes the rectangle a volume
-  roof: z.boolean().optional() // Volume only: closed box if true, otherwise only the two back walls
+  roof: z.boolean().optional(), // Volume only: closed box if true, otherwise only the two back walls
+  texture: z.enum(rectangleTextureOptions).optional() // Drawn pattern replacing the plain fill
 });
