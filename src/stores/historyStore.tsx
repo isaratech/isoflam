@@ -21,6 +21,12 @@ interface HistoryStore extends HistoryState {
 
 const MAX_HISTORY_SIZE = 50;
 
+const isSameModel = (a: Model, b: Model) => {
+    return (Object.keys({...a, ...b}) as (keyof Model)[]).every((key) => {
+        return a[key] === b[key];
+    });
+};
+
 const initialState = () => {
     return createStore<HistoryStore>((set, get) => {
         return {
@@ -31,8 +37,10 @@ const initialState = () => {
                 pushState: (state: Model) => {
                     const {past, present} = get();
 
-                    // Don't add if the state is the same as current
-                    if (present && JSON.stringify(present) === JSON.stringify(state)) {
+                    // Don't add if the state is the same as current. Model updates are immutable
+                    // (immer), so comparing references is enough and avoids serialising the
+                    // whole model (icons, embedded images...) on every change.
+                    if (present && isSameModel(present, state)) {
                         return;
                     }
 
