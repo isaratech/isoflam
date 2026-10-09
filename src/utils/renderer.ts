@@ -445,6 +445,7 @@ export const getElevationTileOffset = (height = 0): Coords => {
 };
 
 export interface VolumeFace {
+  // LEFT / RIGHT: the wall's visible side faces the bottom-left / bottom-right of the screen
   side: 'FLOOR' | 'LEFT' | 'RIGHT' | 'ROOF';
   points: Coords[];
 }
@@ -508,6 +509,8 @@ export const isWithinVolume = (
   tile: Coords,
   { from, to, height = 0 }: { from: Coords; to: Coords; height?: number }
 ) => {
+  // An open volume covers the same screen area: what the roof and front walls would hide
+  // is the floor and the back walls
   for (let k = 0; k <= height; k += 1) {
     const groundTile = CoordsUtils.subtract(tile, getElevationTileOffset(k));
     if (isWithinBounds(groundTile, [from, to])) return true;

@@ -166,17 +166,20 @@ export const RectangleControls = ({ id }: Props) => {
             />
           </Section>
         )}
-        <Section title={t('Radius')}>
-          <Slider
-            marks
-            step={20}
-            min={0}
-            value={rectangle.radius}
-            onChange={(e, newRadius) => {
-              updateRectangle(rectangle.id, { radius: newRadius as number });
-            }}
-          />
-        </Section>
+        {/* Volumes have sharp corners */}
+        {!(rectangle.height > 0 && !rectangle.imageData) && (
+          <Section title={t('Radius')}>
+            <Slider
+              marks
+              step={20}
+              min={0}
+              value={rectangle.radius}
+              onChange={(e, newRadius) => {
+                updateRectangle(rectangle.id, { radius: newRadius as number });
+              }}
+            />
+          </Section>
+        )}
 
         {/* Layer controls */}
         <Section title={t('Layer')}>
