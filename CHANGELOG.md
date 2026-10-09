@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Right-click menu: create a volume, a wall or a road
+- Buildings: a volume can be turned into a building, with a flat, gable or hip roof (height and colour), windows on every floor and a door on the facade of your choice; also in the right-click menu
 
 ### Fixed
 

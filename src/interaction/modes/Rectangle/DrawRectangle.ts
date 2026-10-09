@@ -7,7 +7,8 @@ const presetProperties: Record<
   NonNullable<DrawRectangleMode['preset']>,
   Partial<Rectangle>
 > = {
-  VOLUME: { height: DEFAULT_VOLUME_HEIGHT, roof: true }
+  VOLUME: { height: DEFAULT_VOLUME_HEIGHT, roof: true },
+  BUILDING: { height: 2, roof: true, building: {} }
 };
 
 export const DrawRectangle: ModeActions = {

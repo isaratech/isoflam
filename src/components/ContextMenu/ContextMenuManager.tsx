@@ -153,6 +153,17 @@ export const ContextMenuManager = () => {
           }
         },
         {
+          label: t('Create new building'),
+          onClick: () => {
+            startDrawing({
+              type: 'RECTANGLE.DRAW',
+              showCursor: true,
+              id: null,
+              preset: 'BUILDING'
+            });
+          }
+        },
+        {
           label: t('Create new wall'),
           onClick: () => {
             startDrawing({

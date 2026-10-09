@@ -48,6 +48,14 @@ jest.mock('../Volume', () => {
   };
 });
 
+jest.mock('../Building', () => {
+  return {
+    Building: () => {
+      return <div data-testid="building" />;
+    }
+  };
+});
+
 describe('Rectangle', () => {
   const defaultProps = {
     id: 'test-rectangle',
@@ -65,6 +73,15 @@ describe('Rectangle', () => {
     height: 0,
     roof: true
   };
+
+  it('renders a building when the volume is turned into one', () => {
+    const { getByTestId, queryByTestId } = render(
+      <Rectangle {...defaultProps} height={2} building={{}} />
+    );
+
+    expect(getByTestId('building')).toBeTruthy();
+    expect(queryByTestId('volume')).toBeNull();
+  });
 
   it('renders a volume instead of a flat area when it has a height', () => {
     const { getByTestId, queryByTestId } = render(

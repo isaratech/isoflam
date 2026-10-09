@@ -4,6 +4,7 @@ import { IsoTileArea } from 'src/components/IsoTileArea/IsoTileArea';
 import { getColorVariant, isVolume } from 'src/utils';
 import { useColor } from 'src/hooks/useColor';
 import { Volume } from './Volume';
+import { Building } from './Building';
 
 type Props = ReturnType<typeof useScene>['rectangles'][0];
 
@@ -21,7 +22,8 @@ export const Rectangle = ({
   isometric,
   height,
   roof,
-  texture
+  texture,
+  building
 }: Props) => {
   const color = useColor(colorId);
 
@@ -36,6 +38,18 @@ export const Rectangle = ({
           }
         }
       : {};
+
+  if (isVolume({ height, imageData, texture }) && building) {
+    return (
+      <Building
+        from={from}
+        to={to}
+        height={height}
+        color={color.value}
+        building={building}
+      />
+    );
+  }
 
   if (isVolume({ height, imageData, texture })) {
     return (
