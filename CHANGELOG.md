@@ -5,6 +5,12 @@ All notable changes to the Isoflam project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- Walls with several diagonal sections: walls now have a thickness (the connector width, 0.2 tile by default), with mitred corners and a visible top, so a section along the screen-vertical diagonal no longer vanishes into a line
+
 ## [2.3.0] - 2026-10-09
 
 ### Added

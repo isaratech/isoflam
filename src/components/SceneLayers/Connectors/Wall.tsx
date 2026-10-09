@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Coords } from 'src/types';
+import chroma from 'chroma-js';
 import { Svg } from 'src/components/Svg/Svg';
 import { getWallFaces, shadeColor, WallFace } from 'src/utils';
 
@@ -7,28 +8,21 @@ interface Props {
   // Corner tiles of the wall, in order
   corners: Coords[];
   height: number;
+  // In tiles
+  thickness: number;
   color: string;
-  // Stroke of the wall's top edge
-  strokeWidth: number;
-  strokeDasharray: string;
 }
 
-const faceShade: Record<WallFace['side'], number> = {
-  LEFT: 0.4,
-  FRONT: 0.6,
-  RIGHT: 0.8
+const getFaceFill = (color: string, face: WallFace) => {
+  return face.kind === 'TOP'
+    ? chroma(color).brighten(0.3).css()
+    : shadeColor(color, face.shade);
 };
 
-export const Wall = ({
-  corners,
-  height,
-  color,
-  strokeWidth,
-  strokeDasharray
-}: Props) => {
+export const Wall = ({ corners, height, thickness, color }: Props) => {
   const faces = useMemo(() => {
-    return getWallFaces(corners, height);
-  }, [corners, height]);
+    return getWallFaces(corners, height, thickness);
+  }, [corners, height, thickness]);
 
   // The faces are in scene coordinates; the svg is placed over their bounding box
   const bounds = useMemo(() => {
@@ -67,30 +61,16 @@ export const Wall = ({
       }}
     >
       {faces.map((face, index) => {
-        const [, , topEnd, topStart] = face.points;
-
         return (
-          // eslint-disable-next-line react/no-array-index-key
-          <g key={index}>
-            <polygon
-              points={face.points.map(toLocal).join(' ')}
-              fill={shadeColor(color, faceShade[face.side])}
-              stroke={shadeColor(color, 1.2)}
-              strokeWidth={1}
-              strokeLinejoin="round"
-            />
-            {/* Top edge, drawn with the connector's style */}
-            <line
-              x1={topStart.x - bounds.x}
-              y1={topStart.y - bounds.y}
-              x2={topEnd.x - bounds.x}
-              y2={topEnd.y - bounds.y}
-              stroke={shadeColor(color, 1.2)}
-              strokeWidth={strokeWidth}
-              strokeDasharray={strokeDasharray}
-              strokeLinecap="round"
-            />
-          </g>
+          <polygon
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
+            points={face.points.map(toLocal).join(' ')}
+            fill={getFaceFill(color, face)}
+            stroke={shadeColor(color, 1.2)}
+            strokeWidth={1}
+            strokeLinejoin="round"
+          />
         );
       })}
     </Svg>

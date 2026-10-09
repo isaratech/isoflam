@@ -129,9 +129,9 @@ export const Connector = ({ connector, isSelected }: Props) => {
         <Wall
           corners={wallCorners}
           height={wallHeight}
+          // The connector width (in % of a tile) is the wall thickness
+          thickness={Math.max(5, connector.width) / 100}
           color={color.value}
-          strokeWidth={Math.max(2, connectorWidthPx / 2)}
-          strokeDasharray={strokeDashArray}
         />
       )}
       <Box style={css}>

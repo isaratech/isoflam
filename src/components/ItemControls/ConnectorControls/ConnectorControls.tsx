@@ -93,24 +93,27 @@ export const ConnectorControls = ({ id }: Props) => {
               activeColor={connector.color}
             />
           </Section>
-          <Section title={t('Style')}>
-            <Select
-              value={connector.style}
-              onChange={(e) => {
-                updateConnector(connector.id, {
-                  style: e.target.value as Connector['style']
-                });
-              }}
-            >
-              {Object.values(connectorStyleOptions).map((style) => {
-                return (
-                  <MenuItem key={style} value={style}>
-                    {t(style)}
-                  </MenuItem>
-                );
-              })}
-            </Select>
-          </Section>
+          {/* A wall is a solid prism: the line style doesn't apply */}
+          {!isWall && (
+            <Section title={t('Style')}>
+              <Select
+                value={connector.style}
+                onChange={(e) => {
+                  updateConnector(connector.id, {
+                    style: e.target.value as Connector['style']
+                  });
+                }}
+              >
+                {Object.values(connectorStyleOptions).map((style) => {
+                  return (
+                    <MenuItem key={style} value={style}>
+                      {t(style)}
+                    </MenuItem>
+                  );
+                })}
+              </Select>
+            </Section>
+          )}
           <Section title={t('Wall height')}>
             <Slider
               marks
@@ -127,7 +130,7 @@ export const ConnectorControls = ({ id }: Props) => {
 
           {/* Advanced settings */}
           <AdvancedSettings>
-            <Section title={t('Width')}>
+            <Section title={isWall ? t('Wall thickness') : t('Width')}>
               <Slider
                 marks
                 step={10}
