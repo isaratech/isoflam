@@ -520,12 +520,27 @@ export const getVolumeFaces = ({
 
 // Whether a tile is covered by a rectangle, including the walls and roof of a volume
 // (the slice raised k tiles is drawn over the footprint shifted by (k, k)).
+// Height of the highest point of a volume in whole tiles, a building's roof included
+export const getVolumeTop = (
+  rectangle: Parameters<typeof isVolume>[0] & {
+    building?: { roof?: string; roofHeight?: number };
+  }
+) => {
+  if (!isVolume(rectangle)) return 0;
+
+  const { building } = rectangle;
+  const roofHeight =
+    building && building.roof !== 'FLAT' ? building.roofHeight ?? 1 : 0;
+
+  return Math.ceil((rectangle.height ?? 0) + roofHeight);
+};
+
 export const isWithinVolume = (
   tile: Coords,
-  rectangle: Parameters<typeof isVolume>[0] & { from: Coords; to: Coords }
+  rectangle: Parameters<typeof getVolumeTop>[0] & { from: Coords; to: Coords }
 ) => {
   const { from, to } = rectangle;
-  const height = isVolume(rectangle) ? rectangle.height ?? 0 : 0;
+  const height = getVolumeTop(rectangle);
 
   // An open volume covers the same screen area: what the roof and front walls would hide
   // is the floor and the back walls
@@ -1299,9 +1314,7 @@ export const getProjectBounds = (
 
   const rectangles = view.rectangles ?? [];
   const rectangleTiles = rectangles.reduce<Coords[]>((acc, rectangle) => {
-    const offset = getElevationTileOffset(
-      isVolume(rectangle) ? rectangle.height : 0
-    );
+    const offset = getElevationTileOffset(getVolumeTop(rectangle));
 
     return [
       ...acc,

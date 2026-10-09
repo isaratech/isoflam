@@ -31,6 +31,7 @@ import { Section } from '../components/Section';
 import { DeleteButton } from '../components/DeleteButton';
 import { DuplicateButton } from '../components/DuplicateButton';
 import { AdvancedSettings } from '../components/AdvancedSettings';
+import { BuildingControls } from './BuildingControls';
 
 interface Props {
   id: string;
@@ -83,6 +84,23 @@ export const RectangleControls = ({ id }: Props) => {
         </Section>
       )}
       {isVolume(rectangle) && (
+        <Section>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={Boolean(rectangle.building)}
+                onChange={(e) => {
+                  updateRectangle(rectangle.id, {
+                    building: e.target.checked ? {} : undefined
+                  });
+                }}
+              />
+            }
+            label={t('Building')}
+          />
+        </Section>
+      )}
+      {isVolume(rectangle) && !rectangle.building && (
         <Section title={t('Roof')}>
           <FormControlLabel
             control={
@@ -96,6 +114,16 @@ export const RectangleControls = ({ id }: Props) => {
             label={t('Closed volume')}
           />
         </Section>
+      )}
+      {isVolume(rectangle) && rectangle.building && (
+        <BuildingControls
+          building={rectangle.building}
+          onChange={(updates) => {
+            updateRectangle(rectangle.id, {
+              building: { ...rectangle.building, ...updates }
+            });
+          }}
+        />
       )}
 
       {/* Quick rotation controls (90°) - only for images */}

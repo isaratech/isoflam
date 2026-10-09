@@ -213,6 +213,7 @@ export const DEFAULTS_RECTANGLE: Required<
     | 'rotationAngle'
     | 'isometric'
     | 'texture'
+    | 'building'
   >
 > = {
   style: 'NONE',
@@ -231,6 +232,19 @@ export const DEFAULT_VOLUME_HEIGHT = 1;
  * Height (in tiles) given to a wall drawn with the wall tool.
  */
 export const DEFAULT_WALL_HEIGHT = 2;
+
+/**
+ * Settings of a volume turned into a building, when not set.
+ */
+export const DEFAULTS_BUILDING = {
+  roof: 'GABLE',
+  roofHeight: 1,
+  roofColor: '#9c4a3c',
+  flatRoofColor: '#9e9e9e',
+  windows: true,
+  door: true,
+  doorFacade: 'RIGHT'
+} as const;
 
 // =============================================================================
 // CONNECTOR SPECIFIC CONFIGURATION

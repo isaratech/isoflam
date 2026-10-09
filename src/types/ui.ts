@@ -75,7 +75,7 @@ export interface DrawRectangleMode {
   showCursor: boolean;
   id: string | null;
   // Draw a preset instead of a plain flat rectangle
-  preset?: 'VOLUME';
+  preset?: 'VOLUME' | 'BUILDING';
 }
 
 export const AnchorPositionOptions = {
