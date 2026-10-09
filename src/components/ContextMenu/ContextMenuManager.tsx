@@ -4,6 +4,7 @@ import {CoordsUtils, generateId} from 'src/utils';
 import {useScene} from 'src/hooks/useScene';
 import {useTranslation} from 'src/hooks/useTranslation';
 import {TEXTBOX_DEFAULTS} from 'src/config';
+import {useImageHandler} from 'src/hooks/useImageHandler';
 import {ContextMenu} from './ContextMenu';
 
 interface Props {
@@ -13,6 +14,7 @@ interface Props {
 export const ContextMenuManager = ({ anchorEl }: Props) => {
   const scene = useScene();
   const { t } = useTranslation();
+  const { handleImageFile } = useImageHandler();
   const zoom = useUiStateStore((state) => {
     return state.zoom;
   });
@@ -78,48 +80,29 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
   }, [uiStateActions, onClose]);
 
   const createNewImage = useCallback(() => {
-    // Create a hidden file input element
+    // Same import path as the toolbar and drag & drop (validation, size limit, selection).
+    // The input is not attached to the page, so nothing is left behind if the user cancels.
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
     fileInput.accept = 'image/*';
-    fileInput.style.display = 'none';
+
+    const position = contextMenu?.tile || CoordsUtils.zero();
 
     fileInput.onchange = (event) => {
       const file = (event.target as HTMLInputElement).files?.[0];
       if (file) {
-        const fileReader = new FileReader();
-
-        fileReader.onload = (loadEvent) => {
-          const imageData = loadEvent.target?.result as string;
-
-          // Create a new image rectangle at the context menu position
-          const newRectangle = {
-            id: generateId(),
-            from: contextMenu?.tile || CoordsUtils.zero(),
-            to: CoordsUtils.add(contextMenu?.tile || CoordsUtils.zero(), {
-              x: 5,
-              y: 5
-            }),
-            imageData,
-            imageName: file.name
-          };
-
-          scene.createRectangle(newRectangle);
-        };
-
-        fileReader.readAsDataURL(file);
+        handleImageFile(file, {
+          position,
+          style: 'NONE',
+          size: { width: 5, height: 5 }
+        });
       }
-
-      // Clean up the file input
-      document.body.removeChild(fileInput);
     };
 
-    // Add to DOM and trigger click
-    document.body.appendChild(fileInput);
     fileInput.click();
 
     onClose();
-  }, [scene, contextMenu, onClose]);
+  }, [handleImageFile, contextMenu, onClose]);
 
   if (!contextMenu) {
     return null;

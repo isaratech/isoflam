@@ -2,7 +2,7 @@ import {useCallback, useEffect, useRef} from 'react';
 import {useModelStore} from 'src/stores/modelStore';
 import {useUiStateStore, useUiStateStoreApi} from 'src/stores/uiStateStore';
 import {ModeActions, SlimMouseEvent, State} from 'src/types';
-import {getItemAtTile, getMouse} from 'src/utils';
+import {getItemsAtTile, getMouse} from 'src/utils';
 import {useResizeObserver} from 'src/hooks/useResizeObserver';
 import {useScene} from 'src/hooks/useScene';
 import {Cursor} from './modes/Cursor';
@@ -128,12 +128,24 @@ export const useInteractionManager = () => {
             return;
         }
 
-      const itemAtTile = getItemAtTile({
+      const itemsAtTile = getItemsAtTile({
         tile: uiState.mouse.position.tile,
         scene
       });
+      // Layer ordering applies to every kind of item; prefer the selected one when it is under
+      // the cursor (e.g. a zone selected through the icon on top of it)
+      const { itemControls } = uiState;
+      const itemAtTile =
+        itemsAtTile.find((item) => {
+          return (
+            itemControls !== null &&
+            itemControls.type === item.type &&
+            'id' in itemControls &&
+            itemControls.id === item.id
+          );
+        }) ?? itemsAtTile[0];
 
-      if (itemAtTile?.type === 'RECTANGLE') {
+      if (itemAtTile) {
         uiState.actions.setContextMenu({
           item: itemAtTile,
             tile: uiState.mouse.position.tile,

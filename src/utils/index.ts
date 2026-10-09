@@ -6,3 +6,4 @@ export * from './renderer';
 export * from './exportOptions';
 export * from './model';
 export * from './compression';
+export * from './imageResize';
