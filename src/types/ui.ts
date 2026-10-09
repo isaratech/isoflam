@@ -44,6 +44,8 @@ export interface DragItemsMode {
   showCursor: boolean;
   items: ItemReference[];
   isInitialMovement: Boolean;
+  // Offset between the mouse and the dragged anchor, when a wall is grabbed above its foot
+  grabOffset?: Coords;
 }
 
 export interface PanMode {
@@ -64,6 +66,8 @@ export interface ConnectorMode {
   type: 'CONNECTOR';
   showCursor: boolean;
   id: string | null;
+  // Draw a wall or a road along the ground instead of a link between icons
+  preset?: 'WALL' | 'ROAD';
 }
 
 export interface DrawRectangleMode {
@@ -71,7 +75,7 @@ export interface DrawRectangleMode {
   showCursor: boolean;
   id: string | null;
   // Draw a preset instead of a plain flat rectangle
-  preset?: 'VOLUME' | 'WALL' | 'ROAD';
+  preset?: 'VOLUME';
 }
 
 export const AnchorPositionOptions = {

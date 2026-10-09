@@ -9,6 +9,7 @@ import { Rectangles } from 'src/components/SceneLayers/Rectangles/Rectangles';
 import { Connectors } from 'src/components/SceneLayers/Connectors/Connectors';
 import { ConnectorLabels } from 'src/components/SceneLayers/ConnectorLabels/ConnectorLabels';
 import { TextBoxes } from 'src/components/SceneLayers/TextBoxes/TextBoxes';
+import { Roads } from 'src/components/SceneLayers/Roads/Roads';
 import { SizeIndicator } from 'src/components/DebugUtils/SizeIndicator';
 import { SceneLayer } from 'src/components/SceneLayer/SceneLayer';
 import { TransformControlsManager } from 'src/components/TransformControlsManager/TransformControlsManager';
@@ -79,6 +80,9 @@ export const Renderer = ({ showGrid, backgroundColor }: RendererProps) => {
       >
         {isShowGrid && <Grid />}
       </Box>
+      <SceneLayer>
+        <Roads connectors={connectors} />
+      </SceneLayer>
       {/* Volumes stand above the ground grid */}
       <SceneLayer>
         <Rectangles rectangles={volumes} />

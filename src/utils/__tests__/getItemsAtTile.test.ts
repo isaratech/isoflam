@@ -31,38 +31,54 @@ describe('getItemsAtTile', () => {
   });
 });
 
-describe('getItemsAtTile with a raised connector', () => {
-  // Runs along the ground tiles (3,0) -> (0,0), raised 2 tiles
-  const connectorScene = {
+describe('getItemsAtTile with walls and roads', () => {
+  // Both run along the ground tiles (3,0) -> (0,0); the wall is 2 tiles high
+  const path = {
+    tiles: [
+      { x: 0, y: 0 },
+      { x: 1, y: 0 },
+      { x: 2, y: 0 },
+      { x: 3, y: 0 }
+    ],
+    rectangle: { from: { x: 3, y: 0 }, to: { x: 0, y: 0 } }
+  };
+  const wallScene = {
     items: [],
     textBoxes: [],
     rectangles: [],
-    connectors: [
-      {
-        id: 'raised',
-        height: 2,
-        path: {
-          tiles: [
-            { x: 0, y: 0 },
-            { x: 1, y: 0 },
-            { x: 2, y: 0 },
-            { x: 3, y: 0 }
-          ],
-          rectangle: { from: { x: 3, y: 0 }, to: { x: 0, y: 0 } }
-        }
-      }
-    ]
+    connectors: [{ id: 'wall', height: 2, path }]
+  } as any;
+  const roadScene = {
+    ...wallScene,
+    connectors: [{ id: 'road', height: 2, variant: 'ROAD', path }]
   } as any;
 
-  it('is hit where it is drawn', () => {
-    expect(
-      getItemAtTile({ tile: { x: 5, y: 2 }, scene: connectorScene })
-    ).toEqual({ type: 'CONNECTOR', id: 'raised' });
+  it('hits a wall anywhere from its foot to its top', () => {
+    [
+      { x: 3, y: 0 },
+      { x: 4, y: 1 },
+      { x: 5, y: 2 }
+    ].forEach((tile) => {
+      expect(getItemAtTile({ tile, scene: wallScene })).toEqual({
+        type: 'CONNECTOR',
+        id: 'wall'
+      });
+    });
   });
 
-  it('is not hit on the ground below it', () => {
+  it('does not hit beside a wall', () => {
     expect(
-      getItemAtTile({ tile: { x: 3, y: 0 }, scene: connectorScene })
+      getItemAtTile({ tile: { x: 0, y: 2 }, scene: wallScene })
+    ).toBeNull();
+  });
+
+  it('only hits a road on the ground, whatever its height', () => {
+    expect(getItemAtTile({ tile: { x: 3, y: 0 }, scene: roadScene })).toEqual({
+      type: 'CONNECTOR',
+      id: 'road'
+    });
+    expect(
+      getItemAtTile({ tile: { x: 5, y: 2 }, scene: roadScene })
     ).toBeNull();
   });
 });

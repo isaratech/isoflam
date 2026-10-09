@@ -21,18 +21,40 @@ import { generateId } from 'src/utils';
 import { useTranslation } from 'src/hooks/useTranslation';
 import { useImageHandler } from 'src/hooks/useImageHandler';
 import { Coords } from 'src/types/common';
-import { DrawRectangleMode } from 'src/types';
+import { ConnectorMode, DrawRectangleMode } from 'src/types';
 
-// Tools drawing a rectangle, or a preset built on it, by dragging over the grid
-const drawRectangleTools: {
+// Tools drawing by dragging over the grid: a rectangle-based shape, or a wall or a road
+// traced like a connector
+const drawingTools: {
   name: 'Rectangle' | 'Volume' | 'Wall' | 'Road';
   icon: React.ReactNode;
-  preset?: DrawRectangleMode['preset'];
+  mode: DrawRectangleMode | ConnectorMode;
 }[] = [
-  { name: 'Rectangle', icon: <CropSquareIcon /> },
-  { name: 'Volume', icon: <VolumeIcon />, preset: 'VOLUME' },
-  { name: 'Wall', icon: <WallIcon />, preset: 'WALL' },
-  { name: 'Road', icon: <RoadIcon />, preset: 'ROAD' }
+  {
+    name: 'Rectangle',
+    icon: <CropSquareIcon />,
+    mode: { type: 'RECTANGLE.DRAW', showCursor: true, id: null }
+  },
+  {
+    name: 'Volume',
+    icon: <VolumeIcon />,
+    mode: {
+      type: 'RECTANGLE.DRAW',
+      showCursor: true,
+      id: null,
+      preset: 'VOLUME'
+    }
+  },
+  {
+    name: 'Wall',
+    icon: <WallIcon />,
+    mode: { type: 'CONNECTOR', showCursor: true, id: null, preset: 'WALL' }
+  },
+  {
+    name: 'Road',
+    icon: <RoadIcon />,
+    mode: { type: 'CONNECTOR', showCursor: true, id: null, preset: 'ROAD' }
+  }
 ];
 
 export const ToolMenu = () => {
@@ -165,22 +187,17 @@ export const ToolMenu = () => {
           }}
           isActive={mode.type === 'PLACE_ICON'}
         />
-        {drawRectangleTools.map(({ name, icon, preset }) => {
+        {drawingTools.map(({ name, icon, mode: toolMode }) => {
           return (
             <IconButton
               key={name}
               name={t(name)}
               Icon={icon}
               onClick={() => {
-                uiStateStoreActions.setMode({
-                  type: 'RECTANGLE.DRAW',
-                  showCursor: true,
-                  id: null,
-                  preset
-                });
+                uiStateStoreActions.setMode(toolMode);
               }}
               isActive={
-                mode.type === 'RECTANGLE.DRAW' && mode.preset === preset
+                mode.type === toolMode.type && mode.preset === toolMode.preset
               }
             />
           );
@@ -195,7 +212,7 @@ export const ToolMenu = () => {
               showCursor: true
             });
           }}
-          isActive={mode.type === 'CONNECTOR'}
+          isActive={mode.type === 'CONNECTOR' && !mode.preset}
         />
         <IconButton
           name={t('Text')}

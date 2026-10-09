@@ -6,7 +6,16 @@ import {
   hasMovedTile,
   setWindowCursor
 } from 'src/utils';
-import { Connector as ConnectorI, ModeActions } from 'src/types';
+import { Connector as ConnectorI, ConnectorMode, ModeActions } from 'src/types';
+import { DEFAULT_WALL_HEIGHT } from 'src/config';
+
+const presetProperties: Record<
+  NonNullable<ConnectorMode['preset']>,
+  Partial<ConnectorI>
+> = {
+  WALL: { height: DEFAULT_WALL_HEIGHT, width: 20, showTriangle: false },
+  ROAD: { variant: 'ROAD', showTriangle: false }
+};
 
 export const Connector: ModeActions = {
   entry: () => {
@@ -28,10 +37,13 @@ export const Connector: ModeActions = {
       uiState.mode.id
     );
 
-    const itemAtTile = getItemAtTile({
-      tile: uiState.mouse.position.tile,
-      scene
-    });
+    // Walls and roads are drawn freely on the ground, they don't stick to icons
+    const itemAtTile = uiState.mode.preset
+      ? null
+      : getItemAtTile({
+          tile: uiState.mouse.position.tile,
+          scene
+        });
 
     if (itemAtTile?.type === 'ITEM') {
       const newConnector = produce(connector.value, (draft) => {
@@ -53,19 +65,22 @@ export const Connector: ModeActions = {
   mousedown: ({ uiState, scene, isRendererInteraction }) => {
     if (uiState.mode.type !== 'CONNECTOR' || !isRendererInteraction) return;
 
+    const { preset } = uiState.mode;
+    // Walls default to the second colour (grey in the default palette), like rectangles
+    const colorIndex = preset === 'WALL' ? 1 : 0;
     const newConnector: ConnectorI = {
       id: generateId(),
-      color:
-        scene.colors && scene.colors.length > 0
-          ? scene.colors[0].id
-          : undefined,
-      anchors: []
+      color: scene.colors?.[colorIndex]?.id ?? scene.colors?.[0]?.id,
+      anchors: [],
+      ...(preset && presetProperties[preset])
     };
 
-    const itemAtTile = getItemAtTile({
-      tile: uiState.mouse.position.tile,
-      scene
-    });
+    const itemAtTile = preset
+      ? null
+      : getItemAtTile({
+          tile: uiState.mouse.position.tile,
+          scene
+        });
 
     if (itemAtTile && itemAtTile.type === 'ITEM') {
       newConnector.anchors = [
@@ -84,7 +99,8 @@ export const Connector: ModeActions = {
     uiState.actions.setMode({
       type: 'CONNECTOR',
       showCursor: true,
-      id: newConnector.id
+      id: newConnector.id,
+      preset
     });
   },
   mouseup: ({ uiState, scene }) => {
@@ -95,9 +111,12 @@ export const Connector: ModeActions = {
     const lastAnchor =
       connector.value.anchors[connector.value.anchors.length - 1];
 
+    // A link must join two icons; walls and roads only need some length
+    const isLinkingIcons = Boolean(firstAnchor.ref.item && lastAnchor.ref.item);
+
     if (
       connector.value.path.tiles.length < 2 ||
-      !(firstAnchor.ref.item && lastAnchor.ref.item)
+      (!uiState.mode.preset && !isLinkingIcons)
     ) {
       scene.deleteConnector(uiState.mode.id);
     }

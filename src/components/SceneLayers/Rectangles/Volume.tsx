@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import chroma from 'chroma-js';
 import { Coords } from 'src/types';
 import { Svg } from 'src/components/Svg/Svg';
-import { getVolumeFaces, VolumeFace } from 'src/utils';
+import { getVolumeFaces, shadeColor, VolumeFace } from 'src/utils';
 
 interface Props {
   from: Coords;
@@ -17,24 +17,13 @@ interface Props {
   };
 }
 
-// Plain darkening keeps greys grey; very dark colours are lightened instead so faces stay distinct
-const shade = (color: string, amount: number) => {
-  const chromaColor = chroma(color);
-
-  return (
-    chromaColor.luminance() < 0.1
-      ? chromaColor.brighten(amount)
-      : chromaColor.darken(amount)
-  ).css();
-};
-
 // Shade each face like a light coming from the top left
 const getFaceFill = (color: string, side: VolumeFace['side']) => {
   switch (side) {
     case 'LEFT':
-      return shade(color, 0.4);
+      return shadeColor(color, 0.4);
     case 'RIGHT':
-      return shade(color, 0.8);
+      return shadeColor(color, 0.8);
     case 'ROOF':
       return chroma(color).brighten(0.3).css();
     case 'FLOOR':
@@ -72,7 +61,7 @@ export const Volume = ({ from, to, height, roof, color, stroke }: Props) => {
     if (!stroke || stroke.style === 'NONE') {
       // Keep the edges readable when the faces share a similar color
       return {
-        stroke: shade(color, 1.2),
+        stroke: shadeColor(color, 1.2),
         strokeWidth: 1
       };
     }

@@ -1,24 +1,13 @@
-import { Coords, DrawRectangleMode, ModeActions, Rectangle } from 'src/types';
+import { DrawRectangleMode, ModeActions, Rectangle } from 'src/types';
 import { produce } from 'immer';
 import { generateId, hasMovedTile, setWindowCursor } from 'src/utils';
-import { DEFAULT_VOLUME_HEIGHT, DEFAULT_WALL_HEIGHT } from 'src/config';
+import { DEFAULT_VOLUME_HEIGHT } from 'src/config';
 
 const presetProperties: Record<
   NonNullable<DrawRectangleMode['preset']>,
   Partial<Rectangle>
 > = {
-  VOLUME: { height: DEFAULT_VOLUME_HEIGHT, roof: true },
-  WALL: { height: DEFAULT_WALL_HEIGHT, roof: true },
-  ROAD: { texture: 'ROAD', radius: 0 }
-};
-
-// A wall is a straight, one-tile-thick line along the axis the mouse moved most on
-export const getWallEnd = (from: Coords, mouse: Coords): Coords => {
-  if (Math.abs(mouse.x - from.x) >= Math.abs(mouse.y - from.y)) {
-    return { x: mouse.x, y: from.y };
-  }
-
-  return { x: from.x, y: mouse.y };
+  VOLUME: { height: DEFAULT_VOLUME_HEIGHT, roof: true }
 };
 
 export const DrawRectangle: ModeActions = {
@@ -37,17 +26,8 @@ export const DrawRectangle: ModeActions = {
     )
       return;
 
-    const { id: rectangleId, preset } = uiState.mode;
-    const rectangle = scene.rectangles.find(({ id }) => {
-      return id === rectangleId;
-    });
-    if (!rectangle) return;
-
-    scene.updateRectangle(rectangle.id, {
-      to:
-        preset === 'WALL'
-          ? getWallEnd(rectangle.from, uiState.mouse.position.tile)
-          : uiState.mouse.position.tile
+    scene.updateRectangle(uiState.mode.id, {
+      to: uiState.mouse.position.tile
     });
   },
   mousedown: ({ uiState, scene, isRendererInteraction }) => {

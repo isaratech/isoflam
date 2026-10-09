@@ -4,7 +4,8 @@ import { useScene } from 'src/hooks/useScene';
 import {
   connectorPathTileToGlobal,
   getElevation,
-  getTilePosition
+  getTilePosition,
+  getWallHeight
 } from 'src/utils';
 import { PROJECTED_TILE_SIZE } from 'src/config';
 import { Label } from 'src/components/Label/Label';
@@ -24,9 +25,10 @@ export const ConnectorLabel = ({ connector }: Props) => {
 
     return {
       x: position.x,
-      y: position.y - getElevation(connector.height)
+      // On top of a wall
+      y: position.y - getElevation(getWallHeight(connector))
     };
-  }, [connector.path, connector.height]);
+  }, [connector]);
 
   return (
     <Box

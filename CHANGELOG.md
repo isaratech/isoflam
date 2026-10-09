@@ -5,6 +5,15 @@ All notable changes to the Isoflam project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- A connector with a height is now drawn as a wall standing on its path (with shaded faces, following its turns) instead of a raised line
+- The wall tool draws such a wall: drag to trace it, drag its middle to add a corner
+- The road tool draws a road along a path: rounded turns, clean crossings and T-junctions (no edge or centre line across the junction), and a street name
+- Walls and roads are routed with right-angle turns
+
 ## [2.1.0] - 2026-10-09
 
 ### Added
