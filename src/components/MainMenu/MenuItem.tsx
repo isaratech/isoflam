@@ -1,5 +1,5 @@
 import React from 'react';
-import {ListItemIcon, MenuItem as MuiMenuItem} from '@mui/material';
+import { ListItemIcon, MenuItem as MuiMenuItem } from '@mui/material';
 
 export interface Props {
   onClick?: () => void;
@@ -8,9 +8,9 @@ export interface Props {
   selected?: boolean;
 }
 
-export const MenuItem = ({onClick, Icon, children, selected}: Props) => {
+export const MenuItem = ({ onClick, Icon, children, selected }: Props) => {
   return (
-      <MuiMenuItem onClick={onClick} selected={selected}>
+    <MuiMenuItem onClick={onClick} selected={selected}>
       <ListItemIcon>{Icon}</ListItemIcon>
       {children}
     </MuiMenuItem>

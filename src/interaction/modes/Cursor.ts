@@ -1,19 +1,36 @@
-import {produce} from 'immer';
-import {ConnectorAnchor, Coords, ItemControls, ItemReference, ModeActions, ModeActionsAction, SceneConnector, View} from 'src/types';
-import {connectorPathTileToGlobal, CoordsUtils, generateId, getAnchorAtTile, getAnchorTile, getItemByIdOrThrow, getItemsAtTile, hasMovedTile, setWindowCursor} from 'src/utils';
-import {useScene} from 'src/hooks/useScene';
+import { produce } from 'immer';
+import {
+  ConnectorAnchor,
+  Coords,
+  ItemControls,
+  ItemReference,
+  ModeActions,
+  ModeActionsAction,
+  SceneConnector,
+  View
+} from 'src/types';
+import {
+  connectorPathTileToGlobal,
+  CoordsUtils,
+  generateId,
+  getAnchorAtTile,
+  getAnchorTile,
+  getItemByIdOrThrow,
+  getItemsAtTile,
+  hasMovedTile,
+  setWindowCursor
+} from 'src/utils';
+import { useScene } from 'src/hooks/useScene';
 
 const getAnchorOrdering = (
   anchor: ConnectorAnchor,
   connector: SceneConnector,
   view: View
 ) => {
-    // Guard against connectors with undefined paths
-    if (!connector.path || !connector.path.tiles) {
-        throw new Error(
-            `Connector path is undefined [anchorId: ${anchor.id}]`
-        );
-    }
+  // Guard against connectors with undefined paths
+  if (!connector.path || !connector.path.tiles) {
+    throw new Error(`Connector path is undefined [anchorId: ${anchor.id}]`);
+  }
 
   const anchorTile = getAnchorTile(anchor, view);
   const index = connector.path.tiles.findIndex((pathTile) => {
@@ -69,7 +86,10 @@ const getAnchor = (
   return anchor;
 };
 
-const isSameItem = (item: ItemReference, other: ItemReference | ItemControls | null) => {
+const isSameItem = (
+  item: ItemReference,
+  other: ItemReference | ItemControls | null
+) => {
   return Boolean(
     other && other.type === item.type && 'id' in other && other.id === item.id
   );
@@ -158,9 +178,10 @@ export const Cursor: ModeActions = {
     const { mousedownItem, mousedownItemWasSelected } = uiState.mode;
     // Clicking again on the selected item selects the next one below it (stacked items, or a
     // zone under an icon). Reaching this point means the item was not dragged.
-    const itemsAtTile = mousedownItemWasSelected && mousedownItem
-      ? getItemsAtTile({ tile: uiState.mouse.position.tile, scene })
-      : [];
+    const itemsAtTile =
+      mousedownItemWasSelected && mousedownItem
+        ? getItemsAtTile({ tile: uiState.mouse.position.tile, scene })
+        : [];
     const clickedIndex = itemsAtTile.findIndex((item) => {
       return mousedownItem !== null && isSameItem(item, mousedownItem);
     });

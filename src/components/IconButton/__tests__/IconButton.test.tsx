@@ -21,11 +21,7 @@ describe('IconButton Component', () => {
   test('renders with correct name in tooltip', () => {
     render(
       <ThemeProvider theme={mockTheme}>
-        <IconButton
-          name="Test Button"
-          Icon={<MockIcon />}
-          onClick={() => {}}
-        />
+        <IconButton name="Test Button" Icon={<MockIcon />} onClick={() => {}} />
       </ThemeProvider>
     );
 
@@ -41,7 +37,11 @@ describe('IconButton Component', () => {
 
     render(
       <ThemeProvider theme={mockTheme}>
-        <IconButton name="Test Button" Icon={<MockIcon />} onClick={handleClick} />
+        <IconButton
+          name="Test Button"
+          Icon={<MockIcon />}
+          onClick={handleClick}
+        />
       </ThemeProvider>
     );
 
@@ -56,7 +56,12 @@ describe('IconButton Component', () => {
   test('applies active styling when isActive is true', () => {
     render(
       <ThemeProvider theme={mockTheme}>
-        <IconButton name="Test Button" Icon={<MockIcon />} onClick={() => {}} isActive />
+        <IconButton
+          name="Test Button"
+          Icon={<MockIcon />}
+          onClick={() => {}}
+          isActive
+        />
       </ThemeProvider>
     );
 
@@ -70,7 +75,12 @@ describe('IconButton Component', () => {
 
     render(
       <ThemeProvider theme={mockTheme}>
-        <IconButton name="Test Button" Icon={<MockIcon />} onClick={handleClick} disabled />
+        <IconButton
+          name="Test Button"
+          Icon={<MockIcon />}
+          onClick={handleClick}
+          disabled
+        />
       </ThemeProvider>
     );
 

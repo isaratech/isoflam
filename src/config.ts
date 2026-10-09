@@ -1,30 +1,20 @@
-import {Colors, Connector, Icon, Icons, InitialData, MainMenuOptions, Rectangle, Size, TextBox, View, ViewItem} from 'src/types';
-import {CoordsUtils} from 'src/utils';
-// Import icon fixtures with error handling for testing
-let sdmisIcons: any[] = [];
-let basicIcons: any[] = [];
-let sitacIcons: any[] = [];
-
-try {
-    const sdmisModule = require('./fixtures/sdmisIcons');
-    sdmisIcons = sdmisModule.sdmisIcons || [];
-} catch (e) {
-    console.warn('Could not load sdmisIcons:', e);
-}
-
-try {
-    const basicModule = require('./fixtures/icons');
-    basicIcons = basicModule.icons || [];
-} catch (e) {
-    console.warn('Could not load basicIcons:', e);
-}
-
-try {
-    const sitacModule = require('./fixtures/sitacIcons');
-    sitacIcons = sitacModule.default || [];
-} catch (e) {
-    console.warn('Could not load sitacIcons:', e);
-}
+import {
+  Colors,
+  Connector,
+  Icon,
+  Icons,
+  InitialData,
+  MainMenuOptions,
+  Rectangle,
+  Size,
+  TextBox,
+  View,
+  ViewItem
+} from 'src/types';
+import { CoordsUtils } from 'src/utils';
+import { sdmisIcons } from './fixtures/sdmisIcons';
+import { icons as basicIcons } from './fixtures/icons';
+import { sitacIcons } from './fixtures/sitacIcons';
 
 // =============================================================================
 // TILE AND GRID CONFIGURATION
@@ -72,43 +62,43 @@ export const DEFAULT_COLOR: Colors[0] = {
  * Includes default color plus additional color options.
  */
 export const INITIAL_COLORS: Colors = [
-    DEFAULT_COLOR,
-    {
-        id: 'color0',
-        value: '#979797'
-    },
-    {
-        id: 'color1',
-        value: '#a5b8f3'
-    },
-    {
-        id: 'color2',
-        value: '#bbadfb'
-    },
-    {
-        id: 'color3',
-        value: '#f4eb8e'
-    },
-    {
-        id: 'color4',
-        value: '#f0aca9'
-    },
-    {
-        id: 'color5',
-        value: '#fad6ac'
-    },
-    {
-        id: 'color6',
-        value: '#a8dc9d'
-    },
-    {
-        id: 'color7',
-        value: '#b3e5e3'
-    },
-    {
-        id: 'color8',
-        value: '#ffffff'
-    }
+  DEFAULT_COLOR,
+  {
+    id: 'color0',
+    value: '#979797'
+  },
+  {
+    id: 'color1',
+    value: '#a5b8f3'
+  },
+  {
+    id: 'color2',
+    value: '#bbadfb'
+  },
+  {
+    id: 'color3',
+    value: '#f4eb8e'
+  },
+  {
+    id: 'color4',
+    value: '#f0aca9'
+  },
+  {
+    id: 'color5',
+    value: '#fad6ac'
+  },
+  {
+    id: 'color6',
+    value: '#a8dc9d'
+  },
+  {
+    id: 'color7',
+    value: '#b3e5e3'
+  },
+  {
+    id: 'color8',
+    value: '#ffffff'
+  }
 ];
 
 /**
@@ -116,9 +106,9 @@ export const INITIAL_COLORS: Colors = [
  * Combines icons from all fixture sources.
  */
 export const INITIAL_ICONS: Icons = [
-    ...(basicIcons || []),
-    ...(sdmisIcons || []),
-    ...(sitacIcons || [])
+  ...(basicIcons || []),
+  ...(sdmisIcons || []),
+  ...(sitacIcons || [])
 ];
 
 /**
@@ -207,7 +197,19 @@ export const DEFAULTS_TEXTBOX: Required<
  * Defines default line style.
  */
 export const DEFAULTS_RECTANGLE: Required<
-    Omit<Rectangle, 'id' | 'from' | 'to' | 'color' | 'imageData' | 'imageName' | 'mirrorHorizontal' | 'mirrorVertical' | 'rotationAngle' | 'isometric'>
+  Omit<
+    Rectangle,
+    | 'id'
+    | 'from'
+    | 'to'
+    | 'color'
+    | 'imageData'
+    | 'imageName'
+    | 'mirrorHorizontal'
+    | 'mirrorVertical'
+    | 'rotationAngle'
+    | 'isometric'
+  >
 > = {
   style: 'NONE',
   width: 1,
@@ -286,8 +288,8 @@ export const UI_TRANSFORM_CONTROLS_COLOR = '#0392ff';
 export const INITIAL_DATA: InitialData = {
   title: 'SITAC',
   version: '',
-    icons: INITIAL_ICONS,
-    colors: INITIAL_COLORS,
+  icons: INITIAL_ICONS,
+  colors: INITIAL_COLORS,
   items: [],
   views: [],
   fitToView: false
@@ -326,7 +328,7 @@ export const MENU_MAIN_OPTIONS: MainMenuOptions = [
   'ACTION.OPEN',
   'EXPORT.JSON',
   'EXPORT.PNG',
-    'EXPORT.URL',
+  'EXPORT.URL',
   'ACTION.CLEAR_CANVAS',
   'LINK.GITHUB',
   'LINK.CREDITS',

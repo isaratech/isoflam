@@ -1,19 +1,23 @@
 import React from 'react';
-import {ProjectionOrientationEnum} from 'src/types';
-import {Box, TextField, ToggleButton, ToggleButtonGroup} from '@mui/material';
-import {FormatBold as FormatBoldIcon, FormatItalic as FormatItalicIcon, TextRotationNone as TextRotationNoneIcon} from '@mui/icons-material';
-import {useTextBox} from 'src/hooks/useTextBox';
-import {ColorSelector} from 'src/components/ColorSelector/ColorSelector';
-import {useUiStateStore} from 'src/stores/uiStateStore';
-import {generateId, getIsoProjectionCss} from 'src/utils';
-import {useScene} from 'src/hooks/useScene';
-import {useTranslation} from 'src/hooks/useTranslation';
-import {ControlsContainer} from '../components/ControlsContainer';
-import {Section} from '../components/Section';
-import {DeleteButton} from '../components/DeleteButton';
-import {DuplicateButton} from '../components/DuplicateButton';
-import {AdvancedSettings} from '../components/AdvancedSettings';
-import {FontSizeSelector} from '../components/FontSizeSelector';
+import { ProjectionOrientationEnum } from 'src/types';
+import { Box, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import {
+  FormatBold as FormatBoldIcon,
+  FormatItalic as FormatItalicIcon,
+  TextRotationNone as TextRotationNoneIcon
+} from '@mui/icons-material';
+import { useTextBox } from 'src/hooks/useTextBox';
+import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
+import { useUiStateStore } from 'src/stores/uiStateStore';
+import { generateId, getIsoProjectionCss } from 'src/utils';
+import { useScene } from 'src/hooks/useScene';
+import { useTranslation } from 'src/hooks/useTranslation';
+import { ControlsContainer } from '../components/ControlsContainer';
+import { Section } from '../components/Section';
+import { DeleteButton } from '../components/DeleteButton';
+import { DuplicateButton } from '../components/DuplicateButton';
+import { AdvancedSettings } from '../components/AdvancedSettings';
+import { FontSizeSelector } from '../components/FontSizeSelector';
 
 interface Props {
   id: string;
@@ -46,10 +50,10 @@ export const TextBoxControls = ({ id }: Props) => {
         />
       </Section>
       <Section title={t('Text size')}>
-          <FontSizeSelector
+        <FontSizeSelector
           value={textBox.fontSize}
           onChange={(fontSize) => {
-              updateTextBox(textBox.id, {fontSize});
+            updateTextBox(textBox.id, { fontSize });
           }}
         />
       </Section>

@@ -1,23 +1,29 @@
-import React, {useEffect, useRef} from 'react';
-import {ThemeProvider} from '@mui/material/styles';
-import {Box, GlobalStyles as MUIGlobalStyles} from '@mui/material';
-import {theme} from 'src/styles/theme';
-import {IsoflamProps} from 'src/types';
-import {decompress, exportAsJSON, getStartingMode, modelFromModelStore, setWindowCursor} from 'src/utils';
-import {ModelProvider, useModelStore} from 'src/stores/modelStore';
-import {SceneProvider} from 'src/stores/sceneStore';
+import React, { useEffect, useRef } from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import { Box, GlobalStyles as MUIGlobalStyles } from '@mui/material';
+import { theme } from 'src/styles/theme';
+import { IsoflamProps } from 'src/types';
+import {
+  decompress,
+  exportAsJSON,
+  getStartingMode,
+  modelFromModelStore,
+  setWindowCursor
+} from 'src/utils';
+import { ModelProvider, useModelStore } from 'src/stores/modelStore';
+import { SceneProvider } from 'src/stores/sceneStore';
 import 'react-quill/dist/quill.snow.css';
-import {Renderer} from 'src/components/Renderer/Renderer';
-import {UiOverlay} from 'src/components/UiOverlay/UiOverlay';
-import {UiStateProvider, useUiStateStore} from 'src/stores/uiStateStore';
-import {HistoryProvider} from 'src/stores/historyStore';
-import {INITIAL_DATA, MAIN_MENU_OPTIONS} from 'src/config';
-import {useInitialDataManager} from 'src/hooks/useInitialDataManager';
-import {useScene} from 'src/hooks/useScene';
-import {useTranslation} from 'src/hooks/useTranslation';
-import {useUndoRedo} from 'src/hooks/useUndoRedo';
-import {MobileWarning} from 'src/components/MobileWarning/MobileWarning';
-import {ErrorBoundary} from 'src/components/ErrorBoundary/ErrorBoundary';
+import { Renderer } from 'src/components/Renderer/Renderer';
+import { UiOverlay } from 'src/components/UiOverlay/UiOverlay';
+import { UiStateProvider, useUiStateStore } from 'src/stores/uiStateStore';
+import { HistoryProvider } from 'src/stores/historyStore';
+import { INITIAL_DATA, MAIN_MENU_OPTIONS } from 'src/config';
+import { useInitialDataManager } from 'src/hooks/useInitialDataManager';
+import { useScene } from 'src/hooks/useScene';
+import { useTranslation } from 'src/hooks/useTranslation';
+import { useUndoRedo } from 'src/hooks/useUndoRedo';
+import { MobileWarning } from 'src/components/MobileWarning/MobileWarning';
+import { ErrorBoundary } from 'src/components/ErrorBoundary/ErrorBoundary';
 
 const App = ({
   initialData,
@@ -32,25 +38,22 @@ const App = ({
   const uiStateActions = useUiStateStore((state) => {
     return state.actions;
   });
-  const rendererEl = useUiStateStore((state) => {
-    return state.rendererEl;
-  });
   const hasLoadedFromUrlRef = useRef(false);
   const itemControls = useUiStateStore((state) => {
     return state.itemControls;
   });
-    const hasUnsavedChanges = useUiStateStore((state) => {
-        return state.hasUnsavedChanges;
-    });
+  const hasUnsavedChanges = useUiStateStore((state) => {
+    return state.hasUnsavedChanges;
+  });
   const initialDataManager = useInitialDataManager();
   const model = useModelStore((state) => {
     return modelFromModelStore(state);
   });
   const scene = useScene();
-    const {t} = useTranslation();
-    const {undo, redo} = useUndoRedo();
+  const { t } = useTranslation();
+  const { undo, redo } = useUndoRedo();
 
-  const {load, clear} = initialDataManager;
+  const { load, clear } = initialDataManager;
   // The store value (not the prop) is the source of truth: the read-only toggle updates it
   const currentEditorMode = useUiStateStore((state) => {
     return state.editorMode;
@@ -87,28 +90,30 @@ const App = ({
     uiStateActions.setEnableDebugTools(enableDebugTools);
   }, [enableDebugTools, uiStateActions]);
 
-    // Handle beforeunload event to warn about unsaved changes
-    useEffect(() => {
-        const handleBeforeUnload = (event: BeforeUnloadEvent) => {
-            if (hasUnsavedChanges) {
-                const message = t('Your unsaved changes will be lost');
-                event.preventDefault();
-                event.returnValue = message;
-                return message;
-            }
-        };
+  // Handle beforeunload event to warn about unsaved changes
+  useEffect(() => {
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      if (hasUnsavedChanges) {
+        const message = t('Your unsaved changes will be lost');
+        event.preventDefault();
+        // Required by some browsers to show the confirmation dialog
+        // eslint-disable-next-line no-param-reassign
+        event.returnValue = message;
+        return message;
+      }
+    };
 
-        window.addEventListener('beforeunload', handleBeforeUnload);
+    window.addEventListener('beforeunload', handleBeforeUnload);
 
-        return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        };
-    }, [hasUnsavedChanges, t]);
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [hasUnsavedChanges, t]);
 
   // Handle URL hash for shared scenes
   useEffect(() => {
     const loadFromHash = async () => {
-      const hash = window.location.hash;
+      const { hash } = window.location;
       if (hash && hash.length > 1) {
         hasLoadedFromUrlRef.current = true;
         try {
@@ -117,12 +122,20 @@ const App = ({
           const modelData = JSON.parse(jsonString);
           load(modelData);
           // Remove hash after load to clean URL
-          window.history.replaceState({}, '', window.location.pathname + window.location.search);
+          window.history.replaceState(
+            {},
+            '',
+            window.location.pathname + window.location.search
+          );
         } catch (error) {
-          console.error("Failed to load scene from URL:", error);
-          window.alert(t('Unable to load the scene from the URL. The link may be corrupted.'));
+          console.error('Failed to load scene from URL:', error);
+          window.alert(
+            t(
+              'Unable to load the scene from the URL. The link may be corrupted.'
+            )
+          );
           // Fallback to initial data so the app doesn't stay on a blank screen
-          load({...INITIAL_DATA, ...initialData});
+          load({ ...INITIAL_DATA, ...initialData });
         }
       }
     };
@@ -201,7 +214,7 @@ const App = ({
         case 'Y':
           if (event.ctrlKey || event.metaKey) {
             event.preventDefault();
-              redo();
+            redo();
           }
           break;
 
@@ -238,7 +251,15 @@ const App = ({
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [currentEditorMode, mode, itemControls, scene, uiStateActions, undo, redo]);
+  }, [
+    currentEditorMode,
+    mode,
+    itemControls,
+    scene,
+    uiStateActions,
+    undo,
+    redo
+  ]);
 
   if (!initialDataManager.isReady) return null;
 
@@ -251,7 +272,7 @@ const App = ({
           }
         }}
       />
-        <MobileWarning/>
+      <MobileWarning />
       <Box
         sx={{
           width,
@@ -273,7 +294,7 @@ const AppWithErrorBoundary = (props: IsoflamProps) => {
   const modelActions = useModelStore((state) => {
     return state.actions;
   });
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <ErrorBoundary
@@ -282,7 +303,9 @@ const AppWithErrorBoundary = (props: IsoflamProps) => {
       }}
       labels={{
         title: t('Something went wrong'),
-        message: t('An unexpected error occurred. Download your drawing to keep your work, then reload the application and open the downloaded file.'),
+        message: t(
+          'An unexpected error occurred. Download your drawing to keep your work, then reload the application and open the downloaded file.'
+        ),
         download: t('Download the drawing (JSON)'),
         reload: t('Reload')
       }}
@@ -296,13 +319,13 @@ export const Isoflam = (props: IsoflamProps) => {
   return (
     <ThemeProvider theme={theme}>
       <ModelProvider>
-          <HistoryProvider>
-              <SceneProvider>
-                  <UiStateProvider>
-                      <AppWithErrorBoundary {...props} />
-                  </UiStateProvider>
-              </SceneProvider>
-          </HistoryProvider>
+        <HistoryProvider>
+          <SceneProvider>
+            <UiStateProvider>
+              <AppWithErrorBoundary {...props} />
+            </UiStateProvider>
+          </SceneProvider>
+        </HistoryProvider>
       </ModelProvider>
     </ThemeProvider>
   );

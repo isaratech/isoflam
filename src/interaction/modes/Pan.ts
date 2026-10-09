@@ -1,6 +1,6 @@
-import {produce} from 'immer';
-import {CoordsUtils, setWindowCursor} from 'src/utils';
-import {ModeActions} from 'src/types';
+import { produce } from 'immer';
+import { CoordsUtils, setWindowCursor } from 'src/utils';
+import { ModeActions } from 'src/types';
 
 export const Pan: ModeActions = {
   entry: () => {
@@ -17,7 +17,8 @@ export const Pan: ModeActions = {
     if (!isPanMode && !isMiddleMouseDown) return;
 
     // Only pan when the drag started on the canvas (not on the toolbar, a panel...)
-    const isDragging = isPanMode && uiState.mode.type === 'PAN' && uiState.mode.isDragging;
+    const isDragging =
+      isPanMode && uiState.mode.type === 'PAN' && uiState.mode.isDragging;
 
     if (uiState.mouse.mousedown !== null && (isDragging || isMiddleMouseDown)) {
       const newScroll = produce(uiState.scroll, (draft) => {
@@ -45,21 +46,21 @@ export const Pan: ModeActions = {
   mouseup: ({ uiState }) => {
     // Only handle if we're in PAN mode
     if (uiState.mode.type === 'PAN') {
-        // In read-only mode, stay in PAN mode to prevent element selection
-        if (uiState.editorMode === 'EXPLORABLE_READONLY') {
-            uiState.actions.setMode({ ...uiState.mode, isDragging: false });
-            setWindowCursor('grab');
-            return;
-        }
+      // In read-only mode, stay in PAN mode to prevent element selection
+      if (uiState.editorMode === 'EXPLORABLE_READONLY') {
+        uiState.actions.setMode({ ...uiState.mode, isDragging: false });
+        setWindowCursor('grab');
+        return;
+      }
 
-        // Only restore previous mode if it exists (automatic pan activation)
-        // If no previousMode exists, it means pan was manually selected and should persist
+      // Only restore previous mode if it exists (automatic pan activation)
+      // If no previousMode exists, it means pan was manually selected and should persist
       if (uiState.mode.previousMode) {
         uiState.actions.setMode(uiState.mode.previousMode);
       } else {
-          // Pan was manually selected - stay in PAN mode and just update cursor
-          uiState.actions.setMode({ ...uiState.mode, isDragging: false });
-          setWindowCursor('grab');
+        // Pan was manually selected - stay in PAN mode and just update cursor
+        uiState.actions.setMode({ ...uiState.mode, isDragging: false });
+        setWindowCursor('grab');
       }
     } else {
       setWindowCursor('default');

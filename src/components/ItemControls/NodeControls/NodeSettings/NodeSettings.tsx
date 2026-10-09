@@ -1,18 +1,32 @@
 import React from 'react';
-import {Box, IconButton, Slider, TextField, ToggleButton, ToggleButtonGroup, Tooltip} from '@mui/material';
-import {RestartAlt, SwapHoriz, SwapVert} from '@mui/icons-material';
-import {ModelItem, ViewItem} from 'src/types';
-import {DEFAULTS_VIEW_ITEM} from 'src/config';
-import {MarkdownEditor} from 'src/components/MarkdownEditor/MarkdownEditor';
-import {useModelItem} from 'src/hooks/useModelItem';
-import {useIcon} from 'src/hooks/useIcon';
-import {useTranslation} from 'src/hooks/useTranslation';
-import {ColorSelector} from 'src/components/ColorSelector/ColorSelector';
-import {DeleteButton} from '../../components/DeleteButton';
-import {DuplicateButton} from '../../components/DuplicateButton';
-import {Section} from '../../components/Section';
-import {AdvancedSettings} from '../../components/AdvancedSettings';
-import {formatScaleFactor, getStepSize, LOGARITHMIC_SCALE_CONFIG, scaleFactorToSlider, sliderToScaleFactor} from 'src/utils/logarithmicScale';
+import {
+  Box,
+  IconButton,
+  Slider,
+  TextField,
+  ToggleButton,
+  ToggleButtonGroup,
+  Tooltip
+} from '@mui/material';
+import { RestartAlt, SwapHoriz, SwapVert } from '@mui/icons-material';
+import { ModelItem, ViewItem } from 'src/types';
+import { DEFAULTS_VIEW_ITEM } from 'src/config';
+import { MarkdownEditor } from 'src/components/MarkdownEditor/MarkdownEditor';
+import { useModelItem } from 'src/hooks/useModelItem';
+import { useIcon } from 'src/hooks/useIcon';
+import { useTranslation } from 'src/hooks/useTranslation';
+import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
+import {
+  formatScaleFactor,
+  getStepSize,
+  LOGARITHMIC_SCALE_CONFIG,
+  scaleFactorToSlider,
+  sliderToScaleFactor
+} from 'src/utils/logarithmicScale';
+import { DeleteButton } from '../../components/DeleteButton';
+import { DuplicateButton } from '../../components/DuplicateButton';
+import { Section } from '../../components/Section';
+import { AdvancedSettings } from '../../components/AdvancedSettings';
 
 export type NodeUpdates = {
   model: Partial<ModelItem>;
@@ -73,9 +87,13 @@ export const NodeSettings = ({
               step={1}
               min={LOGARITHMIC_SCALE_CONFIG.SLIDER_MIN}
               max={LOGARITHMIC_SCALE_CONFIG.SLIDER_MAX}
-              value={scaleFactorToSlider(node.scaleFactor ?? (icon.scaleFactor ?? 1))}
+              value={scaleFactorToSlider(
+                node.scaleFactor ?? icon.scaleFactor ?? 1
+              )}
               onChange={(e, newSliderValue) => {
-                  const scaleFactor = sliderToScaleFactor(newSliderValue as number);
+                const scaleFactor = sliderToScaleFactor(
+                  newSliderValue as number
+                );
                 // Calculate proportional label height based on scale factor
                 // Use the default label height (80) as base and multiply by scale factor
                 const baseLabelHeight = 80;
@@ -92,14 +110,18 @@ export const NodeSettings = ({
           <TextField
             type="number"
             inputProps={{
-                min: LOGARITHMIC_SCALE_CONFIG.MIN_SCALE,
-                max: LOGARITHMIC_SCALE_CONFIG.MAX_SCALE,
-                step: getStepSize(node.scaleFactor ?? (icon.scaleFactor ?? 1))
+              min: LOGARITHMIC_SCALE_CONFIG.MIN_SCALE,
+              max: LOGARITHMIC_SCALE_CONFIG.MAX_SCALE,
+              step: getStepSize(node.scaleFactor ?? icon.scaleFactor ?? 1)
             }}
-            value={formatScaleFactor(node.scaleFactor ?? (icon.scaleFactor ?? 1))}
+            value={formatScaleFactor(node.scaleFactor ?? icon.scaleFactor ?? 1)}
             onChange={(e) => {
               const value = parseFloat(e.target.value);
-                if (!Number.isNaN(value) && value >= LOGARITHMIC_SCALE_CONFIG.MIN_SCALE && value <= LOGARITHMIC_SCALE_CONFIG.MAX_SCALE) {
+              if (
+                !Number.isNaN(value) &&
+                value >= LOGARITHMIC_SCALE_CONFIG.MIN_SCALE &&
+                value <= LOGARITHMIC_SCALE_CONFIG.MAX_SCALE
+              ) {
                 const scaleFactor = value;
                 const baseLabelHeight = 80;
                 const adjustedLabelHeight = Math.round(

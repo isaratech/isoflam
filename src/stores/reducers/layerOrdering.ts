@@ -1,7 +1,7 @@
-import {produce} from 'immer';
-import {ItemReference, LayerOrderingAction} from 'src/types';
-import {getItemByIdOrThrow} from 'src/utils';
-import {State, ViewReducerContext} from './types';
+import { produce } from 'immer';
+import { ItemReference, LayerOrderingAction } from 'src/types';
+import { getItemByIdOrThrow } from 'src/utils';
+import { State, ViewReducerContext } from './types';
 
 export const changeLayerOrder = (
   { action, item }: { action: LayerOrderingAction; item: ItemReference },

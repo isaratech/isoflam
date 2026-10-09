@@ -1,12 +1,16 @@
-import React, {useMemo} from 'react';
-import {Box, useTheme} from '@mui/material';
-import {UNPROJECTED_TILE_SIZE} from 'src/config';
-import {getAnchorTile, getColorVariant, getConnectorDirectionIcon} from 'src/utils';
-import {Circle} from 'src/components/Circle/Circle';
-import {Svg} from 'src/components/Svg/Svg';
-import {useIsoProjection} from 'src/hooks/useIsoProjection';
-import {useScene} from 'src/hooks/useScene';
-import {useColor} from 'src/hooks/useColor';
+import React, { useMemo } from 'react';
+import { Box, useTheme } from '@mui/material';
+import { UNPROJECTED_TILE_SIZE } from 'src/config';
+import {
+  getAnchorTile,
+  getColorVariant,
+  getConnectorDirectionIcon
+} from 'src/utils';
+import { Circle } from 'src/components/Circle/Circle';
+import { Svg } from 'src/components/Svg/Svg';
+import { useIsoProjection } from 'src/hooks/useIsoProjection';
+import { useScene } from 'src/hooks/useScene';
+import { useColor } from 'src/hooks/useColor';
 
 interface Props {
   connector: ReturnType<typeof useScene>['connectors'][0];
@@ -18,9 +22,12 @@ export const Connector = ({ connector, isSelected }: Props) => {
   const color = useColor(connector.color);
   const { currentView } = useScene();
 
-    // Call all hooks first, then handle the conditional logic
+  // Call all hooks first, then handle the conditional logic
   const { css, pxSize } = useIsoProjection({
-      ...connector.path?.rectangle || {from: {x: 0, y: 0}, to: {x: 0, y: 0}}
+    ...(connector.path?.rectangle || {
+      from: { x: 0, y: 0 },
+      to: { x: 0, y: 0 }
+    })
   });
 
   const drawOffset = useMemo(() => {
@@ -31,7 +38,7 @@ export const Connector = ({ connector, isSelected }: Props) => {
   }, []);
 
   const pathString = useMemo(() => {
-      if (!connector.path?.tiles) return '';
+    if (!connector.path?.tiles) return '';
     return connector.path.tiles.reduce((acc, tile) => {
       return `${acc} ${tile.x * UNPROJECTED_TILE_SIZE + drawOffset.x},${
         tile.y * UNPROJECTED_TILE_SIZE + drawOffset.y
@@ -40,7 +47,7 @@ export const Connector = ({ connector, isSelected }: Props) => {
   }, [connector.path?.tiles, drawOffset]);
 
   const anchorPositions = useMemo(() => {
-      if (!isSelected || !currentView || !connector.path?.rectangle) return [];
+    if (!isSelected || !currentView || !connector.path?.rectangle) return [];
 
     return connector.anchors.map((anchor) => {
       const position = getAnchorTile(anchor, currentView);
@@ -59,14 +66,14 @@ export const Connector = ({ connector, isSelected }: Props) => {
     });
   }, [
     currentView,
-      connector.path?.rectangle,
+    connector.path?.rectangle,
     connector.anchors,
     drawOffset,
     isSelected
   ]);
 
   const directionIcon = useMemo(() => {
-      if (!connector.path?.tiles) return null;
+    if (!connector.path?.tiles) return null;
     return getConnectorDirectionIcon(connector.path.tiles);
   }, [connector.path?.tiles]);
 
@@ -86,11 +93,11 @@ export const Connector = ({ connector, isSelected }: Props) => {
     }
   }, [connector.style, connectorWidthPx]);
 
-    // Guard against undefined path - this can happen during connector creation or validation failures
-    // Now we can safely return early after all hooks have been called
-    if (!connector.path) {
-        return null;
-    }
+  // Guard against undefined path - this can happen during connector creation or validation failures
+  // Now we can safely return early after all hooks have been called
+  if (!connector.path) {
+    return null;
+  }
 
   return (
     <Box style={css}>
