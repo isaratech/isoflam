@@ -3,7 +3,7 @@ import {ThemeProvider} from '@mui/material/styles';
 import {Box, GlobalStyles as MUIGlobalStyles} from '@mui/material';
 import {theme} from 'src/styles/theme';
 import {IsoflamProps} from 'src/types';
-import {decompress, getStartingMode, modelFromModelStore, setWindowCursor} from 'src/utils';
+import {decompress, exportAsJSON, getStartingMode, modelFromModelStore, setWindowCursor} from 'src/utils';
 import {ModelProvider, useModelStore} from 'src/stores/modelStore';
 import {SceneProvider} from 'src/stores/sceneStore';
 import 'react-quill/dist/quill.snow.css';
@@ -17,6 +17,7 @@ import {useScene} from 'src/hooks/useScene';
 import {useTranslation} from 'src/hooks/useTranslation';
 import {useUndoRedo} from 'src/hooks/useUndoRedo';
 import {MobileWarning} from 'src/components/MobileWarning/MobileWarning';
+import {ErrorBoundary} from 'src/components/ErrorBoundary/ErrorBoundary';
 
 const App = ({
   initialData,
@@ -267,6 +268,30 @@ const App = ({
   );
 };
 
+// Outside the error boundary, so that the drawing can still be saved if the app crashes
+const AppWithErrorBoundary = (props: IsoflamProps) => {
+  const modelActions = useModelStore((state) => {
+    return state.actions;
+  });
+  const {t} = useTranslation();
+
+  return (
+    <ErrorBoundary
+      onDownload={() => {
+        exportAsJSON(modelFromModelStore(modelActions.get()));
+      }}
+      labels={{
+        title: t('Something went wrong'),
+        message: t('An unexpected error occurred. Download your drawing to keep your work, then reload the application and open the downloaded file.'),
+        download: t('Download the drawing (JSON)'),
+        reload: t('Reload')
+      }}
+    >
+      <App {...props} />
+    </ErrorBoundary>
+  );
+};
+
 export const Isoflam = (props: IsoflamProps) => {
   return (
     <ThemeProvider theme={theme}>
@@ -274,7 +299,7 @@ export const Isoflam = (props: IsoflamProps) => {
           <HistoryProvider>
               <SceneProvider>
                   <UiStateProvider>
-                      <App {...props} />
+                      <AppWithErrorBoundary {...props} />
                   </UiStateProvider>
               </SceneProvider>
           </HistoryProvider>

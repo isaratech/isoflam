@@ -174,7 +174,13 @@ export const enTranslations = {
     "Please select a valid image file.": "Please select a valid image file.",
     "Error while processing the image.": "Error while processing the image.",
     "Error while reading the image file.": "Error while reading the image file.",
-    "Copy the link below:": "Copy the link below:"
+    "Copy the link below:": "Copy the link below:",
+
+    // Error screen
+    "Something went wrong": "Something went wrong",
+    "An unexpected error occurred. Download your drawing to keep your work, then reload the application and open the downloaded file.": "An unexpected error occurred. Download your drawing to keep your work, then reload the application and open the downloaded file.",
+    "Download the drawing (JSON)": "Download the drawing (JSON)",
+    "Reload": "Reload"
 } as const;
 
 export type TranslationKey = keyof typeof enTranslations;
