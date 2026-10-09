@@ -72,13 +72,41 @@ describe('getItemsAtTile with walls and roads', () => {
     ).toBeNull();
   });
 
+  it('hits a road across its whole width, sidewalks included', () => {
+    // Default width 4: the tiles from 1 below to 2 above the path
+    expect(getItemAtTile({ tile: { x: 1, y: 2 }, scene: roadScene })).toEqual({
+      type: 'CONNECTOR',
+      id: 'road'
+    });
+    expect(
+      getItemAtTile({ tile: { x: 1, y: 3 }, scene: roadScene })
+    ).toBeNull();
+
+    const withSidewalks = {
+      ...roadScene,
+      connectors: [{ ...roadScene.connectors[0], sidewalks: true }]
+    };
+    expect(
+      getItemAtTile({ tile: { x: 1, y: 3 }, scene: withSidewalks })
+    ).toEqual({ type: 'CONNECTOR', id: 'road' });
+  });
+
+  it('does not hit beyond the end of a road', () => {
+    expect(
+      getItemAtTile({ tile: { x: 4, y: 0 }, scene: roadScene })
+    ).toBeNull();
+    expect(
+      getItemAtTile({ tile: { x: -1, y: 1 }, scene: roadScene })
+    ).toBeNull();
+  });
+
   it('only hits a road on the ground, whatever its height', () => {
     expect(getItemAtTile({ tile: { x: 3, y: 0 }, scene: roadScene })).toEqual({
       type: 'CONNECTOR',
       id: 'road'
     });
     expect(
-      getItemAtTile({ tile: { x: 5, y: 2 }, scene: roadScene })
+      getItemAtTile({ tile: { x: 7, y: 4 }, scene: roadScene })
     ).toBeNull();
   });
 });

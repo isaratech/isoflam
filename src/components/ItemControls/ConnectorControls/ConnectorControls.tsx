@@ -10,7 +10,7 @@ import {
   TextField
 } from '@mui/material';
 import { useConnector } from 'src/hooks/useConnector';
-import { getWallHeight, isRoad } from 'src/utils';
+import { getRoadWidth, getWallHeight, isRoad } from 'src/utils';
 import { ColorSelector } from 'src/components/ColorSelector/ColorSelector';
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { useScene } from 'src/hooks/useScene';
@@ -49,6 +49,40 @@ export const ConnectorControls = ({ id }: Props) => {
           }}
         />
       </Section>
+      {isRoadConnector && (
+        <>
+          <Section title={t('Road width')}>
+            <Slider
+              marks
+              step={1}
+              min={1}
+              max={10}
+              valueLabelDisplay="auto"
+              value={getRoadWidth(connector)}
+              onChange={(e, newWidth) => {
+                updateConnector(connector.id, {
+                  roadWidth: newWidth as number
+                });
+              }}
+            />
+          </Section>
+          <Section>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={connector.sidewalks ?? false}
+                  onChange={(e) => {
+                    updateConnector(connector.id, {
+                      sidewalks: e.target.checked
+                    });
+                  }}
+                />
+              }
+              label={t('Sidewalks')}
+            />
+          </Section>
+        </>
+      )}
       {!isRoadConnector && (
         <>
           <Section>

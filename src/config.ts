@@ -171,7 +171,7 @@ export const DEFAULTS_VIEW_ITEM: Required<Omit<ViewItem, 'id' | 'tile'>> = {
  * Includes styling, width, and visual properties.
  */
 export const DEFAULTS_CONNECTOR: Required<
-  Omit<Connector, 'id' | 'color' | 'variant'>
+  Omit<Connector, 'id' | 'color' | 'variant' | 'roadWidth' | 'sidewalks'>
 > = {
   width: 10,
   description: '',

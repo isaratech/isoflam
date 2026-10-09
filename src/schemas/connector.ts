@@ -25,5 +25,7 @@ export const connectorSchema = z.object({
   showTriangle: z.boolean().optional(),
   height: z.number().int().min(0).max(10).optional(), // Wall height in tiles; 0 is a flat line
   variant: z.enum(connectorVariantOptions).optional(), // Drawn as a road instead of a line
+  roadWidth: z.number().int().min(1).max(10).optional(), // Road only, in tiles (default 4)
+  sidewalks: z.boolean().optional(), // Road only
   anchors: z.array(anchorSchema)
 });

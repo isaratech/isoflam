@@ -5,7 +5,6 @@ import {
   getAnchorTile,
   getColorVariant,
   getConnectorDirectionIcon,
-  getConnectorGlobalTiles,
   getWallHeight,
   isWallOrRoad
 } from 'src/utils';
@@ -36,11 +35,19 @@ export const Connector = ({ connector, isSelected }: Props) => {
 
   const wallHeight = getWallHeight(connector);
 
-  const wallTiles = useMemo(() => {
-    if (!wallHeight || !connector.path) return [];
+  // A wall runs straight from one anchor to the next, at any angle
+  const wallCorners = useMemo(() => {
+    if (!wallHeight || !currentView) return [];
 
-    return getConnectorGlobalTiles(connector.path);
-  }, [wallHeight, connector.path]);
+    // An anchor can briefly point to a removed item (undo, deletion): skip the wall then
+    try {
+      return connector.anchors.map((anchor) => {
+        return getAnchorTile(anchor, currentView);
+      });
+    } catch {
+      return [];
+    }
+  }, [wallHeight, connector.anchors, currentView]);
 
   const drawOffset = useMemo(() => {
     return {
@@ -120,7 +127,7 @@ export const Connector = ({ connector, isSelected }: Props) => {
     <>
       {wallHeight > 0 && (
         <Wall
-          tiles={wallTiles}
+          corners={wallCorners}
           height={wallHeight}
           color={color.value}
           strokeWidth={Math.max(2, connectorWidthPx / 2)}

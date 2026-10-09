@@ -4,7 +4,7 @@ import {
   getItemByIdOrThrow,
   getConnectorPath,
   getAllAnchors,
-  allowsDiagonalPath
+  getConnectorRouting
 } from 'src/utils';
 import { validateConnector } from 'src/schemas/validation';
 import { State, ViewReducerContext } from './types';
@@ -47,7 +47,7 @@ export const syncConnector = (
       const path = getConnectorPath({
         anchors: connector.value.anchors,
         view: view.value,
-        allowDiagonal: allowsDiagonalPath(connector.value)
+        routing: getConnectorRouting(connector.value)
       });
 
       draft.scene.connectors[connector.value.id] = { path };

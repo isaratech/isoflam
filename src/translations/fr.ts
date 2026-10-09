@@ -91,6 +91,8 @@ export const frTranslations = {
   Radius: 'Rayon',
   Style: 'Style',
   'Wall height': 'Hauteur du mur',
+  'Road width': 'Largeur de la route',
+  Sidewalks: 'Trottoirs',
   'Street name': 'Nom de la rue',
   Height: 'Hauteur',
   Roof: 'Toit',

@@ -91,6 +91,8 @@ export const enTranslations = {
   Radius: 'Radius',
   Style: 'Style',
   'Wall height': 'Wall height',
+  'Road width': 'Road width',
+  Sidewalks: 'Sidewalks',
   'Street name': 'Street name',
   Height: 'Height',
   Roof: 'Roof',
