@@ -17,7 +17,7 @@ export const enTranslations = {
   Pan: 'Pan',
   'Add item': 'Add item',
   Rectangle: 'Rectangle',
-    'Import Image': 'Import Image',
+  'Import Image': 'Import Image',
   Connector: 'Connector',
   Text: 'Text',
 
@@ -26,17 +26,17 @@ export const enTranslations = {
   'Zoom in': 'Zoom in',
   'Fit to screen': 'Fit to screen',
 
-    // UndoRedoControls
-    Undo: 'Undo',
-    Redo: 'Redo',
+  // UndoRedoControls
+  Undo: 'Undo',
+  Redo: 'Redo',
 
-    "Rotation": 'Rotation',
-    "Rotate left 90°": 'Rotate left 90°',
-    "Rotate right 90°": 'Rotate right 90°',
-    "Rotate left 10°": 'Rotate left 10°',
-    "Rotate right 10°": 'Rotate right 10°',
-    "Rotate left 5°": 'Rotate left 5°',
-    "Rotate right 5°": 'Rotate right 5°',
+  Rotation: 'Rotation',
+  'Rotate left 90°': 'Rotate left 90°',
+  'Rotate right 90°': 'Rotate right 90°',
+  'Rotate left 10°': 'Rotate left 10°',
+  'Rotate right 10°': 'Rotate right 10°',
+  'Rotate left 5°': 'Rotate left 5°',
+  'Rotate right 5°': 'Rotate right 5°',
 
   // ExportImageDialog
   'Certain browsers may not support exporting images properly.':
@@ -78,7 +78,7 @@ export const enTranslations = {
   'Label height': 'Label height',
   'Icon scale': 'Icon scale',
   'Reset to default size': 'Reset to default size',
-    'Text formatting': 'Text formatting',
+  'Text formatting': 'Text formatting',
 
   // ColorSelector
   'No colors available': 'No colors available',
@@ -89,7 +89,7 @@ export const enTranslations = {
   Style: 'Style',
   Triangle: 'Triangle',
   'Show triangle': 'Show triangle',
-    Layer: 'Layer',
+  Layer: 'Layer',
 
   // Connector Styles
   SOLID: 'SOLID',
@@ -106,13 +106,13 @@ export const enTranslations = {
   'Create new text': 'Create new text',
   'Create new rectangle': 'Create new rectangle',
   'Create new link': 'Create new link',
-    'Add image': 'Add image',
+  'Add image': 'Add image',
 
   Mirroring: 'Mirroring',
   Vertical: 'Vertical',
   Horizontal: 'Horizontal',
-    Projection: 'Projection',
-    Isometric: 'Isometric',
+  Projection: 'Projection',
+  Isometric: 'Isometric',
 
   // Credits Dialog
   Credits: 'Credits',
@@ -128,59 +128,74 @@ export const enTranslations = {
   people: 'People',
   vehicles: 'Vehicles',
   other: 'Other',
-    buildings: 'Buildings',
+  buildings: 'Buildings',
 
-    // Unsaved changes warning
-    'Your unsaved changes will be lost': 'Your unsaved changes will be lost',
+  // Unsaved changes warning
+  'Your unsaved changes will be lost': 'Your unsaved changes will be lost',
 
-    // Mobile warning
-    'Mobile Device Detected': 'Mobile Device Detected',
-    'This application currently works only on PC. For the best experience, please use a desktop or laptop computer.': 'This application currently works only on PC. For the best experience, please use a desktop or laptop computer.',
-    'Continue Anyway': 'Continue Anyway',
-    'You can continue to use the application, but some features may not work properly on mobile devices.': 'You can continue to use the application, but some features may not work properly on mobile devices.',
+  // Mobile warning
+  'Mobile Device Detected': 'Mobile Device Detected',
+  'This application currently works only on PC. For the best experience, please use a desktop or laptop computer.':
+    'This application currently works only on PC. For the best experience, please use a desktop or laptop computer.',
+  'Continue Anyway': 'Continue Anyway',
+  'You can continue to use the application, but some features may not work properly on mobile devices.':
+    'You can continue to use the application, but some features may not work properly on mobile devices.',
 
-    // Read-only mode
-    'Read-only mode': 'Read-only mode',
-    'Toggle read-only mode': 'Toggle read-only mode',
-    'Enable read-only mode': 'Enable read-only mode',
+  // Read-only mode
+  'Read-only mode': 'Read-only mode',
+  'Toggle read-only mode': 'Toggle read-only mode',
+  'Enable read-only mode': 'Enable read-only mode',
   'Disable read-only mode': 'Disable read-only mode',
 
   // Share via URL
   'Link copied to clipboard!': 'Link copied to clipboard!',
-  'Scene too large for URL sharing': "Scene is too large to be shared via URL. Imported images significantly increase size. Try removing them or exporting as JSON.",
-  'Error creating link': "An error occurred while creating the link.",
+  'Scene too large for URL sharing':
+    'Scene is too large to be shared via URL. Imported images significantly increase size. Try removing them or exporting as JSON.',
+  'Error creating link': 'An error occurred while creating the link.',
 
-    // Misc
-    "Unable to load the scene from the URL. The link may be corrupted.": "Unable to load the scene from the URL. The link may be corrupted.",
-    "No icons found": "No icons found",
+  // Misc
+  'Unable to load the scene from the URL. The link may be corrupted.':
+    'Unable to load the scene from the URL. The link may be corrupted.',
+  'No icons found': 'No icons found',
 
-    // Files, drag & drop and images
-    "Your unsaved changes will be lost. Continue?": "Your unsaved changes will be lost. Continue?",
-    "The JSON file is large ({size} MB). Loading it may take time and affect performance. Continue?": "The JSON file is large ({size} MB). Loading it may take time and affect performance. Continue?",
-    "The file does not contain valid data.": "The file does not contain valid data.",
-    "The file does not look like an Isoflam file.": "The file does not look like an Isoflam file.",
-    "Error while loading the JSON file.": "Error while loading the JSON file.",
-    "The file contains invalid JSON.": "The file contains invalid JSON.",
-    "Error while reading the file. It may be corrupted.": "Error while reading the file. It may be corrupted.",
-    "The drawing contains errors:": "The drawing contains errors:",
-    "Please drop a single JSON file at a time.": "Please drop a single JSON file at a time.",
-    "Please drop a single image at a time.": "Please drop a single image at a time.",
-    "Please drop a JSON file or a valid image.": "Please drop a JSON file or a valid image.",
-    "Loading...": "Loading...",
-    "Please wait while the file is loading.": "Please wait while the file is loading.",
-    "Drop a JSON file or an image here": "Drop a JSON file or an image here",
-    "Release to open the drawing or add the image to it.": "Release to open the drawing or add the image to it.",
-    "Developed with ❤️ by": "Developed with ❤️ by",
-    "Please select a valid image file.": "Please select a valid image file.",
-    "Error while processing the image.": "Error while processing the image.",
-    "Error while reading the image file.": "Error while reading the image file.",
-    "Copy the link below:": "Copy the link below:",
+  // Files, drag & drop and images
+  'Your unsaved changes will be lost. Continue?':
+    'Your unsaved changes will be lost. Continue?',
+  'The JSON file is large ({size} MB). Loading it may take time and affect performance. Continue?':
+    'The JSON file is large ({size} MB). Loading it may take time and affect performance. Continue?',
+  'The file does not contain valid data.':
+    'The file does not contain valid data.',
+  'The file does not look like an Isoflam file.':
+    'The file does not look like an Isoflam file.',
+  'Error while loading the JSON file.': 'Error while loading the JSON file.',
+  'The file contains invalid JSON.': 'The file contains invalid JSON.',
+  'Error while reading the file. It may be corrupted.':
+    'Error while reading the file. It may be corrupted.',
+  'The drawing contains errors:': 'The drawing contains errors:',
+  'Please drop a single JSON file at a time.':
+    'Please drop a single JSON file at a time.',
+  'Please drop a single image at a time.':
+    'Please drop a single image at a time.',
+  'Please drop a JSON file or a valid image.':
+    'Please drop a JSON file or a valid image.',
+  'Loading...': 'Loading...',
+  'Please wait while the file is loading.':
+    'Please wait while the file is loading.',
+  'Drop a JSON file or an image here': 'Drop a JSON file or an image here',
+  'Release to open the drawing or add the image to it.':
+    'Release to open the drawing or add the image to it.',
+  'Developed with ❤️ by': 'Developed with ❤️ by',
+  'Please select a valid image file.': 'Please select a valid image file.',
+  'Error while processing the image.': 'Error while processing the image.',
+  'Error while reading the image file.': 'Error while reading the image file.',
+  'Copy the link below:': 'Copy the link below:',
 
-    // Error screen
-    "Something went wrong": "Something went wrong",
-    "An unexpected error occurred. Download your drawing to keep your work, then reload the application and open the downloaded file.": "An unexpected error occurred. Download your drawing to keep your work, then reload the application and open the downloaded file.",
-    "Download the drawing (JSON)": "Download the drawing (JSON)",
-    "Reload": "Reload"
+  // Error screen
+  'Something went wrong': 'Something went wrong',
+  'An unexpected error occurred. Download your drawing to keep your work, then reload the application and open the downloaded file.':
+    'An unexpected error occurred. Download your drawing to keep your work, then reload the application and open the downloaded file.',
+  'Download the drawing (JSON)': 'Download the drawing (JSON)',
+  Reload: 'Reload'
 } as const;
 
 export type TranslationKey = keyof typeof enTranslations;

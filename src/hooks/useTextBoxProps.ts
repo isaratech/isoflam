@@ -17,7 +17,8 @@ export const useTextBoxProps = (textBox: TextBox) => {
         UNPROJECTED_TILE_SIZE * (textBox.fontSize ?? TEXTBOX_DEFAULTS.fontSize),
       fontFamily: DEFAULT_FONT_FAMILY,
       fontWeight: textBox.isBold ?? TEXTBOX_DEFAULTS.isBold ? 'bold' : 'normal',
-      fontStyle: textBox.isItalic ?? TEXTBOX_DEFAULTS.isItalic ? 'italic' : 'normal',
+      fontStyle:
+        textBox.isItalic ?? TEXTBOX_DEFAULTS.isItalic ? 'italic' : 'normal',
       color: color.value
     };
   }, [textBox.fontSize, textBox.isBold, textBox.isItalic, color.value]);

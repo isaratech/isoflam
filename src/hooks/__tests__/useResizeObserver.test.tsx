@@ -14,12 +14,14 @@ function renderHook<Result, Props extends object = object>(
     return null;
   }
 
-  const initialProps = options?.initialProps || {} as Props;
+  const initialProps = options?.initialProps || ({} as Props);
   const utils = render(<TestComponent {...initialProps} />);
 
   return {
     result,
-    rerender: (newProps: Props) => utils.rerender(<TestComponent {...newProps} />),
+    rerender: (newProps: Props) => {
+      return utils.rerender(<TestComponent {...newProps} />);
+    },
     unmount: utils.unmount
   };
 }
@@ -27,6 +29,7 @@ function renderHook<Result, Props extends object = object>(
 // Mock ResizeObserver
 class MockResizeObserver {
   callback: ResizeObserverCallback;
+
   elements: HTMLElement[] = [];
 
   constructor(callback: ResizeObserverCallback) {
@@ -43,13 +46,15 @@ class MockResizeObserver {
 
   // Helper method to simulate a resize
   simulateResize() {
-    const entries = this.elements.map(element => ({
-      target: element,
-      contentRect: {
-        width: 100,
-        height: 200
-      }
-    })) as unknown as ResizeObserverEntry[];
+    const entries = this.elements.map((element) => {
+      return {
+        target: element,
+        contentRect: {
+          width: 100,
+          height: 200
+        }
+      };
+    }) as unknown as ResizeObserverEntry[];
 
     this.callback(entries, this as unknown as ResizeObserver);
   }
@@ -60,7 +65,9 @@ global.ResizeObserver = MockResizeObserver as unknown as typeof ResizeObserver;
 
 describe('useResizeObserver Hook', () => {
   test('should initialize with default size', () => {
-    const { result } = renderHook(() => useResizeObserver());
+    const { result } = renderHook(() => {
+      return useResizeObserver();
+    });
 
     expect(result.current.size).toEqual({ width: 0, height: 0 });
   });
@@ -73,12 +80,15 @@ describe('useResizeObserver Hook', () => {
     Object.defineProperty(mockElement, 'clientWidth', { value: 100 });
     Object.defineProperty(mockElement, 'clientHeight', { value: 200 });
 
-    const { result } = renderHook(() => useResizeObserver(mockElement));
+    const { result } = renderHook(() => {
+      return useResizeObserver(mockElement);
+    });
 
     // Get the mock ResizeObserver instance and trigger the callback directly
     act(() => {
       // Find the ResizeObserver instance
-      const mockObserver = global.ResizeObserver as unknown as typeof MockResizeObserver;
+      const mockObserver =
+        global.ResizeObserver as unknown as typeof MockResizeObserver;
       const instance = new mockObserver(() => {});
 
       // Manually call the callback with the element
@@ -93,7 +103,9 @@ describe('useResizeObserver Hook', () => {
     // Create a mock element
     const mockElement = document.createElement('div');
 
-    const { result } = renderHook(() => useResizeObserver(mockElement));
+    const { result } = renderHook(() => {
+      return useResizeObserver(mockElement);
+    });
 
     // Call disconnect
     act(() => {

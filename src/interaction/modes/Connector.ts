@@ -1,6 +1,12 @@
-import {produce} from 'immer';
-import {generateId, getItemAtTile, getItemByIdOrThrow, hasMovedTile, setWindowCursor} from 'src/utils';
-import {Connector as ConnectorI, ModeActions} from 'src/types';
+import { produce } from 'immer';
+import {
+  generateId,
+  getItemAtTile,
+  getItemByIdOrThrow,
+  hasMovedTile,
+  setWindowCursor
+} from 'src/utils';
+import { Connector as ConnectorI, ModeActions } from 'src/types';
 
 export const Connector: ModeActions = {
   entry: () => {
@@ -49,7 +55,10 @@ export const Connector: ModeActions = {
 
     const newConnector: ConnectorI = {
       id: generateId(),
-        color: scene.colors && scene.colors.length > 0 ? scene.colors[0].id : undefined,
+      color:
+        scene.colors && scene.colors.length > 0
+          ? scene.colors[0].id
+          : undefined,
       anchors: []
     };
 

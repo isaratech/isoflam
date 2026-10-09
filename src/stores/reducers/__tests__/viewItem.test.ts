@@ -1,6 +1,6 @@
+import { generateId } from 'src/utils';
 import { createViewItem } from '../viewItem';
 import { State } from '../types';
-import { generateId } from 'src/utils';
 
 describe('viewItem reducer', () => {
   const mockState: State = {
@@ -44,12 +44,16 @@ describe('viewItem reducer', () => {
     const result = createViewItem(newViewItem, ctx);
 
     // Verify that the model item was created
-    const createdModelItem = result.model.items.find(item => item.id === viewItemId);
+    const createdModelItem = result.model.items.find((item) => {
+      return item.id === viewItemId;
+    });
     expect(createdModelItem).toBeDefined();
     expect(createdModelItem?.icon).toBeUndefined();
 
     // Verify that the view item was created
-    const view = result.model.views.find(v => v.id === 'test-view');
+    const view = result.model.views.find((v) => {
+      return v.id === 'test-view';
+    });
     expect(view?.items).toHaveLength(1);
     expect(view?.items[0].id).toBe(viewItemId);
   });

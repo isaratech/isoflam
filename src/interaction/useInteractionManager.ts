@@ -1,19 +1,19 @@
-import {useCallback, useEffect, useRef} from 'react';
-import {useModelStore} from 'src/stores/modelStore';
-import {useUiStateStore, useUiStateStoreApi} from 'src/stores/uiStateStore';
-import {ModeActions, SlimMouseEvent, State} from 'src/types';
-import {getItemsAtTile, getMouse} from 'src/utils';
-import {useResizeObserver} from 'src/hooks/useResizeObserver';
-import {useScene} from 'src/hooks/useScene';
-import {Cursor} from './modes/Cursor';
-import {DragItems} from './modes/DragItems';
-import {DrawRectangle} from './modes/Rectangle/DrawRectangle';
-import {TransformRectangle} from './modes/Rectangle/TransformRectangle';
-import {Connector} from './modes/Connector';
-import {Pan} from './modes/Pan';
-import {PlaceIcon} from './modes/PlaceIcon';
-import {PlaceImage} from './modes/PlaceImage';
-import {TextBox} from './modes/TextBox';
+import { useCallback, useEffect, useRef } from 'react';
+import { useModelStore } from 'src/stores/modelStore';
+import { useUiStateStore, useUiStateStoreApi } from 'src/stores/uiStateStore';
+import { ModeActions, SlimMouseEvent, State } from 'src/types';
+import { getItemsAtTile, getMouse } from 'src/utils';
+import { useResizeObserver } from 'src/hooks/useResizeObserver';
+import { useScene } from 'src/hooks/useScene';
+import { Cursor } from './modes/Cursor';
+import { DragItems } from './modes/DragItems';
+import { DrawRectangle } from './modes/Rectangle/DrawRectangle';
+import { TransformRectangle } from './modes/Rectangle/TransformRectangle';
+import { Connector } from './modes/Connector';
+import { Pan } from './modes/Pan';
+import { PlaceIcon } from './modes/PlaceIcon';
+import { PlaceImage } from './modes/PlaceImage';
+import { TextBox } from './modes/TextBox';
 
 const modes: { [k in string]: ModeActions } = {
   CURSOR: Cursor,
@@ -24,7 +24,7 @@ const modes: { [k in string]: ModeActions } = {
   CONNECTOR: Connector,
   PAN: Pan,
   PLACE_ICON: PlaceIcon,
-    PLACE_IMAGE: PlaceImage,
+  PLACE_IMAGE: PlaceImage,
   TEXTBOX: TextBox
 };
 
@@ -123,10 +123,10 @@ export const useInteractionManager = () => {
 
       e.preventDefault();
 
-        // Disable right-click during readonly mode
-        if (uiState.editorMode === 'EXPLORABLE_READONLY') {
-            return;
-        }
+      // Disable right-click during readonly mode
+      if (uiState.editorMode === 'EXPLORABLE_READONLY') {
+        return;
+      }
 
       const itemsAtTile = getItemsAtTile({
         tile: uiState.mouse.position.tile,
@@ -148,18 +148,18 @@ export const useInteractionManager = () => {
       if (itemAtTile) {
         uiState.actions.setContextMenu({
           item: itemAtTile,
-            tile: uiState.mouse.position.tile,
-            position: {x: e.clientX, y: e.clientY}
+          tile: uiState.mouse.position.tile,
+          position: { x: e.clientX, y: e.clientY }
         });
       } else {
         // Show context menu for empty space
         uiState.actions.setContextMenu({
-            tile: uiState.mouse.position.tile,
-            position: {x: e.clientX, y: e.clientY}
+          tile: uiState.mouse.position.tile,
+          position: { x: e.clientX, y: e.clientY }
         });
       }
     },
-      [scene, uiStateStore]
+    [scene, uiStateStore]
   );
 
   useEffect(() => {
@@ -210,33 +210,34 @@ export const useInteractionManager = () => {
     let wheelDelta = 0;
 
     const onScroll = (e: WheelEvent) => {
-        // Get mouse position relative to the renderer element
-        const rect = rendererRef.current?.getBoundingClientRect();
-        if (!rect) return;
+      // Get mouse position relative to the renderer element
+      const rect = rendererRef.current?.getBoundingClientRect();
+      if (!rect) return;
 
-        // Don't let the browser zoom the page (trackpad pinch) or scroll the host page
-        e.preventDefault();
+      // Don't let the browser zoom the page (trackpad pinch) or scroll the host page
+      e.preventDefault();
 
-        // Horizontal scrolling is not a zoom gesture
-        if (e.deltaY === 0) return;
+      // Horizontal scrolling is not a zoom gesture
+      if (e.deltaY === 0) return;
 
-        // Trackpads send many small deltas: accumulate them so one gesture doesn't jump from min
-        // to max zoom. A mouse wheel notch (~100px, or 1 line in Firefox) still zooms one step.
-        wheelDelta += e.deltaMode === WheelEvent.DOM_DELTA_PIXEL ? e.deltaY : e.deltaY * 100;
-        if (Math.abs(wheelDelta) < 50) return;
+      // Trackpads send many small deltas: accumulate them so one gesture doesn't jump from min
+      // to max zoom. A mouse wheel notch (~100px, or 1 line in Firefox) still zooms one step.
+      wheelDelta +=
+        e.deltaMode === WheelEvent.DOM_DELTA_PIXEL ? e.deltaY : e.deltaY * 100;
+      if (Math.abs(wheelDelta) < 50) return;
 
-        const isZoomOut = wheelDelta > 0;
-        wheelDelta = 0;
+      const isZoomOut = wheelDelta > 0;
+      wheelDelta = 0;
 
-        const mousePosition = {
-            x: e.clientX - rect.left,
-            y: e.clientY - rect.top
-        };
-      
+      const mousePosition = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+
       if (isZoomOut) {
-          uiStateActions.decrementZoomAtPosition(mousePosition, rendererSize);
+        uiStateActions.decrementZoomAtPosition(mousePosition, rendererSize);
       } else {
-          uiStateActions.incrementZoomAtPosition(mousePosition, rendererSize);
+        uiStateActions.incrementZoomAtPosition(mousePosition, rendererSize);
       }
     };
 
@@ -248,7 +249,9 @@ export const useInteractionManager = () => {
     el.addEventListener('touchstart', onTouchStart, { passive: false });
     el.addEventListener('touchmove', onTouchMove);
     el.addEventListener('touchend', onTouchEnd);
-    rendererRef.current?.addEventListener('wheel', onScroll, { passive: false });
+    rendererRef.current?.addEventListener('wheel', onScroll, {
+      passive: false
+    });
 
     return () => {
       el.removeEventListener('mousemove', onMouseEvent);

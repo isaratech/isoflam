@@ -1,4 +1,4 @@
-import {produce} from 'immer';
+import { produce } from 'immer';
 import {
   CONNECTOR_SEARCH_OFFSET,
   DEFAULT_FONT_FAMILY,
@@ -28,8 +28,16 @@ import {
   TileOrigin,
   View
 } from 'src/types';
-import {clamp, CoordsUtils, findPath, getItemByIdOrThrow, roundToOneDecimalPlace, SizeUtils, toPx} from 'src/utils';
-import {useScene} from 'src/hooks/useScene';
+import {
+  clamp,
+  CoordsUtils,
+  findPath,
+  getItemByIdOrThrow,
+  roundToOneDecimalPlace,
+  SizeUtils,
+  toPx
+} from 'src/utils';
+import { useScene } from 'src/hooks/useScene';
 
 interface ScreenToIso {
   mouse: Coords;
@@ -228,7 +236,11 @@ export const incrementZoom = (zoom: number) => {
 
 export const decrementZoom = (zoom: number) => {
   // Fit to view can go below MIN_ZOOM: zooming out must never zoom in
-  const newZoom = clamp(zoom - ZOOM_INCREMENT, Math.min(MIN_ZOOM, zoom), MAX_ZOOM);
+  const newZoom = clamp(
+    zoom - ZOOM_INCREMENT,
+    Math.min(MIN_ZOOM, zoom),
+    MAX_ZOOM
+  );
   return roundToOneDecimalPlace(newZoom);
 };
 
@@ -456,7 +468,11 @@ export const getItemsAtTile = ({
 
   const scaledViewItems = scene.items.filter((item) => {
     // If the item has a scaleFactor > 1, check if the tile is within its bounds
-    if (item.scaleFactor && item.scaleFactor > 1 && !exactViewItems.includes(item)) {
+    if (
+      item.scaleFactor &&
+      item.scaleFactor > 1 &&
+      !exactViewItems.includes(item)
+    ) {
       // Calculate the size of the icon in tiles based on scale factor
       // Round up to ensure we cover the full area
       const iconSize = Math.ceil(item.scaleFactor);
@@ -507,7 +523,7 @@ export const getItemsAtTile = ({
     });
   });
 
-  const rectangles = scene.rectangles.filter(({from, to}) => {
+  const rectangles = scene.rectangles.filter(({ from, to }) => {
     return isWithinBounds(tile, [from, to]);
   });
 

@@ -1,27 +1,39 @@
 import React from 'react';
-import {render} from '@testing-library/react';
-import {Rectangle} from '../Rectangle';
+import { render } from '@testing-library/react';
+import { Rectangle } from '../Rectangle';
 
 // Mock the hooks
-jest.mock('src/hooks/useColor', () => ({
-  useColor: () => ({ value: '#ff0000' })
-}));
+jest.mock('src/hooks/useColor', () => {
+  return {
+    useColor: () => {
+      return { value: '#ff0000' };
+    }
+  };
+});
 
-jest.mock('src/utils', () => ({
-  getColorVariant: () => '#cc0000'
-}));
+jest.mock('src/utils', () => {
+  return {
+    getColorVariant: () => {
+      return '#cc0000';
+    }
+  };
+});
 
 // Mock IsoTileArea component
-jest.mock('src/components/IsoTileArea/IsoTileArea', () => ({
-  IsoTileArea: ({ stroke, cornerRadius, ...props }: any) => (
-    <div 
-      data-testid="iso-tile-area" 
-      data-stroke={stroke ? JSON.stringify(stroke) : 'none'}
-      data-corner-radius={cornerRadius}
-      {...props} 
-    />
-  )
-}));
+jest.mock('src/components/IsoTileArea/IsoTileArea', () => {
+  return {
+    IsoTileArea: ({ stroke, cornerRadius, ...props }: any) => {
+      return (
+        <div
+          data-testid="iso-tile-area"
+          data-stroke={stroke ? JSON.stringify(stroke) : 'none'}
+          data-corner-radius={cornerRadius}
+          {...props}
+        />
+      );
+    }
+  };
+});
 
 describe('Rectangle', () => {
   const defaultProps = {
@@ -31,12 +43,12 @@ describe('Rectangle', () => {
     color: 'red',
     style: 'SOLID' as const,
     width: 1,
-      radius: 22,
-      imageData: undefined,
-      imageName: undefined,
-      mirrorHorizontal: false,
-      mirrorVertical: false,
-      rotationAngle: 0
+    radius: 22,
+    imageData: undefined,
+    imageName: undefined,
+    mirrorHorizontal: false,
+    mirrorVertical: false,
+    rotationAngle: 0
   };
 
   it('renders without stroke when style is NONE', () => {
@@ -89,18 +101,14 @@ describe('Rectangle', () => {
   });
 
   it('renders with default radius when radius is specified', () => {
-    const { getByTestId } = render(
-      <Rectangle {...defaultProps} />
-    );
+    const { getByTestId } = render(<Rectangle {...defaultProps} />);
 
     const element = getByTestId('iso-tile-area');
     expect(element.getAttribute('data-corner-radius')).toBe('22');
   });
 
   it('renders with custom radius when specified', () => {
-    const { getByTestId } = render(
-      <Rectangle {...defaultProps} radius={10} />
-    );
+    const { getByTestId } = render(<Rectangle {...defaultProps} radius={10} />);
 
     const element = getByTestId('iso-tile-area');
     expect(element.getAttribute('data-corner-radius')).toBe('10');

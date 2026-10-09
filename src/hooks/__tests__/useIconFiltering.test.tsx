@@ -4,8 +4,20 @@ import { ModelProvider, useModelStore } from 'src/stores/modelStore';
 import { useIconFiltering } from '../useIconFiltering';
 
 const icons = [
-  { id: 'brancard_01', name: 'Brancard 01', url: '', scaleFactor: 1, colorizable: true },
-  { id: 'brancard_02', name: 'Brancard 02', url: '', scaleFactor: 1, colorizable: true },
+  {
+    id: 'brancard_01',
+    name: 'Brancard 01',
+    url: '',
+    scaleFactor: 1,
+    colorizable: true
+  },
+  {
+    id: 'brancard_02',
+    name: 'Brancard 02',
+    url: '',
+    scaleFactor: 1,
+    colorizable: true
+  },
   { id: 'echelle', name: 'Échelle', url: '', scaleFactor: 1, colorizable: true }
 ];
 
@@ -33,10 +45,11 @@ describe('useIconFiltering', () => {
       result.current.setFilter('brancard 0');
     });
 
-    expect(result.current.filteredIcons?.map((icon) => icon.id)).toEqual([
-      'brancard_01',
-      'brancard_02'
-    ]);
+    expect(
+      result.current.filteredIcons?.map((icon) => {
+        return icon.id;
+      })
+    ).toEqual(['brancard_01', 'brancard_02']);
   });
 
   it('does not crash on regex special characters', () => {
@@ -56,8 +69,10 @@ describe('useIconFiltering', () => {
       result.current.setFilter('ECHELLE');
     });
 
-    expect(result.current.filteredIcons?.map((icon) => icon.id)).toEqual([
-      'echelle'
-    ]);
+    expect(
+      result.current.filteredIcons?.map((icon) => {
+        return icon.id;
+      })
+    ).toEqual(['echelle']);
   });
 });

@@ -1,5 +1,12 @@
-import type {Connector, ConnectorAnchor, Model, ModelItem, Rectangle, View} from 'src/types';
-import {getAllAnchors, getItemByIdOrThrow} from 'src/utils';
+import type {
+  Connector,
+  ConnectorAnchor,
+  Model,
+  ModelItem,
+  Rectangle,
+  View
+} from 'src/types';
+import { getAllAnchors, getItemByIdOrThrow } from 'src/utils';
 
 type IssueType =
   | {
@@ -28,14 +35,14 @@ type IssueType =
       };
     }
   | {
-    type: 'INVALID_VIEW_ITEM_COLOR_REF';
-    params: {
+      type: 'INVALID_VIEW_ITEM_COLOR_REF';
+      params: {
         viewItem: string;
         view: string;
         color: string;
-    };
-}
-    | {
+      };
+    }
+  | {
       type: 'INVALID_ANCHOR_TO_ANCHOR_REF';
       params: {
         srcAnchor: string;
@@ -154,7 +161,7 @@ export const validateConnector = (
 ): Issue[] => {
   const issues: Issue[] = [];
 
-    if (connector.color && ctx.model.colors) {
+  if (connector.color && ctx.model.colors) {
     try {
       getItemByIdOrThrow(ctx.model.colors, connector.color);
     } catch (e) {
@@ -204,7 +211,7 @@ export const validateRectangle = (
 ): Issue[] => {
   const issues: Issue[] = [];
 
-    if (rectangle.color && ctx.model.colors) {
+  if (rectangle.color && ctx.model.colors) {
     try {
       getItemByIdOrThrow(ctx.model.colors, rectangle.color);
     } catch (e) {
@@ -267,23 +274,23 @@ export const validateView = (view: View, ctx: { model: Model }): Issue[] => {
       });
     }
 
-      // Validate ViewItem color reference
-      if (viewItem.color && ctx.model.colors) {
-          try {
-              getItemByIdOrThrow(ctx.model.colors, viewItem.color);
-          } catch (e) {
-              issues.push({
-                  type: 'INVALID_VIEW_ITEM_COLOR_REF',
-                  params: {
-                      viewItem: viewItem.id,
-                      view: view.id,
-                      color: viewItem.color
-                  },
-                  message:
-                      'ViewItem references a color that does not exist in the model.'
-              });
-          }
+    // Validate ViewItem color reference
+    if (viewItem.color && ctx.model.colors) {
+      try {
+        getItemByIdOrThrow(ctx.model.colors, viewItem.color);
+      } catch (e) {
+        issues.push({
+          type: 'INVALID_VIEW_ITEM_COLOR_REF',
+          params: {
+            viewItem: viewItem.id,
+            view: view.id,
+            color: viewItem.color
+          },
+          message:
+            'ViewItem references a color that does not exist in the model.'
+        });
       }
+    }
   });
 
   return issues;
@@ -297,7 +304,7 @@ export const validateModelItem = (
 ): Issue[] => {
   const issues: Issue[] = [];
 
-    if (!modelItem.icon || !ctx.model.icons) return issues;
+  if (!modelItem.icon || !ctx.model.icons) return issues;
 
   try {
     getItemByIdOrThrow(ctx.model.icons, modelItem.icon);

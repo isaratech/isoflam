@@ -1,13 +1,19 @@
-import {useCallback, useRef, useState} from 'react';
-import {IconCollectionState, InitialData} from 'src/types';
-import {INITIAL_DATA, INITIAL_SCENE_STATE} from 'src/config';
-import {categoriseIcons, CoordsUtils, generateId, getFitToViewParams, getItemByIdOrThrow} from 'src/utils';
+import { useCallback, useRef, useState } from 'react';
+import { IconCollectionState, InitialData } from 'src/types';
+import { INITIAL_DATA, INITIAL_SCENE_STATE } from 'src/config';
+import {
+  categoriseIcons,
+  CoordsUtils,
+  generateId,
+  getFitToViewParams,
+  getItemByIdOrThrow
+} from 'src/utils';
 import * as reducers from 'src/stores/reducers';
-import {useModelStore} from 'src/stores/modelStore';
-import {useView} from 'src/hooks/useView';
-import {useUiStateStore} from 'src/stores/uiStateStore';
-import {modelSchema} from 'src/schemas/model';
-import {useTranslation} from 'src/hooks/useTranslation';
+import { useModelStore } from 'src/stores/modelStore';
+import { useView } from 'src/hooks/useView';
+import { useUiStateStore } from 'src/stores/uiStateStore';
+import { modelSchema } from 'src/schemas/model';
+import { useTranslation } from 'src/hooks/useTranslation';
 
 export const useInitialDataManager = () => {
   const [isReady, setIsReady] = useState(false);
@@ -27,14 +33,21 @@ export const useInitialDataManager = () => {
   const load = useCallback(
     // Returns true if the data was loaded
     (_initialData: InitialData): boolean => {
-      if (!_initialData || prevInitialData.current === _initialData) return false;
+      if (!_initialData || prevInitialData.current === _initialData)
+        return false;
 
       setIsReady(false);
 
-        // Extract InitialData-specific properties before validation
-        const {view: initialView, zoom: initialZoom, scroll: initialScroll, fitToView: initialFitToView, ...modelData} = _initialData;
+      // Extract InitialData-specific properties before validation
+      const {
+        view: initialView,
+        zoom: initialZoom,
+        scroll: initialScroll,
+        fitToView: initialFitToView,
+        ...modelData
+      } = _initialData;
 
-        const validationResult = modelSchema.safeParse(modelData);
+      const validationResult = modelSchema.safeParse(modelData);
 
       if (!validationResult.success) {
         // TODO: let's get better at reporting error messages here (starting with how we present them to users)
@@ -50,14 +63,16 @@ export const useInitialDataManager = () => {
           }
         );
 
-        const detailedErrorMessage = `${t('The drawing contains errors:')}\n\n${errorMessages.join('\n\n')}`;
+        const detailedErrorMessage = `${t(
+          'The drawing contains errors:'
+        )}\n\n${errorMessages.join('\n\n')}`;
 
         window.alert(detailedErrorMessage);
         return false;
       }
 
-        // Use the validated data from the schema (now includes default icons and colors)
-        const initialData = validationResult.data;
+      // Use the validated data from the schema (now includes default icons and colors)
+      const initialData = validationResult.data;
 
       if (initialData.views.length === 0) {
         const updates = reducers.view({
@@ -72,28 +87,33 @@ export const useInitialDataManager = () => {
         Object.assign(initialData, updates.model);
       }
 
-        // Reconstruct the full InitialData object for prevInitialData
-        const fullInitialData = {...initialData, view: initialView, zoom: initialZoom, fitToView: initialFitToView};
-        prevInitialData.current = fullInitialData;
+      // Reconstruct the full InitialData object for prevInitialData
+      const fullInitialData = {
+        ...initialData,
+        view: initialView,
+        zoom: initialZoom,
+        fitToView: initialFitToView
+      };
+      prevInitialData.current = fullInitialData;
       model.actions.set(initialData);
 
       const view = getItemByIdOrThrow(
         initialData.views,
-          initialView ?? initialData.views[0].id
+        initialView ?? initialData.views[0].id
       );
 
       changeView(view.value.id, initialData);
 
-        if (initialZoom !== undefined) {
-            uiStateActions.setZoom(initialZoom);
+      if (initialZoom !== undefined) {
+        uiStateActions.setZoom(initialZoom);
 
-            if (initialScroll) {
-                uiStateActions.setScroll({
-                    position: initialScroll,
-                    offset: CoordsUtils.zero()
-                });
-            }
-        } else if (initialFitToView) {
+        if (initialScroll) {
+          uiStateActions.setScroll({
+            position: initialScroll,
+            offset: CoordsUtils.zero()
+          });
+        }
+      } else if (initialFitToView) {
         const rendererSize = rendererEl?.getBoundingClientRect();
 
         const { zoom, scroll } = getFitToViewParams(view.value, {
@@ -110,7 +130,7 @@ export const useInitialDataManager = () => {
       }
 
       const categoriesState: IconCollectionState[] = categoriseIcons(
-          initialData.icons || []
+        initialData.icons || []
       ).map((collection) => {
         return {
           id: collection.name,

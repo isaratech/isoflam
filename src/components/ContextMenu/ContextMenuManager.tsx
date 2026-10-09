@@ -1,11 +1,11 @@
-import React, {useCallback} from 'react';
-import {useUiStateStore} from 'src/stores/uiStateStore';
-import {CoordsUtils, generateId} from 'src/utils';
-import {useScene} from 'src/hooks/useScene';
-import {useTranslation} from 'src/hooks/useTranslation';
-import {TEXTBOX_DEFAULTS} from 'src/config';
-import {useImageHandler} from 'src/hooks/useImageHandler';
-import {ContextMenu} from './ContextMenu';
+import React, { useCallback } from 'react';
+import { useUiStateStore } from 'src/stores/uiStateStore';
+import { CoordsUtils, generateId } from 'src/utils';
+import { useScene } from 'src/hooks/useScene';
+import { useTranslation } from 'src/hooks/useTranslation';
+import { TEXTBOX_DEFAULTS } from 'src/config';
+import { useImageHandler } from 'src/hooks/useImageHandler';
+import { ContextMenu } from './ContextMenu';
 
 interface Props {
   anchorEl?: HTMLElement;

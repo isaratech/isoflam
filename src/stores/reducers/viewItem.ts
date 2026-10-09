@@ -58,7 +58,9 @@ export const createViewItem = (
   const view = getItemByIdOrThrow(state.model.views, viewId);
 
   // Check if the model item exists, if not create it
-  const modelItemExists = state.model.items.some(item => item.id === newViewItem.id);
+  const modelItemExists = state.model.items.some((item) => {
+    return item.id === newViewItem.id;
+  });
 
   const newState = produce(state, (draft) => {
     // Create model item if it doesn't exist

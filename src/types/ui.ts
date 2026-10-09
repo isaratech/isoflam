@@ -1,7 +1,7 @@
-import {SupportedLanguage} from 'src/hooks/useTranslation';
-import {Coords, EditorModeEnum, MainMenuOptions} from './common';
-import {Icon} from './model';
-import {ItemReference} from './scene';
+import { SupportedLanguage } from 'src/hooks/useTranslation';
+import { Coords, EditorModeEnum, MainMenuOptions } from './common';
+import { Icon } from './model';
+import { ItemReference } from './scene';
 
 interface AddItemControls {
   type: 'ADD_ITEM';
@@ -97,8 +97,8 @@ export interface TextBoxMode {
 }
 
 export interface PlaceImageMode {
-    type: 'PLACE_IMAGE';
-    showCursor: boolean;
+  type: 'PLACE_IMAGE';
+  showCursor: boolean;
 }
 
 export type Mode =
@@ -110,8 +110,8 @@ export type Mode =
   | DrawRectangleMode
   | TransformRectangleMode
   | DragItemsMode
-    | TextBoxMode
-    | PlaceImageMode;
+  | TextBoxMode
+  | PlaceImageMode;
 // End mode types
 
 export interface Scroll {
@@ -143,7 +143,7 @@ export const DialogTypeEnum = {
 export interface ContextMenu {
   item?: ItemReference;
   tile: Coords;
-    position: Coords;
+  position: Coords;
 }
 
 export const LayerOrderingActionOptions = {
@@ -171,7 +171,7 @@ export interface UiState {
   rendererEl: HTMLDivElement | null;
   enableDebugTools: boolean;
   language: SupportedLanguage;
-    hasUnsavedChanges: boolean;
+  hasUnsavedChanges: boolean;
 }
 
 export interface UiStateActions {
@@ -183,8 +183,14 @@ export interface UiStateActions {
   setMode: (mode: Mode) => void;
   incrementZoom: () => void;
   decrementZoom: () => void;
-    incrementZoomAtPosition: (screenPosition: { x: number; y: number }, rendererSize: { width: number; height: number }) => void;
-    decrementZoomAtPosition: (screenPosition: { x: number; y: number }, rendererSize: { width: number; height: number }) => void;
+  incrementZoomAtPosition: (
+    screenPosition: { x: number; y: number },
+    rendererSize: { width: number; height: number }
+  ) => void;
+  decrementZoomAtPosition: (
+    screenPosition: { x: number; y: number },
+    rendererSize: { width: number; height: number }
+  ) => void;
   setIsMainMenuOpen: (isOpen: boolean) => void;
   setDialog: (dialog: keyof typeof DialogTypeEnum | null) => void;
   setZoom: (zoom: number) => void;
@@ -195,7 +201,7 @@ export interface UiStateActions {
   setRendererEl: (el: HTMLDivElement) => void;
   setEnableDebugTools: (enabled: boolean) => void;
   setLanguage: (language: SupportedLanguage) => void;
-    setHasUnsavedChanges: (hasUnsavedChanges: boolean) => void;
+  setHasUnsavedChanges: (hasUnsavedChanges: boolean) => void;
 }
 
 export type UiStateStore = UiState & {

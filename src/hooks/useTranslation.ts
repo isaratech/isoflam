@@ -1,7 +1,7 @@
-import {frTranslations} from 'src/translations/fr';
-import {enTranslations} from 'src/translations/en';
-import {useUiStateStore} from 'src/stores/uiStateStore';
-import {useCallback} from 'react';
+import { frTranslations } from 'src/translations/fr';
+import { enTranslations } from 'src/translations/en';
+import { useUiStateStore } from 'src/stores/uiStateStore';
+import { useCallback } from 'react';
 
 // Define a union type for all supported languages
 export type SupportedLanguage = 'fr' | 'en';
@@ -13,7 +13,9 @@ const translations = {
 };
 
 // Define a type for translation keys that works across all languages
-export type TranslationKey = keyof typeof frTranslations | keyof typeof enTranslations;
+export type TranslationKey =
+  | keyof typeof frTranslations
+  | keyof typeof enTranslations;
 
 export const useTranslation = () => {
   const language = useUiStateStore((state) => {
