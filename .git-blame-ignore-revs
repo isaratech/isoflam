@@ -1,0 +1,5 @@
+# Mechanical formatting commits, ignored by `git blame` (GitHub does it automatically;
+# locally: git config blame.ignoreRevsFile .git-blame-ignore-revs)
+
+# style: apply ESLint --fix (Prettier formatting, arrow bodies, comments, import order)
+d8e14f45655ff9ed73a8d28e4126c2dee5d5ff97
