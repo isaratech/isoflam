@@ -5,6 +5,35 @@ All notable changes to the Isoflam project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2026-10-09
+
+### Added
+
+- Connector height: raise a connector up to 10 tiles above the ground, with dashed drop lines to its ends (#39)
+- Volume tool: extrude a rectangle into a volume by a number of tiles, closed with a roof or open with only its two back walls (#40)
+- Wall tool: draw a straight, one-tile-thick wall in one drag (#55)
+- Road tool: draw a road (asphalt with a dashed centre line) (#55)
+- Share a scene through a URL from the main menu
+- Recovery screen instead of a blank page when the app crashes
+- Confirmation before discarding unsaved work
+
+### Changed
+
+- Volumes and walls are drawn above the ground grid
+- Icon PNGs re-encoded with a palette (bundle icons 101 MB -> 24 MB)
+- The scene no longer re-renders entirely on every mouse move
+- Service worker disabled on localhost; the PWA works under a sub-path
+- CI runs the type check and ESLint on every push
+
+### Fixed
+
+- A corner radius of 0 now gives sharp corners instead of the default radius
+- "Current view" export exports exactly the visible area
+- Rectangle resizing, selecting overlapping items, context menu position and imported image size
+- Touch input, pan origin, wheel zoom and icon click
+- Icon search crash, shortcuts in read-only mode, zoom buttons and export dialog
+- Scene and selection stay consistent after undo / redo
+
 ## [1.3.3] - 2025-07-31
 
 ### Added
