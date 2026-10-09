@@ -148,7 +148,11 @@ export const enTranslations = {
   // Share via URL
   'Link copied to clipboard!': 'Link copied to clipboard!',
   'Scene too large for URL sharing': "Scene is too large to be shared via URL. Imported images significantly increase size. Try removing them or exporting as JSON.",
-  'Error creating link': "An error occurred while creating the link."
+  'Error creating link': "An error occurred while creating the link.",
+
+    // Misc
+    "Unable to load the scene from the URL. The link may be corrupted.": "Unable to load the scene from the URL. The link may be corrupted.",
+    "No icons found": "No icons found"
 } as const;
 
 export type TranslationKey = keyof typeof enTranslations;

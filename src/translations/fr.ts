@@ -148,7 +148,11 @@ export const frTranslations = {
     // Share via URL
     'Link copied to clipboard!': 'Le lien a été copié dans le presse-papier !',
     'Scene too large for URL sharing': "La scène est trop volumineuse pour être partagée par URL. Les images importées augmentent considérablement la taille. Essayez de les retirer ou d'exporter en fichier JSON.",
-    'Error creating link': "Une erreur est survenue lors de la création du lien."
+    'Error creating link': "Une erreur est survenue lors de la création du lien.",
+
+    // Misc
+    "Unable to load the scene from the URL. The link may be corrupted.": "Impossible de charger la scène depuis l'URL. Le lien est peut-être corrompu.",
+    "No icons found": "Aucune icône trouvée"
 } as const;
 
 export type TranslationKey = keyof typeof frTranslations;

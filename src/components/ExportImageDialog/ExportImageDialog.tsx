@@ -23,6 +23,7 @@ import {
   downloadFile as downloadFileUtil,
   base64ToBlob,
   generateGenericFilename,
+  getStartingMode,
   modelFromModelStore
 } from 'src/utils';
 import { ModelStore } from 'src/types';
@@ -49,6 +50,9 @@ export const ExportImageDialog = ({ onClose, quality = 1 }: Props) => {
   const currentZoom = useUiStateStore((state) => {
     return state.zoom;
   });
+  const editorMode = useUiStateStore((state) => {
+    return state.editorMode;
+  });
   const [imageData, setImageData] = React.useState<string>();
   const [exportError, setExportError] = useState(false);
   const { getUnprojectedBounds } = useDiagramUtils();
@@ -68,7 +72,13 @@ export const ExportImageDialog = ({ onClose, quality = 1 }: Props) => {
       type: 'INTERACTIONS_DISABLED',
       showCursor: false
     });
-  }, [uiStateActions]);
+
+    return () => {
+      // Give the canvas back to the user when the dialog closes
+      clearTimeout(debounceRef.current);
+      uiStateActions.setMode(getStartingMode(editorMode));
+    };
+  }, [uiStateActions, editorMode]);
 
   const exportImage = useCallback(async () => {
     if (!containerRef.current) return;
@@ -239,16 +249,16 @@ export const ExportImageDialog = ({ onClose, quality = 1 }: Props) => {
                 />
               </Box>
             </Box>
-            {imageData && (
-              <Stack sx={{ width: '100%' }} alignItems="flex-end">
-                <Stack direction="row" spacing={2}>
-                  <Button variant="text" onClick={onClose}>
-                    {t('Cancel')}
-                  </Button>
+            <Stack sx={{ width: '100%' }} alignItems="flex-end">
+              <Stack direction="row" spacing={2}>
+                <Button variant="text" onClick={onClose}>
+                  {t('Cancel')}
+                </Button>
+                {imageData && (
                   <Button onClick={downloadFile}>{t('Download as PNG')}</Button>
-                </Stack>
+                )}
               </Stack>
-            )}
+            </Stack>
           </Stack>
 
           {exportError && (

@@ -66,13 +66,18 @@ describe('IconButton Component', () => {
   });
 
   test('is disabled when disabled prop is true', () => {
+    const handleClick = jest.fn();
+
     render(
       <ThemeProvider theme={mockTheme}>
-        <IconButton name="Test Button" Icon={<MockIcon />} onClick={() => {}} disabled />
+        <IconButton name="Test Button" Icon={<MockIcon />} onClick={handleClick} disabled />
       </ThemeProvider>
     );
 
-    // The icon color should be grey.800 when disabled
-    // This is difficult to test directly with the current setup
+    const button = screen.getByRole('button', { name: 'Test Button' });
+    expect(button).toBeDisabled();
+
+    fireEvent.click(button);
+    expect(handleClick).not.toHaveBeenCalled();
   });
 });

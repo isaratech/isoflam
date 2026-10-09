@@ -5,6 +5,22 @@ import {UiStateStore} from 'src/types';
 import {INITIAL_UI_STATE, PROJECTED_TILE_SIZE} from 'src/config';
 import {SupportedLanguage} from 'src/hooks/useTranslation';
 
+const LANGUAGE_STORAGE_KEY = 'language';
+
+// Saved language if any, otherwise the browser locale (French or English, English by default)
+const getInitialLanguage = (): SupportedLanguage => {
+  try {
+    const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    if (savedLanguage === 'fr' || savedLanguage === 'en') {
+      return savedLanguage;
+    }
+  } catch (e) {
+    // Storage can be unavailable (privacy settings, sandboxed iframe...)
+  }
+
+  return navigator.language.toLowerCase().startsWith('fr') ? 'fr' : 'en';
+};
+
 const initialState = () => {
   return createStore<UiStateStore>((set, get) => {
     return {
@@ -19,7 +35,7 @@ const initialState = () => {
       dialog: null,
       rendererEl: null,
       contextMenu: null,
-      language: 'fr' as SupportedLanguage,
+      language: getInitialLanguage(),
       mouse: {
         position: { screen: CoordsUtils.zero(), tile: CoordsUtils.zero() },
         mousedown: null,
@@ -43,6 +59,11 @@ const initialState = () => {
         },
         setLanguage: (language: SupportedLanguage) => {
           set({ language });
+          try {
+            localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+          } catch (e) {
+            // Language will simply not be remembered
+          }
         },
         resetUiState: () => {
           set({

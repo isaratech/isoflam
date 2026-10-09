@@ -41,33 +41,39 @@ export const IconButton = ({
       arrow
       sx={{ bgcolor: 'primary.main' }}
     >
-      <Button
-        variant="text"
-        onClick={onClick}
-        sx={{
-          borderRadius: 0,
-          height: theme.customVars.toolMenu.height,
-          width: theme.customVars.toolMenu.height,
-          maxWidth: '100%',
-          minWidth: 'auto',
-          bgcolor: isActive ? 'primary.light' : undefined,
-          p: 0,
-          m: 0
-        }}
-      >
-        <Box
+      {/* The span keeps the tooltip working when the button is disabled */}
+      <span style={{ display: 'flex' }}>
+        <Button
+          variant="text"
+          onClick={onClick}
+          disabled={disabled}
+          aria-label={name}
+          aria-pressed={isActive}
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            svg: {
-              color: iconColor
-            }
+            borderRadius: 0,
+            height: theme.customVars.toolMenu.height,
+            width: theme.customVars.toolMenu.height,
+            maxWidth: '100%',
+            minWidth: 'auto',
+            bgcolor: isActive ? 'primary.light' : undefined,
+            p: 0,
+            m: 0
           }}
         >
-          {Icon}
-        </Box>
-      </Button>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              svg: {
+                color: iconColor
+              }
+            }}
+          >
+            {Icon}
+          </Box>
+        </Button>
+      </span>
     </Tooltip>
   );
 };

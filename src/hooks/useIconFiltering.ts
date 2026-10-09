@@ -1,27 +1,33 @@
-import {useMemo, useState} from 'react';
+import {useDeferredValue, useMemo, useState} from 'react';
 import {useModelStore} from 'src/stores/modelStore';
 import {Icon} from 'src/types';
 
+// Lower case and strip accents so that "echelle" also finds "Échelle"
+const normalize = (value: string) => {
+  return value
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase();
+};
+
 export const useIconFiltering = () => {
   const [filter, setFilter] = useState<string>('');
+  // Filtering and rendering many icons is expensive: keep typing responsive
+  const deferredFilter = useDeferredValue(filter);
 
   const icons = useModelStore((state) => {
     return state.icons;
   });
 
   const filteredIcons = useMemo(() => {
-      if (filter === '' || !icons) return null;
+    const query = normalize(deferredFilter.trim());
 
-    const regex = new RegExp(filter, 'gi');
+    if (query === '' || !icons) return null;
 
     return icons.filter((icon: Icon) => {
-      if (!filter) {
-        return true;
-      }
-
-        return regex.test(icon.name) || regex.test(icon.id);
+      return normalize(icon.name).includes(query) || normalize(icon.id).includes(query);
     });
-  }, [icons, filter]);
+  }, [icons, deferredFilter]);
 
   return {
     setFilter,
