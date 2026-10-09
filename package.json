@@ -16,8 +16,8 @@
     "dev": "nodemon --watch ./src/ -e ts,tsx --exec npm run build",
     "build": "webpack --config ./webpack/prod.config.js && tsc --declaration --emitDeclarationOnly && tsc-alias",
     "test": "jest",
-    "lint": "tsc --noEmit && eslint ./src/**/* --ext .ts,.tsx",
-    "lint:fix": "eslint --fix ./src/**/* --ext .ts,.tsx",
+    "lint": "tsc --noEmit && eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint --fix src --ext .ts,.tsx",
     "docker:build": "webpack --config ./webpack/docker.config.js"
   },
   "devDependencies": {
