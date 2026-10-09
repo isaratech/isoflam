@@ -78,9 +78,6 @@ export const UiOverlay = () => {
   const mode = useUiStateStore((state) => {
     return state.mode;
   });
-  const mouse = useUiStateStore((state) => {
-    return state.mouse;
-  });
   const dialog = useUiStateStore((state) => {
     return state.dialog;
   });
@@ -532,7 +529,7 @@ export const UiOverlay = () => {
 
       {mode.type === 'PLACE_ICON' && mode.id && (
         <SceneLayer disableAnimation>
-          <DragAndDrop iconId={mode.id} tile={mouse.position.tile} />
+          <DragAndDrop iconId={mode.id} />
         </SceneLayer>
       )}
 

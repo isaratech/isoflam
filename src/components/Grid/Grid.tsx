@@ -32,7 +32,9 @@ export const Grid = () => {
     gsap.to(elementRef.current, {
       duration: isFirstRender ? 0 : 0.25,
       backgroundSize: `${tileSize.width}px ${tileSize.height * 2}px`,
-      backgroundPosition: `${backgroundPosition.width}px ${backgroundPosition.height}px`
+      backgroundPosition: `${backgroundPosition.width}px ${backgroundPosition.height}px`,
+      // Replace the running tween instead of piling one up per scroll/zoom event
+      overwrite: true
     });
 
     if (isFirstRender) {

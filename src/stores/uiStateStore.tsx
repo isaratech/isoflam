@@ -266,3 +266,15 @@ export function useUiStateStore<T>(selector: (state: UiStateStore) => T) {
   const value = useStore(store, selector);
   return value;
 }
+
+// Direct access to the store, to read the latest state inside event handlers
+// without subscribing the component to every change (e.g. mouse moves)
+export function useUiStateStoreApi() {
+  const store = useContext(UiStateContext);
+
+  if (store === null) {
+    throw new Error('Missing provider in the tree');
+  }
+
+  return store;
+}

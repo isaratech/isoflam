@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useRef} from 'react';
 import {useModelStore} from 'src/stores/modelStore';
-import {useUiStateStore} from 'src/stores/uiStateStore';
+import {useUiStateStore, useUiStateStoreApi} from 'src/stores/uiStateStore';
 import {ModeActions, SlimMouseEvent, State} from 'src/types';
 import {getItemAtTile, getMouse} from 'src/utils';
 import {useResizeObserver} from 'src/hooks/useResizeObserver';
@@ -44,18 +44,30 @@ const getModeFunction = (mode: ModeActions, e: SlimMouseEvent) => {
 export const useInteractionManager = () => {
   const rendererRef = useRef<HTMLElement>();
   const reducerTypeRef = useRef<string>();
-  const uiState = useUiStateStore((state) => {
-    return state;
+  // Read the UI state at event time rather than subscribing to it: subscribing to the whole
+  // state re-rendered the renderer (and every scene element) on each mouse move.
+  const uiStateStore = useUiStateStoreApi();
+  const modeType = useUiStateStore((state) => {
+    return state.mode.type;
   });
-  const model = useModelStore((state) => {
-    return state;
+  const editorMode = useUiStateStore((state) => {
+    return state.editorMode;
+  });
+  const rendererEl = useUiStateStore((state) => {
+    return state.rendererEl;
+  });
+  const modelActions = useModelStore((state) => {
+    return state.actions;
   });
   const scene = useScene();
-  const { size: rendererSize } = useResizeObserver(uiState.rendererEl);
+  const { size: rendererSize } = useResizeObserver(rendererEl);
 
   const onMouseEvent = useCallback(
     (e: SlimMouseEvent) => {
       if (!rendererRef.current) return;
+
+      const uiState = uiStateStore.getState();
+      const model = modelActions.get();
 
       const mode = modes[uiState.mode.type];
       const modeFunction = getModeFunction(mode, e);
@@ -99,11 +111,13 @@ export const useInteractionManager = () => {
       modeFunction(baseState);
       reducerTypeRef.current = uiState.mode.type;
     },
-    [model, scene, uiState, rendererSize]
+    [modelActions, scene, uiStateStore, rendererSize]
   );
 
   const onContextMenu = useCallback(
     (e: SlimMouseEvent) => {
+      const uiState = uiStateStore.getState();
+
       e.preventDefault();
 
         // Disable right-click during readonly mode
@@ -130,11 +144,13 @@ export const useInteractionManager = () => {
         });
       }
     },
-      [uiState.mouse, scene, uiState.contextMenu, uiState.actions, uiState.editorMode]
+      [scene, uiStateStore]
   );
 
   useEffect(() => {
-    if (uiState.mode.type === 'INTERACTIONS_DISABLED') return;
+    if (modeType === 'INTERACTIONS_DISABLED') return;
+
+    const uiStateActions = uiStateStore.getState().actions;
 
     const el = window;
 
@@ -179,9 +195,9 @@ export const useInteractionManager = () => {
         };
       
       if (e.deltaY > 0) {
-          uiState.actions.decrementZoomAtPosition(mousePosition, rendererSize);
+          uiStateActions.decrementZoomAtPosition(mousePosition, rendererSize);
       } else {
-          uiState.actions.incrementZoomAtPosition(mousePosition, rendererSize);
+          uiStateActions.incrementZoomAtPosition(mousePosition, rendererSize);
       }
     };
 
@@ -205,12 +221,13 @@ export const useInteractionManager = () => {
       rendererRef.current?.removeEventListener('wheel', onScroll);
     };
   }, [
-    uiState.editorMode,
+    editorMode,
     onMouseEvent,
-    uiState.mode.type,
+    modeType,
     onContextMenu,
-    uiState.actions,
-    uiState.rendererEl
+    uiStateStore,
+    rendererEl,
+    rendererSize
   ]);
 
   const setInteractionsElement = useCallback((element: HTMLElement) => {

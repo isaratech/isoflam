@@ -5,7 +5,6 @@ import {getAnchorTile, getColorVariant, getConnectorDirectionIcon} from 'src/uti
 import {Circle} from 'src/components/Circle/Circle';
 import {Svg} from 'src/components/Svg/Svg';
 import {useIsoProjection} from 'src/hooks/useIsoProjection';
-import {useConnector} from 'src/hooks/useConnector';
 import {useScene} from 'src/hooks/useScene';
 import {useColor} from 'src/hooks/useColor';
 
@@ -14,11 +13,10 @@ interface Props {
   isSelected?: boolean;
 }
 
-export const Connector = ({ connector: _connector, isSelected }: Props) => {
+export const Connector = ({ connector, isSelected }: Props) => {
   const theme = useTheme();
-  const color = useColor(_connector.color);
+  const color = useColor(connector.color);
   const { currentView } = useScene();
-  const connector = useConnector(_connector.id);
 
     // Call all hooks first, then handle the conditional logic
   const { css, pxSize } = useIsoProjection({

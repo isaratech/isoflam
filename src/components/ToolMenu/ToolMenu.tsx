@@ -9,7 +9,7 @@ import {
     PanToolOutlined as PanToolIcon,
     Title as TitleIcon
 } from '@mui/icons-material';
-import {useUiStateStore} from 'src/stores/uiStateStore';
+import {useUiStateStore, useUiStateStoreApi} from 'src/stores/uiStateStore';
 import {IconButton} from 'src/components/IconButton/IconButton';
 import {UiElement} from 'src/components/UiElement/UiElement';
 import {useScene} from 'src/hooks/useScene';
@@ -31,9 +31,8 @@ export const ToolMenu = () => {
   const uiStateStoreActions = useUiStateStore((state) => {
     return state.actions;
   });
-  const mousePosition = useUiStateStore((state) => {
-    return state.mouse.position.tile;
-  });
+  // Read at click time: subscribing would re-render the menu on every mouse move
+  const uiStateStore = useUiStateStoreApi();
 
   const createTextBoxProxy = useCallback(() => {
     const textBoxId = generateId();
@@ -41,7 +40,7 @@ export const ToolMenu = () => {
     createTextBox({
       ...TEXTBOX_DEFAULTS,
       id: textBoxId,
-      tile: mousePosition
+      tile: uiStateStore.getState().mouse.position.tile
     });
 
     uiStateStoreActions.setMode({
@@ -49,7 +48,7 @@ export const ToolMenu = () => {
       showCursor: false,
       id: textBoxId
     });
-  }, [uiStateStoreActions, createTextBox, mousePosition]);
+  }, [uiStateStoreActions, createTextBox, uiStateStore]);
 
     const handleImageImport = useCallback(() => {
         // Switch to PLACE_IMAGE mode to let user select position first
@@ -80,7 +79,7 @@ export const ToolMenu = () => {
         if (!file) return;
 
         // Use the selected position or fall back to current mouse position
-        const position = selectedImagePositionRef.current || mousePosition;
+        const position = selectedImagePositionRef.current || uiStateStore.getState().mouse.position.tile;
 
         // Clear the selected position after use
         selectedImagePositionRef.current = null;
@@ -96,7 +95,7 @@ export const ToolMenu = () => {
 
         // Reset the input value so the same file can be selected again
         event.target.value = '';
-    }, [handleImageFileShared, mousePosition]);
+    }, [handleImageFileShared, uiStateStore]);
 
   return (
     <UiElement>
