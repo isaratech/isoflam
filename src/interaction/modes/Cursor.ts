@@ -95,7 +95,8 @@ const mousedown: ModeActionsAction = ({
     uiState.actions.setMode({
       type: 'PAN',
       showCursor: false,
-      previousMode: uiState.mode
+      previousMode: uiState.mode,
+      isDragging: true
     });
 
     // Set the cursor to grabbing to indicate panning

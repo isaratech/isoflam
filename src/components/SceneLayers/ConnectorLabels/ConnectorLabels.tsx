@@ -11,7 +11,8 @@ export const ConnectorLabels = ({ connectors }: Props) => {
     <>
       {connectors
         .filter((connector) => {
-          return Boolean(connector.description);
+          // A connector without a computed path cannot be positioned
+          return Boolean(connector.description) && Boolean(connector.path);
         })
         .map((connector) => {
           return <ConnectorLabel key={connector.id} connector={connector} />;

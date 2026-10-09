@@ -116,6 +116,9 @@ export const useInteractionManager = () => {
 
   const onContextMenu = useCallback(
     (e: SlimMouseEvent) => {
+      // Leave the native context menu everywhere but on the canvas (text fields, panels, host page)
+      if (!rendererRef.current || e.target !== rendererRef.current) return;
+
       const uiState = uiStateStore.getState();
 
       e.preventDefault();
@@ -154,47 +157,71 @@ export const useInteractionManager = () => {
 
     const el = window;
 
-    const onTouchStart = (e: TouchEvent) => {
-      onMouseEvent({
+    // Touch is translated into left-button mouse events. Spreading the event doesn't copy
+    // `target` (a prototype getter), so it is passed explicitly.
+    const toMouseEvent = (
+      e: TouchEvent,
+      touch: Touch,
+      type: SlimMouseEvent['type']
+    ): SlimMouseEvent => {
+      return {
         ...e,
-        clientX: Math.floor(e.touches[0].clientX),
-        clientY: Math.floor(e.touches[0].clientY),
-        type: 'mousedown',
+        target: e.target,
+        clientX: Math.floor(touch.clientX),
+        clientY: Math.floor(touch.clientY),
+        type,
         button: 0
-      });
+      };
+    };
+
+    const onTouchStart = (e: TouchEvent) => {
+      if (e.target === rendererRef.current) {
+        // Prevents the emulated mouse events that browsers send after a tap
+        e.preventDefault();
+      }
+
+      // Move the pointer to the touch position first, so that the jump from the previous touch
+      // isn't taken as a drag
+      onMouseEvent(toMouseEvent(e, e.touches[0], 'mousemove'));
+      onMouseEvent(toMouseEvent(e, e.touches[0], 'mousedown'));
     };
 
     const onTouchMove = (e: TouchEvent) => {
-      onMouseEvent({
-        ...e,
-        clientX: Math.floor(e.touches[0].clientX),
-        clientY: Math.floor(e.touches[0].clientY),
-        type: 'mousemove',
-        button: 0
-      });
+      onMouseEvent(toMouseEvent(e, e.touches[0], 'mousemove'));
     };
 
     const onTouchEnd = (e: TouchEvent) => {
-      onMouseEvent({
-        ...e,
-        clientX: 0,
-        clientY: 0,
-        type: 'mouseup',
-        button: 0
-      });
+      // `touches` is empty once the finger is lifted: use the touch that ended
+      onMouseEvent(toMouseEvent(e, e.changedTouches[0], 'mouseup'));
     };
+
+    let wheelDelta = 0;
 
     const onScroll = (e: WheelEvent) => {
         // Get mouse position relative to the renderer element
         const rect = rendererRef.current?.getBoundingClientRect();
         if (!rect) return;
 
+        // Don't let the browser zoom the page (trackpad pinch) or scroll the host page
+        e.preventDefault();
+
+        // Horizontal scrolling is not a zoom gesture
+        if (e.deltaY === 0) return;
+
+        // Trackpads send many small deltas: accumulate them so one gesture doesn't jump from min
+        // to max zoom. A mouse wheel notch (~100px, or 1 line in Firefox) still zooms one step.
+        wheelDelta += e.deltaMode === WheelEvent.DOM_DELTA_PIXEL ? e.deltaY : e.deltaY * 100;
+        if (Math.abs(wheelDelta) < 50) return;
+
+        const isZoomOut = wheelDelta > 0;
+        wheelDelta = 0;
+
         const mousePosition = {
             x: e.clientX - rect.left,
             y: e.clientY - rect.top
         };
       
-      if (e.deltaY > 0) {
+      if (isZoomOut) {
           uiStateActions.decrementZoomAtPosition(mousePosition, rendererSize);
       } else {
           uiStateActions.incrementZoomAtPosition(mousePosition, rendererSize);
@@ -205,10 +232,11 @@ export const useInteractionManager = () => {
     el.addEventListener('mousedown', onMouseEvent);
     el.addEventListener('mouseup', onMouseEvent);
     el.addEventListener('contextmenu', onContextMenu);
-    el.addEventListener('touchstart', onTouchStart);
+    // Not passive, so that touchstart can cancel the emulated mouse events
+    el.addEventListener('touchstart', onTouchStart, { passive: false });
     el.addEventListener('touchmove', onTouchMove);
     el.addEventListener('touchend', onTouchEnd);
-    rendererRef.current?.addEventListener('wheel', onScroll);
+    rendererRef.current?.addEventListener('wheel', onScroll, { passive: false });
 
     return () => {
       el.removeEventListener('mousemove', onMouseEvent);

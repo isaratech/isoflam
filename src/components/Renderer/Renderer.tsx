@@ -97,7 +97,9 @@ export const Renderer = ({ showGrid, backgroundColor }: RendererProps) => {
           left: 0,
           top: 0,
           width: '100%',
-          height: '100%'
+          height: '100%',
+          // Touch gestures are handled by the app, not by the browser (scroll, zoom)
+          touchAction: 'none'
         }}
       />
       <SceneLayer>
