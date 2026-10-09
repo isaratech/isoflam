@@ -7,7 +7,7 @@ import {
   getConnectorDirectionIcon,
   getConnectorGlobalTiles,
   getWallHeight,
-  isRoad
+  isWallOrRoad
 } from 'src/utils';
 import { Circle } from 'src/components/Circle/Circle';
 import { Svg } from 'src/components/Svg/Svg';
@@ -35,8 +35,6 @@ export const Connector = ({ connector, isSelected }: Props) => {
   });
 
   const wallHeight = getWallHeight(connector);
-  // Roads are drawn together by the Roads layer; only their handles are drawn here
-  const isRoadConnector = isRoad(connector);
 
   const wallTiles = useMemo(() => {
     if (!wallHeight || !connector.path) return [];
@@ -114,8 +112,9 @@ export const Connector = ({ connector, isSelected }: Props) => {
   }
 
   const strokeColor = getColorVariant(color.value, 'dark', { grade: 1 });
-  // Walls and roads only show their anchor handles in this ground-level drawing
-  const isFlatLine = !wallHeight && !isRoadConnector;
+  // Walls and roads only show their anchor handles in this ground-level drawing (roads
+  // themselves are drawn together by the Roads layer)
+  const isFlatLine = !isWallOrRoad(connector);
 
   return (
     <>

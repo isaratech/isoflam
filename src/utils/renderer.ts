@@ -549,12 +549,20 @@ export const getWallHeight = (connector: {
   return isRoad(connector) ? 0 : connector.height ?? 0;
 };
 
+// Walls and roads are shapes drawn on the ground rather than links between icons
+export const isWallOrRoad = (connector: {
+  height?: number;
+  variant?: string;
+}) => {
+  return isRoad(connector) || getWallHeight(connector) > 0;
+};
+
 // Roads and walls only turn at right angles; plain lines can go diagonally
 export const allowsDiagonalPath = (connector: {
   height?: number;
   variant?: string;
 }) => {
-  return !isRoad(connector) && getWallHeight(connector) === 0;
+  return !isWallOrRoad(connector);
 };
 
 // Global tiles of a connector path, without the duplicates where two path sections meet

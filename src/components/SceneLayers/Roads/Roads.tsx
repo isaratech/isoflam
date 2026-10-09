@@ -19,6 +19,10 @@ const ROAD = {
 
 const asphaltWidth = ROAD.width - ROAD.edgeWidth * 2;
 
+const toFixedKey = (value: number) => {
+  return Math.round(value);
+};
+
 // All roads are drawn together, pass by pass, so that where they meet the edge lines
 // and centre lines of one road don't cut across another
 export const Roads = ({ connectors }: Props) => {
@@ -60,7 +64,7 @@ export const Roads = ({ connectors }: Props) => {
     return network.junctions.map(({ x, y }) => {
       return (
         <rect
-          key={`${x},${y}`}
+          key={`${toFixedKey(x)},${toFixedKey(y)}`}
           x={x - size / 2}
           y={y - size / 2}
           width={size}
@@ -75,10 +79,11 @@ export const Roads = ({ connectors }: Props) => {
     <Box style={css}>
       <Svg viewboxSize={pxSize}>
         {/* 1. Edge lines: the full road width in white */}
-        {network.paths.map((d) => {
+        {network.paths.map((d, index) => {
           return (
             <path
-              key={`edge-${d}`}
+              // eslint-disable-next-line react/no-array-index-key
+              key={`edge-${index}`}
               d={d}
               fill="none"
               stroke={ROAD.marking}
@@ -89,10 +94,11 @@ export const Roads = ({ connectors }: Props) => {
         {junctionSquare(ROAD.width, ROAD.marking)}
 
         {/* 2. Asphalt, narrower so the edge lines stay visible */}
-        {network.paths.map((d) => {
+        {network.paths.map((d, index) => {
           return (
             <path
-              key={`asphalt-${d}`}
+              // eslint-disable-next-line react/no-array-index-key
+              key={`asphalt-${index}`}
               d={d}
               fill="none"
               stroke={ROAD.asphalt}
@@ -102,10 +108,11 @@ export const Roads = ({ connectors }: Props) => {
         })}
 
         {/* 3. Dashed centre lines */}
-        {network.paths.map((d) => {
+        {network.paths.map((d, index) => {
           return (
             <path
-              key={`centre-${d}`}
+              // eslint-disable-next-line react/no-array-index-key
+              key={`centre-${index}`}
               d={d}
               fill="none"
               stroke={ROAD.marking}

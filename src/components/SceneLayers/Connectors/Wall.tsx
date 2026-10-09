@@ -66,11 +66,12 @@ export const Wall = ({
         overflow: 'visible'
       }}
     >
-      {faces.map((face) => {
+      {faces.map((face, index) => {
         const [, , topEnd, topStart] = face.points;
 
         return (
-          <g key={face.points.map(toLocal).join(' ')}>
+          // eslint-disable-next-line react/no-array-index-key
+          <g key={index}>
             <polygon
               points={face.points.map(toLocal).join(' ')}
               fill={shadeColor(color, faceShade[face.side])}

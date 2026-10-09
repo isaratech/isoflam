@@ -44,6 +44,8 @@ export interface DragItemsMode {
   showCursor: boolean;
   items: ItemReference[];
   isInitialMovement: Boolean;
+  // Offset between the mouse and the dragged anchor, when a wall is grabbed above its foot
+  grabOffset?: Coords;
 }
 
 export interface PanMode {

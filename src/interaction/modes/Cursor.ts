@@ -155,14 +155,19 @@ export const Cursor: ModeActions = {
     if (uiState.mode.type !== 'CURSOR' || !hasMovedTile(uiState.mouse)) return;
 
     let item = uiState.mode.mousedownItem;
+    let grabOffset: Coords | undefined;
 
     if (item?.type === 'CONNECTOR' && uiState.mouse.mousedown) {
-      const anchor = getAnchor(item.id, uiState.mouse.mousedown.tile, scene);
+      const { tile } = uiState.mouse.mousedown;
+      const anchor = getAnchor(item.id, tile, scene);
+      const connector = getItemByIdOrThrow(scene.connectors, item.id).value;
+      const groundTile = getConnectorGroundTile(connector, tile) ?? tile;
 
       item = {
         type: 'CONNECTOR_ANCHOR',
         id: anchor.id
       };
+      grabOffset = CoordsUtils.subtract(tile, groundTile);
     }
 
     if (item) {
@@ -170,7 +175,8 @@ export const Cursor: ModeActions = {
         type: 'DRAG_ITEMS',
         showCursor: true,
         items: [item],
-        isInitialMovement: true
+        isInitialMovement: true,
+        grabOffset
       });
     }
   },

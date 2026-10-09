@@ -7,8 +7,7 @@ import {
   hasMovedTile,
   getAnchorParent,
   getItemAtTile,
-  getWallHeight,
-  isRoad
+  isWallOrRoad
 } from 'src/utils';
 
 const dragItems = (
@@ -43,10 +42,9 @@ const dragItems = (
         const anchor = getItemByIdOrThrow(connector.anchors, item.id);
 
         // Roads and walls are drawn freely on the ground, they don't stick to icons
-        const itemAtTile =
-          isRoad(connector) || getWallHeight(connector) > 0
-            ? null
-            : getItemAtTile({ tile, scene });
+        const itemAtTile = isWallOrRoad(connector)
+          ? null
+          : getItemAtTile({ tile, scene });
 
         switch (itemAtTile?.type) {
           case 'ITEM':
@@ -95,13 +93,19 @@ export const DragItems: ModeActions = {
   mousemove: ({ uiState, scene }) => {
     if (uiState.mode.type !== 'DRAG_ITEMS' || !uiState.mouse.mousedown) return;
 
+    // A wall grabbed above its foot keeps the same offset to the mouse
+    const tile = CoordsUtils.subtract(
+      uiState.mouse.position.tile,
+      uiState.mode.grabOffset ?? CoordsUtils.zero()
+    );
+
     if (uiState.mode.isInitialMovement) {
       const delta = CoordsUtils.subtract(
         uiState.mouse.position.tile,
         uiState.mouse.mousedown.tile
       );
 
-      dragItems(uiState.mode.items, uiState.mouse.position.tile, delta, scene);
+      dragItems(uiState.mode.items, tile, delta, scene);
 
       uiState.actions.setMode(
         produce(uiState.mode, (draft) => {
@@ -116,7 +120,7 @@ export const DragItems: ModeActions = {
 
     const delta = uiState.mouse.delta.tile;
 
-    dragItems(uiState.mode.items, uiState.mouse.position.tile, delta, scene);
+    dragItems(uiState.mode.items, tile, delta, scene);
   },
   mouseup: ({ uiState }) => {
     uiState.actions.setMode({
