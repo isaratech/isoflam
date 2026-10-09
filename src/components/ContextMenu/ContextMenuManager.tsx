@@ -7,20 +7,10 @@ import { TEXTBOX_DEFAULTS } from 'src/config';
 import { useImageHandler } from 'src/hooks/useImageHandler';
 import { ContextMenu } from './ContextMenu';
 
-interface Props {
-  anchorEl?: HTMLElement;
-}
-
-export const ContextMenuManager = ({ anchorEl }: Props) => {
+export const ContextMenuManager = () => {
   const scene = useScene();
   const { t } = useTranslation();
   const { handleImageFile } = useImageHandler();
-  const zoom = useUiStateStore((state) => {
-    return state.zoom;
-  });
-  const scroll = useUiStateStore((state) => {
-    return state.scroll;
-  });
   const contextMenu = useUiStateStore((state) => {
     return state.contextMenu;
   });
@@ -165,7 +155,6 @@ export const ContextMenuManager = ({ anchorEl }: Props) => {
 
   return (
     <ContextMenu
-      anchorEl={anchorEl}
       onClose={onClose}
       position={contextMenu.position}
       menuItems={menuItems}

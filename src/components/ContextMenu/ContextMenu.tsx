@@ -10,16 +10,10 @@ interface MenuItemI {
 interface Props {
   onClose: () => void;
   position: Coords;
-  anchorEl?: HTMLElement;
   menuItems: MenuItemI[];
 }
 
-export const ContextMenu = ({
-  onClose,
-  position,
-  anchorEl,
-  menuItems
-}: Props) => {
+export const ContextMenu = ({ onClose, position, menuItems }: Props) => {
   return (
     <Menu
       open

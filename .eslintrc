@@ -28,6 +28,7 @@
         "react/no-unused-prop-types": ["warn"],
         "react/require-default-props": [0],
         "react/prop-types": [0],
+        "react/style-prop-object": ["error", { "allow": ["Rectangle"] }],
         "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["draft"] }],
         "arrow-body-style": ["error", "always"]
     },

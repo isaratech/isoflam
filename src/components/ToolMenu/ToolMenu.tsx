@@ -100,7 +100,8 @@ export const ToolMenu = () => {
       });
 
       // Reset the input value so the same file can be selected again
-      event.target.value = '';
+      const input = event.target;
+      input.value = '';
     },
     [handleImageFileShared, uiStateStore]
   );

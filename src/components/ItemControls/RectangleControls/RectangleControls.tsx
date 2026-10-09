@@ -68,7 +68,7 @@ export const RectangleControls = ({ id }: Props) => {
         <Section title={t('Rotation')}>
           <ToggleButtonGroup
             value={[]} // No persistent selection for action buttons
-            onChange={(e, newValues) => {
+            onChange={(e) => {
               // Handle rotation actions based on the clicked button
               const target = e.target as HTMLElement;
               const button = target.closest('[data-rotation]') as HTMLElement;
@@ -150,7 +150,7 @@ export const RectangleControls = ({ id }: Props) => {
         <Section title={t('Layer')}>
           <ToggleButtonGroup
             value={[]} // No persistent selection for action buttons
-            onChange={(e, newValues) => {
+            onChange={(e) => {
               // Handle layer actions based on the clicked button
               const target = e.target as HTMLElement;
               const button = target.closest(
@@ -182,6 +182,8 @@ export const RectangleControls = ({ id }: Props) => {
                       type: 'RECTANGLE',
                       id: rectangle.id
                     });
+                    break;
+                  default:
                     break;
                 }
               }
@@ -275,7 +277,7 @@ export const RectangleControls = ({ id }: Props) => {
           <Section title={t('Rotation')}>
             <ToggleButtonGroup
               value={[]} // No persistent selection for action buttons
-              onChange={(e, newValues) => {
+              onChange={(e) => {
                 // Handle rotation actions based on the clicked button
                 const target = e.target as HTMLElement;
                 const button = target.closest(

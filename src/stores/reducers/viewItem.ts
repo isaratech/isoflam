@@ -3,7 +3,8 @@ import { ViewItem } from 'src/types';
 import { getItemByIdOrThrow, getConnectorsByViewItem } from 'src/utils';
 import { validateView } from 'src/schemas/validation';
 import { State, ViewReducerContext } from './types';
-import * as reducers from './view';
+// Connector reducers are called directly: going through view() created an import cycle
+import { syncConnector, updateConnector } from './connector';
 
 export const updateViewItem = (
   { id, ...updates }: { id: string } & Partial<ViewItem>,
@@ -26,11 +27,7 @@ export const updateViewItem = (
       );
 
       const updatedConnectors = connectorsToUpdate.reduce((acc, connector) => {
-        return reducers.view({
-          action: 'UPDATE_CONNECTOR',
-          payload: connector,
-          ctx: { viewId, state: acc }
-        });
+        return updateConnector(connector, { viewId, state: acc });
       }, draft);
 
       draft.model.views[view.index].connectors =
@@ -95,11 +92,7 @@ export const deleteViewItem = (
     );
 
     const updatedConnectors = connectorsToUpdate.reduce((acc, connector) => {
-      return reducers.view({
-        action: 'SYNC_CONNECTOR',
-        payload: connector.id,
-        ctx: { viewId, state: acc }
-      });
+      return syncConnector(connector.id, { viewId, state: acc });
     }, draft);
 
     draft.model.views[view.index].connectors =

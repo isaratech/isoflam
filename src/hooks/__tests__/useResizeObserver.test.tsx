@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { render, act } from '@testing-library/react';
 import { useResizeObserver } from '../useResizeObserver';
 
@@ -86,11 +86,6 @@ describe('useResizeObserver Hook', () => {
 
     // Get the mock ResizeObserver instance and trigger the callback directly
     act(() => {
-      // Find the ResizeObserver instance
-      const mockObserver =
-        global.ResizeObserver as unknown as typeof MockResizeObserver;
-      const instance = new mockObserver(() => {});
-
       // Manually call the callback with the element
       result.current.size = { width: 100, height: 200 };
     });

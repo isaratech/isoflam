@@ -1,10 +1,4 @@
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState
-} from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import { EditorModeEnum } from 'src/types';
 import { UiElement } from 'components/UiElement/UiElement';
@@ -18,8 +12,6 @@ import { ZoomControls } from 'src/components/ZoomControls/ZoomControls';
 import { DebugUtils } from 'src/components/DebugUtils/DebugUtils';
 import { useResizeObserver } from 'src/hooks/useResizeObserver';
 import { ContextMenuManager } from 'src/components/ContextMenu/ContextMenuManager';
-import { useScene } from 'src/hooks/useScene';
-import { useModelStore } from 'src/stores/modelStore';
 import { useModelFileLoader } from 'src/hooks/useModelFileLoader';
 import { useTranslation } from 'src/hooks/useTranslation';
 import { useImageHandler } from 'src/hooks/useImageHandler';
@@ -74,7 +66,6 @@ const getEditorModeMapping = (editorMode: keyof typeof EditorModeEnum) => {
 export const UiOverlay = () => {
   const theme = useTheme();
   const { t } = useTranslation();
-  const contextMenuAnchorRef = useRef();
   const { appPadding } = theme.customVars;
   const spacing = useCallback(
     (multiplier: number) => {
@@ -97,7 +88,6 @@ export const UiOverlay = () => {
   const itemControls = useUiStateStore((state) => {
     return state.itemControls;
   });
-  const { currentView } = useScene();
   const editorMode = useUiStateStore((state) => {
     return state.editorMode;
   });
@@ -106,9 +96,6 @@ export const UiOverlay = () => {
   }, [editorMode]);
   const rendererEl = useUiStateStore((state) => {
     return state.rendererEl;
-  });
-  const title = useModelStore((state) => {
-    return state.title;
   });
   const { size: rendererSize } = useResizeObserver(rendererEl);
   const scroll = useUiStateStore((state) => {
@@ -527,10 +514,8 @@ export const UiOverlay = () => {
         />
       )}
 
-      <SceneLayer>
-        <Box ref={contextMenuAnchorRef} />
-        <ContextMenuManager anchorEl={contextMenuAnchorRef.current} />
-      </SceneLayer>
+      {/* The menu is positioned at the click position (MUI portal) */}
+      <ContextMenuManager />
 
       {/* Drag & Drop Overlay */}
       {(isDragOver || isLoading) && (

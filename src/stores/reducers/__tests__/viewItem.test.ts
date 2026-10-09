@@ -59,7 +59,6 @@ describe('viewItem reducer', () => {
   });
 
   it('should successfully create view item when model item exists', () => {
-    const viewItemId = generateId();
     const modelItemId = generateId();
 
     // Add model item first

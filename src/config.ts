@@ -12,31 +12,9 @@ import {
   ViewItem
 } from 'src/types';
 import { CoordsUtils } from 'src/utils';
-// Import icon fixtures with error handling for testing
-let sdmisIcons: any[] = [];
-let basicIcons: any[] = [];
-let sitacIcons: any[] = [];
-
-try {
-  const sdmisModule = require('./fixtures/sdmisIcons');
-  sdmisIcons = sdmisModule.sdmisIcons || [];
-} catch (e) {
-  console.warn('Could not load sdmisIcons:', e);
-}
-
-try {
-  const basicModule = require('./fixtures/icons');
-  basicIcons = basicModule.icons || [];
-} catch (e) {
-  console.warn('Could not load basicIcons:', e);
-}
-
-try {
-  const sitacModule = require('./fixtures/sitacIcons');
-  sitacIcons = sitacModule.default || [];
-} catch (e) {
-  console.warn('Could not load sitacIcons:', e);
-}
+import { sdmisIcons } from './fixtures/sdmisIcons';
+import { icons as basicIcons } from './fixtures/icons';
+import { sitacIcons } from './fixtures/sitacIcons';
 
 // =============================================================================
 // TILE AND GRID CONFIGURATION

@@ -38,9 +38,6 @@ const App = ({
   const uiStateActions = useUiStateStore((state) => {
     return state.actions;
   });
-  const rendererEl = useUiStateStore((state) => {
-    return state.rendererEl;
-  });
   const hasLoadedFromUrlRef = useRef(false);
   const itemControls = useUiStateStore((state) => {
     return state.itemControls;
@@ -99,6 +96,8 @@ const App = ({
       if (hasUnsavedChanges) {
         const message = t('Your unsaved changes will be lost');
         event.preventDefault();
+        // Required by some browsers to show the confirmation dialog
+        // eslint-disable-next-line no-param-reassign
         event.returnValue = message;
         return message;
       }

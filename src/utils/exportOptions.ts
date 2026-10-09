@@ -63,7 +63,7 @@ export const copyToClipboard = (text: string, promptMessage: string) => {
     return navigator.clipboard.writeText(text);
   }
   // Fallback for older browsers or non-secure contexts
-  return new Promise<void>((resolve, reject) => {
+  return new Promise<void>((resolve) => {
     const textArea = document.createElement('textarea');
     textArea.value = text;
     textArea.style.position = 'fixed';
@@ -95,19 +95,15 @@ export const exportAsUrl = async (model: Model) => {
   const { icons, colors, ...modelWithoutIconsAndColors } = model;
   const jsonString = JSON.stringify(modelWithoutIconsAndColors);
 
-  try {
-    const compressed = await compress(jsonString);
-    const url = `${window.location.origin}${window.location.pathname}#${compressed}`;
+  const compressed = await compress(jsonString);
+  const url = `${window.location.origin}${window.location.pathname}#${compressed}`;
 
-    // Browser limit safe guard (approx 30k for most browsers, though some support more)
-    // Warning the user as requested
-    const limit = 30000;
-    if (url.length > limit) {
-      throw new Error('SCENE_TOO_LARGE');
-    }
-
-    return url;
-  } catch (error) {
-    throw error;
+  // Browser limit safe guard (approx 30k for most browsers, though some support more)
+  // Warning the user as requested
+  const limit = 30000;
+  if (url.length > limit) {
+    throw new Error('SCENE_TOO_LARGE');
   }
+
+  return url;
 };
