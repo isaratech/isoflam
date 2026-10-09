@@ -15,7 +15,7 @@ import {
   generateId,
   getAnchorAtTile,
   getAnchorTile,
-  getElevationTileOffset,
+  getConnectorGroundTile,
   getItemByIdOrThrow,
   getItemsAtTile,
   hasMovedTile,
@@ -57,11 +57,8 @@ const getAnchor = (
   scene: ReturnType<typeof useScene>
 ) => {
   const connector = getItemByIdOrThrow(scene.connectors, connectorId).value;
-  // A raised connector is drawn above the ground tile it runs along
-  const tile = CoordsUtils.subtract(
-    mouseTile,
-    getElevationTileOffset(connector.height)
-  );
+  // The mouse can point anywhere on a wall: anchors stand at its foot
+  const tile = getConnectorGroundTile(connector, mouseTile) ?? mouseTile;
   const anchor = getAnchorAtTile(tile, connector.anchors);
 
   if (!anchor) {

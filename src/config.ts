@@ -170,7 +170,9 @@ export const DEFAULTS_VIEW_ITEM: Required<Omit<ViewItem, 'id' | 'tile'>> = {
  * Default configuration for connectors (lines between nodes).
  * Includes styling, width, and visual properties.
  */
-export const DEFAULTS_CONNECTOR: Required<Omit<Connector, 'id' | 'color'>> = {
+export const DEFAULTS_CONNECTOR: Required<
+  Omit<Connector, 'id' | 'color' | 'variant'>
+> = {
   width: 10,
   description: '',
   anchors: [],

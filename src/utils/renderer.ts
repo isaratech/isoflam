@@ -353,11 +353,14 @@ export const normalisePositionFromOrigin = ({
 interface GetConnectorPath {
   anchors: ConnectorAnchor[];
   view: View;
+  // Roads and walls only turn at right angles
+  allowDiagonal?: boolean;
 }
 
 export const getConnectorPath = ({
   anchors,
-  view
+  view,
+  allowDiagonal = true
 }: GetConnectorPath): {
   tiles: Coords[];
   rectangle: Rect;
@@ -395,7 +398,8 @@ export const getConnectorPath = ({
       const path = findPath({
         from: prev,
         to: position,
-        gridSize: searchAreaSize
+        gridSize: searchAreaSize,
+        allowDiagonal
       });
 
       return [...acc, ...path];
@@ -533,6 +537,222 @@ export const isWithinVolume = (
   return false;
 };
 
+export const isRoad = (connector: { variant?: string }) => {
+  return connector.variant === 'ROAD';
+};
+
+// A connector with a height is drawn as a wall; roads always lie on the ground
+export const getWallHeight = (connector: {
+  height?: number;
+  variant?: string;
+}) => {
+  return isRoad(connector) ? 0 : connector.height ?? 0;
+};
+
+// Roads and walls only turn at right angles; plain lines can go diagonally
+export const allowsDiagonalPath = (connector: {
+  height?: number;
+  variant?: string;
+}) => {
+  return !isRoad(connector) && getWallHeight(connector) === 0;
+};
+
+// Global tiles of a connector path, without the duplicates where two path sections meet
+export const getConnectorGlobalTiles = (path: {
+  tiles: Coords[];
+  rectangle: { from: Coords };
+}) => {
+  return path.tiles
+    .map((tile) => {
+      return connectorPathTileToGlobal(tile, path.rectangle.from);
+    })
+    .filter((tile, index, tiles) => {
+      return index === 0 || !CoordsUtils.isEqual(tile, tiles[index - 1]);
+    });
+};
+
+// Keeps only the tiles where the path changes direction (and both ends)
+export const getPathCorners = (tiles: Coords[]) => {
+  return tiles.filter((tile, index) => {
+    if (index === 0 || index === tiles.length - 1) return true;
+
+    const prev = tiles[index - 1];
+    const next = tiles[index + 1];
+
+    return (
+      tile.x - prev.x !== next.x - tile.x || tile.y - prev.y !== next.y - tile.y
+    );
+  });
+};
+
+// The ground tile of the connector under `tile`, which can point anywhere on a wall
+// (the slice raised k tiles is drawn over the path shifted by (k, k)); null if none.
+export const getConnectorGroundTile = (
+  connector: {
+    height?: number;
+    variant?: string;
+    path: { tiles: Coords[]; rectangle: { from: Coords } };
+  },
+  tile: Coords
+): Coords | null => {
+  const pathTiles = getConnectorGlobalTiles(connector.path);
+
+  for (let k = 0; k <= getWallHeight(connector); k += 1) {
+    const groundTile = CoordsUtils.subtract(tile, getElevationTileOffset(k));
+    const isOnPath = pathTiles.some((pathTile) => {
+      return CoordsUtils.isEqual(pathTile, groundTile);
+    });
+
+    if (isOnPath) return groundTile;
+  }
+
+  return null;
+};
+
+const toFixed = (value: number) => {
+  return Math.round(value * 100) / 100;
+};
+
+// SVG path through the points, with the corners rounded by up to `radius`
+export const getRoundedPathD = (points: Coords[], radius: number) => {
+  if (points.length < 2) return '';
+
+  const format = ({ x, y }: Coords) => {
+    return `${toFixed(x)},${toFixed(y)}`;
+  };
+  const moveTowards = (from: Coords, to: Coords, distance: number) => {
+    const length = Math.hypot(to.x - from.x, to.y - from.y);
+
+    return {
+      x: from.x + ((to.x - from.x) / length) * distance,
+      y: from.y + ((to.y - from.y) / length) * distance
+    };
+  };
+
+  const corners = points.slice(1, -1).map((corner, index) => {
+    const prev = points[index];
+    const next = points[index + 2];
+    const r = Math.min(
+      radius,
+      Math.hypot(corner.x - prev.x, corner.y - prev.y) / 2,
+      Math.hypot(corner.x - next.x, corner.y - next.y) / 2
+    );
+
+    return `L ${format(moveTowards(corner, prev, r))} Q ${format(
+      corner
+    )} ${format(moveTowards(corner, next, r))}`;
+  });
+
+  return [
+    `M ${format(points[0])}`,
+    ...corners,
+    `L ${format(points[points.length - 1])}`
+  ].join(' ');
+};
+
+// Drawing data for a set of roads: one rounded path per road, in local coordinates given
+// by `toLocal`, and the junctions (tiles shared by several roads) where markings stop.
+// A road end that isn't on a junction is extended to the edge of its tile.
+export const getRoadNetwork = (
+  paths: { tiles: Coords[]; rectangle: { from: Coords } }[],
+  toLocal: (tile: Coords) => Coords,
+  tileSize: number
+) => {
+  const tileKey = ({ x, y }: Coords) => {
+    return `${x},${y}`;
+  };
+  const roadTiles = paths.map((path) => {
+    return getConnectorGlobalTiles(path);
+  });
+
+  const roadsPerTile = new Map<string, { tile: Coords; count: number }>();
+  roadTiles.forEach((tiles) => {
+    new Map(
+      tiles.map((tile) => {
+        return [tileKey(tile), tile];
+      })
+    ).forEach((tile, key) => {
+      const entry = roadsPerTile.get(key) ?? { tile, count: 0 };
+      roadsPerTile.set(key, { tile, count: entry.count + 1 });
+    });
+  });
+  const isJunction = (tile: Coords) => {
+    return (roadsPerTile.get(tileKey(tile))?.count ?? 0) > 1;
+  };
+
+  const extend = (end: Coords, inner: Coords) => {
+    const length = Math.hypot(end.x - inner.x, end.y - inner.y);
+
+    return {
+      x: end.x + ((end.x - inner.x) / length) * (tileSize / 2),
+      y: end.y + ((end.y - inner.y) / length) * (tileSize / 2)
+    };
+  };
+
+  const roadPaths = roadTiles
+    .filter((tiles) => {
+      return tiles.length > 1;
+    })
+    .map((tiles) => {
+      const points = getPathCorners(tiles).map(toLocal);
+      const last = points.length - 1;
+
+      if (!isJunction(tiles[0])) points[0] = extend(points[0], points[1]);
+      if (!isJunction(tiles[tiles.length - 1])) {
+        points[last] = extend(points[last], points[last - 1]);
+      }
+
+      return getRoundedPathD(points, tileSize / 2);
+    });
+
+  const junctions = [...roadsPerTile.values()]
+    .filter(({ count }) => {
+      return count > 1;
+    })
+    .map(({ tile }) => {
+      return toLocal(tile);
+    });
+
+  return { paths: roadPaths, junctions };
+};
+
+export interface WallFace {
+  points: Coords[];
+  // Direction the visible side of the wall faces
+  side: 'LEFT' | 'RIGHT' | 'FRONT';
+}
+
+// Screen-space faces of a wall standing on the given ground tiles, back faces first
+export const getWallFaces = (tiles: Coords[], height: number): WallFace[] => {
+  const elevation = getElevation(height);
+  const corners = getPathCorners(tiles).map((tile) => {
+    return getTilePosition({ tile });
+  });
+
+  const faces = corners.slice(1).map((end, index): WallFace => {
+    const start = corners[index];
+    const slope = (end.x - start.x) * (end.y - start.y);
+    let side: WallFace['side'] = 'FRONT';
+    if (slope > 0) side = 'LEFT';
+    if (slope < 0) side = 'RIGHT';
+
+    return {
+      side,
+      points: [
+        start,
+        end,
+        { x: end.x, y: end.y - elevation },
+        { x: start.x, y: start.y - elevation }
+      ]
+    };
+  });
+
+  // Painter's order: the faces higher on screen are further away
+  return faces.sort((a, b) => {
+    return a.points[0].y + a.points[1].y - (b.points[0].y + b.points[1].y);
+  });
+};
+
 export const getTextBoxEndTile = (textBox: TextBox, size: Size) => {
   if (textBox.orientation === ProjectionOrientationEnum.X) {
     return CoordsUtils.add(textBox.tile, {
@@ -612,20 +832,8 @@ export const getItemsAtTile = ({
       return false;
     }
 
-    // A raised connector is hit where it is drawn, not on the ground below it
-    const groundTile = CoordsUtils.subtract(
-      tile,
-      getElevationTileOffset(con.height)
-    );
-
-    return con.path.tiles.find((pathTile) => {
-      const globalPathTile = connectorPathTileToGlobal(
-        pathTile,
-        con.path.rectangle.from
-      );
-
-      return CoordsUtils.isEqual(globalPathTile, groundTile);
-    });
+    // A wall is hit anywhere it is drawn, from its foot to its top
+    return getConnectorGroundTile(con, tile) !== null;
   });
 
   const rectangles = scene.rectangles.filter((rectangle) => {
@@ -825,8 +1033,12 @@ export const getProjectBounds = (
 
   const connectors = view.connectors ?? [];
   const connectorTiles = connectors.reduce<Coords[]>((acc, connector) => {
-    const path = getConnectorPath({ anchors: connector.anchors, view });
-    const offset = getElevationTileOffset(connector.height);
+    const path = getConnectorPath({
+      anchors: connector.anchors,
+      view,
+      allowDiagonal: allowsDiagonalPath(connector)
+    });
+    const offset = getElevationTileOffset(getWallHeight(connector));
 
     return [
       ...acc,

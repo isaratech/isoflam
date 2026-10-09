@@ -6,8 +6,9 @@ import {
   CoordsUtils,
   hasMovedTile,
   getAnchorParent,
-  getElevationTileOffset,
-  getItemAtTile
+  getItemAtTile,
+  getWallHeight,
+  isRoad
 } from 'src/utils';
 
 const dragItems = (
@@ -41,7 +42,11 @@ const dragItems = (
       const newConnector = produce(connector, (draft) => {
         const anchor = getItemByIdOrThrow(connector.anchors, item.id);
 
-        const itemAtTile = getItemAtTile({ tile, scene });
+        // Roads and walls are drawn freely on the ground, they don't stick to icons
+        const itemAtTile =
+          isRoad(connector) || getWallHeight(connector) > 0
+            ? null
+            : getItemAtTile({ tile, scene });
 
         switch (itemAtTile?.type) {
           case 'ITEM':
@@ -64,11 +69,7 @@ const dragItems = (
             draft.anchors[anchor.index] = {
               ...anchor.value,
               ref: {
-                // Keep the end of a raised connector under the cursor
-                tile: CoordsUtils.subtract(
-                  tile,
-                  getElevationTileOffset(connector.height)
-                )
+                tile
               }
             };
             break;

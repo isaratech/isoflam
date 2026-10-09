@@ -23,6 +23,18 @@ interface GetColorVariantOpts {
   grade?: number;
 }
 
+// Shading for the faces of 3D shapes: plain darkening keeps greys grey, and very dark
+// colours are lightened instead so the faces stay distinct
+export const shadeColor = (color: string, amount: number) => {
+  const chromaColor = chroma(color);
+
+  return (
+    chromaColor.luminance() < 0.1
+      ? chromaColor.brighten(amount)
+      : chromaColor.darken(amount)
+  ).css();
+};
+
 export const getColorVariant = (
   color: string,
   variant: 'light' | 'dark',

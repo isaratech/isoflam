@@ -1,6 +1,11 @@
 import { Connector } from 'src/types';
 import { produce } from 'immer';
-import { getItemByIdOrThrow, getConnectorPath, getAllAnchors } from 'src/utils';
+import {
+  getItemByIdOrThrow,
+  getConnectorPath,
+  getAllAnchors,
+  allowsDiagonalPath
+} from 'src/utils';
 import { validateConnector } from 'src/schemas/validation';
 import { State, ViewReducerContext } from './types';
 
@@ -41,7 +46,8 @@ export const syncConnector = (
     } else {
       const path = getConnectorPath({
         anchors: connector.value.anchors,
-        view: view.value
+        view: view.value,
+        allowDiagonal: allowsDiagonalPath(connector.value)
       });
 
       draft.scene.connectors[connector.value.id] = { path };
@@ -65,7 +71,8 @@ export const updateConnector = (
     const newConnector = { ...connector.value, ...updates };
     connectors[connector.index] = newConnector;
 
-    if (updates.anchors) {
+    // The height and the variant change how the path is routed
+    if (updates.anchors || 'height' in updates || 'variant' in updates) {
       const stateAfterSync = syncConnector(newConnector.id, {
         viewId,
         state: draft

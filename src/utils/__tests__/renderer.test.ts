@@ -3,7 +3,12 @@ import { CoordsUtils, SizeUtils } from 'src/utils';
 import { PROJECTED_TILE_SIZE } from 'src/config';
 import {
   getElevation,
+  getConnectorGroundTile,
   getElevationTileOffset,
+  getPathCorners,
+  getRoadNetwork,
+  getRoundedPathD,
+  getWallFaces,
   getGridSubset,
   getTilePosition,
   getVolumeFaces,
@@ -203,5 +208,114 @@ describe('Volumes', () => {
       false
     );
     expect(isVolume({ height: 2, texture: 'ROAD' })).toBe(false);
+  });
+});
+
+describe('Walls', () => {
+  // An L-shaped wall: (0,0) -> (2,0) -> (2,2)
+  const tiles = [
+    { x: 0, y: 0 },
+    { x: 1, y: 0 },
+    { x: 2, y: 0 },
+    { x: 2, y: 1 },
+    { x: 2, y: 2 }
+  ];
+
+  test('getPathCorners() keeps the ends and the turns only', () => {
+    expect(getPathCorners(tiles)).toEqual([
+      { x: 0, y: 0 },
+      { x: 2, y: 0 },
+      { x: 2, y: 2 }
+    ]);
+  });
+
+  test('getWallFaces() raises one face per straight section by the wall height', () => {
+    const faces = getWallFaces(tiles, 3);
+
+    expect(faces).toHaveLength(2);
+    faces.forEach(({ points: [start, end, topEnd, topStart] }) => {
+      expect(topStart.y).toBeCloseTo(start.y - getElevation(3));
+      expect(topEnd.y).toBeCloseTo(end.y - getElevation(3));
+    });
+    // The two sections face different sides, so they are shaded differently
+    expect(
+      new Set(
+        faces.map(({ side }) => {
+          return side;
+        })
+      ).size
+    ).toBe(2);
+  });
+
+  test('getConnectorGroundTile() finds the foot of the wall under a raised tile', () => {
+    const wall = {
+      height: 2,
+      path: {
+        tiles: [
+          { x: 0, y: 0 },
+          { x: 1, y: 0 }
+        ],
+        rectangle: { from: { x: 1, y: 0 } }
+      }
+    };
+
+    expect(getConnectorGroundTile(wall, { x: 2, y: 1 })).toEqual({
+      x: 1,
+      y: 0
+    });
+    expect(getConnectorGroundTile(wall, { x: 5, y: 5 })).toBeNull();
+  });
+});
+
+describe('Roads', () => {
+  const identity = (tile: { x: number; y: number }) => {
+    return tile;
+  };
+
+  test('getRoundedPathD() rounds the corners with a quadratic curve', () => {
+    expect(
+      getRoundedPathD(
+        [
+          { x: 0, y: 0 },
+          { x: 10, y: 0 },
+          { x: 10, y: 10 }
+        ],
+        2
+      )
+    ).toBe('M 0,0 L 8,0 Q 10,0 10,2 L 10,10');
+  });
+
+  test('getRoadNetwork() marks the tiles shared by roads as junctions', () => {
+    // Two crossing roads: along x through (2,0) and along y through (2,0)
+    const alongX = {
+      tiles: [0, 1, 2, 3, 4].map((x) => {
+        return { x, y: 0 };
+      }),
+      rectangle: { from: { x: 4, y: 0 } }
+    };
+    const alongY = {
+      tiles: [0, 1, 2, 3, 4].map((y) => {
+        return { x: 0, y };
+      }),
+      rectangle: { from: { x: 2, y: 2 } }
+    };
+
+    const network = getRoadNetwork([alongX, alongY], identity, 1);
+
+    expect(network.paths).toHaveLength(2);
+    expect(network.junctions).toEqual([{ x: 2, y: 0 }]);
+  });
+
+  test('getRoadNetwork() extends free road ends to the edge of their tile', () => {
+    const road = {
+      tiles: [0, 1, 2].map((x) => {
+        return { x, y: 0 };
+      }),
+      rectangle: { from: { x: 2, y: 0 } }
+    };
+
+    expect(getRoadNetwork([road], identity, 1).paths[0]).toBe(
+      'M 2.5,0 L -0.5,0'
+    );
   });
 });

@@ -2,18 +2,19 @@ import React, { useMemo } from 'react';
 import { Box, useTheme } from '@mui/material';
 import { UNPROJECTED_TILE_SIZE } from 'src/config';
 import {
-  connectorPathTileToGlobal,
   getAnchorTile,
   getColorVariant,
   getConnectorDirectionIcon,
-  getElevation,
-  getTilePosition
+  getConnectorGlobalTiles,
+  getWallHeight,
+  isRoad
 } from 'src/utils';
 import { Circle } from 'src/components/Circle/Circle';
 import { Svg } from 'src/components/Svg/Svg';
 import { useIsoProjection } from 'src/hooks/useIsoProjection';
 import { useScene } from 'src/hooks/useScene';
 import { useColor } from 'src/hooks/useColor';
+import { Wall } from './Wall';
 
 interface Props {
   connector: ReturnType<typeof useScene>['connectors'][0];
@@ -26,30 +27,22 @@ export const Connector = ({ connector, isSelected }: Props) => {
   const { currentView } = useScene();
 
   // Call all hooks first, then handle the conditional logic
-  const {
-    css,
-    pxSize,
-    position: boxPosition
-  } = useIsoProjection({
+  const { css, pxSize } = useIsoProjection({
     ...(connector.path?.rectangle || {
       from: { x: 0, y: 0 },
       to: { x: 0, y: 0 }
     })
   });
 
-  const elevation = getElevation(connector.height);
+  const wallHeight = getWallHeight(connector);
+  // Roads are drawn together by the Roads layer; only their handles are drawn here
+  const isRoadConnector = isRoad(connector);
 
-  // Ground positions of both ends, used to draw the vertical drop lines of a raised connector
-  const endPositions = useMemo(() => {
-    const tiles = connector.path?.tiles;
-    if (!elevation || !tiles?.length) return [];
+  const wallTiles = useMemo(() => {
+    if (!wallHeight || !connector.path) return [];
 
-    return [tiles[0], tiles[tiles.length - 1]].map((tile) => {
-      return getTilePosition({
-        tile: connectorPathTileToGlobal(tile, connector.path.rectangle.from)
-      });
-    });
-  }, [elevation, connector.path]);
+    return getConnectorGlobalTiles(connector.path);
+  }, [wallHeight, connector.path]);
 
   const drawOffset = useMemo(() => {
     return {
@@ -121,29 +114,21 @@ export const Connector = ({ connector, isSelected }: Props) => {
   }
 
   const strokeColor = getColorVariant(color.value, 'dark', { grade: 1 });
+  // Walls and roads only show their anchor handles in this ground-level drawing
+  const isFlatLine = !wallHeight && !isRoadConnector;
 
   return (
     <>
-      {endPositions.map((endPosition, index) => {
-        return (
-          <Box
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
-            style={{
-              position: 'absolute',
-              left: endPosition.x,
-              top: endPosition.y - elevation,
-              height: elevation,
-              borderLeft: `${Math.max(
-                2,
-                connectorWidthPx / 2
-              )}px dashed ${strokeColor}`,
-              transform: 'translateX(-50%)'
-            }}
-          />
-        );
-      })}
-      <Box style={{ ...css, top: boxPosition.y - elevation }}>
+      {wallHeight > 0 && (
+        <Wall
+          tiles={wallTiles}
+          height={wallHeight}
+          color={color.value}
+          strokeWidth={Math.max(2, connectorWidthPx / 2)}
+          strokeDasharray={strokeDashArray}
+        />
+      )}
+      <Box style={css}>
         <Svg
           style={{
             // TODO: The original x coordinates of each tile seems to be calculated wrongly.
@@ -153,25 +138,29 @@ export const Connector = ({ connector, isSelected }: Props) => {
           }}
           viewboxSize={pxSize}
         >
-          <polyline
-            points={pathString}
-            stroke={theme.palette.common.white}
-            strokeWidth={connectorWidthPx * 1.4}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeOpacity={0.7}
-            strokeDasharray={strokeDashArray}
-            fill="none"
-          />
-          <polyline
-            points={pathString}
-            stroke={strokeColor}
-            strokeWidth={connectorWidthPx}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeDasharray={strokeDashArray}
-            fill="none"
-          />
+          {isFlatLine && (
+            <>
+              <polyline
+                points={pathString}
+                stroke={theme.palette.common.white}
+                strokeWidth={connectorWidthPx * 1.4}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeOpacity={0.7}
+                strokeDasharray={strokeDashArray}
+                fill="none"
+              />
+              <polyline
+                points={pathString}
+                stroke={strokeColor}
+                strokeWidth={connectorWidthPx}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeDasharray={strokeDashArray}
+                fill="none"
+              />
+            </>
+          )}
 
           {anchorPositions.map((anchor) => {
             return (
@@ -193,7 +182,7 @@ export const Connector = ({ connector, isSelected }: Props) => {
             );
           })}
 
-          {directionIcon && (connector.showTriangle ?? true) && (
+          {isFlatLine && directionIcon && (connector.showTriangle ?? true) && (
             <g transform={`translate(${directionIcon.x}, ${directionIcon.y})`}>
               <g transform={`rotate(${directionIcon.rotation})`}>
                 <polygon

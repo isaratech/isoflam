@@ -90,6 +90,8 @@ export const frTranslations = {
   Width: 'Largeur',
   Radius: 'Rayon',
   Style: 'Style',
+  'Wall height': 'Hauteur du mur',
+  'Street name': 'Nom de la rue',
   Height: 'Hauteur',
   Roof: 'Toit',
   'Closed volume': 'Volume fermé',
