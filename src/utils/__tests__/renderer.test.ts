@@ -230,38 +230,77 @@ describe('Walls', () => {
     ]);
   });
 
-  test('getWallFaces() raises one face per section between corners by the wall height', () => {
-    const faces = getWallFaces(getPathCorners(tiles), 3);
+  test('getWallFaces() draws the visible sides raised by the height, then the tops', () => {
+    const faces = getWallFaces(getPathCorners(tiles), 3, 0.2);
+    const sides = faces.filter(({ kind }) => {
+      return kind === 'SIDE';
+    });
+    const tops = faces.filter(({ kind }) => {
+      return kind === 'TOP';
+    });
 
-    expect(faces).toHaveLength(2);
-    faces.forEach(({ points: [start, end, topEnd, topStart] }) => {
+    // One top per section, drawn after the sides
+    expect(tops).toHaveLength(2);
+    expect(faces.slice(-2)).toEqual(tops);
+    sides.forEach(({ points: [start, end, topEnd, topStart] }) => {
       expect(topStart.y).toBeCloseTo(start.y - getElevation(3));
       expect(topEnd.y).toBeCloseTo(end.y - getElevation(3));
     });
-    // The two sections face different sides, so they are shaded differently
+    // Only the sides facing the viewer: the outer side of each section and the start cap,
+    // shaded by the way they face
     expect(
-      new Set(
-        faces.map(({ side }) => {
-          return side;
+      sides
+        .map(({ shade }) => {
+          return shade;
         })
-      ).size
-    ).toBe(2);
+        .sort()
+    ).toEqual([0.4, 0.4, 0.8]);
   });
 
-  test('getWallFaces() draws a section at any angle in one face', () => {
+  test('getWallFaces() keeps a wall along the screen-vertical diagonal visible', () => {
+    // Seen edge on: without a thickness, this wall would be a line
     const faces = getWallFaces(
       [
         { x: 0, y: 0 },
         { x: 0, y: 0 },
-        { x: 5, y: 2 }
+        { x: 3, y: 3 }
       ],
-      1
+      1,
+      0.2
     );
+    const top = faces.find(({ kind }) => {
+      return kind === 'TOP';
+    });
+    const xs =
+      top?.points.map(({ x }) => {
+        return x;
+      }) ?? [];
 
-    expect(faces).toHaveLength(1);
-    expect(faces[0].points[1]).toEqual(
-      getTilePosition({ tile: { x: 5, y: 2 } })
+    expect(Math.max(...xs) - Math.min(...xs)).toBeGreaterThan(10);
+    expect(
+      faces.some(({ kind }) => {
+        return kind === 'SIDE';
+      })
+    ).toBe(true);
+  });
+
+  test('getWallFaces() joins sections at any angle with mitred corners', () => {
+    const faces = getWallFaces(
+      [
+        { x: 0, y: 0 },
+        { x: 4, y: 1 },
+        { x: 5, y: 5 }
+      ],
+      1,
+      0.2
     );
+    const [firstTop, secondTop] = faces.filter(({ kind }) => {
+      return kind === 'TOP';
+    });
+
+    // The end of the first top is the start of the second one
+    expect(firstTop.points[1]).toEqual(secondTop.points[0]);
+    expect(firstTop.points[2]).toEqual(secondTop.points[3]);
   });
 
   test('getConnectorGroundTile() finds the foot of the wall under a raised tile', () => {

@@ -127,7 +127,7 @@ export const ConnectorControls = ({ id }: Props) => {
 
           {/* Advanced settings */}
           <AdvancedSettings>
-            <Section title={t('Width')}>
+            <Section title={isWall ? t('Wall thickness') : t('Width')}>
               <Slider
                 marks
                 step={10}

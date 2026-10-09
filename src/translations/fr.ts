@@ -90,6 +90,7 @@ export const frTranslations = {
   Width: 'Largeur',
   Radius: 'Rayon',
   Style: 'Style',
+  'Wall thickness': 'Épaisseur du mur',
   'Wall height': 'Hauteur du mur',
   'Road width': 'Largeur de la route',
   Sidewalks: 'Trottoirs',

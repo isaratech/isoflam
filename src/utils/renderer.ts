@@ -867,50 +867,107 @@ export const getRoadNetwork = (
 
 export interface WallFace {
   points: Coords[];
-  // Direction the visible side of the wall faces
-  side: 'LEFT' | 'RIGHT' | 'FRONT';
+  kind: 'SIDE' | 'TOP';
+  // How much a side face is darkened (0.4 facing bottom left to 0.8 facing bottom right)
+  shade: number;
 }
 
-// Screen-space faces of a wall, back faces first. `corners` are the wall's corner tiles in
-// order; each section between two corners is straight, at any angle.
-export const getWallFaces = (corners: Coords[], height: number): WallFace[] => {
+// Screen-space faces of a wall with some thickness, back faces first. `corners` are the
+// wall's corner tiles in order; each section between two corners is straight, at any
+// angle. Sections are joined with mitred corners. Without a thickness, a wall along a
+// screen-vertical diagonal would be seen edge on and disappear.
+export const getWallFaces = (
+  corners: Coords[],
+  height: number,
+  thickness: number
+): WallFace[] => {
+  const tiles = corners.filter((tile, index) => {
+    return index === 0 || !CoordsUtils.isEqual(tile, corners[index - 1]);
+  });
+  if (tiles.length < 2) return [];
+
   const elevation = getElevation(height);
-  const positions = corners
-    .filter((tile, index) => {
-      return index === 0 || !CoordsUtils.isEqual(tile, corners[index - 1]);
-    })
-    .map((tile) => {
-      return getTilePosition({ tile });
-    });
+  const half = thickness / 2;
+  const add = (a: Coords, b: Coords, k = 1) => {
+    return { x: a.x + b.x * k, y: a.y + b.y * k };
+  };
+  const dot = (a: Coords, b: Coords) => {
+    return a.x * b.x + a.y * b.y;
+  };
+  const normalise = (v: Coords) => {
+    const length = Math.hypot(v.x, v.y);
+    return { x: v.x / length, y: v.y / length };
+  };
 
-  const faces = positions.slice(1).map((end, index): WallFace => {
-    const start = positions[index];
-    const slope = (end.x - start.x) * (end.y - start.y);
-    let side: WallFace['side'] = 'FRONT';
-    if (slope > 0) side = 'LEFT';
-    if (slope < 0) side = 'RIGHT';
+  const directions = tiles.slice(1).map((end, i) => {
+    return normalise({ x: end.x - tiles[i].x, y: end.y - tiles[i].y });
+  });
+  const normals = directions.map((d) => {
+    return { x: -d.y, y: d.x };
+  });
+  const last = tiles.length - 1;
 
-    return {
-      side,
-      points: [
-        start,
-        end,
-        { x: end.x, y: end.y - elevation },
-        { x: start.x, y: start.y - elevation }
-      ]
-    };
+  // Offset of the left side at each corner (the right side is the opposite)
+  const offsets = tiles.map((_, v) => {
+    if (v === 0) return add({ x: 0, y: 0 }, normals[0], half);
+    if (v === last) return add({ x: 0, y: 0 }, normals[last - 1], half);
+
+    const sum = add(normals[v - 1], normals[v]);
+    if (Math.hypot(sum.x, sum.y) < 1e-6)
+      return add({ x: 0, y: 0 }, normals[v], half);
+    const mitre = normalise(sum);
+    const length = Math.min(half / dot(mitre, normals[v]), thickness * 2);
+
+    return add({ x: 0, y: 0 }, mitre, length);
+  });
+  const left = tiles.map((tile, v) => {
+    return add(tile, offsets[v]);
+  });
+  const right = tiles.map((tile, v) => {
+    return add(tile, offsets[v], -1);
   });
 
-  // Painter's order: where two faces overlap on screen, the one whose foot is higher there
-  // is further away
+  const project = (tile: Coords) => {
+    return getTilePosition({ tile });
+  };
+  const raise = (point: Coords) => {
+    return { x: point.x, y: point.y - elevation };
+  };
+  // The viewer looks from the bottom of the screen, towards +x +y in tile space
+  const towardsViewer = { x: -1, y: -1 };
+
+  const sides: WallFace[] = [];
+  const addSide = (from: Coords, to: Coords, outwards: Coords) => {
+    if (dot(outwards, towardsViewer) <= 1e-9) return;
+
+    const facingRight = Math.max(0, -outwards.y);
+    const facingLeft = Math.max(0, -outwards.x);
+    const start = project(from);
+    const end = project(to);
+
+    sides.push({
+      kind: 'SIDE',
+      shade: 0.4 + (0.4 * facingRight) / (facingLeft + facingRight),
+      points: [start, end, raise(end), raise(start)]
+    });
+  };
+
+  directions.forEach((direction, i) => {
+    addSide(left[i], left[i + 1], normals[i]);
+    addSide(right[i + 1], right[i], { x: -normals[i].x, y: -normals[i].y });
+  });
+  addSide(right[0], left[0], { x: -directions[0].x, y: -directions[0].y });
+  addSide(left[last], right[last], directions[last - 1]);
+
+  // Painter's order: where two faces overlap on screen, the one whose foot is lower there
+  // is nearer
   const footY = (face: WallFace, x: number) => {
     const [start, end] = face.points;
     if (start.x === end.x) return Math.max(start.y, end.y);
 
     return start.y + ((end.y - start.y) * (x - start.x)) / (end.x - start.x);
   };
-
-  return faces.sort((a, b) => {
+  sides.sort((a, b) => {
     const [a0, a1] = a.points;
     const [b0, b1] = b.points;
     const from = Math.max(Math.min(a0.x, a1.x), Math.min(b0.x, b1.x));
@@ -923,6 +980,19 @@ export const getWallFaces = (corners: Coords[], height: number): WallFace[] => {
 
     return a0.y + a1.y - (b0.y + b1.y);
   });
+
+  // The tops are all at the same height, above every side
+  const tops = directions.map((_, i): WallFace => {
+    return {
+      kind: 'TOP',
+      shade: 0,
+      points: [left[i], left[i + 1], right[i + 1], right[i]].map((tile) => {
+        return raise(project(tile));
+      })
+    };
+  });
+
+  return [...sides, ...tops];
 };
 
 export const getTextBoxEndTile = (textBox: TextBox, size: Size) => {
