@@ -1,7 +1,7 @@
 import React from 'react';
 import { useScene } from 'src/hooks/useScene';
 import { IsoTileArea } from 'src/components/IsoTileArea/IsoTileArea';
-import { getColorVariant } from 'src/utils';
+import { getColorVariant, isVolume } from 'src/utils';
 import { useColor } from 'src/hooks/useColor';
 import { Volume } from './Volume';
 
@@ -20,7 +20,8 @@ export const Rectangle = ({
   rotationAngle,
   isometric,
   height,
-  roof
+  roof,
+  texture
 }: Props) => {
   const color = useColor(colorId);
 
@@ -36,7 +37,7 @@ export const Rectangle = ({
         }
       : {};
 
-  if (height > 0 && !imageData) {
+  if (isVolume({ height, imageData, texture })) {
     return (
       <Volume
         from={from}
@@ -54,12 +55,13 @@ export const Rectangle = ({
       from={from}
       to={to}
       fill={color.value}
-      cornerRadius={radius || 22}
+      cornerRadius={radius ?? 22}
       imageData={imageData}
       mirrorHorizontal={mirrorHorizontal}
       mirrorVertical={mirrorVertical}
       rotationAngle={rotationAngle}
       isometric={isometric}
+      texture={texture}
       {...strokeProps}
     />
   );

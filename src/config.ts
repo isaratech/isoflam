@@ -210,6 +210,7 @@ export const DEFAULTS_RECTANGLE: Required<
     | 'mirrorVertical'
     | 'rotationAngle'
     | 'isometric'
+    | 'texture'
   >
 > = {
   style: 'NONE',
@@ -223,6 +224,11 @@ export const DEFAULTS_RECTANGLE: Required<
  * Height (in tiles) given to a volume drawn with the volume tool.
  */
 export const DEFAULT_VOLUME_HEIGHT = 1;
+
+/**
+ * Height (in tiles) given to a wall drawn with the wall tool.
+ */
+export const DEFAULT_WALL_HEIGHT = 2;
 
 // =============================================================================
 // CONNECTOR SPECIFIC CONFIGURATION

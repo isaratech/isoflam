@@ -18,6 +18,8 @@ export const enTranslations = {
   'Add item': 'Add item',
   Rectangle: 'Rectangle',
   Volume: 'Volume',
+  Wall: 'Wall',
+  Road: 'Road',
   'Import Image': 'Import Image',
   Connector: 'Connector',
   Text: 'Text',

@@ -7,6 +7,7 @@ import {
   getGridSubset,
   getTilePosition,
   getVolumeFaces,
+  isVolume,
   isWithinVolume,
   isWithinBounds,
   screenToIso
@@ -193,5 +194,14 @@ describe('Volumes', () => {
     expect(isWithinVolume({ x: 4, y: 3 }, volume)).toBe(true);
     expect(isWithinVolume({ x: 5, y: 4 }, volume)).toBe(false);
     expect(isWithinVolume({ x: 4, y: 3 }, { from, to })).toBe(false);
+  });
+
+  test('isVolume() is only true for plain rectangles with a height', () => {
+    expect(isVolume({ height: 2 })).toBe(true);
+    expect(isVolume({ height: 0 })).toBe(false);
+    expect(isVolume({ height: 2, imageData: 'data:image/png;base64,' })).toBe(
+      false
+    );
+    expect(isVolume({ height: 2, texture: 'ROAD' })).toBe(false);
   });
 });

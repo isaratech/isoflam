@@ -81,4 +81,30 @@ describe('IsoTileArea', () => {
     expect(rect?.getAttribute('stroke-width')).toBe('1');
     expect(rect?.getAttribute('stroke-dasharray')).toBe('2, 2');
   });
+
+  it('draws a road as asphalt with a dashed centre line', () => {
+    const { container } = render(
+      <IsoTileArea
+        from={{ x: 0, y: 0 }}
+        to={{ x: 1, y: 1 }}
+        fill="#ff0000"
+        texture="ROAD"
+      />
+    );
+
+    expect(container.querySelector('rect')?.getAttribute('fill')).not.toBe(
+      '#ff0000'
+    );
+    expect(
+      container.querySelector('line')?.getAttribute('stroke-dasharray')
+    ).toBeTruthy();
+  });
+
+  it('has no road marking without a texture', () => {
+    const { container } = render(
+      <IsoTileArea from={{ x: 0, y: 0 }} to={{ x: 1, y: 1 }} />
+    );
+
+    expect(container.querySelector('line')).toBeNull();
+  });
 });

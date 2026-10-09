@@ -444,6 +444,17 @@ export const getElevationTileOffset = (height = 0): Coords => {
   return { x: height, y: height };
 };
 
+// A rectangle with a height is drawn as a volume, unless it shows an image or a texture
+export const isVolume = (rectangle: {
+  height?: number;
+  imageData?: string;
+  texture?: string;
+}) => {
+  return (
+    Boolean(rectangle.height) && !rectangle.imageData && !rectangle.texture
+  );
+};
+
 export interface VolumeFace {
   // LEFT / RIGHT: the wall's visible side faces the bottom-left / bottom-right of the screen
   side: 'FLOOR' | 'LEFT' | 'RIGHT' | 'ROOF';

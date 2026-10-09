@@ -13,6 +13,9 @@ jest.mock('src/hooks/useColor', () => {
 
 jest.mock('src/utils', () => {
   return {
+    isVolume: ({ height }: { height?: number }) => {
+      return Boolean(height);
+    },
     getColorVariant: () => {
       return '#cc0000';
     }
