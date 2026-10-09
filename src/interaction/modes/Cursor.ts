@@ -15,7 +15,7 @@ import {
   generateId,
   getAnchorAtTile,
   getAnchorTile,
-  getConnectorTileOffset,
+  getElevationTileOffset,
   getItemByIdOrThrow,
   getItemsAtTile,
   hasMovedTile,
@@ -60,7 +60,7 @@ const getAnchor = (
   // A raised connector is drawn above the ground tile it runs along
   const tile = CoordsUtils.subtract(
     mouseTile,
-    getConnectorTileOffset(connector.height)
+    getElevationTileOffset(connector.height)
   );
   const anchor = getAnchorAtTile(tile, connector.anchors);
 

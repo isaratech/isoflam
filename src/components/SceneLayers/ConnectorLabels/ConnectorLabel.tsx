@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material';
 import { useScene } from 'src/hooks/useScene';
 import {
   connectorPathTileToGlobal,
-  getConnectorElevation,
+  getElevation,
   getTilePosition
 } from 'src/utils';
 import { PROJECTED_TILE_SIZE } from 'src/config';
@@ -24,7 +24,7 @@ export const ConnectorLabel = ({ connector }: Props) => {
 
     return {
       x: position.x,
-      y: position.y - getConnectorElevation(connector.height)
+      y: position.y - getElevation(connector.height)
     };
   }, [connector.path, connector.height]);
 

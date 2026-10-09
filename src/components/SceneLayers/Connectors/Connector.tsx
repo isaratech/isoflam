@@ -6,7 +6,7 @@ import {
   getAnchorTile,
   getColorVariant,
   getConnectorDirectionIcon,
-  getConnectorElevation,
+  getElevation,
   getTilePosition
 } from 'src/utils';
 import { Circle } from 'src/components/Circle/Circle';
@@ -37,7 +37,7 @@ export const Connector = ({ connector, isSelected }: Props) => {
     })
   });
 
-  const elevation = getConnectorElevation(connector.height);
+  const elevation = getElevation(connector.height);
 
   // Ground positions of both ends, used to draw the vertical drop lines of a raised connector
   const endPositions = useMemo(() => {

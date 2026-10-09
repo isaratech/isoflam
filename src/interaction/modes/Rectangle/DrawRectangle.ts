@@ -1,6 +1,7 @@
 import { ModeActions } from 'src/types';
 import { produce } from 'immer';
 import { generateId, hasMovedTile, setWindowCursor } from 'src/utils';
+import { DEFAULT_VOLUME_HEIGHT } from 'src/config';
 
 export const DrawRectangle: ModeActions = {
   entry: () => {
@@ -35,7 +36,8 @@ export const DrawRectangle: ModeActions = {
           ? scene.colors[1].id
           : undefined,
       from: uiState.mouse.position.tile,
-      to: uiState.mouse.position.tile
+      to: uiState.mouse.position.tile,
+      ...(uiState.mode.volume && { height: DEFAULT_VOLUME_HEIGHT, roof: true })
     });
 
     const newMode = produce(uiState.mode, (draft) => {

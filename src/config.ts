@@ -214,8 +214,15 @@ export const DEFAULTS_RECTANGLE: Required<
 > = {
   style: 'NONE',
   width: 1,
-  radius: 22
+  radius: 22,
+  height: 0,
+  roof: true
 };
+
+/**
+ * Height (in tiles) given to a volume drawn with the volume tool.
+ */
+export const DEFAULT_VOLUME_HEIGHT = 1;
 
 // =============================================================================
 // CONNECTOR SPECIFIC CONFIGURATION

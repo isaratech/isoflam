@@ -3,6 +3,7 @@ import { useScene } from 'src/hooks/useScene';
 import { IsoTileArea } from 'src/components/IsoTileArea/IsoTileArea';
 import { getColorVariant } from 'src/utils';
 import { useColor } from 'src/hooks/useColor';
+import { Volume } from './Volume';
 
 type Props = ReturnType<typeof useScene>['rectangles'][0];
 
@@ -17,7 +18,9 @@ export const Rectangle = ({
   mirrorHorizontal,
   mirrorVertical,
   rotationAngle,
-  isometric
+  isometric,
+  height,
+  roof
 }: Props) => {
   const color = useColor(colorId);
 
@@ -32,6 +35,19 @@ export const Rectangle = ({
           }
         }
       : {};
+
+  if (height > 0 && !imageData) {
+    return (
+      <Volume
+        from={from}
+        to={to}
+        height={height}
+        roof={roof}
+        color={color.value}
+        {...strokeProps}
+      />
+    );
+  }
 
   return (
     <IsoTileArea

@@ -434,14 +434,86 @@ export const connectorPathTileToGlobal = (
   );
 };
 
-// Vertical screen offset (in px) of a connector raised `height` tiles above the ground.
-export const getConnectorElevation = (height = 0) => {
+// Vertical screen offset (in px) of something raised `height` tiles above the ground.
+export const getElevation = (height = 0) => {
   return height * PROJECTED_TILE_SIZE.height;
 };
 
-// A connector raised `height` tiles is drawn over the ground tile shifted by this offset.
-export const getConnectorTileOffset = (height = 0): Coords => {
+// A point raised `height` tiles is drawn over the ground tile shifted by this offset.
+export const getElevationTileOffset = (height = 0): Coords => {
   return { x: height, y: height };
+};
+
+export interface VolumeFace {
+  side: 'FLOOR' | 'LEFT' | 'RIGHT' | 'ROOF';
+  points: Coords[];
+}
+
+// Screen-space faces of a rectangle extruded `height` tiles. With a roof the box is closed
+// (front walls + roof); without one only the two back walls are drawn, so its inside stays visible.
+export const getVolumeFaces = ({
+  from,
+  to,
+  height,
+  roof
+}: {
+  from: Coords;
+  to: Coords;
+  height: number;
+  roof: boolean;
+}): VolumeFace[] => {
+  const [low, , high] = getBoundingBox([from, to]);
+  const bottom = getTilePosition({ tile: low, origin: 'BOTTOM' });
+  const right = getTilePosition({
+    tile: { x: high.x, y: low.y },
+    origin: 'RIGHT'
+  });
+  const top = getTilePosition({ tile: high, origin: 'TOP' });
+  const left = getTilePosition({
+    tile: { x: low.x, y: high.y },
+    origin: 'LEFT'
+  });
+  const elevation = getElevation(height);
+  const raise = (point: Coords) => {
+    return { x: point.x, y: point.y - elevation };
+  };
+
+  const floor: VolumeFace = {
+    side: 'FLOOR',
+    points: [bottom, right, top, left]
+  };
+
+  if (!roof) {
+    return [
+      floor,
+      { side: 'RIGHT', points: [left, top, raise(top), raise(left)] },
+      { side: 'LEFT', points: [top, right, raise(right), raise(top)] }
+    ];
+  }
+
+  return [
+    floor,
+    { side: 'LEFT', points: [left, bottom, raise(bottom), raise(left)] },
+    { side: 'RIGHT', points: [bottom, right, raise(right), raise(bottom)] },
+    {
+      side: 'ROOF',
+      points: [raise(bottom), raise(right), raise(top), raise(left)]
+    }
+  ];
+};
+
+// Whether a tile is covered by a rectangle, including the walls and roof of a volume
+// (the slice raised k tiles is drawn over the footprint shifted by (k, k)).
+export const isWithinVolume = (
+  tile: Coords,
+  { from, to, height = 0 }: { from: Coords; to: Coords; height?: number }
+) => {
+  for (let k = 0; k <= height; k += 1) {
+    const groundTile = CoordsUtils.subtract(tile, getElevationTileOffset(k));
+    if (isWithinBounds(groundTile, [from, to])) return true;
+  }
+
+  return false;
 };
 
 export const getTextBoxEndTile = (textBox: TextBox, size: Size) => {
@@ -526,7 +598,7 @@ export const getItemsAtTile = ({
     // A raised connector is hit where it is drawn, not on the ground below it
     const groundTile = CoordsUtils.subtract(
       tile,
-      getConnectorTileOffset(con.height)
+      getElevationTileOffset(con.height)
     );
 
     return con.path.tiles.find((pathTile) => {
@@ -539,8 +611,8 @@ export const getItemsAtTile = ({
     });
   });
 
-  const rectangles = scene.rectangles.filter(({ from, to }) => {
-    return isWithinBounds(tile, [from, to]);
+  const rectangles = scene.rectangles.filter((rectangle) => {
+    return isWithinVolume(tile, rectangle);
   });
 
   return [
@@ -730,7 +802,7 @@ export const getProjectBounds = (
   const connectors = view.connectors ?? [];
   const connectorTiles = connectors.reduce<Coords[]>((acc, connector) => {
     const path = getConnectorPath({ anchors: connector.anchors, view });
-    const offset = getConnectorTileOffset(connector.height);
+    const offset = getElevationTileOffset(connector.height);
 
     return [
       ...acc,
@@ -743,7 +815,15 @@ export const getProjectBounds = (
 
   const rectangles = view.rectangles ?? [];
   const rectangleTiles = rectangles.reduce<Coords[]>((acc, rectangle) => {
-    return [...acc, rectangle.from, rectangle.to];
+    const offset = getElevationTileOffset(rectangle.height);
+
+    return [
+      ...acc,
+      rectangle.from,
+      rectangle.to,
+      CoordsUtils.add(rectangle.from, offset),
+      CoordsUtils.add(rectangle.to, offset)
+    ];
   }, []);
 
   const textBoxes = view.textBoxes ?? [];
