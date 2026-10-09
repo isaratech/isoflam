@@ -116,6 +116,9 @@ export const frTranslations = {
   'Create new icon': 'Créer une nouvelle icône',
   'Create new text': 'Créer un nouveau texte',
   'Create new rectangle': 'Créer un nouveau rectangle',
+  'Create new volume': 'Créer un nouveau volume',
+  'Create new wall': 'Créer un nouveau mur',
+  'Create new road': 'Créer une nouvelle route',
   'Create new link': 'Créer un nouveau lien',
   'Add image': 'Ajouter une image',
 
