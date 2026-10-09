@@ -434,6 +434,16 @@ export const connectorPathTileToGlobal = (
   );
 };
 
+// Vertical screen offset (in px) of a connector raised `height` tiles above the ground.
+export const getConnectorElevation = (height = 0) => {
+  return height * PROJECTED_TILE_SIZE.height;
+};
+
+// A connector raised `height` tiles is drawn over the ground tile shifted by this offset.
+export const getConnectorTileOffset = (height = 0): Coords => {
+  return { x: height, y: height };
+};
+
 export const getTextBoxEndTile = (textBox: TextBox, size: Size) => {
   if (textBox.orientation === ProjectionOrientationEnum.X) {
     return CoordsUtils.add(textBox.tile, {
@@ -513,13 +523,19 @@ export const getItemsAtTile = ({
       return false;
     }
 
+    // A raised connector is hit where it is drawn, not on the ground below it
+    const groundTile = CoordsUtils.subtract(
+      tile,
+      getConnectorTileOffset(con.height)
+    );
+
     return con.path.tiles.find((pathTile) => {
       const globalPathTile = connectorPathTileToGlobal(
         pathTile,
         con.path.rectangle.from
       );
 
-      return CoordsUtils.isEqual(globalPathTile, tile);
+      return CoordsUtils.isEqual(globalPathTile, groundTile);
     });
   });
 
@@ -714,8 +730,15 @@ export const getProjectBounds = (
   const connectors = view.connectors ?? [];
   const connectorTiles = connectors.reduce<Coords[]>((acc, connector) => {
     const path = getConnectorPath({ anchors: connector.anchors, view });
+    const offset = getConnectorTileOffset(connector.height);
 
-    return [...acc, path.rectangle.from, path.rectangle.to];
+    return [
+      ...acc,
+      path.rectangle.from,
+      path.rectangle.to,
+      CoordsUtils.add(path.rectangle.from, offset),
+      CoordsUtils.add(path.rectangle.to, offset)
+    ];
   }, []);
 
   const rectangles = view.rectangles ?? [];

@@ -2,9 +2,12 @@ import React, { useMemo } from 'react';
 import { Box, useTheme } from '@mui/material';
 import { UNPROJECTED_TILE_SIZE } from 'src/config';
 import {
+  connectorPathTileToGlobal,
   getAnchorTile,
   getColorVariant,
-  getConnectorDirectionIcon
+  getConnectorDirectionIcon,
+  getConnectorElevation,
+  getTilePosition
 } from 'src/utils';
 import { Circle } from 'src/components/Circle/Circle';
 import { Svg } from 'src/components/Svg/Svg';
@@ -23,12 +26,30 @@ export const Connector = ({ connector, isSelected }: Props) => {
   const { currentView } = useScene();
 
   // Call all hooks first, then handle the conditional logic
-  const { css, pxSize } = useIsoProjection({
+  const {
+    css,
+    pxSize,
+    position: boxPosition
+  } = useIsoProjection({
     ...(connector.path?.rectangle || {
       from: { x: 0, y: 0 },
       to: { x: 0, y: 0 }
     })
   });
+
+  const elevation = getConnectorElevation(connector.height);
+
+  // Ground positions of both ends, used to draw the vertical drop lines of a raised connector
+  const endPositions = useMemo(() => {
+    const tiles = connector.path?.tiles;
+    if (!elevation || !tiles?.length) return [];
+
+    return [tiles[0], tiles[tiles.length - 1]].map((tile) => {
+      return getTilePosition({
+        tile: connectorPathTileToGlobal(tile, connector.path.rectangle.from)
+      });
+    });
+  }, [elevation, connector.path]);
 
   const drawOffset = useMemo(() => {
     return {
@@ -99,70 +120,93 @@ export const Connector = ({ connector, isSelected }: Props) => {
     return null;
   }
 
+  const strokeColor = getColorVariant(color.value, 'dark', { grade: 1 });
+
   return (
-    <Box style={css}>
-      <Svg
-        style={{
-          // TODO: The original x coordinates of each tile seems to be calculated wrongly.
-          // They are mirrored along the x-axis.  The hack below fixes this, but we should
-          // try to fix this issue at the root of the problem (might have further implications).
-          transform: 'scale(-1, 1)'
-        }}
-        viewboxSize={pxSize}
-      >
-        <polyline
-          points={pathString}
-          stroke={theme.palette.common.white}
-          strokeWidth={connectorWidthPx * 1.4}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeOpacity={0.7}
-          strokeDasharray={strokeDashArray}
-          fill="none"
-        />
-        <polyline
-          points={pathString}
-          stroke={getColorVariant(color.value, 'dark', { grade: 1 })}
-          strokeWidth={connectorWidthPx}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeDasharray={strokeDashArray}
-          fill="none"
-        />
+    <>
+      {endPositions.map((endPosition, index) => {
+        return (
+          <Box
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
+            style={{
+              position: 'absolute',
+              left: endPosition.x,
+              top: endPosition.y - elevation,
+              height: elevation,
+              borderLeft: `${Math.max(
+                2,
+                connectorWidthPx / 2
+              )}px dashed ${strokeColor}`,
+              transform: 'translateX(-50%)'
+            }}
+          />
+        );
+      })}
+      <Box style={{ ...css, top: boxPosition.y - elevation }}>
+        <Svg
+          style={{
+            // TODO: The original x coordinates of each tile seems to be calculated wrongly.
+            // They are mirrored along the x-axis.  The hack below fixes this, but we should
+            // try to fix this issue at the root of the problem (might have further implications).
+            transform: 'scale(-1, 1)'
+          }}
+          viewboxSize={pxSize}
+        >
+          <polyline
+            points={pathString}
+            stroke={theme.palette.common.white}
+            strokeWidth={connectorWidthPx * 1.4}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeOpacity={0.7}
+            strokeDasharray={strokeDashArray}
+            fill="none"
+          />
+          <polyline
+            points={pathString}
+            stroke={strokeColor}
+            strokeWidth={connectorWidthPx}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeDasharray={strokeDashArray}
+            fill="none"
+          />
 
-        {anchorPositions.map((anchor) => {
-          return (
-            <g key={anchor.id}>
-              <Circle
-                tile={anchor}
-                radius={18}
-                fill={theme.palette.common.white}
-                fillOpacity={0.7}
-              />
-              <Circle
-                tile={anchor}
-                radius={12}
-                stroke={theme.palette.common.black}
-                fill={theme.palette.common.white}
-                strokeWidth={6}
-              />
-            </g>
-          );
-        })}
+          {anchorPositions.map((anchor) => {
+            return (
+              <g key={anchor.id}>
+                <Circle
+                  tile={anchor}
+                  radius={18}
+                  fill={theme.palette.common.white}
+                  fillOpacity={0.7}
+                />
+                <Circle
+                  tile={anchor}
+                  radius={12}
+                  stroke={theme.palette.common.black}
+                  fill={theme.palette.common.white}
+                  strokeWidth={6}
+                />
+              </g>
+            );
+          })}
 
-        {directionIcon && (connector.showTriangle ?? true) && (
-          <g transform={`translate(${directionIcon.x}, ${directionIcon.y})`}>
-            <g transform={`rotate(${directionIcon.rotation})`}>
-              <polygon
-                fill="black"
-                stroke={theme.palette.common.white}
-                strokeWidth={4}
-                points="17.58,17.01 0,-17.01 -17.58,17.01"
-              />
+          {directionIcon && (connector.showTriangle ?? true) && (
+            <g transform={`translate(${directionIcon.x}, ${directionIcon.y})`}>
+              <g transform={`rotate(${directionIcon.rotation})`}>
+                <polygon
+                  fill="black"
+                  stroke={theme.palette.common.white}
+                  strokeWidth={4}
+                  points="17.58,17.01 0,-17.01 -17.58,17.01"
+                />
+              </g>
             </g>
-          </g>
-        )}
-      </Svg>
-    </Box>
+          )}
+        </Svg>
+      </Box>
+    </>
   );
 };

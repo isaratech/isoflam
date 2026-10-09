@@ -71,6 +71,19 @@ export const ConnectorControls = ({ id }: Props) => {
           })}
         </Select>
       </Section>
+      <Section title={t('Height')}>
+        <Slider
+          marks
+          step={1}
+          min={0}
+          max={10}
+          valueLabelDisplay="auto"
+          value={connector.height}
+          onChange={(e, newHeight) => {
+            updateConnector(connector.id, { height: newHeight as number });
+          }}
+        />
+      </Section>
 
       {/* Advanced settings */}
       <AdvancedSettings>

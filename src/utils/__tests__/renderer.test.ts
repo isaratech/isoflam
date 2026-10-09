@@ -1,7 +1,14 @@
 import { Coords, Size, Scroll } from 'src/types';
 import { CoordsUtils, SizeUtils } from 'src/utils';
 import { PROJECTED_TILE_SIZE } from 'src/config';
-import { getGridSubset, isWithinBounds, screenToIso } from '../renderer';
+import {
+  getConnectorElevation,
+  getConnectorTileOffset,
+  getGridSubset,
+  getTilePosition,
+  isWithinBounds,
+  screenToIso
+} from '../renderer';
 
 const getRendererSize = (tileSize: Size, zoom: number = 1): Size => {
   const projectedTileSize = SizeUtils.multiply(PROJECTED_TILE_SIZE, zoom);
@@ -123,5 +130,26 @@ describe('Tests renderer utils', () => {
     });
 
     expect(tile).toEqual({ x: 0, y: 10 });
+  });
+});
+
+describe('Connector height', () => {
+  test('getConnectorElevation() is zero on the ground and one tile per height unit', () => {
+    expect(getConnectorElevation()).toBe(0);
+    expect(getConnectorElevation(0)).toBe(0);
+    expect(getConnectorElevation(2)).toBe(PROJECTED_TILE_SIZE.height * 2);
+  });
+
+  test('a raised connector is drawn over the ground tile shifted by its height', () => {
+    const groundTile = { x: 3, y: -1 };
+    const shifted = CoordsUtils.add(groundTile, getConnectorTileOffset(2));
+
+    // Same horizontal screen position, two tile heights higher
+    expect(getTilePosition({ tile: shifted }).x).toBeCloseTo(
+      getTilePosition({ tile: groundTile }).x
+    );
+    expect(getTilePosition({ tile: shifted }).y).toBeCloseTo(
+      getTilePosition({ tile: groundTile }).y - getConnectorElevation(2)
+    );
   });
 });

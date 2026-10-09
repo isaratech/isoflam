@@ -1,7 +1,11 @@
 import React, { useMemo } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useScene } from 'src/hooks/useScene';
-import { connectorPathTileToGlobal, getTilePosition } from 'src/utils';
+import {
+  connectorPathTileToGlobal,
+  getConnectorElevation,
+  getTilePosition
+} from 'src/utils';
 import { PROJECTED_TILE_SIZE } from 'src/config';
 import { Label } from 'src/components/Label/Label';
 
@@ -14,10 +18,15 @@ export const ConnectorLabel = ({ connector }: Props) => {
     const tileIndex = Math.floor(connector.path.tiles.length / 2);
     const tile = connector.path.tiles[tileIndex];
 
-    return getTilePosition({
+    const position = getTilePosition({
       tile: connectorPathTileToGlobal(tile, connector.path.rectangle.from)
     });
-  }, [connector.path]);
+
+    return {
+      x: position.x,
+      y: position.y - getConnectorElevation(connector.height)
+    };
+  }, [connector.path, connector.height]);
 
   return (
     <Box

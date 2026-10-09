@@ -21,5 +21,6 @@ export const connectorSchema = z.object({
   width: z.number().optional(),
   style: z.enum(connectorStyleOptions).optional(),
   showTriangle: z.boolean().optional(),
+  height: z.number().int().min(0).max(10).optional(), // Elevation above the ground, in tiles
   anchors: z.array(anchorSchema)
 });

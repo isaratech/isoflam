@@ -87,6 +87,7 @@ export const frTranslations = {
   Width: 'Largeur',
   Radius: 'Rayon',
   Style: 'Style',
+  Height: 'Hauteur',
   Triangle: 'Triangle',
   'Show triangle': 'Afficher le triangle',
   Layer: 'Calque',
