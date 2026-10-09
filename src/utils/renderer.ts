@@ -37,6 +37,7 @@ import {
   SizeUtils,
   toPx
 } from 'src/utils';
+import type { PathRouting } from 'src/utils/pathfinder';
 import { useScene } from 'src/hooks/useScene';
 
 interface ScreenToIso {
@@ -353,14 +354,13 @@ export const normalisePositionFromOrigin = ({
 interface GetConnectorPath {
   anchors: ConnectorAnchor[];
   view: View;
-  // Roads and walls only turn at right angles
-  allowDiagonal?: boolean;
+  routing?: PathRouting;
 }
 
 export const getConnectorPath = ({
   anchors,
   view,
-  allowDiagonal = true
+  routing = 'SHORTEST'
 }: GetConnectorPath): {
   tiles: Coords[];
   rectangle: Rect;
@@ -399,7 +399,7 @@ export const getConnectorPath = ({
         from: prev,
         to: position,
         gridSize: searchAreaSize,
-        allowDiagonal
+        routing
       });
 
       return [...acc, ...path];
@@ -557,12 +557,15 @@ export const isWallOrRoad = (connector: {
   return isRoad(connector) || getWallHeight(connector) > 0;
 };
 
-// Roads and walls only turn at right angles; plain lines can go diagonally
-export const allowsDiagonalPath = (connector: {
+// Roads turn at right angles, walls go straight at any angle between their corners, and
+// links between icons take the shortest path
+export const getConnectorRouting = (connector: {
   height?: number;
   variant?: string;
-}) => {
-  return !isWallOrRoad(connector);
+}): PathRouting => {
+  if (isRoad(connector)) return 'RIGHT_ANGLE';
+  if (getWallHeight(connector) > 0) return 'STRAIGHT';
+  return 'SHORTEST';
 };
 
 // Global tiles of a connector path, without the duplicates where two path sections meet
@@ -593,17 +596,68 @@ export const getPathCorners = (tiles: Coords[]) => {
   });
 };
 
+// A road's width in tiles, and the width of each of its sidewalks
+export const DEFAULT_ROAD_WIDTH = 4;
+export const SIDEWALK_WIDTH = 1;
+
+export const getRoadWidth = (connector: { roadWidth?: number }) => {
+  return connector.roadWidth ?? DEFAULT_ROAD_WIDTH;
+};
+
+// Total width of a road in tiles, sidewalks included
+export const getRoadOuterWidth = (connector: {
+  roadWidth?: number;
+  sidewalks?: boolean;
+}) => {
+  return (
+    getRoadWidth(connector) + (connector.sidewalks ? SIDEWALK_WIDTH * 2 : 0)
+  );
+};
+
+// Tile offsets, across a road's centre line, of the tiles a road of this width covers. An
+// even width is centred on the tile borders so the road covers whole tiles.
+export const getRoadSpan = (width: number) => {
+  return { from: 0 - Math.floor((width - 1) / 2), to: Math.floor(width / 2) };
+};
+
 // The ground tile of the connector under `tile`, which can point anywhere on a wall
 // (the slice raised k tiles is drawn over the path shifted by (k, k)); null if none.
 export const getConnectorGroundTile = (
   connector: {
     height?: number;
     variant?: string;
+    roadWidth?: number;
+    sidewalks?: boolean;
     path: { tiles: Coords[]; rectangle: { from: Coords } };
   },
   tile: Coords
 ): Coords | null => {
   const pathTiles = getConnectorGlobalTiles(connector.path);
+
+  // A road covers its whole width (sidewalks included): use the nearest path tile
+  if (isRoad(connector)) {
+    const span = getRoadSpan(getRoadOuterWidth(connector));
+    const covering = pathTiles.filter((pathTile) => {
+      const dx = tile.x - pathTile.x;
+      const dy = tile.y - pathTile.y;
+
+      return (
+        dx >= span.from && dx <= span.to && dy >= span.from && dy <= span.to
+      );
+    });
+    const distance = (pathTile: Coords) => {
+      return Math.max(
+        Math.abs(tile.x - pathTile.x),
+        Math.abs(tile.y - pathTile.y)
+      );
+    };
+
+    return covering.reduce<Coords | null>((nearest, pathTile) => {
+      return nearest && distance(nearest) <= distance(pathTile)
+        ? nearest
+        : pathTile;
+    }, null);
+  }
 
   for (let k = 0; k <= getWallHeight(connector); k += 1) {
     const groundTile = CoordsUtils.subtract(tile, getElevationTileOffset(k));
@@ -658,70 +712,118 @@ export const getRoundedPathD = (points: Coords[], radius: number) => {
   ].join(' ');
 };
 
+interface RoadInput {
+  path: { tiles: Coords[]; rectangle: { from: Coords } };
+  // In tiles
+  width: number;
+  sidewalks?: boolean;
+}
+
 // Drawing data for a set of roads: one rounded path per road, in local coordinates given
-// by `toLocal`, and the junctions (tiles shared by several roads) where markings stop.
-// A road end that isn't on a junction is extended to the edge of its tile.
+// by `toLocal` (from tile coordinates, possibly fractional), and the junctions (tiles shared
+// by several roads) where markings stop. A road end that isn't on a junction is extended to
+// the edge of its tile. Widths are in tiles.
 export const getRoadNetwork = (
-  paths: { tiles: Coords[]; rectangle: { from: Coords } }[],
+  roads: RoadInput[],
   toLocal: (tile: Coords) => Coords,
   tileSize: number
 ) => {
   const tileKey = ({ x, y }: Coords) => {
     return `${x},${y}`;
   };
-  const roadTiles = paths.map((path) => {
+  const roadTiles = roads.map(({ path }) => {
     return getConnectorGlobalTiles(path);
   });
 
-  const roadsPerTile = new Map<string, { tile: Coords; count: number }>();
-  roadTiles.forEach((tiles) => {
+  const roadsPerTile = new Map<
+    string,
+    { tile: Coords; count: number; width: number }
+  >();
+  roadTiles.forEach((tiles, index) => {
     new Map(
       tiles.map((tile) => {
         return [tileKey(tile), tile];
       })
     ).forEach((tile, key) => {
-      const entry = roadsPerTile.get(key) ?? { tile, count: 0 };
-      roadsPerTile.set(key, { tile, count: entry.count + 1 });
+      const entry = roadsPerTile.get(key) ?? { tile, count: 0, width: 0 };
+      roadsPerTile.set(key, {
+        tile,
+        count: entry.count + 1,
+        width: Math.max(entry.width, roads[index].width)
+      });
     });
   });
   const isJunction = (tile: Coords) => {
     return (roadsPerTile.get(tileKey(tile))?.count ?? 0) > 1;
+  };
+  // Shift of the centre line of an even-width road, onto the tile borders
+  const evenShift = (width: number) => {
+    return width % 2 === 0 ? 0.5 : 0;
   };
 
   const extend = (end: Coords, inner: Coords) => {
     const length = Math.hypot(end.x - inner.x, end.y - inner.y);
 
     return {
-      x: end.x + ((end.x - inner.x) / length) * (tileSize / 2),
-      y: end.y + ((end.y - inner.y) / length) * (tileSize / 2)
+      x: end.x + ((end.x - inner.x) / length) * 0.5,
+      y: end.y + ((end.y - inner.y) / length) * 0.5
     };
   };
 
-  const roadPaths = roadTiles
-    .filter((tiles) => {
-      return tiles.length > 1;
-    })
-    .map((tiles) => {
-      const points = getPathCorners(tiles).map(toLocal);
-      const last = points.length - 1;
+  const roadPaths = roads
+    .map(({ width, sidewalks = false }, index) => {
+      const tiles = roadTiles[index];
+      if (tiles.length < 2) return null;
+
+      const corners = getPathCorners(tiles);
+      const last = corners.length - 1;
+      const shift = evenShift(width);
+      // Corners move diagonally; the ends only move across their section so the road
+      // still ends on a tile edge
+      const points = corners.map((corner, i) => {
+        if (i > 0 && i < last) {
+          return { x: corner.x + shift, y: corner.y + shift };
+        }
+        const neighbour = corners[i === 0 ? 1 : last - 1];
+        const isAlongX = neighbour.y === corner.y;
+
+        return {
+          x: corner.x + (isAlongX ? 0 : shift),
+          y: corner.y + (isAlongX ? shift : 0)
+        };
+      });
 
       if (!isJunction(tiles[0])) points[0] = extend(points[0], points[1]);
       if (!isJunction(tiles[tiles.length - 1])) {
         points[last] = extend(points[last], points[last - 1]);
       }
 
-      return getRoundedPathD(points, tileSize / 2);
-    });
+      return {
+        d: getRoundedPathD(points.map(toLocal), ((width + 1) / 2) * tileSize),
+        width,
+        sidewalks
+      };
+    })
+    .filter(
+      (road): road is { d: string; width: number; sidewalks: boolean } => {
+        return road !== null;
+      }
+    );
 
   const junctions = [...roadsPerTile.values()]
     .filter(({ count }) => {
       return count > 1;
     })
-    .map(({ tile }) => {
-      return toLocal(tile);
+    .map(({ tile, width }) => {
+      const shift = evenShift(width);
+
+      return {
+        position: toLocal({ x: tile.x + shift, y: tile.y + shift }),
+        width
+      };
     });
 
-  return { paths: roadPaths, junctions };
+  return { roads: roadPaths, junctions };
 };
 
 export interface WallFace {
@@ -730,15 +832,20 @@ export interface WallFace {
   side: 'LEFT' | 'RIGHT' | 'FRONT';
 }
 
-// Screen-space faces of a wall standing on the given ground tiles, back faces first
-export const getWallFaces = (tiles: Coords[], height: number): WallFace[] => {
+// Screen-space faces of a wall, back faces first. `corners` are the wall's corner tiles in
+// order; each section between two corners is straight, at any angle.
+export const getWallFaces = (corners: Coords[], height: number): WallFace[] => {
   const elevation = getElevation(height);
-  const corners = getPathCorners(tiles).map((tile) => {
-    return getTilePosition({ tile });
-  });
+  const positions = corners
+    .filter((tile, index) => {
+      return index === 0 || !CoordsUtils.isEqual(tile, corners[index - 1]);
+    })
+    .map((tile) => {
+      return getTilePosition({ tile });
+    });
 
-  const faces = corners.slice(1).map((end, index): WallFace => {
-    const start = corners[index];
+  const faces = positions.slice(1).map((end, index): WallFace => {
+    const start = positions[index];
     const slope = (end.x - start.x) * (end.y - start.y);
     let side: WallFace['side'] = 'FRONT';
     if (slope > 0) side = 'LEFT';
@@ -1044,14 +1151,20 @@ export const getProjectBounds = (
     const path = getConnectorPath({
       anchors: connector.anchors,
       view,
-      allowDiagonal: allowsDiagonalPath(connector)
+      routing: getConnectorRouting(connector)
     });
     const offset = getElevationTileOffset(getWallHeight(connector));
+    // Roads spread on both sides of their path
+    const margin = isRoad(connector)
+      ? Math.ceil(getRoadOuterWidth(connector) / 2)
+      : 0;
 
     return [
       ...acc,
-      path.rectangle.from,
-      path.rectangle.to,
+      ...getBoundingBox([path.rectangle.from, path.rectangle.to], {
+        x: margin,
+        y: margin
+      }),
       CoordsUtils.add(path.rectangle.from, offset),
       CoordsUtils.add(path.rectangle.to, offset)
     ];

@@ -7,6 +7,7 @@ import {
   getElevationTileOffset,
   getPathCorners,
   getRoadNetwork,
+  getRoadSpan,
   getRoundedPathD,
   getWallFaces,
   getGridSubset,
@@ -229,8 +230,8 @@ describe('Walls', () => {
     ]);
   });
 
-  test('getWallFaces() raises one face per straight section by the wall height', () => {
-    const faces = getWallFaces(tiles, 3);
+  test('getWallFaces() raises one face per section between corners by the wall height', () => {
+    const faces = getWallFaces(getPathCorners(tiles), 3);
 
     expect(faces).toHaveLength(2);
     faces.forEach(({ points: [start, end, topEnd, topStart] }) => {
@@ -245,6 +246,22 @@ describe('Walls', () => {
         })
       ).size
     ).toBe(2);
+  });
+
+  test('getWallFaces() draws a section at any angle in one face', () => {
+    const faces = getWallFaces(
+      [
+        { x: 0, y: 0 },
+        { x: 0, y: 0 },
+        { x: 5, y: 2 }
+      ],
+      1
+    );
+
+    expect(faces).toHaveLength(1);
+    expect(faces[0].points[1]).toEqual(
+      getTilePosition({ tile: { x: 5, y: 2 } })
+    );
   });
 
   test('getConnectorGroundTile() finds the foot of the wall under a raised tile', () => {
@@ -300,10 +317,18 @@ describe('Roads', () => {
       rectangle: { from: { x: 2, y: 2 } }
     };
 
-    const network = getRoadNetwork([alongX, alongY], identity, 1);
+    const network = getRoadNetwork(
+      [
+        { path: alongX, width: 1 },
+        { path: alongY, width: 3 }
+      ],
+      identity,
+      1
+    );
 
-    expect(network.paths).toHaveLength(2);
-    expect(network.junctions).toEqual([{ x: 2, y: 0 }]);
+    expect(network.roads).toHaveLength(2);
+    // The junction is as wide as the widest road
+    expect(network.junctions).toEqual([{ position: { x: 2, y: 0 }, width: 3 }]);
   });
 
   test('getRoadNetwork() extends free road ends to the edge of their tile', () => {
@@ -314,8 +339,28 @@ describe('Roads', () => {
       rectangle: { from: { x: 2, y: 0 } }
     };
 
-    expect(getRoadNetwork([road], identity, 1).paths[0]).toBe(
-      'M 2.5,0 L -0.5,0'
-    );
+    expect(
+      getRoadNetwork([{ path: road, width: 1 }], identity, 1).roads[0].d
+    ).toBe('M 2.5,0 L -0.5,0');
+  });
+
+  test('getRoadNetwork() puts an even-width road on the tile borders', () => {
+    const road = {
+      tiles: [0, 1, 2].map((x) => {
+        return { x, y: 0 };
+      }),
+      rectangle: { from: { x: 2, y: 0 } }
+    };
+
+    // Shifted half a tile across, not along, so it still ends on the tile edges
+    expect(
+      getRoadNetwork([{ path: road, width: 4 }], identity, 1).roads[0].d
+    ).toBe('M 2.5,0.5 L -0.5,0.5');
+  });
+
+  test('getRoadSpan() covers whole tiles on both sides of the centre line', () => {
+    expect(getRoadSpan(1)).toEqual({ from: 0, to: 0 });
+    expect(getRoadSpan(3)).toEqual({ from: -1, to: 1 });
+    expect(getRoadSpan(4)).toEqual({ from: -1, to: 2 });
   });
 });

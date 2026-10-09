@@ -4,8 +4,8 @@ import { Svg } from 'src/components/Svg/Svg';
 import { getWallFaces, shadeColor, WallFace } from 'src/utils';
 
 interface Props {
-  // Ground tiles the wall stands on, in order
-  tiles: Coords[];
+  // Corner tiles of the wall, in order
+  corners: Coords[];
   height: number;
   color: string;
   // Stroke of the wall's top edge
@@ -20,15 +20,15 @@ const faceShade: Record<WallFace['side'], number> = {
 };
 
 export const Wall = ({
-  tiles,
+  corners,
   height,
   color,
   strokeWidth,
   strokeDasharray
 }: Props) => {
   const faces = useMemo(() => {
-    return getWallFaces(tiles, height);
-  }, [tiles, height]);
+    return getWallFaces(corners, height);
+  }, [corners, height]);
 
   // The faces are in scene coordinates; the svg is placed over their bounding box
   const bounds = useMemo(() => {

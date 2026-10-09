@@ -1,11 +1,15 @@
 import PF from 'pathfinding';
 import { Size, Coords } from 'src/types';
 
+// SHORTEST: A* with diagonal moves (links between icons); RIGHT_ANGLE: one turn (roads);
+// STRAIGHT: the tiles along the straight line, whatever its angle (walls)
+export type PathRouting = 'SHORTEST' | 'RIGHT_ANGLE' | 'STRAIGHT';
+
 interface Args {
   gridSize: Size;
   from: Coords;
   to: Coords;
-  allowDiagonal?: boolean;
+  routing?: PathRouting;
 }
 
 // Straight along x, then straight along y: a single turn. The grid has no obstacles, and a
@@ -27,13 +31,29 @@ const findRightAnglePath = (from: Coords, to: Coords): Coords[] => {
   return tiles;
 };
 
+// The tiles crossed by the straight line between the two tile centres
+const findStraightPath = (from: Coords, to: Coords): Coords[] => {
+  const steps = Math.max(Math.abs(to.x - from.x), Math.abs(to.y - from.y));
+  const tiles: Coords[] = [{ ...from }];
+
+  for (let i = 1; i <= steps; i += 1) {
+    tiles.push({
+      x: Math.round(from.x + ((to.x - from.x) * i) / steps),
+      y: Math.round(from.y + ((to.y - from.y) * i) / steps)
+    });
+  }
+
+  return tiles;
+};
+
 export const findPath = ({
   gridSize,
   from,
   to,
-  allowDiagonal = true
+  routing = 'SHORTEST'
 }: Args): Coords[] => {
-  if (!allowDiagonal) return findRightAnglePath(from, to);
+  if (routing === 'RIGHT_ANGLE') return findRightAnglePath(from, to);
+  if (routing === 'STRAIGHT') return findStraightPath(from, to);
 
   const grid = new PF.Grid(gridSize.width, gridSize.height);
   const finder = new PF.AStarFinder({
