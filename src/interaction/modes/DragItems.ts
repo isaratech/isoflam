@@ -6,6 +6,7 @@ import {
   CoordsUtils,
   hasMovedTile,
   getAnchorParent,
+  getConnectorTileOffset,
   getItemAtTile
 } from 'src/utils';
 
@@ -63,7 +64,11 @@ const dragItems = (
             draft.anchors[anchor.index] = {
               ...anchor.value,
               ref: {
-                tile
+                // Keep the end of a raised connector under the cursor
+                tile: CoordsUtils.subtract(
+                  tile,
+                  getConnectorTileOffset(connector.height)
+                )
               }
             };
             break;

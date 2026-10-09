@@ -30,3 +30,39 @@ describe('getItemsAtTile', () => {
     expect(getItemAtTile({ tile: { x: 20, y: 20 }, scene })).toBeNull();
   });
 });
+
+describe('getItemsAtTile with a raised connector', () => {
+  // Runs along the ground tiles (3,0) -> (0,0), raised 2 tiles
+  const connectorScene = {
+    items: [],
+    textBoxes: [],
+    rectangles: [],
+    connectors: [
+      {
+        id: 'raised',
+        height: 2,
+        path: {
+          tiles: [
+            { x: 0, y: 0 },
+            { x: 1, y: 0 },
+            { x: 2, y: 0 },
+            { x: 3, y: 0 }
+          ],
+          rectangle: { from: { x: 3, y: 0 }, to: { x: 0, y: 0 } }
+        }
+      }
+    ]
+  } as any;
+
+  it('is hit where it is drawn', () => {
+    expect(
+      getItemAtTile({ tile: { x: 5, y: 2 }, scene: connectorScene })
+    ).toEqual({ type: 'CONNECTOR', id: 'raised' });
+  });
+
+  it('is not hit on the ground below it', () => {
+    expect(
+      getItemAtTile({ tile: { x: 3, y: 0 }, scene: connectorScene })
+    ).toBeNull();
+  });
+});

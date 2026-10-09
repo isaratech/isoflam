@@ -15,6 +15,7 @@ import {
   generateId,
   getAnchorAtTile,
   getAnchorTile,
+  getConnectorTileOffset,
   getItemByIdOrThrow,
   getItemsAtTile,
   hasMovedTile,
@@ -52,10 +53,15 @@ const getAnchorOrdering = (
 
 const getAnchor = (
   connectorId: string,
-  tile: Coords,
+  mouseTile: Coords,
   scene: ReturnType<typeof useScene>
 ) => {
   const connector = getItemByIdOrThrow(scene.connectors, connectorId).value;
+  // A raised connector is drawn above the ground tile it runs along
+  const tile = CoordsUtils.subtract(
+    mouseTile,
+    getConnectorTileOffset(connector.height)
+  );
   const anchor = getAnchorAtTile(tile, connector.anchors);
 
   if (!anchor) {

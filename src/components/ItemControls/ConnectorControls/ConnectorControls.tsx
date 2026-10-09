@@ -74,9 +74,9 @@ export const ConnectorControls = ({ id }: Props) => {
       <Section title={t('Height')}>
         <Slider
           marks
-          step={0.5}
+          step={1}
           min={0}
-          max={5}
+          max={10}
           valueLabelDisplay="auto"
           value={connector.height}
           onChange={(e, newHeight) => {

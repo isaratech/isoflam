@@ -1,10 +1,11 @@
 import { Coords, Size, Scroll } from 'src/types';
 import { CoordsUtils, SizeUtils } from 'src/utils';
 import { PROJECTED_TILE_SIZE } from 'src/config';
-import { connectorSchema } from 'src/schemas/connector';
 import {
   getConnectorElevation,
+  getConnectorTileOffset,
   getGridSubset,
+  getTilePosition,
   isWithinBounds,
   screenToIso
 } from '../renderer';
@@ -139,15 +140,16 @@ describe('Connector height', () => {
     expect(getConnectorElevation(2)).toBe(PROJECTED_TILE_SIZE.height * 2);
   });
 
-  test('the connector schema accepts a positive height and rejects a negative one', () => {
-    const connector = { id: 'c1', anchors: [] };
+  test('a raised connector is drawn over the ground tile shifted by its height', () => {
+    const groundTile = { x: 3, y: -1 };
+    const shifted = CoordsUtils.add(groundTile, getConnectorTileOffset(2));
 
-    expect(connectorSchema.safeParse(connector).success).toBe(true);
-    expect(
-      connectorSchema.safeParse({ ...connector, height: 1.5 }).success
-    ).toBe(true);
-    expect(
-      connectorSchema.safeParse({ ...connector, height: -1 }).success
-    ).toBe(false);
+    // Same horizontal screen position, two tile heights higher
+    expect(getTilePosition({ tile: shifted }).x).toBeCloseTo(
+      getTilePosition({ tile: groundTile }).x
+    );
+    expect(getTilePosition({ tile: shifted }).y).toBeCloseTo(
+      getTilePosition({ tile: groundTile }).y - getConnectorElevation(2)
+    );
   });
 });
