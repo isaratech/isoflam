@@ -105,20 +105,22 @@ export const Roads = ({ connectors }: Props) => {
     });
   };
 
-  const junctionSquares = (
+  const junctionPatches = (
     getSize: (width: number) => number,
     fill: string
   ) => {
-    return network.junctions.map(({ position, width }) => {
-      const size = getSize(width * UNPROJECTED_TILE_SIZE);
+    return network.junctions.map(({ position, size }) => {
+      // Svg x follows the tile x, svg y the tile y
+      const width = getSize(size.x * UNPROJECTED_TILE_SIZE);
+      const height = getSize(size.y * UNPROJECTED_TILE_SIZE);
 
       return (
         <rect
           key={`${Math.round(position.x)},${Math.round(position.y)}`}
-          x={position.x - size / 2}
-          y={position.y - size / 2}
-          width={size}
-          height={size}
+          x={position.x - width / 2}
+          y={position.y - height / 2}
+          width={width}
+          height={height}
           fill={fill}
         />
       );
@@ -161,7 +163,7 @@ export const Roads = ({ connectors }: Props) => {
           },
           COLORS.marking
         )}
-        {junctionSquares((width) => {
+        {junctionPatches((width) => {
           return width;
         }, COLORS.marking)}
 
@@ -189,7 +191,7 @@ export const Roads = ({ connectors }: Props) => {
         )}
 
         {/* 5. Junctions are plain asphalt, without centre lines */}
-        {junctionSquares((width) => {
+        {junctionPatches((width) => {
           return width - EDGE_WIDTH * 2;
         }, COLORS.asphalt)}
       </Svg>

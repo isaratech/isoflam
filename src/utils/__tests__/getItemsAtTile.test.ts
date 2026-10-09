@@ -91,6 +91,15 @@ describe('getItemsAtTile with walls and roads', () => {
     ).toEqual({ type: 'CONNECTOR', id: 'road' });
   });
 
+  it('does not hit beyond the end of a road', () => {
+    expect(
+      getItemAtTile({ tile: { x: 4, y: 0 }, scene: roadScene })
+    ).toBeNull();
+    expect(
+      getItemAtTile({ tile: { x: -1, y: 1 }, scene: roadScene })
+    ).toBeNull();
+  });
+
   it('only hits a road on the ground, whatever its height', () => {
     expect(getItemAtTile({ tile: { x: 3, y: 0 }, scene: roadScene })).toEqual({
       type: 'CONNECTOR',

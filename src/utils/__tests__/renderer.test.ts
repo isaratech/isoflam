@@ -327,8 +327,10 @@ describe('Roads', () => {
     );
 
     expect(network.roads).toHaveLength(2);
-    // The junction is as wide as the widest road
-    expect(network.junctions).toEqual([{ position: { x: 2, y: 0 }, width: 3 }]);
+    // The junction spans each crossing road's width: 3 across x (the road along y), 1 across y
+    expect(network.junctions).toEqual([
+      { position: { x: 2, y: 0 }, size: { x: 3, y: 1 } }
+    ]);
   });
 
   test('getRoadNetwork() extends free road ends to the edge of their tile', () => {
@@ -356,6 +358,48 @@ describe('Roads', () => {
     expect(
       getRoadNetwork([{ path: road, width: 4 }], identity, 1).roads[0].d
     ).toBe('M 2.5,0.5 L -0.5,0.5');
+  });
+
+  test('getRoadNetwork() rounds the turns of a road with sidewalks wider', () => {
+    const road = {
+      tiles: [
+        { x: 0, y: 0 },
+        { x: 5, y: 0 },
+        { x: 5, y: 5 }
+      ].flatMap((corner, i, corners) => {
+        if (i === 0) return [corner];
+        const prev = corners[i - 1];
+        const steps = Math.max(
+          Math.abs(corner.x - prev.x),
+          Math.abs(corner.y - prev.y)
+        );
+        return Array.from({ length: steps }, (_, k) => {
+          return {
+            x: prev.x + Math.sign(corner.x - prev.x) * (k + 1),
+            y: prev.y + Math.sign(corner.y - prev.y) * (k + 1)
+          };
+        });
+      }),
+      rectangle: { from: { x: 0, y: 0 } }
+    };
+    const radius = (sidewalks: boolean) => {
+      const { d } = getRoadNetwork(
+        [
+          {
+            path: { ...road, rectangle: { from: { x: 0, y: 0 } } },
+            width: 1,
+            sidewalks
+          }
+        ],
+        identity,
+        1
+      ).roads[0];
+      // "L x,y Q": distance from the start of the curve to the corner
+      const [, curveStart] = d.match(/L ([^ ]+) Q/) ?? [];
+      return Math.abs(Number(curveStart.split(',')[0]) - -5);
+    };
+
+    expect(radius(true)).toBeGreaterThan(radius(false));
   });
 
   test('getRoadSpan() covers whole tiles on both sides of the centre line', () => {

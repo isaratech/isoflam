@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Road width setting (1 to 10 tiles, 4 by default); even widths line up with the tile borders
+- Road width setting (1 to 10 tiles, 4 by default); even widths line up with the tile borders. Roads drawn with 2.2.0 take the new default width of 4 tiles
 - Optional sidewalks on both sides of a road, cut by the roads that cross it
 
 ### Changed

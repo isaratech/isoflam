@@ -637,13 +637,27 @@ export const getConnectorGroundTile = (
   // A road covers its whole width (sidewalks included): use the nearest path tile
   if (isRoad(connector)) {
     const span = getRoadSpan(getRoadOuterWidth(connector));
-    const covering = pathTiles.filter((pathTile) => {
+    const isInSpan = (offset: number) => {
+      return offset >= span.from && offset <= span.to;
+    };
+    // Each path tile covers a band across the road; corners cover a square
+    const covering = pathTiles.filter((pathTile, index) => {
       const dx = tile.x - pathTile.x;
       const dy = tile.y - pathTile.y;
-
-      return (
-        dx >= span.from && dx <= span.to && dy >= span.from && dy <= span.to
+      const neighbours = [pathTiles[index - 1], pathTiles[index + 1]].filter(
+        Boolean
       );
+      const runsAlongX = neighbours.some((n) => {
+        return n.y === pathTile.y;
+      });
+      const runsAlongY = neighbours.some((n) => {
+        return n.x === pathTile.x;
+      });
+
+      if (runsAlongX && runsAlongY) return isInSpan(dx) && isInSpan(dy);
+      if (runsAlongX) return dx === 0 && isInSpan(dy);
+      if (runsAlongY) return dy === 0 && isInSpan(dx);
+      return dx === 0 && dy === 0;
     });
     const distance = (pathTile: Coords) => {
       return Math.max(
@@ -735,30 +749,49 @@ export const getRoadNetwork = (
     return getConnectorGlobalTiles(path);
   });
 
+  // For each tile: how many roads pass, and the width of the roads crossing it along each
+  // axis (a road running along x spreads across y, and the other way round)
   const roadsPerTile = new Map<
     string,
-    { tile: Coords; count: number; width: number }
+    { tile: Coords; count: number; acrossX: number; acrossY: number }
   >();
   roadTiles.forEach((tiles, index) => {
-    new Map(
-      tiles.map((tile) => {
-        return [tileKey(tile), tile];
-      })
-    ).forEach((tile, key) => {
-      const entry = roadsPerTile.get(key) ?? { tile, count: 0, width: 0 };
+    const { width } = roads[index];
+    const seen = new Set<string>();
+
+    tiles.forEach((tile, i) => {
+      const key = tileKey(tile);
+      const neighbours = [tiles[i - 1], tiles[i + 1]].filter(Boolean);
+      const runsAlongX = neighbours.some((n) => {
+        return n.y === tile.y && n.x !== tile.x;
+      });
+      const runsAlongY = neighbours.some((n) => {
+        return n.x === tile.x && n.y !== tile.y;
+      });
+      const entry = roadsPerTile.get(key) ?? {
+        tile,
+        count: 0,
+        acrossX: 0,
+        acrossY: 0
+      };
+
       roadsPerTile.set(key, {
         tile,
-        count: entry.count + 1,
-        width: Math.max(entry.width, roads[index].width)
+        count: entry.count + (seen.has(key) ? 0 : 1),
+        acrossX: runsAlongY ? Math.max(entry.acrossX, width) : entry.acrossX,
+        acrossY: runsAlongX ? Math.max(entry.acrossY, width) : entry.acrossY
       });
+      seen.add(key);
     });
   });
   const isJunction = (tile: Coords) => {
     return (roadsPerTile.get(tileKey(tile))?.count ?? 0) > 1;
   };
-  // Shift of the centre line of an even-width road, onto the tile borders
+  // Shift of the centre line of a road, from the centre of the tiles it covers across
   const evenShift = (width: number) => {
-    return width % 2 === 0 ? 0.5 : 0;
+    const span = getRoadSpan(width);
+
+    return (span.from + span.to) / 2;
   };
 
   const extend = (end: Coords, inner: Coords) => {
@@ -799,7 +832,11 @@ export const getRoadNetwork = (
       }
 
       return {
-        d: getRoundedPathD(points.map(toLocal), ((width + 1) / 2) * tileSize),
+        // Inner radius of half a tile on the outermost band (sidewalks included)
+        d: getRoundedPathD(
+          points.map(toLocal),
+          ((width + (sidewalks ? SIDEWALK_WIDTH * 2 : 0) + 1) / 2) * tileSize
+        ),
         width,
         sidewalks
       };
@@ -814,12 +851,14 @@ export const getRoadNetwork = (
     .filter(({ count }) => {
       return count > 1;
     })
-    .map(({ tile, width }) => {
-      const shift = evenShift(width);
-
+    .map(({ tile, acrossX, acrossY }) => {
+      // Sizes along the tile x and y axes: the crossing road widths
       return {
-        position: toLocal({ x: tile.x + shift, y: tile.y + shift }),
-        width
+        position: toLocal({
+          x: tile.x + evenShift(acrossX),
+          y: tile.y + evenShift(acrossY)
+        }),
+        size: { x: acrossX, y: acrossY }
       };
     });
 
@@ -862,9 +901,27 @@ export const getWallFaces = (corners: Coords[], height: number): WallFace[] => {
     };
   });
 
-  // Painter's order: the faces higher on screen are further away
+  // Painter's order: where two faces overlap on screen, the one whose foot is higher there
+  // is further away
+  const footY = (face: WallFace, x: number) => {
+    const [start, end] = face.points;
+    if (start.x === end.x) return Math.max(start.y, end.y);
+
+    return start.y + ((end.y - start.y) * (x - start.x)) / (end.x - start.x);
+  };
+
   return faces.sort((a, b) => {
-    return a.points[0].y + a.points[1].y - (b.points[0].y + b.points[1].y);
+    const [a0, a1] = a.points;
+    const [b0, b1] = b.points;
+    const from = Math.max(Math.min(a0.x, a1.x), Math.min(b0.x, b1.x));
+    const to = Math.min(Math.max(a0.x, a1.x), Math.max(b0.x, b1.x));
+
+    if (to > from) {
+      const x = (from + to) / 2;
+      return footY(a, x) - footY(b, x);
+    }
+
+    return a0.y + a1.y - (b0.y + b1.y);
   });
 };
 

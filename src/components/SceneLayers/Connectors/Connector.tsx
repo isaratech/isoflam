@@ -39,9 +39,14 @@ export const Connector = ({ connector, isSelected }: Props) => {
   const wallCorners = useMemo(() => {
     if (!wallHeight || !currentView) return [];
 
-    return connector.anchors.map((anchor) => {
-      return getAnchorTile(anchor, currentView);
-    });
+    // An anchor can briefly point to a removed item (undo, deletion): skip the wall then
+    try {
+      return connector.anchors.map((anchor) => {
+        return getAnchorTile(anchor, currentView);
+      });
+    } catch {
+      return [];
+    }
   }, [wallHeight, connector.anchors, currentView]);
 
   const drawOffset = useMemo(() => {
