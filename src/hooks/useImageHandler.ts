@@ -3,6 +3,7 @@ import {useScene} from 'src/hooks/useScene';
 import {useUiStateStore} from 'src/stores/uiStateStore';
 import {Coords} from 'src/types/common';
 import {useTranslation} from 'src/hooks/useTranslation';
+import {downscaleImage} from 'src/utils';
 
 export interface ImageRectangleOptions {
     position?: Coords;
@@ -81,9 +82,9 @@ export const useImageHandler = () => {
         try {
             const fileReader = new FileReader();
 
-            fileReader.onload = (event) => {
+            fileReader.onload = async (event) => {
                 try {
-                    const imageData = event.target?.result as string;
+                    const imageData = await downscaleImage(event.target?.result as string, file.type);
                     createImageRectangle(imageData, file.name, options);
                 } catch (error) {
                     console.error('Error processing image:', error);

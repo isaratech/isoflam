@@ -35,6 +35,8 @@ export interface CursorMode {
   type: 'CURSOR';
   showCursor: boolean;
   mousedownItem: ItemReference | null;
+  // The pressed item was already selected: a click without drag selects the next item below
+  mousedownItemWasSelected?: boolean;
 }
 
 export interface DragItemsMode {
@@ -84,6 +86,8 @@ export interface TransformRectangleMode {
   showCursor: boolean;
   id: string;
   selectedAnchor: AnchorPosition | null;
+  // Corner opposite to the dragged anchor, fixed when the drag starts
+  fixedCorner?: Coords;
 }
 
 export interface TextBoxMode {

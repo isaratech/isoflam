@@ -441,15 +441,22 @@ interface GetItemAtTile {
   scene: ReturnType<typeof useScene>;
 }
 
-export const getItemAtTile = ({
+// Every item under the tile, the one that should be picked first first:
+// - icons placed exactly on the tile, then the area covered by enlarged icons (otherwise a
+//   person standing in front of a vehicle could never be selected),
+// - then text boxes, connectors and rectangles.
+// Within each kind, items are in layer order (index 0 is the top layer).
+export const getItemsAtTile = ({
   tile,
   scene
-}: GetItemAtTile): ItemReference | null => {
-  // First check for scaled icons - they can span multiple cells
-  // Use find to select the top layer item first (index 0 is rendered last)
-  const scaledViewItem = scene.items.find((item) => {
+}: GetItemAtTile): ItemReference[] => {
+  const exactViewItems = scene.items.filter((item) => {
+    return CoordsUtils.isEqual(item.tile, tile);
+  });
+
+  const scaledViewItems = scene.items.filter((item) => {
     // If the item has a scaleFactor > 1, check if the tile is within its bounds
-    if (item.scaleFactor && item.scaleFactor > 1) {
+    if (item.scaleFactor && item.scaleFactor > 1 && !exactViewItems.includes(item)) {
       // Calculate the size of the icon in tiles based on scale factor
       // Round up to ensure we cover the full area
       const iconSize = Math.ceil(item.scaleFactor);
@@ -468,26 +475,7 @@ export const getItemAtTile = ({
     return false;
   });
 
-  if (scaledViewItem) {
-    return {
-      type: 'ITEM',
-      id: scaledViewItem.id
-    };
-  }
-
-  // Then check for exact tile matches for non-scaled items
-  const viewItem = scene.items.find((item) => {
-    return CoordsUtils.isEqual(item.tile, tile);
-  });
-
-  if (viewItem) {
-    return {
-      type: 'ITEM',
-      id: viewItem.id
-    };
-  }
-
-  const textBox = scene.textBoxes.find((tb) => {
+  const textBoxes = scene.textBoxes.filter((tb) => {
     const textBoxTo = getTextBoxEndTile(tb, tb.size);
     const textBoxBounds = getBoundingBox([
       tb.tile,
@@ -503,14 +491,7 @@ export const getItemAtTile = ({
     return isWithinBounds(tile, textBoxBounds);
   });
 
-  if (textBox) {
-    return {
-      type: 'TEXTBOX',
-      id: textBox.id
-    };
-  }
-
-  const connector = scene.connectors.find((con) => {
+  const connectors = scene.connectors.filter((con) => {
     // Guard against connectors with undefined paths
     if (!con.path || !con.path.tiles) {
       return false;
@@ -526,25 +507,28 @@ export const getItemAtTile = ({
     });
   });
 
-  if (connector) {
-    return {
-      type: 'CONNECTOR',
-      id: connector.id
-    };
-  }
-
-  const rectangle = scene.rectangles.find(({from, to}) => {
+  const rectangles = scene.rectangles.filter(({from, to}) => {
     return isWithinBounds(tile, [from, to]);
   });
 
-  if (rectangle) {
-    return {
-      type: 'RECTANGLE',
-      id: rectangle.id
-    };
-  }
+  return [
+    ...[...exactViewItems, ...scaledViewItems].map((item): ItemReference => {
+      return { type: 'ITEM', id: item.id };
+    }),
+    ...textBoxes.map((textBox): ItemReference => {
+      return { type: 'TEXTBOX', id: textBox.id };
+    }),
+    ...connectors.map((connector): ItemReference => {
+      return { type: 'CONNECTOR', id: connector.id };
+    }),
+    ...rectangles.map((rectangle): ItemReference => {
+      return { type: 'RECTANGLE', id: rectangle.id };
+    })
+  ];
+};
 
-  return null;
+export const getItemAtTile = (args: GetItemAtTile): ItemReference | null => {
+  return getItemsAtTile(args)[0] ?? null;
 };
 
 interface FontProps {

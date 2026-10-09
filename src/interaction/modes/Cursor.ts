@@ -1,6 +1,6 @@
 import {produce} from 'immer';
-import {ConnectorAnchor, Coords, ModeActions, ModeActionsAction, SceneConnector, View} from 'src/types';
-import {connectorPathTileToGlobal, CoordsUtils, generateId, getAnchorAtTile, getAnchorTile, getItemAtTile, getItemByIdOrThrow, hasMovedTile, setWindowCursor} from 'src/utils';
+import {ConnectorAnchor, Coords, ItemControls, ItemReference, ModeActions, ModeActionsAction, SceneConnector, View} from 'src/types';
+import {connectorPathTileToGlobal, CoordsUtils, generateId, getAnchorAtTile, getAnchorTile, getItemByIdOrThrow, getItemsAtTile, hasMovedTile, setWindowCursor} from 'src/utils';
 import {useScene} from 'src/hooks/useScene';
 
 const getAnchorOrdering = (
@@ -69,6 +69,12 @@ const getAnchor = (
   return anchor;
 };
 
+const isSameItem = (item: ItemReference, other: ItemReference | ItemControls | null) => {
+  return Boolean(
+    other && other.type === item.type && 'id' in other && other.id === item.id
+  );
+};
+
 const mousedown: ModeActionsAction = ({
   uiState,
   scene,
@@ -76,15 +82,21 @@ const mousedown: ModeActionsAction = ({
 }) => {
   if (uiState.mode.type !== 'CURSOR' || !isRendererInteraction) return;
 
-  const itemAtTile = getItemAtTile({
+  const itemsAtTile = getItemsAtTile({
     tile: uiState.mouse.position.tile,
     scene
   });
+  // Prefer the selected item, so that an item reached by clicking through a stack can be dragged
+  const selectedItem = itemsAtTile.find((item) => {
+    return isSameItem(item, uiState.itemControls);
+  });
+  const itemAtTile = selectedItem ?? itemsAtTile[0];
 
   if (itemAtTile) {
     uiState.actions.setMode(
       produce(uiState.mode, (draft) => {
         draft.mousedownItem = itemAtTile;
+        draft.mousedownItemWasSelected = Boolean(selectedItem);
       })
     );
 
@@ -140,10 +152,24 @@ export const Cursor: ModeActions = {
     }
   },
   mousedown,
-  mouseup: ({ uiState, isRendererInteraction }) => {
+  mouseup: ({ uiState, scene, isRendererInteraction }) => {
     if (uiState.mode.type !== 'CURSOR' || !isRendererInteraction) return;
 
-    if (uiState.mode.mousedownItem) {
+    const { mousedownItem, mousedownItemWasSelected } = uiState.mode;
+    // Clicking again on the selected item selects the next one below it (stacked items, or a
+    // zone under an icon). Reaching this point means the item was not dragged.
+    const itemsAtTile = mousedownItemWasSelected && mousedownItem
+      ? getItemsAtTile({ tile: uiState.mouse.position.tile, scene })
+      : [];
+    const clickedIndex = itemsAtTile.findIndex((item) => {
+      return mousedownItem !== null && isSameItem(item, mousedownItem);
+    });
+
+    if (itemsAtTile.length > 1 && clickedIndex !== -1) {
+      uiState.actions.setItemControls(
+        itemsAtTile[(clickedIndex + 1) % itemsAtTile.length]
+      );
+    } else if (uiState.mode.mousedownItem) {
       if (uiState.mode.mousedownItem.type === 'ITEM') {
         uiState.actions.setItemControls({
           type: 'ITEM',
@@ -172,6 +198,7 @@ export const Cursor: ModeActions = {
     uiState.actions.setMode(
       produce(uiState.mode, (draft) => {
         draft.mousedownItem = null;
+        draft.mousedownItemWasSelected = false;
       })
     );
   }

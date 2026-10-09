@@ -24,15 +24,19 @@ export const TransformRectangle: ModeActions = {
       ).value;
       const rectangleBounds = getBoundingBox([rectangle.to, rectangle.from]);
       const namedBounds = convertBoundsToNamedAnchors(rectangleBounds);
+      // Recomputing the opposite corner from the current rectangle loses it once the anchor
+      // is dragged past it (the rectangle then shrinks and slides with the cursor)
+      const { fixedCorner } = uiState.mode;
 
       if (
         uiState.mode.selectedAnchor === 'BOTTOM_LEFT' ||
         uiState.mode.selectedAnchor === 'TOP_RIGHT'
       ) {
         const nextBounds = getBoundingBox([
-          uiState.mode.selectedAnchor === 'BOTTOM_LEFT'
-            ? namedBounds.TOP_RIGHT
-            : namedBounds.BOTTOM_LEFT,
+          fixedCorner ??
+            (uiState.mode.selectedAnchor === 'BOTTOM_LEFT'
+              ? namedBounds.TOP_RIGHT
+              : namedBounds.BOTTOM_LEFT),
           uiState.mouse.position.tile
         ]);
         const nextNamedBounds = convertBoundsToNamedAnchors(nextBounds);
@@ -46,9 +50,10 @@ export const TransformRectangle: ModeActions = {
         uiState.mode.selectedAnchor === 'TOP_LEFT'
       ) {
         const nextBounds = getBoundingBox([
-          uiState.mode.selectedAnchor === 'BOTTOM_RIGHT'
-            ? namedBounds.TOP_LEFT
-            : namedBounds.BOTTOM_RIGHT,
+          fixedCorner ??
+            (uiState.mode.selectedAnchor === 'BOTTOM_RIGHT'
+              ? namedBounds.TOP_LEFT
+              : namedBounds.BOTTOM_RIGHT),
           uiState.mouse.position.tile
         ]);
         const nextNamedBounds = convertBoundsToNamedAnchors(nextBounds);
