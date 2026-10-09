@@ -32,7 +32,7 @@ export const useInitialDataManager = () => {
       setIsReady(false);
 
         // Extract InitialData-specific properties before validation
-        const {view: initialView, zoom: initialZoom, fitToView: initialFitToView, ...modelData} = _initialData;
+        const {view: initialView, zoom: initialZoom, scroll: initialScroll, fitToView: initialFitToView, ...modelData} = _initialData;
 
         const validationResult = modelSchema.safeParse(modelData);
 
@@ -86,6 +86,13 @@ export const useInitialDataManager = () => {
 
         if (initialZoom !== undefined) {
             uiStateActions.setZoom(initialZoom);
+
+            if (initialScroll) {
+                uiStateActions.setScroll({
+                    position: initialScroll,
+                    offset: CoordsUtils.zero()
+                });
+            }
         } else if (initialFitToView) {
         const rendererSize = rendererEl?.getBoundingClientRect();
 

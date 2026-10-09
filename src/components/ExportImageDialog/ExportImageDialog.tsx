@@ -50,12 +50,18 @@ export const ExportImageDialog = ({ onClose, quality = 1 }: Props) => {
   const currentZoom = useUiStateStore((state) => {
     return state.zoom;
   });
+  const currentScroll = useUiStateStore((state) => {
+    return state.scroll.position;
+  });
+  const rendererEl = useUiStateStore((state) => {
+    return state.rendererEl;
+  });
   const editorMode = useUiStateStore((state) => {
     return state.editorMode;
   });
   const [imageData, setImageData] = React.useState<string>();
   const [exportError, setExportError] = useState(false);
-  const { getUnprojectedBounds } = useDiagramUtils();
+  const { getUnprojectedBounds, getFitToViewParams } = useDiagramUtils();
   const uiStateActions = useUiStateStore((state) => {
     return state.actions;
   });
@@ -63,9 +69,35 @@ export const ExportImageDialog = ({ onClose, quality = 1 }: Props) => {
     return modelFromModelStore(state);
   });
 
+  const [useCurrentView, setUseCurrentView] = useState(true);
+
   const unprojectedBounds = useMemo(() => {
     return getUnprojectedBounds();
   }, [getUnprojectedBounds]);
+
+  // "Current view": exactly what is visible on screen. Otherwise: the whole drawing at 100%.
+  const exportFrame = useMemo(() => {
+    if (useCurrentView && rendererEl) {
+      const { width, height } = rendererEl.getBoundingClientRect();
+
+      return {
+        size: { width, height },
+        zoom: currentZoom,
+        scroll: currentScroll
+      };
+    }
+
+    const { zoom, scroll } = getFitToViewParams(unprojectedBounds);
+
+    return { size: unprojectedBounds, zoom, scroll };
+  }, [
+    useCurrentView,
+    rendererEl,
+    currentZoom,
+    currentScroll,
+    getFitToViewParams,
+    unprojectedBounds
+  ]);
 
   useEffect(() => {
     uiStateActions.setMode({
@@ -111,7 +143,6 @@ export const ExportImageDialog = ({ onClose, quality = 1 }: Props) => {
     setShowGrid(checked);
   };
 
-  const [useCurrentView, setUseCurrentView] = useState(true);
   const handleUseCurrentViewChange = (checked: boolean) => {
     setUseCurrentView(checked);
   };
@@ -160,8 +191,8 @@ export const ExportImageDialog = ({ onClose, quality = 1 }: Props) => {
                     left: 0
                   }}
                   style={{
-                    width: unprojectedBounds.width * quality,
-                    height: unprojectedBounds.height * quality
+                    width: exportFrame.size.width * quality,
+                    height: exportFrame.size.height * quality
                   }}
                 >
                   <Isoflam
@@ -169,9 +200,9 @@ export const ExportImageDialog = ({ onClose, quality = 1 }: Props) => {
                     onModelUpdated={exportImage}
                     initialData={{
                       ...model,
-                      fitToView: !useCurrentView,
                       view: currentView,
-                      zoom: useCurrentView ? currentZoom : undefined
+                      zoom: exportFrame.zoom,
+                      scroll: exportFrame.scroll
                     }}
                     renderer={{
                       showGrid,
@@ -202,7 +233,7 @@ export const ExportImageDialog = ({ onClose, quality = 1 }: Props) => {
                   maxWidth: '100%'
                 }}
                 style={{
-                  width: unprojectedBounds.width
+                  width: exportFrame.size.width
                 }}
                 src={imageData}
                 alt={t('preview')}
