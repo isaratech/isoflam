@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Stack, Alert } from '@mui/material';
+import { Stack, Alert, Typography } from '@mui/material';
 import { ControlsContainer } from 'src/components/ItemControls/components/ControlsContainer';
 import { useUiStateStore } from 'src/stores/uiStateStore';
 import { Icon } from 'src/types';
@@ -16,23 +16,19 @@ export const IconSelectionControls = () => {
   const uiStateActions = useUiStateStore((state) => {
     return state.actions;
   });
-  const mode = useUiStateStore((state) => {
-    return state.mode;
-  });
   const { setFilter, filteredIcons, filter } = useIconFiltering();
   const { iconCategories } = useIconCategories();
 
   const onMouseDown = useCallback(
     (icon: Icon) => {
-      if (mode.type !== 'PLACE_ICON') return;
-
+      // Always switch to placing mode: the panel can stay open after another tool was picked
       uiStateActions.setMode({
         type: 'PLACE_ICON',
         showCursor: true,
         id: icon.id
       });
     },
-    [mode, uiStateActions]
+    [uiStateActions]
   );
 
   return (
@@ -50,7 +46,13 @@ export const IconSelectionControls = () => {
     >
       {filteredIcons && (
         <Section>
-          <IconGrid icons={filteredIcons} onMouseDown={onMouseDown} />
+          {filteredIcons.length === 0 ? (
+            <Typography variant="body2" color="text.secondary">
+              {t('No icons found')}
+            </Typography>
+          ) : (
+            <IconGrid icons={filteredIcons} onMouseDown={onMouseDown} />
+          )}
         </Section>
       )}
       {!filteredIcons && (

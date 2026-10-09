@@ -227,7 +227,8 @@ export const incrementZoom = (zoom: number) => {
 };
 
 export const decrementZoom = (zoom: number) => {
-  const newZoom = clamp(zoom - ZOOM_INCREMENT, MIN_ZOOM, MAX_ZOOM);
+  // Fit to view can go below MIN_ZOOM: zooming out must never zoom in
+  const newZoom = clamp(zoom - ZOOM_INCREMENT, Math.min(MIN_ZOOM, zoom), MAX_ZOOM);
   return roundToOneDecimalPlace(newZoom);
 };
 

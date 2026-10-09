@@ -5,6 +5,22 @@ import {UiStateStore} from 'src/types';
 import {INITIAL_UI_STATE, PROJECTED_TILE_SIZE} from 'src/config';
 import {SupportedLanguage} from 'src/hooks/useTranslation';
 
+const LANGUAGE_STORAGE_KEY = 'language';
+
+// Saved language if any, otherwise the browser locale (French or English, English by default)
+const getInitialLanguage = (): SupportedLanguage => {
+  try {
+    const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    if (savedLanguage === 'fr' || savedLanguage === 'en') {
+      return savedLanguage;
+    }
+  } catch (e) {
+    // Storage can be unavailable (privacy settings, sandboxed iframe...)
+  }
+
+  return navigator.language.toLowerCase().startsWith('fr') ? 'fr' : 'en';
+};
+
 const initialState = () => {
   return createStore<UiStateStore>((set, get) => {
     return {
@@ -19,7 +35,7 @@ const initialState = () => {
       dialog: null,
       rendererEl: null,
       contextMenu: null,
-      language: 'fr' as SupportedLanguage,
+      language: getInitialLanguage(),
       mouse: {
         position: { screen: CoordsUtils.zero(), tile: CoordsUtils.zero() },
         mousedown: null,
@@ -36,13 +52,23 @@ const initialState = () => {
           set({ mainMenuOptions });
         },
         setEditorMode: (mode) => {
-          set({ editorMode: mode, mode: getStartingMode(mode) });
+          set({
+            editorMode: mode,
+            mode: getStartingMode(mode),
+            // Editing panels must not stay open (and usable) in read-only mode
+            ...(mode !== 'EDITABLE' && { itemControls: null })
+          });
         },
         setIconCategoriesState: (iconCategoriesState) => {
           set({ iconCategoriesState });
         },
         setLanguage: (language: SupportedLanguage) => {
           set({ language });
+          try {
+            localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+          } catch (e) {
+            // Language will simply not be remembered
+          }
         },
         resetUiState: () => {
           set({
@@ -244,4 +270,16 @@ export function useUiStateStore<T>(selector: (state: UiStateStore) => T) {
 
   const value = useStore(store, selector);
   return value;
+}
+
+// Direct access to the store, to read the latest state inside event handlers
+// without subscribing the component to every change (e.g. mouse moves)
+export function useUiStateStoreApi() {
+  const store = useContext(UiStateContext);
+
+  if (store === null) {
+    throw new Error('Missing provider in the tree');
+  }
+
+  return store;
 }

@@ -2,12 +2,12 @@
   "name": "Isoflam - Dessin isométrique pour les Sapeurs-Pompiers",
   "short_name": "Isoflam",
   "description": "Créez des dessins isométriques pour modéliser des scènes d'intervention, faciliter la communication opérationnelle et améliorer les rapports d'incidents.",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#d32f2f",
   "orientation": "landscape-primary",
-  "scope": "/",
+  "scope": "./",
   "lang": "fr",
   "categories": [
     "productivity",
@@ -52,7 +52,7 @@
       "name": "Nouveau dessin",
       "short_name": "Nouveau",
       "description": "Créer un nouveau dessin isométrique",
-      "url": "?action=new",
+      "url": "./?new",
       "icons": [
         {
           "src": "icons/android-launchericon-96-96.png",

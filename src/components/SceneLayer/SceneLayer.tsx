@@ -33,7 +33,9 @@ export const SceneLayer = ({
       duration: disableAnimation || isFirstRender ? 0 : 0.25,
       translateX: scroll.position.x,
       translateY: scroll.position.y,
-      scale: zoom
+      scale: zoom,
+      // Replace the running tween instead of piling one up per scroll/zoom event
+      overwrite: true
     });
 
     if (isFirstRender) {

@@ -3,7 +3,7 @@ import {ThemeProvider} from '@mui/material/styles';
 import {Box, GlobalStyles as MUIGlobalStyles} from '@mui/material';
 import {theme} from 'src/styles/theme';
 import {IsoflamProps} from 'src/types';
-import {decompress, modelFromModelStore, setWindowCursor} from 'src/utils';
+import {decompress, exportAsJSON, getStartingMode, modelFromModelStore, setWindowCursor} from 'src/utils';
 import {ModelProvider, useModelStore} from 'src/stores/modelStore';
 import {SceneProvider} from 'src/stores/sceneStore';
 import 'react-quill/dist/quill.snow.css';
@@ -17,6 +17,7 @@ import {useScene} from 'src/hooks/useScene';
 import {useTranslation} from 'src/hooks/useTranslation';
 import {useUndoRedo} from 'src/hooks/useUndoRedo';
 import {MobileWarning} from 'src/components/MobileWarning/MobileWarning';
+import {ErrorBoundary} from 'src/components/ErrorBoundary/ErrorBoundary';
 
 const App = ({
   initialData,
@@ -50,6 +51,13 @@ const App = ({
     const {undo, redo} = useUndoRedo();
 
   const {load, clear} = initialDataManager;
+  // The store value (not the prop) is the source of truth: the read-only toggle updates it
+  const currentEditorMode = useUiStateStore((state) => {
+    return state.editorMode;
+  });
+  const mode = useUiStateStore((state) => {
+    return state.mode;
+  });
 
   useEffect(() => {
     if (window.location.hash.length > 1 || hasLoadedFromUrlRef.current) {
@@ -112,7 +120,7 @@ const App = ({
           window.history.replaceState({}, '', window.location.pathname + window.location.search);
         } catch (error) {
           console.error("Failed to load scene from URL:", error);
-          window.alert("Impossible de charger la scène depuis l'URL. Le lien est peut-être corrompu.");
+          window.alert(t('Unable to load the scene from the URL. The link may be corrupted.'));
           // Fallback to initial data so the app doesn't stay on a blank screen
           load({...INITIAL_DATA, ...initialData});
         }
@@ -120,7 +128,7 @@ const App = ({
     };
 
     loadFromHash();
-  }, [load, initialData]);
+  }, [load, initialData, t]);
 
   // Handle URL parameter ?new to clear canvas
   useEffect(() => {
@@ -137,7 +145,7 @@ const App = ({
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       // Only handle shortcuts in editable mode
-      if (editorMode !== 'EDITABLE') return;
+      if (currentEditorMode !== 'EDITABLE') return;
 
       // Prevent shortcuts when typing in input fields
       const target = event.target as HTMLElement;
@@ -180,7 +188,12 @@ const App = ({
         case 'Z':
           if (event.ctrlKey || event.metaKey) {
             event.preventDefault();
+            // Ctrl+Shift+Z / Cmd+Shift+Z is the usual redo shortcut (macOS)
+            if (event.shiftKey) {
+              redo();
+            } else {
               undo();
+            }
           }
           break;
 
@@ -190,6 +203,14 @@ const App = ({
             event.preventDefault();
               redo();
           }
+          break;
+
+        case 'Escape':
+          // Cancel the current tool (placing an icon, drawing...) and close the item panel
+          if (mode.type !== 'CURSOR') {
+            uiStateActions.setMode(getStartingMode(currentEditorMode));
+          }
+          uiStateActions.setItemControls(null);
           break;
 
         case 'c':
@@ -217,7 +238,7 @@ const App = ({
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [editorMode, itemControls, scene, uiStateActions, undo, redo]);
+  }, [currentEditorMode, mode, itemControls, scene, uiStateActions, undo, redo]);
 
   if (!initialDataManager.isReady) return null;
 
@@ -247,6 +268,30 @@ const App = ({
   );
 };
 
+// Outside the error boundary, so that the drawing can still be saved if the app crashes
+const AppWithErrorBoundary = (props: IsoflamProps) => {
+  const modelActions = useModelStore((state) => {
+    return state.actions;
+  });
+  const {t} = useTranslation();
+
+  return (
+    <ErrorBoundary
+      onDownload={() => {
+        exportAsJSON(modelFromModelStore(modelActions.get()));
+      }}
+      labels={{
+        title: t('Something went wrong'),
+        message: t('An unexpected error occurred. Download your drawing to keep your work, then reload the application and open the downloaded file.'),
+        download: t('Download the drawing (JSON)'),
+        reload: t('Reload')
+      }}
+    >
+      <App {...props} />
+    </ErrorBoundary>
+  );
+};
+
 export const Isoflam = (props: IsoflamProps) => {
   return (
     <ThemeProvider theme={theme}>
@@ -254,7 +299,7 @@ export const Isoflam = (props: IsoflamProps) => {
           <HistoryProvider>
               <SceneProvider>
                   <UiStateProvider>
-                      <App {...props} />
+                      <AppWithErrorBoundary {...props} />
                   </UiStateProvider>
               </SceneProvider>
           </HistoryProvider>

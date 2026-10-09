@@ -17,13 +17,15 @@ import {copyToClipboard, exportAsJSON, exportAsUrl, modelFromModelStore} from 's
 import {useInitialDataManager} from 'src/hooks/useInitialDataManager';
 import {useModelStore} from 'src/stores/modelStore';
 import {useTranslation} from 'src/hooks/useTranslation';
+import {useModelFileLoader} from 'src/hooks/useModelFileLoader';
 import {MenuItem} from './MenuItem';
 
 export const MainMenu = () => {
   const { t, language, changeLanguage } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const model = useModelStore((state) => {
-    return modelFromModelStore(state);
+  // Read at click time: subscribing to the model re-rendered the menu on every change
+  const modelActions = useModelStore((state) => {
+    return state.actions;
   });
   const isMainMenuOpen = useUiStateStore((state) => {
     return state.isMainMenuOpen;
@@ -35,6 +37,7 @@ export const MainMenu = () => {
     return state.actions;
   });
   const initialDataManager = useInitialDataManager();
+  const { confirmDiscardChanges, loadModelFile } = useModelFileLoader();
 
   const onToggleMenu = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -48,97 +51,33 @@ export const MainMenu = () => {
     window.open(url, '_blank');
   }, []);
 
-  const { load } = initialDataManager;
+  const onOpenModel = useCallback(() => {
+    uiStateActions.setIsMainMenuOpen(false);
 
-  const onOpenModel = useCallback(async () => {
+    if (!confirmDiscardChanges()) return;
+
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
-    fileInput.accept = 'application/json';
+    fileInput.accept = 'application/json,.json';
 
-    fileInput.onchange = async (event) => {
+    fileInput.onchange = (event) => {
       const file = (event.target as HTMLInputElement).files?.[0];
 
       if (!file) {
           return; // User cancelled file selection
       }
 
-        // Check file size (warn if larger than 5MB)
-        const maxFileSize = 5 * 1024 * 1024; // 5MB
-        if (file.size > maxFileSize) {
-            const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1);
-            const proceed = confirm(
-                `Le fichier JSON est volumineux (${fileSizeMB} MB). Le chargement pourrait prendre du temps et affecter les performances. Voulez-vous continuer ?`
-            );
-            if (!proceed) {
-                return;
-            }
-      }
-
-      const fileReader = new FileReader();
-
-      fileReader.onload = async (e) => {
-          try {
-              const jsonString = e.target?.result as string;
-
-              // Check if the JSON string is extremely large
-              if (jsonString.length > 1000000) { // 1MB of text
-                  console.warn('Large JSON file detected, this may cause performance issues');
-              }
-
-              const modelData = JSON.parse(jsonString);
-
-              // Validate that it's a proper model structure
-              if (!modelData || typeof modelData !== 'object') {
-                  throw new Error('Le fichier JSON ne contient pas de données valides');
-              }
-
-              if (!modelData.title && !modelData.views && !modelData.items) {
-                  throw new Error('Le fichier JSON ne semble pas être un fichier Isoflam valide');
-              }
-
-              load(modelData);
-              uiStateActions.resetUiState();
-              uiStateActions.setHasUnsavedChanges(false);
-
-              // Success message for large files
-              if (file.size > maxFileSize / 2) {
-                  console.log('Large JSON file loaded successfully');
-              }
-
-          } catch (error) {
-              console.error('Error parsing JSON:', error);
-
-              // Provide more specific error messages
-              let errorMessage = 'Erreur lors du chargement du fichier JSON.';
-
-              if (error instanceof SyntaxError) {
-                  errorMessage += ' Le fichier contient du JSON invalide. Vérifiez la syntaxe du fichier.';
-              } else if (error instanceof Error) {
-                  errorMessage += ` ${error.message}`;
-              } else {
-                  errorMessage += ' Veuillez vérifier que le fichier est valide.';
-              }
-
-              alert(errorMessage);
-          }
-      };
-
-        fileReader.onerror = () => {
-            alert('Erreur lors de la lecture du fichier. Le fichier pourrait être corrompu.');
-        };
-
-        fileReader.readAsText(file);
+      loadModelFile(file);
     };
 
-    await fileInput.click();
-    uiStateActions.setIsMainMenuOpen(false);
-  }, [uiStateActions, load]);
+    fileInput.click();
+  }, [uiStateActions, confirmDiscardChanges, loadModelFile]);
 
   const onExportAsJSON = useCallback(async () => {
-    exportAsJSON(model);
+    exportAsJSON(modelFromModelStore(modelActions.get()));
       uiStateActions.setHasUnsavedChanges(false);
     uiStateActions.setIsMainMenuOpen(false);
-  }, [model, uiStateActions]);
+  }, [modelActions, uiStateActions]);
 
   const onExportAsImage = useCallback(() => {
     uiStateActions.setIsMainMenuOpen(false);
@@ -147,8 +86,8 @@ export const MainMenu = () => {
 
     const onExportAsUrl = useCallback(async () => {
         try {
-            const url = await exportAsUrl(model);
-            await copyToClipboard(url);
+            const url = await exportAsUrl(modelFromModelStore(modelActions.get()));
+            await copyToClipboard(url, t('Copy the link below:'));
             window.alert(t('Link copied to clipboard!'));
             uiStateActions.setIsMainMenuOpen(false);
         } catch (error) {
@@ -159,7 +98,7 @@ export const MainMenu = () => {
                 window.alert(t('Error creating link'));
             }
         }
-    }, [model, t, uiStateActions]);
+    }, [modelActions, t, uiStateActions]);
 
   const onShowCredits = useCallback(() => {
     uiStateActions.setIsMainMenuOpen(false);
@@ -169,10 +108,13 @@ export const MainMenu = () => {
   const { clear } = initialDataManager;
 
   const onClearCanvas = useCallback(() => {
-    clear();
-      uiStateActions.setHasUnsavedChanges(false);
     uiStateActions.setIsMainMenuOpen(false);
-  }, [uiStateActions, clear]);
+
+    if (!confirmDiscardChanges()) return;
+
+    clear();
+    uiStateActions.setHasUnsavedChanges(false);
+  }, [uiStateActions, clear, confirmDiscardChanges]);
 
   const onSelectLanguage = useCallback((newLanguage: 'fr' | 'en') => {
     changeLanguage(newLanguage);

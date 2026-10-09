@@ -16,7 +16,10 @@ export const Pan: ModeActions = {
 
     if (!isPanMode && !isMiddleMouseDown) return;
 
-    if (uiState.mouse.mousedown !== null) {
+    // Only pan when the drag started on the canvas (not on the toolbar, a panel...)
+    const isDragging = isPanMode && uiState.mode.type === 'PAN' && uiState.mode.isDragging;
+
+    if (uiState.mouse.mousedown !== null && (isDragging || isMiddleMouseDown)) {
       const newScroll = produce(uiState.scroll, (draft) => {
         draft.position = uiState.mouse.delta?.screen
           ? CoordsUtils.add(draft.position, uiState.mouse.delta.screen)
@@ -33,6 +36,10 @@ export const Pan: ModeActions = {
 
     if ((!isPanMode && !isMiddleMouseButton) || !isRendererInteraction) return;
 
+    if (uiState.mode.type === 'PAN') {
+      uiState.actions.setMode({ ...uiState.mode, isDragging: true });
+    }
+
     setWindowCursor('grabbing');
   },
   mouseup: ({ uiState }) => {
@@ -40,6 +47,7 @@ export const Pan: ModeActions = {
     if (uiState.mode.type === 'PAN') {
         // In read-only mode, stay in PAN mode to prevent element selection
         if (uiState.editorMode === 'EXPLORABLE_READONLY') {
+            uiState.actions.setMode({ ...uiState.mode, isDragging: false });
             setWindowCursor('grab');
             return;
         }
@@ -50,6 +58,7 @@ export const Pan: ModeActions = {
         uiState.actions.setMode(uiState.mode.previousMode);
       } else {
           // Pan was manually selected - stay in PAN mode and just update cursor
+          uiState.actions.setMode({ ...uiState.mode, isDragging: false });
           setWindowCursor('grab');
       }
     } else {

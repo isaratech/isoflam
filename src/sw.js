@@ -74,7 +74,8 @@ registerRoute(
 );
 
 // Handle offline fallback
-const FALLBACK_HTML_URL = '/';
+// Relative to the service worker location so it works when served from a sub-path (e.g. GitHub Pages)
+const FALLBACK_HTML_URL = './';
 const OFFLINE_VERSION = 1;
 const CACHE_NAME = 'offline-html';
 

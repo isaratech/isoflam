@@ -24,8 +24,12 @@ export const PlaceIcon: ModeActions = {
       uiState.actions.setItemControls(null);
     }
   },
-  mouseup: ({ uiState, scene, model }) => {
+  mouseup: ({ uiState, scene, model, isRendererInteraction }) => {
     if (uiState.mode.type !== 'PLACE_ICON') return;
+
+    // Released over the icon panel (simple click on an icon) or another UI element: don't place
+    // anything there, keep the icon selected so that it can be placed with a click on the canvas
+    if (!isRendererInteraction) return;
 
     const mode = uiState.mode as PlaceIconMode;
     if (mode.id !== null) {

@@ -48,6 +48,8 @@ export interface PanMode {
   type: 'PAN';
   showCursor: boolean;
   previousMode?: Mode;
+  // True while a pan drag that started on the canvas is in progress
+  isDragging?: boolean;
 }
 
 export interface PlaceIconMode {

@@ -28,7 +28,8 @@ root.render(
 // Register service worker for PWA functionality
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
+        // Relative path so the app also works when served from a sub-path (e.g. GitHub Pages)
+        navigator.serviceWorker.register('sw.js')
             .then((registration) => {
                 console.log('SW registered: ', registration);
             })

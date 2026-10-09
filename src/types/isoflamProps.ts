@@ -1,4 +1,4 @@
-import type { EditorModeEnum, MainMenuOptions } from './common';
+import type { Coords, EditorModeEnum, MainMenuOptions } from './common';
 import type { Model } from './model';
 import type { RendererProps } from './rendererProps';
 
@@ -6,6 +6,8 @@ export type InitialData = Model & {
   fitToView?: boolean;
   view?: string;
   zoom?: number;
+  // Scroll position of the view (applied with `zoom`)
+  scroll?: Coords;
 };
 
 export interface IsoflamProps {
