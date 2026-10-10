@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Layer buttons (bring to front, bring forward, send backward, send to back) on every element: icons, surfaces, connectors, walls, roads and texts. Icons get a layer that overrides their depth order
 
+### Changed
+
+- The volume tool and the "Create new volume" menu entry are removed: draw a surface and give it a height instead (buildings stay in the right-click menu)
+- New brick wall icon for the wall tool
+
 ## [2.4.0] - 2026-10-10
 
 ### Added

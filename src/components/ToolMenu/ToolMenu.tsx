@@ -8,9 +8,7 @@ import {
   NearMeOutlined as NearMeIcon,
   PanToolOutlined as PanToolIcon,
   AddRoadOutlined as RoadIcon,
-  FenceOutlined as WallIcon,
-  Title as TitleIcon,
-  ViewInArOutlined as VolumeIcon
+  Title as TitleIcon
 } from '@mui/icons-material';
 import { useUiStateStore, useUiStateStoreApi } from 'src/stores/uiStateStore';
 import { IconButton } from 'src/components/IconButton/IconButton';
@@ -22,11 +20,12 @@ import { useTranslation } from 'src/hooks/useTranslation';
 import { useImageHandler } from 'src/hooks/useImageHandler';
 import { Coords } from 'src/types/common';
 import { ConnectorMode, DrawRectangleMode } from 'src/types';
+import { WallIcon } from './WallIcon';
 
-// Tools drawing by dragging over the grid: a rectangle-based shape, or a wall or a road
-// traced like a connector
+// Tools drawing by dragging over the grid: a surface (it can then be given a height to make
+// a volume or a building), or a wall or a road traced like a connector
 const drawingTools: {
-  name: 'Rectangle' | 'Volume' | 'Wall' | 'Road';
+  name: 'Rectangle' | 'Wall' | 'Road';
   icon: React.ReactNode;
   mode: DrawRectangleMode | ConnectorMode;
 }[] = [
@@ -34,16 +33,6 @@ const drawingTools: {
     name: 'Rectangle',
     icon: <CropSquareIcon />,
     mode: { type: 'RECTANGLE.DRAW', showCursor: true, id: null }
-  },
-  {
-    name: 'Volume',
-    icon: <VolumeIcon />,
-    mode: {
-      type: 'RECTANGLE.DRAW',
-      showCursor: true,
-      id: null,
-      preset: 'VOLUME'
-    }
   },
   {
     name: 'Wall',
