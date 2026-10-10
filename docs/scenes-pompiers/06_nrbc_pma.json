@@ -1,0 +1,493 @@
+{
+  "version": "1.0.0",
+  "title": "Intervention NRBC – chaîne de décontamination",
+  "description": "Fuite de produit chimique dans une usine. Zone d'exclusion, chaîne de décontamination, poste médical avancé et zone de tri, cellule mobile d'intervention chimique.",
+  "items": [
+    {
+      "id": "it_6",
+      "name": "Usine",
+      "icon": "sdmis_civils_batiments-environnements_usine-incineration-01"
+    },
+    {
+      "id": "it_7",
+      "name": "Fuite produit chimique",
+      "icon": "sdmis_sinistres_incendie_pl_01"
+    },
+    {
+      "id": "it_8",
+      "name": "Cuve",
+      "icon": "sdmis_civils_vehicules_citerne_01"
+    },
+    {
+      "id": "it_9",
+      "name": "Équipe NRBC en reconnaissance",
+      "icon": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_ari_01"
+    },
+    {
+      "id": "it_10",
+      "name": "Équipe NRBC 2",
+      "icon": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_01"
+    },
+    {
+      "id": "it_11",
+      "name": "Chimiste",
+      "icon": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce-chimiste_01"
+    },
+    {
+      "id": "it_12",
+      "name": "CMIC",
+      "icon": "sdmis_sp_sp_personnels_specialites_sp_specialite_nrbce_cmic_01"
+    },
+    {
+      "id": "it_13",
+      "name": "Robot",
+      "icon": "sdmis_sp_sp_materiels_robot-lance_02"
+    },
+    {
+      "id": "it_14",
+      "name": "FNRBC – véhicule de dépollution",
+      "icon": "sdmis_sp_sp_vehicules_sp_fnrbc_01"
+    },
+    {
+      "id": "it_15",
+      "name": "VID – décontamination",
+      "icon": "sdmis_sp_sp_vehicules_sp_vid_02"
+    },
+    {
+      "id": "it_16",
+      "name": "FPT – appui",
+      "icon": "sdmis_sp_sp_vehicules_sp_fpt_03"
+    },
+    {
+      "id": "it_17",
+      "name": "VPC – PC site",
+      "icon": "sdmis_sp_sp_vehicules_sp_vpc_01"
+    },
+    {
+      "id": "it_18",
+      "name": "Oriflamme PRV",
+      "icon": "sdmis_sp_sp_materiels_sp_oriflamme_prv"
+    },
+    {
+      "id": "it_19",
+      "name": "Oriflamme PRI",
+      "icon": "sdmis_sp_sp_materiels_sp_oriflamme_pri"
+    },
+    {
+      "id": "it_20",
+      "name": "Oriflamme UA",
+      "icon": "sdmis_sp_sp_materiels_sp_oriflamme_ua"
+    },
+    {
+      "id": "it_21",
+      "name": "PMA",
+      "icon": "sdmis_sp_sp_materiels_sp_pma_1"
+    },
+    {
+      "id": "it_22",
+      "name": "SMUR",
+      "icon": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_medecin_02"
+    },
+    {
+      "id": "it_23",
+      "name": "Infirmier SP",
+      "icon": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_infirmier_02"
+    },
+    {
+      "id": "it_24",
+      "name": "Victime décontaminée 1",
+      "icon": "sdmis_civils_victimes_victime_couverture-survie_04"
+    },
+    {
+      "id": "it_25",
+      "name": "Victime décontaminée 2",
+      "icon": "sdmis_civils_victimes_victime_masque_02"
+    },
+    {
+      "id": "it_26",
+      "name": "Victime blessée",
+      "icon": "sdmis_civils_victimes_victime-blessee_02"
+    },
+    {
+      "id": "it_27",
+      "name": "Brancardage",
+      "icon": "sdmis_sp_sp_action_brancardage_nrbc_02"
+    },
+    {
+      "id": "it_28",
+      "name": "VSAV",
+      "icon": "sdmis_sp_sp_vehicules_sp_vsav_04"
+    },
+    {
+      "id": "it_29",
+      "name": "VSAV",
+      "icon": "sdmis_sp_sp_vehicules_sp_vsav_01"
+    },
+    {
+      "id": "it_30",
+      "name": "Police",
+      "icon": "sdmis_fsi_vehicules_fsi_police_vl_03"
+    },
+    {
+      "id": "it_31",
+      "name": "Préfet",
+      "icon": "sdmis_autorit_s_autorites_prefet_01"
+    }
+  ],
+  "views": [
+    {
+      "id": "view_06_nrbc_pma",
+      "name": "Intervention NRBC – chaîne de décontamination",
+      "description": "Fuite de produit chimique dans une usine. Zone d'exclusion, chaîne de décontamination, poste médical avancé et zone de tri, cellule mobile d'intervention chimique.",
+      "items": [
+        {
+          "id": "it_6",
+          "tile": {
+            "x": -4,
+            "y": 4
+          },
+          "scaleFactor": 2.4
+        },
+        {
+          "id": "it_7",
+          "tile": {
+            "x": -5,
+            "y": 3
+          },
+          "scaleFactor": 1.2
+        },
+        {
+          "id": "it_8",
+          "tile": {
+            "x": 0,
+            "y": 3
+          }
+        },
+        {
+          "id": "it_9",
+          "tile": {
+            "x": -3,
+            "y": 2
+          }
+        },
+        {
+          "id": "it_10",
+          "tile": {
+            "x": -1,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_11",
+          "tile": {
+            "x": -4,
+            "y": 0
+          }
+        },
+        {
+          "id": "it_12",
+          "tile": {
+            "x": -6,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_13",
+          "tile": {
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "id": "it_14",
+          "tile": {
+            "x": -6,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_15",
+          "tile": {
+            "x": -3,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_16",
+          "tile": {
+            "x": 0,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_17",
+          "tile": {
+            "x": -8,
+            "y": -6
+          }
+        },
+        {
+          "id": "it_18",
+          "tile": {
+            "x": 4,
+            "y": -2
+          }
+        },
+        {
+          "id": "it_19",
+          "tile": {
+            "x": 6,
+            "y": -2
+          }
+        },
+        {
+          "id": "it_20",
+          "tile": {
+            "x": 9,
+            "y": -2
+          }
+        },
+        {
+          "id": "it_21",
+          "tile": {
+            "x": 6,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_22",
+          "tile": {
+            "x": 5,
+            "y": -4
+          }
+        },
+        {
+          "id": "it_23",
+          "tile": {
+            "x": 5,
+            "y": -6
+          }
+        },
+        {
+          "id": "it_24",
+          "tile": {
+            "x": 4,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_25",
+          "tile": {
+            "x": 8,
+            "y": -4
+          }
+        },
+        {
+          "id": "it_26",
+          "tile": {
+            "x": 10,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_27",
+          "tile": {
+            "x": 2,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_28",
+          "tile": {
+            "x": 10,
+            "y": -7
+          }
+        },
+        {
+          "id": "it_29",
+          "tile": {
+            "x": 7,
+            "y": -7
+          }
+        },
+        {
+          "id": "it_30",
+          "tile": {
+            "x": 11,
+            "y": 2
+          }
+        },
+        {
+          "id": "it_31",
+          "tile": {
+            "x": 5,
+            "y": 3
+          }
+        }
+      ],
+      "rectangles": [
+        {
+          "id": "rc_5",
+          "color": "color1",
+          "from": {
+            "x": 3,
+            "y": -1
+          },
+          "to": {
+            "x": 11,
+            "y": -7
+          },
+          "style": "DASHED"
+        },
+        {
+          "id": "rc_4",
+          "color": "color6",
+          "from": {
+            "x": -8,
+            "y": -4
+          },
+          "to": {
+            "x": 1,
+            "y": -8
+          },
+          "style": "DASHED"
+        },
+        {
+          "id": "rc_3",
+          "color": "color5",
+          "from": {
+            "x": -8,
+            "y": 0
+          },
+          "to": {
+            "x": 1,
+            "y": -3
+          },
+          "style": "DASHED"
+        },
+        {
+          "id": "rc_2",
+          "color": "color4",
+          "from": {
+            "x": -8,
+            "y": 7
+          },
+          "to": {
+            "x": 1,
+            "y": 1
+          },
+          "style": "DASHED"
+        },
+        {
+          "id": "rc_1",
+          "color": "color0",
+          "from": {
+            "x": -10,
+            "y": 8
+          },
+          "to": {
+            "x": 11,
+            "y": -8
+          }
+        }
+      ],
+      "connectors": [
+        {
+          "id": "cn_32",
+          "color": "color5",
+          "width": 10,
+          "style": "DASHED",
+          "showTriangle": true,
+          "description": "Chaîne de décontamination",
+          "anchors": [
+            {
+              "id": "an_33",
+              "ref": {
+                "item": "it_14"
+              }
+            },
+            {
+              "id": "an_34",
+              "ref": {
+                "tile": {
+                  "x": -1,
+                  "y": -1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_35",
+          "color": "color1",
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": true,
+          "description": "Évacuation vers PMA",
+          "anchors": [
+            {
+              "id": "an_36",
+              "ref": {
+                "tile": {
+                  "x": -1,
+                  "y": -1
+                }
+              }
+            },
+            {
+              "id": "an_37",
+              "ref": {
+                "tile": {
+                  "x": 4,
+                  "y": -3
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "textBoxes": [
+        {
+          "id": "tx_38",
+          "tile": {
+            "x": -8,
+            "y": 8
+          },
+          "content": "Zone d'exclusion (rouge)",
+          "fontSize": 0.5,
+          "isBold": true
+        },
+        {
+          "id": "tx_39",
+          "tile": {
+            "x": -8,
+            "y": -3
+          },
+          "content": "Zone contrôlée / décontamination",
+          "fontSize": 0.5,
+          "isBold": true
+        },
+        {
+          "id": "tx_40",
+          "tile": {
+            "x": -8,
+            "y": -9
+          },
+          "content": "Zone de soutien",
+          "fontSize": 0.5,
+          "isBold": true
+        },
+        {
+          "id": "tx_41",
+          "tile": {
+            "x": 3,
+            "y": -8
+          },
+          "content": "Poste médical avancé",
+          "fontSize": 0.5,
+          "isBold": true
+        }
+      ]
+    }
+  ]
+}

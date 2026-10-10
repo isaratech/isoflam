@@ -1,0 +1,358 @@
+{
+  "version": "1.0.0",
+  "title": "Sauvetage aquatique – noyade au plan d’eau",
+  "description": "Personne en détresse dans un plan d'eau de loisirs. Engagement de plongeurs, embarcation, prise en charge SUAP et réchauffement des victimes sur la berge.",
+  "items": [
+    {
+      "id": "it_4",
+      "name": "Lac",
+      "icon": "sdmis_civils_batiments-environnements_lac"
+    },
+    {
+      "id": "it_5",
+      "name": "Péniche",
+      "icon": "sdmis_civils_vehicules_peniche_01"
+    },
+    {
+      "id": "it_6",
+      "name": "Victime en détresse",
+      "icon": "sdmis_civils_victimes_victime-noyade_01"
+    },
+    {
+      "id": "it_7",
+      "name": "Victime avec gilet",
+      "icon": "sdmis_civils_victimes_victime-noyade_gilet-sauvetage_01"
+    },
+    {
+      "id": "it_8",
+      "name": "Matelas de sauvetage",
+      "icon": "sdmis_sp_sp_materiels_sauvetage-aquatique_matelas_01"
+    },
+    {
+      "id": "it_9",
+      "name": "Sauveteur aquatique 1",
+      "icon": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sav_01"
+    },
+    {
+      "id": "it_10",
+      "name": "Sauveteur aquatique 2",
+      "icon": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sal_01"
+    },
+    {
+      "id": "it_11",
+      "name": "Chef de plongée",
+      "icon": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sav_01"
+    },
+    {
+      "id": "it_12",
+      "name": "Drone",
+      "icon": "sdmis_sp_sp_materiels_drone-pt"
+    },
+    {
+      "id": "it_13",
+      "name": "Télépilote",
+      "icon": "sdmis_sp_sp_personnels_specialites_sp_specialite_drone_f01"
+    },
+    {
+      "id": "it_14",
+      "name": "Véhicule SAV – matériel",
+      "icon": "sdmis_sp_sp_vehicules_sp_vtaqua_01"
+    },
+    {
+      "id": "it_15",
+      "name": "VSAV",
+      "icon": "sdmis_sp_sp_vehicules_sp_vsav_01"
+    },
+    {
+      "id": "it_16",
+      "name": "VPC",
+      "icon": "sdmis_sp_sp_vehicules_sp_vpc_03"
+    },
+    {
+      "id": "it_17",
+      "name": "VL",
+      "icon": "sdmis_sp_sp_vehicules_sp_vl-gris_01"
+    },
+    {
+      "id": "it_18",
+      "name": "SMUR",
+      "icon": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_medecin_01"
+    },
+    {
+      "id": "it_19",
+      "name": "Infirmier SP",
+      "icon": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_infirmier_01"
+    },
+    {
+      "id": "it_20",
+      "name": "Victime réchauffée",
+      "icon": "sdmis_civils_victimes_victime_couverture-survie_03"
+    },
+    {
+      "id": "it_21",
+      "name": "Témoin",
+      "icon": "sdmis_civils_personnes_femme105"
+    },
+    {
+      "id": "it_22",
+      "name": "Témoin",
+      "icon": "sdmis_civils_personnes_homme201"
+    },
+    {
+      "id": "it_23",
+      "name": "Police municipale",
+      "icon": "sdmis_fsi_vehicules_fsi_police-municipale_vl_01"
+    },
+    {
+      "id": "it_24",
+      "name": "Piscine voisine",
+      "icon": "sdmis_civils_batiments-environnements_piscine"
+    }
+  ],
+  "views": [
+    {
+      "id": "view_05_sauvetage_aquatique",
+      "name": "Sauvetage aquatique – noyade au plan d’eau",
+      "description": "Personne en détresse dans un plan d'eau de loisirs. Engagement de plongeurs, embarcation, prise en charge SUAP et réchauffement des victimes sur la berge.",
+      "items": [
+        {
+          "id": "it_4",
+          "tile": {
+            "x": -5,
+            "y": 3
+          },
+          "scaleFactor": 1.2
+        },
+        {
+          "id": "it_5",
+          "tile": {
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "id": "it_6",
+          "tile": {
+            "x": -3,
+            "y": 3
+          }
+        },
+        {
+          "id": "it_7",
+          "tile": {
+            "x": 2,
+            "y": 4
+          }
+        },
+        {
+          "id": "it_8",
+          "tile": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_9",
+          "tile": {
+            "x": -1,
+            "y": 0
+          }
+        },
+        {
+          "id": "it_10",
+          "tile": {
+            "x": 1,
+            "y": 0
+          }
+        },
+        {
+          "id": "it_11",
+          "tile": {
+            "x": -4,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_12",
+          "tile": {
+            "x": -4,
+            "y": 6
+          }
+        },
+        {
+          "id": "it_13",
+          "tile": {
+            "x": -6,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_14",
+          "tile": {
+            "x": -4,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_15",
+          "tile": {
+            "x": 1,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_16",
+          "tile": {
+            "x": -6,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_17",
+          "tile": {
+            "x": 4,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_18",
+          "tile": {
+            "x": 3,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_19",
+          "tile": {
+            "x": 5,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_20",
+          "tile": {
+            "x": 2,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_21",
+          "tile": {
+            "x": 6,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_22",
+          "tile": {
+            "x": 7,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_23",
+          "tile": {
+            "x": 9,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_24",
+          "tile": {
+            "x": 8,
+            "y": -1
+          },
+          "scaleFactor": 0.7
+        }
+      ],
+      "rectangles": [
+        {
+          "id": "rc_3",
+          "color": "color0",
+          "from": {
+            "x": -9,
+            "y": -5
+          },
+          "to": {
+            "x": 11,
+            "y": -8
+          }
+        },
+        {
+          "id": "rc_2",
+          "color": "color3",
+          "from": {
+            "x": -9,
+            "y": -3
+          },
+          "to": {
+            "x": 11,
+            "y": -8
+          },
+          "style": "NONE"
+        },
+        {
+          "id": "rc_1",
+          "color": "color7",
+          "from": {
+            "x": -9,
+            "y": 5
+          },
+          "to": {
+            "x": 11,
+            "y": -2
+          }
+        }
+      ],
+      "connectors": [
+        {
+          "id": "cn_25",
+          "color": "color5",
+          "width": 10,
+          "style": "DASHED",
+          "showTriangle": true,
+          "description": "Mise à l’eau",
+          "anchors": [
+            {
+              "id": "an_26",
+              "ref": {
+                "item": "it_14"
+              }
+            },
+            {
+              "id": "an_27",
+              "ref": {
+                "tile": {
+                  "x": -1,
+                  "y": 1
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "textBoxes": [
+        {
+          "id": "tx_28",
+          "tile": {
+            "x": -8,
+            "y": 8
+          },
+          "content": "Plan d'eau – zone de recherche",
+          "fontSize": 0.5,
+          "isBold": true
+        },
+        {
+          "id": "tx_29",
+          "tile": {
+            "x": -8,
+            "y": -4
+          },
+          "content": "Berge – PRV / PMA",
+          "fontSize": 0.5,
+          "isBold": true
+        }
+      ]
+    }
+  ]
+}

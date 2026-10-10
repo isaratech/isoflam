@@ -36,6 +36,10 @@ Try the application online: **[https://isaratech.github.io/isoflam/](https://isa
 *Example of Isoflam application interface showing isometric scene modeling*
 </div>
 
+## Example Scenes
+
+Six ready-to-use firefighting scenes (apartment fire, road accident, warehouse fire, wildfire, water rescue, CBRN) are available in [docs/scenes-pompiers](docs/scenes-pompiers/README.md), each with a screenshot and a JSON file you can open from the main menu.
+
 ## Key Features
 
 - **Drag-and-drop editor** - Quickly place firefighting vehicles, personnel, and equipment on your scene

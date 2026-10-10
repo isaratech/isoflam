@@ -1,0 +1,486 @@
+{
+  "version": "1.0.0",
+  "title": "Feu d'entrepôt logistique",
+  "description": "Feu généralisé d'un entrepôt de 4000 m². Établissement de lances canon, mousse haut foisonnement, alimentation par grosse bâche, drone de reconnaissance, cellule de crise.",
+  "items": [
+    {
+      "id": "it_5",
+      "name": "Entrepôt sinistré",
+      "icon": "sdmis_civils_batiments-environnements_entreprise_01"
+    },
+    {
+      "id": "it_6",
+      "name": "Feu entrepôt",
+      "icon": "sdmis_sinistres_incendie_pl_01"
+    },
+    {
+      "id": "it_7",
+      "name": "Feu entrepôt 2",
+      "icon": "sdmis_sinistres_incendie_pl_02"
+    },
+    {
+      "id": "it_8",
+      "name": "Bâtiment voisin",
+      "icon": "sdmis_civils_batiments-environnements_hangar-agricole"
+    },
+    {
+      "id": "it_9",
+      "name": "Stockage voisin",
+      "icon": "sdmis_civils_batiments-environnements_entrepot"
+    },
+    {
+      "id": "it_10",
+      "name": "FMOGP – mousse",
+      "icon": "sdmis_sp_sp_vehicules_sp_fmogp_01"
+    },
+    {
+      "id": "it_11",
+      "name": "FPT 1",
+      "icon": "sdmis_sp_sp_vehicules_sp_fpt_01"
+    },
+    {
+      "id": "it_12",
+      "name": "FPT 2",
+      "icon": "sdmis_sp_sp_vehicules_sp_fpt_02"
+    },
+    {
+      "id": "it_13",
+      "name": "CCI",
+      "icon": "sdmis_sp_sp_vehicules_sp_cci_01"
+    },
+    {
+      "id": "it_14",
+      "name": "Robot lance",
+      "icon": "sdmis_sp_sp_materiels_robot-lance_01"
+    },
+    {
+      "id": "it_15",
+      "name": "Lance canon",
+      "icon": "sdmis_sp_sp_materiels_sp_canon-2entrees"
+    },
+    {
+      "id": "it_16",
+      "name": "PEI",
+      "icon": "sdmis_sp_sp_materiels_pei-rouge"
+    },
+    {
+      "id": "it_17",
+      "name": "Bâche 120 m³",
+      "icon": "sdmis_civils_batiments-environnements_plan-d-eau"
+    },
+    {
+      "id": "it_18",
+      "name": "Fourgon pompe tonne",
+      "icon": "sdmis_sp_sp_vehicules_sp_fourgon_01"
+    },
+    {
+      "id": "it_19",
+      "name": "VPC – PC site",
+      "icon": "sdmis_sp_sp_vehicules_sp_vpc_01"
+    },
+    {
+      "id": "it_20",
+      "name": "VEPB – éclairage",
+      "icon": "sdmis_sp_sp_vehicules_sp_vepb_02"
+    },
+    {
+      "id": "it_21",
+      "name": "LOG – logistique",
+      "icon": "sdmis_sp_sp_vehicules_sp_log_02"
+    },
+    {
+      "id": "it_22",
+      "name": "VSAV",
+      "icon": "sdmis_sp_sp_vehicules_sp_vsav_02"
+    },
+    {
+      "id": "it_23",
+      "name": "Drone",
+      "icon": "sdmis_sp_sp_materiels_drone-gd"
+    },
+    {
+      "id": "it_24",
+      "name": "Télépilote",
+      "icon": "sdmis_sp_sp_personnels_specialites_sp_specialite_drone_h01"
+    },
+    {
+      "id": "it_25",
+      "name": "Officier sécurité",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-blanc_01"
+    },
+    {
+      "id": "it_26",
+      "name": "Équipe ARI",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_ari_casque-fluo_05"
+    },
+    {
+      "id": "it_27",
+      "name": "Équipe ARI",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_ari_casque-fluo_07"
+    },
+    {
+      "id": "it_28",
+      "name": "Chef de site",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_chasuble_03"
+    }
+  ],
+  "views": [
+    {
+      "id": "view_03_feu_entrepot",
+      "name": "Feu d'entrepôt logistique",
+      "description": "Feu généralisé d'un entrepôt de 4000 m². Établissement de lances canon, mousse haut foisonnement, alimentation par grosse bâche, drone de reconnaissance, cellule de crise.",
+      "items": [
+        {
+          "id": "it_5",
+          "tile": {
+            "x": -4,
+            "y": 4
+          }
+        },
+        {
+          "id": "it_6",
+          "tile": {
+            "x": -3,
+            "y": 3
+          },
+          "scaleFactor": 1.1
+        },
+        {
+          "id": "it_7",
+          "tile": {
+            "x": -5,
+            "y": 4
+          },
+          "scaleFactor": 0.9
+        },
+        {
+          "id": "it_8",
+          "tile": {
+            "x": 6,
+            "y": 5
+          }
+        },
+        {
+          "id": "it_9",
+          "tile": {
+            "x": 7,
+            "y": 2
+          },
+          "scaleFactor": 1.5
+        },
+        {
+          "id": "it_10",
+          "tile": {
+            "x": 0,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_11",
+          "tile": {
+            "x": -4,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_12",
+          "tile": {
+            "x": -2,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_13",
+          "tile": {
+            "x": 2,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_14",
+          "tile": {
+            "x": -1,
+            "y": 0
+          }
+        },
+        {
+          "id": "it_15",
+          "tile": {
+            "x": -5,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_16",
+          "tile": {
+            "x": 5,
+            "y": -4
+          }
+        },
+        {
+          "id": "it_17",
+          "tile": {
+            "x": 8,
+            "y": -4
+          },
+          "scaleFactor": 0.6
+        },
+        {
+          "id": "it_18",
+          "tile": {
+            "x": 5,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_19",
+          "tile": {
+            "x": -8,
+            "y": -4
+          }
+        },
+        {
+          "id": "it_20",
+          "tile": {
+            "x": 3,
+            "y": -6
+          }
+        },
+        {
+          "id": "it_21",
+          "tile": {
+            "x": 9,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_22",
+          "tile": {
+            "x": -7,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_23",
+          "tile": {
+            "x": -1,
+            "y": 6
+          }
+        },
+        {
+          "id": "it_24",
+          "tile": {
+            "x": 1,
+            "y": 6
+          }
+        },
+        {
+          "id": "it_25",
+          "tile": {
+            "x": -7,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_26",
+          "tile": {
+            "x": -4,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_27",
+          "tile": {
+            "x": -3,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_28",
+          "tile": {
+            "x": -6,
+            "y": -4
+          }
+        }
+      ],
+      "rectangles": [
+        {
+          "id": "rc_4",
+          "color": "color6",
+          "from": {
+            "x": 4,
+            "y": -2
+          },
+          "to": {
+            "x": 11,
+            "y": -7
+          },
+          "style": "DASHED"
+        },
+        {
+          "id": "rc_3",
+          "color": "color1",
+          "from": {
+            "x": -10,
+            "y": -2
+          },
+          "to": {
+            "x": -4,
+            "y": -7
+          },
+          "style": "DASHED"
+        },
+        {
+          "id": "rc_2",
+          "color": "color4",
+          "from": {
+            "x": -8,
+            "y": 7
+          },
+          "to": {
+            "x": 2,
+            "y": 0
+          },
+          "style": "DASHED"
+        },
+        {
+          "id": "rc_1",
+          "color": "color0",
+          "from": {
+            "x": -10,
+            "y": 8
+          },
+          "to": {
+            "x": 11,
+            "y": -8
+          }
+        }
+      ],
+      "connectors": [
+        {
+          "id": "cn_29",
+          "color": "color1",
+          "width": 14,
+          "style": "SOLID",
+          "showTriangle": true,
+          "description": "Alimentation 2 x DN 110",
+          "anchors": [
+            {
+              "id": "an_30",
+              "ref": {
+                "item": "it_16"
+              }
+            },
+            {
+              "id": "an_31",
+              "ref": {
+                "item": "it_10"
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_32",
+          "color": "color3",
+          "width": 14,
+          "style": "SOLID",
+          "showTriangle": true,
+          "description": "Canon mousse",
+          "anchors": [
+            {
+              "id": "an_33",
+              "ref": {
+                "item": "it_10"
+              }
+            },
+            {
+              "id": "an_34",
+              "ref": {
+                "tile": {
+                  "x": -4,
+                  "y": 2
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_35",
+          "color": "color4",
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": true,
+          "description": "Lance",
+          "anchors": [
+            {
+              "id": "an_36",
+              "ref": {
+                "item": "it_11"
+              }
+            },
+            {
+              "id": "an_37",
+              "ref": {
+                "tile": {
+                  "x": -4,
+                  "y": 2
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_38",
+          "color": "color1",
+          "width": 10,
+          "style": "DASHED",
+          "showTriangle": true,
+          "anchors": [
+            {
+              "id": "an_39",
+              "ref": {
+                "item": "it_13"
+              }
+            },
+            {
+              "id": "an_40",
+              "ref": {
+                "item": "it_12"
+              }
+            }
+          ]
+        }
+      ],
+      "textBoxes": [
+        {
+          "id": "tx_41",
+          "tile": {
+            "x": -8,
+            "y": 8
+          },
+          "content": "Zone de sinistre – accès interdit",
+          "fontSize": 0.5,
+          "isBold": true
+        },
+        {
+          "id": "tx_42",
+          "tile": {
+            "x": -10,
+            "y": -7
+          },
+          "content": "Déploiement des engins",
+          "fontSize": 0.5
+        },
+        {
+          "id": "tx_43",
+          "tile": {
+            "x": 4,
+            "y": -7
+          },
+          "content": "Logistique / relève",
+          "fontSize": 0.5
+        }
+      ]
+    }
+  ]
+}

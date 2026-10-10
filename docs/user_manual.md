@@ -42,6 +42,10 @@ The main menu offers the following options:
 - **Credits**: Displays information about the software creators.
 - **Language selection**: Allows you to choose between French and English.
 
+### Example Scenes
+
+Six example operation scenes (apartment fire, road accident, warehouse fire, wildfire, water rescue, CBRN) are available in [`docs/scenes-pompiers`](scenes-pompiers/README.md). Open any of the JSON files with **Open** to use it as a starting point.
+
 ## Navigation Controls
 
 ### Zoom

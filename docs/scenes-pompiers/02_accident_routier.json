@@ -1,0 +1,421 @@
+{
+  "version": "1.0.0",
+  "title": "Accident routier – désincarcération",
+  "description": "Collision frontale VL / poids lourd sur départementale. Désincarcération de 2 victimes, balisage, prise en charge SUAP, hélicoptère de la gendarmerie en appui.",
+  "items": [
+    {
+      "id": "it_5",
+      "name": "VL accidentée n°1",
+      "icon": "sdmis_civils_vehicules_civil_vl-compacte_01"
+    },
+    {
+      "id": "it_6",
+      "name": "VL accidentée n°2",
+      "icon": "sdmis_civils_vehicules_civil_vl-suv_02"
+    },
+    {
+      "id": "it_7",
+      "name": "Poids lourd",
+      "icon": "sdmis_civils_vehicules_camion_01",
+      "description": "Citerne vide – pas de fuite constatée"
+    },
+    {
+      "id": "it_8",
+      "name": "Départ de feu moteur",
+      "icon": "sdmis_sinistres_incendie_vl_01"
+    },
+    {
+      "id": "it_9",
+      "name": "FSR – désincarcération",
+      "icon": "sdmis_sp_sp_vehicules_sp_fsr_01"
+    },
+    {
+      "id": "it_10",
+      "name": "FPT – protection incendie",
+      "icon": "sdmis_sp_sp_vehicules_sp_fpt_02"
+    },
+    {
+      "id": "it_11",
+      "name": "VSAV 1",
+      "icon": "sdmis_sp_sp_vehicules_sp_vsav_03"
+    },
+    {
+      "id": "it_12",
+      "name": "VSAV 2",
+      "icon": "sdmis_sp_sp_vehicules_sp_vsav_02"
+    },
+    {
+      "id": "it_13",
+      "name": "SMUR",
+      "icon": "sdmis_sp_sp_personnels_sp_sssm_f1_01"
+    },
+    {
+      "id": "it_14",
+      "name": "VPC",
+      "icon": "sdmis_sp_sp_vehicules_sp_vpc_02"
+    },
+    {
+      "id": "it_15",
+      "name": "Gendarmerie",
+      "icon": "sdmis_fsi_vehicules_fsi_gendarmerie_vl_01"
+    },
+    {
+      "id": "it_16",
+      "name": "Gendarmerie (fermeture)",
+      "icon": "sdmis_fsi_vehicules_fsi_gendarmerie_vl_03"
+    },
+    {
+      "id": "it_17",
+      "name": "Hélicoptère gendarmerie",
+      "icon": "sdmis_fsi_vehicules_fsi_gendarmerie_helico_01"
+    },
+    {
+      "id": "it_18",
+      "name": "Désincarcérateur",
+      "icon": "sdmis_sp_sp_materiels_sp_lance-ecran"
+    },
+    {
+      "id": "it_19",
+      "name": "Sauveteur 1",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_01"
+    },
+    {
+      "id": "it_20",
+      "name": "Sauveteur 2",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_03"
+    },
+    {
+      "id": "it_21",
+      "name": "Victime 1 – coincée",
+      "icon": "sdmis_civils_victimes_victime-blessee_01"
+    },
+    {
+      "id": "it_22",
+      "name": "Victime 2 – coincée",
+      "icon": "sdmis_civils_victimes_victime-blessee_03"
+    },
+    {
+      "id": "it_23",
+      "name": "Victime 3 – éjectée",
+      "icon": "sdmis_civils_victimes_victime_couverture-survie_02"
+    },
+    {
+      "id": "it_24",
+      "name": "Barrière",
+      "icon": "sdmis_civils_materiels_barriere1"
+    },
+    {
+      "id": "it_25",
+      "name": "Barrière",
+      "icon": "sdmis_civils_materiels_barriere2"
+    },
+    {
+      "id": "it_26",
+      "name": "Repère lumineux",
+      "icon": "sdmis_sp_sp_materiels_repere-lumineux_orange"
+    },
+    {
+      "id": "it_27",
+      "name": "Repère lumineux",
+      "icon": "sdmis_sp_sp_materiels_repere-lumineux_orange"
+    }
+  ],
+  "views": [
+    {
+      "id": "view_02_accident_routier",
+      "name": "Accident routier – désincarcération",
+      "description": "Collision frontale VL / poids lourd sur départementale. Désincarcération de 2 victimes, balisage, prise en charge SUAP, hélicoptère de la gendarmerie en appui.",
+      "items": [
+        {
+          "id": "it_5",
+          "tile": {
+            "x": -1,
+            "y": 0
+          }
+        },
+        {
+          "id": "it_6",
+          "tile": {
+            "x": 1,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_7",
+          "tile": {
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_8",
+          "tile": {
+            "x": 1,
+            "y": 0
+          },
+          "scaleFactor": 0.7
+        },
+        {
+          "id": "it_9",
+          "tile": {
+            "x": -4,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_10",
+          "tile": {
+            "x": -5,
+            "y": -2
+          }
+        },
+        {
+          "id": "it_11",
+          "tile": {
+            "x": -3,
+            "y": -4
+          }
+        },
+        {
+          "id": "it_12",
+          "tile": {
+            "x": -1,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_13",
+          "tile": {
+            "x": 1,
+            "y": -5
+          }
+        },
+        {
+          "id": "it_14",
+          "tile": {
+            "x": -8,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_15",
+          "tile": {
+            "x": -10,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_16",
+          "tile": {
+            "x": 11,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_17",
+          "tile": {
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "id": "it_18",
+          "tile": {
+            "x": -2,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_19",
+          "tile": {
+            "x": -2,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_20",
+          "tile": {
+            "x": 0,
+            "y": -2
+          }
+        },
+        {
+          "id": "it_21",
+          "tile": {
+            "x": -1,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_22",
+          "tile": {
+            "x": 2,
+            "y": 0
+          }
+        },
+        {
+          "id": "it_23",
+          "tile": {
+            "x": 3,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_24",
+          "tile": {
+            "x": -7,
+            "y": 0
+          }
+        },
+        {
+          "id": "it_25",
+          "tile": {
+            "x": 8,
+            "y": 0
+          }
+        },
+        {
+          "id": "it_26",
+          "tile": {
+            "x": -6,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_27",
+          "tile": {
+            "x": 7,
+            "y": -1
+          }
+        }
+      ],
+      "rectangles": [
+        {
+          "id": "rc_4",
+          "color": "color5",
+          "from": {
+            "x": -3,
+            "y": 3
+          },
+          "to": {
+            "x": 3,
+            "y": -4
+          },
+          "style": "DASHED"
+        },
+        {
+          "id": "rc_3",
+          "color": "color6",
+          "from": {
+            "x": -11,
+            "y": -4
+          },
+          "to": {
+            "x": 12,
+            "y": -6
+          },
+          "style": "NONE"
+        },
+        {
+          "id": "rc_2",
+          "color": "color6",
+          "from": {
+            "x": -11,
+            "y": 5
+          },
+          "to": {
+            "x": 12,
+            "y": 3
+          },
+          "style": "NONE"
+        },
+        {
+          "id": "rc_1",
+          "color": "color0",
+          "from": {
+            "x": -11,
+            "y": 2
+          },
+          "to": {
+            "x": 12,
+            "y": -3
+          }
+        }
+      ],
+      "connectors": [
+        {
+          "id": "cn_28",
+          "color": "color4",
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": true,
+          "description": "Lance de protection",
+          "anchors": [
+            {
+              "id": "an_29",
+              "ref": {
+                "item": "it_10"
+              }
+            },
+            {
+              "id": "an_30",
+              "ref": {
+                "tile": {
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_31",
+          "color": "color5",
+          "width": 10,
+          "style": "DASHED",
+          "showTriangle": true,
+          "description": "Désincarcération",
+          "anchors": [
+            {
+              "id": "an_32",
+              "ref": {
+                "item": "it_9"
+              }
+            },
+            {
+              "id": "an_33",
+              "ref": {
+                "tile": {
+                  "x": -1,
+                  "y": 0
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "textBoxes": [
+        {
+          "id": "tx_34",
+          "tile": {
+            "x": -10,
+            "y": 2
+          },
+          "content": "RD 305 – circulation coupée",
+          "fontSize": 0.5,
+          "isBold": true
+        },
+        {
+          "id": "tx_35",
+          "tile": {
+            "x": -3,
+            "y": 4
+          },
+          "content": "Zone opérationnelle",
+          "fontSize": 0.5,
+          "isBold": true
+        }
+      ]
+    }
+  ]
+}
