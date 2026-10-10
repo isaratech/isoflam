@@ -41,6 +41,10 @@ Le menu principal offre les options suivantes :
 - **Crédits** : Affiche les informations sur les créateurs du logiciel.
 - **Sélection de langue** : Permet de choisir entre le français et l'anglais.
 
+### Scènes d'exemple
+
+Six scènes d'exemple d'interventions (feu d'immeuble, accident routier, feu d'entrepôt, feu de forêt, sauvetage aquatique, NRBC) sont disponibles dans [`docs/scenes-pompiers`](scenes-pompiers/README.md). Ouvrez le fichier JSON de votre choix avec **Ouvrir** pour vous en servir comme point de départ.
+
 ## Contrôles de navigation
 
 ### Zoom

@@ -1,0 +1,603 @@
+{
+  "version": "1.0.0",
+  "title": "Feu de forêt – interface habitat",
+  "description": "Feu de végétation en lisière d'une zone pavillonnaire par vent soutenu. Attaque par CCFM, défense des habitations, appui aérien Canadair et Dash, drone.",
+  "items": [
+    {
+      "id": "it_5",
+      "name": "Végétation",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_6",
+      "name": "Végétation",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_7",
+      "name": "Végétation",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_8",
+      "name": "Végétation",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_9",
+      "name": "Végétation",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_10",
+      "name": "Végétation",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_11",
+      "name": "Végétation",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_12",
+      "name": "Végétation",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_13",
+      "name": "Végétation",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_14",
+      "name": "Végétation",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_15",
+      "name": "Végétation",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_16",
+      "name": "Végétation",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_17",
+      "name": "Végétation",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_18",
+      "name": "Végétation",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_19",
+      "name": "Feu de végétation",
+      "icon": "sdmis_sinistres_incendie"
+    },
+    {
+      "id": "it_20",
+      "name": "Feu de végétation",
+      "icon": "sdmis_sinistres_incendie"
+    },
+    {
+      "id": "it_21",
+      "name": "Feu de végétation",
+      "icon": "sdmis_sinistres_incendie"
+    },
+    {
+      "id": "it_22",
+      "name": "Maison menacée",
+      "icon": "sdmis_civils_batiments-environnements_maison_01"
+    },
+    {
+      "id": "it_23",
+      "name": "Maison menacée",
+      "icon": "sdmis_civils_batiments-environnements_maison_01"
+    },
+    {
+      "id": "it_24",
+      "name": "Ferme",
+      "icon": "sdmis_civils_batiments-environnements_ferme"
+    },
+    {
+      "id": "it_25",
+      "name": "CCFM 1",
+      "icon": "sdmis_sp_sp_vehicules_sp_ccfm_01"
+    },
+    {
+      "id": "it_26",
+      "name": "CCFM 2",
+      "icon": "sdmis_sp_sp_vehicules_sp_ccfm_03"
+    },
+    {
+      "id": "it_27",
+      "name": "CCFM 3 – défense maisons",
+      "icon": "sdmis_sp_sp_vehicules_sp_ccfm_02"
+    },
+    {
+      "id": "it_28",
+      "name": "CCI – appoint",
+      "icon": "sdmis_sp_sp_vehicules_sp_cci_02"
+    },
+    {
+      "id": "it_29",
+      "name": "FPT – défense habitations",
+      "icon": "sdmis_sp_sp_vehicules_sp_fpt_01"
+    },
+    {
+      "id": "it_30",
+      "name": "VPC – PC secteur",
+      "icon": "sdmis_sp_sp_vehicules_sp_vpc_01"
+    },
+    {
+      "id": "it_31",
+      "name": "VL commandement",
+      "icon": "sdmis_sp_sp_vehicules_sp_vl-rouge_01"
+    },
+    {
+      "id": "it_32",
+      "name": "Canadair",
+      "icon": "sdmis_sp_sp_vehicules_securite-civile_bombardier-canadair_01",
+      "description": "Largage sur flanc droit"
+    },
+    {
+      "id": "it_33",
+      "name": "Dash",
+      "icon": "sdmis_sp_sp_vehicules_securite-civile_bombardier-dash_01"
+    },
+    {
+      "id": "it_34",
+      "name": "Drone",
+      "icon": "sdmis_sp_sp_materiels_drone-pt"
+    },
+    {
+      "id": "it_35",
+      "name": "Équipe de feux de forêt 1",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_01"
+    },
+    {
+      "id": "it_36",
+      "name": "Équipe de feux de forêt 2",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_03"
+    },
+    {
+      "id": "it_37",
+      "name": "Équipe de feux de forêt 3",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_05"
+    },
+    {
+      "id": "it_38",
+      "name": "Équipe défense",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_07"
+    },
+    {
+      "id": "it_39",
+      "name": "Habitants",
+      "icon": "sdmis_civils_personnes_femme103"
+    },
+    {
+      "id": "it_40",
+      "name": "Gendarmerie",
+      "icon": "sdmis_fsi_vehicules_fsi_gendarmerie_vl_01"
+    }
+  ],
+  "views": [
+    {
+      "id": "view_04_feu_foret",
+      "name": "Feu de forêt – interface habitat",
+      "description": "Feu de végétation en lisière d'une zone pavillonnaire par vent soutenu. Attaque par CCFM, défense des habitations, appui aérien Canadair et Dash, drone.",
+      "items": [
+        {
+          "id": "it_5",
+          "tile": {
+            "x": -8,
+            "y": 7
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_6",
+          "tile": {
+            "x": -6,
+            "y": 6
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_7",
+          "tile": {
+            "x": -4,
+            "y": 7
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_8",
+          "tile": {
+            "x": -3,
+            "y": 5
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_9",
+          "tile": {
+            "x": -7,
+            "y": 4
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_10",
+          "tile": {
+            "x": -5,
+            "y": 3
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_11",
+          "tile": {
+            "x": -8,
+            "y": 2
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_12",
+          "tile": {
+            "x": -4,
+            "y": 1
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_13",
+          "tile": {
+            "x": -1,
+            "y": 4
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_14",
+          "tile": {
+            "x": 0,
+            "y": 7
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_15",
+          "tile": {
+            "x": 1,
+            "y": 3
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_16",
+          "tile": {
+            "x": -2,
+            "y": 0
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_17",
+          "tile": {
+            "x": -6,
+            "y": 0
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_18",
+          "tile": {
+            "x": 2,
+            "y": 5
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_19",
+          "tile": {
+            "x": -3,
+            "y": 4
+          },
+          "scaleFactor": 2
+        },
+        {
+          "id": "it_20",
+          "tile": {
+            "x": -6,
+            "y": 2
+          },
+          "scaleFactor": 1.6
+        },
+        {
+          "id": "it_21",
+          "tile": {
+            "x": 0,
+            "y": 1
+          },
+          "scaleFactor": 1.4
+        },
+        {
+          "id": "it_22",
+          "tile": {
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "id": "it_23",
+          "tile": {
+            "x": 9,
+            "y": 2
+          }
+        },
+        {
+          "id": "it_24",
+          "tile": {
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "id": "it_25",
+          "tile": {
+            "x": -5,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_26",
+          "tile": {
+            "x": -3,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_27",
+          "tile": {
+            "x": 5,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_28",
+          "tile": {
+            "x": 1,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_29",
+          "tile": {
+            "x": 8,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_30",
+          "tile": {
+            "x": -8,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_31",
+          "tile": {
+            "x": 3,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_32",
+          "tile": {
+            "x": -4,
+            "y": 9
+          },
+          "scaleFactor": 1.2
+        },
+        {
+          "id": "it_33",
+          "tile": {
+            "x": 2,
+            "y": 9
+          },
+          "scaleFactor": 1.2
+        },
+        {
+          "id": "it_34",
+          "tile": {
+            "x": -1,
+            "y": 2
+          }
+        },
+        {
+          "id": "it_35",
+          "tile": {
+            "x": -4,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_36",
+          "tile": {
+            "x": -2,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_37",
+          "tile": {
+            "x": -5,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_38",
+          "tile": {
+            "x": 6,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_39",
+          "tile": {
+            "x": 10,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_40",
+          "tile": {
+            "x": 10,
+            "y": -5
+          }
+        }
+      ],
+      "rectangles": [
+        {
+          "id": "rc_4",
+          "color": "color3",
+          "from": {
+            "x": 5,
+            "y": 8
+          },
+          "to": {
+            "x": 11,
+            "y": -1
+          },
+          "style": "NONE"
+        },
+        {
+          "id": "rc_3",
+          "color": "color0",
+          "from": {
+            "x": -10,
+            "y": -2
+          },
+          "to": {
+            "x": 11,
+            "y": -4
+          }
+        },
+        {
+          "id": "rc_2",
+          "color": "color4",
+          "from": {
+            "x": -10,
+            "y": 8
+          },
+          "to": {
+            "x": 3,
+            "y": -1
+          },
+          "style": "DASHED"
+        },
+        {
+          "id": "rc_1",
+          "color": "color6",
+          "from": {
+            "x": -10,
+            "y": 8
+          },
+          "to": {
+            "x": 11,
+            "y": -8
+          }
+        }
+      ],
+      "connectors": [
+        {
+          "id": "cn_41",
+          "color": "color1",
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": true,
+          "description": "Attaque lisière",
+          "anchors": [
+            {
+              "id": "an_42",
+              "ref": {
+                "item": "it_25"
+              }
+            },
+            {
+              "id": "an_43",
+              "ref": {
+                "tile": {
+                  "x": -4,
+                  "y": 3
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_44",
+          "color": "color1",
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": true,
+          "anchors": [
+            {
+              "id": "an_45",
+              "ref": {
+                "item": "it_26"
+              }
+            },
+            {
+              "id": "an_46",
+              "ref": {
+                "tile": {
+                  "x": -1,
+                  "y": 1
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "textBoxes": [
+        {
+          "id": "tx_47",
+          "tile": {
+            "x": -8,
+            "y": 9
+          },
+          "content": "Direction du vent →",
+          "fontSize": 0.5,
+          "isBold": true
+        },
+        {
+          "id": "tx_48",
+          "tile": {
+            "x": -10,
+            "y": -5
+          },
+          "content": "Piste DFCI",
+          "fontSize": 0.5,
+          "isBold": true
+        },
+        {
+          "id": "tx_49",
+          "tile": {
+            "x": 5,
+            "y": 0
+          },
+          "content": "Zone à défendre",
+          "fontSize": 0.5,
+          "isBold": true
+        }
+      ]
+    }
+  ]
+}
