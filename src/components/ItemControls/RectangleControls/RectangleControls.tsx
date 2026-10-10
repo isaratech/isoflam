@@ -10,10 +10,6 @@ import {
   ToggleButtonGroup
 } from '@mui/material';
 import {
-  FlipToBack as SendToBackIcon,
-  FlipToFront as BringToFrontIcon,
-  KeyboardArrowDown as SendBackwardIcon,
-  KeyboardArrowUp as BringForwardIcon,
   RotateLeft,
   RotateRight,
   SwapHoriz,
@@ -31,6 +27,7 @@ import { Section } from '../components/Section';
 import { DeleteButton } from '../components/DeleteButton';
 import { DuplicateButton } from '../components/DuplicateButton';
 import { AdvancedSettings } from '../components/AdvancedSettings';
+import { LayerControls } from '../components/LayerControls';
 import { BuildingControls } from './BuildingControls';
 
 interface Props {
@@ -43,12 +40,7 @@ export const RectangleControls = ({ id }: Props) => {
     return state.actions;
   });
   const rectangle = useRectangle(id);
-  const {
-    updateRectangle,
-    deleteRectangle,
-    createRectangle,
-    changeLayerOrder
-  } = useScene();
+  const { updateRectangle, deleteRectangle, createRectangle } = useScene();
 
   // Images and roads are drawn with their own content instead of a plain colour
   const hasPlainFill = !rectangle.imageData && !rectangle.texture;
@@ -212,80 +204,6 @@ export const RectangleControls = ({ id }: Props) => {
           </Section>
         )}
 
-        {/* Layer controls */}
-        <Section title={t('Layer')}>
-          <ToggleButtonGroup
-            value={[]} // No persistent selection for action buttons
-            onChange={(e) => {
-              // Handle layer actions based on the clicked button
-              const target = e.target as HTMLElement;
-              const button = target.closest(
-                '[data-layer-action]'
-              ) as HTMLElement;
-              if (button) {
-                const action = button.getAttribute('data-layer-action');
-                switch (action) {
-                  case 'BRING_TO_FRONT':
-                    changeLayerOrder('BRING_TO_FRONT', {
-                      type: 'RECTANGLE',
-                      id: rectangle.id
-                    });
-                    break;
-                  case 'BRING_FORWARD':
-                    changeLayerOrder('BRING_FORWARD', {
-                      type: 'RECTANGLE',
-                      id: rectangle.id
-                    });
-                    break;
-                  case 'SEND_BACKWARD':
-                    changeLayerOrder('SEND_BACKWARD', {
-                      type: 'RECTANGLE',
-                      id: rectangle.id
-                    });
-                    break;
-                  case 'SEND_TO_BACK':
-                    changeLayerOrder('SEND_TO_BACK', {
-                      type: 'RECTANGLE',
-                      id: rectangle.id
-                    });
-                    break;
-                  default:
-                    break;
-                }
-              }
-            }}
-          >
-            <ToggleButton
-              value="bring-to-front"
-              data-layer-action="BRING_TO_FRONT"
-              title={t('Bring to front')}
-            >
-              <BringToFrontIcon />
-            </ToggleButton>
-            <ToggleButton
-              value="bring-forward"
-              data-layer-action="BRING_FORWARD"
-              title={t('Bring forward')}
-            >
-              <BringForwardIcon />
-            </ToggleButton>
-            <ToggleButton
-              value="send-backward"
-              data-layer-action="SEND_BACKWARD"
-              title={t('Send backward')}
-            >
-              <SendBackwardIcon />
-            </ToggleButton>
-            <ToggleButton
-              value="send-to-back"
-              data-layer-action="SEND_TO_BACK"
-              title={t('Send to back')}
-            >
-              <SendToBackIcon />
-            </ToggleButton>
-          </ToggleButtonGroup>
-        </Section>
-
         {/* Mirroring controls - only for images */}
         {rectangle.imageData && (
           <Section title={t('Mirroring')}>
@@ -403,6 +321,8 @@ export const RectangleControls = ({ id }: Props) => {
           </Section>
         )}
       </AdvancedSettings>
+
+      <LayerControls item={{ type: 'RECTANGLE', id: rectangle.id }} />
 
       {/* Action buttons */}
       <Section>

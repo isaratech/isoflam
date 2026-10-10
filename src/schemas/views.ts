@@ -11,7 +11,9 @@ export const viewItemSchema = z.object({
   scaleFactor: z.number().min(0.1).optional(),
   color: id.optional(),
   mirrorHorizontal: z.boolean().optional().default(false),
-  mirrorVertical: z.boolean().optional().default(false)
+  mirrorVertical: z.boolean().optional().default(false),
+  // Icons are stacked by depth; a higher layer is drawn above whatever its depth
+  layer: z.number().int().optional()
 });
 
 export const viewSchema = z.object({

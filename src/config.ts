@@ -163,7 +163,8 @@ export const DEFAULTS_VIEW_ITEM: Required<Omit<ViewItem, 'id' | 'tile'>> = {
   scaleFactor: 1,
   color: DEFAULT_COLOR.id,
   mirrorHorizontal: false,
-  mirrorVertical: false
+  mirrorVertical: false,
+  layer: 0
 };
 
 /**

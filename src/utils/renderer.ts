@@ -1105,9 +1105,17 @@ export const getItemsAtTile = ({
   ];
 
   return [
-    ...[...exactViewItems, ...scaledViewItems].map((item): ItemReference => {
-      return { type: 'ITEM', id: item.id };
-    }),
+    // The icon drawn on top (highest layer) first
+    ...[...exactViewItems, ...scaledViewItems]
+      .map((item, index) => {
+        return { item, index };
+      })
+      .sort((a, b) => {
+        return (b.item.layer ?? 0) - (a.item.layer ?? 0) || a.index - b.index;
+      })
+      .map(({ item }): ItemReference => {
+        return { type: 'ITEM', id: item.id };
+      }),
     ...textBoxes.map((textBox): ItemReference => {
       return { type: 'TEXTBOX', id: textBox.id };
     }),
