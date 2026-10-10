@@ -118,4 +118,43 @@ describe('Layer ordering reducers works correctly', () => {
 
     expect(result.model.views[0].rectangles?.[2].id).toBe('rect1');
   });
+
+  const changeIconLayer = (
+    action:
+      | 'BRING_FORWARD'
+      | 'SEND_BACKWARD'
+      | 'BRING_TO_FRONT'
+      | 'SEND_TO_BACK',
+    id: string,
+    model = getModel()
+  ) => {
+    return reducers.view({
+      action: 'CHANGE_LAYER_ORDER',
+      payload: { action, item: { type: 'ITEM', id } },
+      ctx: { viewId: 'view1', state: { model, scene } }
+    }).model;
+  };
+
+  test('Moves an icon up and down by one layer', () => {
+    const forward = changeIconLayer('BRING_FORWARD', 'node1');
+    expect(forward.views[0].items[0].layer).toBe(1);
+
+    const backward = changeIconLayer('SEND_BACKWARD', 'node1', forward);
+    expect(backward.views[0].items[0].layer).toBe(0);
+  });
+
+  test('Brings an icon above, or sends it below, every other icon', () => {
+    const raised = changeIconLayer('BRING_FORWARD', 'node2');
+    const front = changeIconLayer('BRING_TO_FRONT', 'node1', raised);
+    expect(front.views[0].items[0].layer).toBe(2);
+
+    const back = changeIconLayer('SEND_TO_BACK', 'node3', front);
+    expect(back.views[0].items[2].layer).toBe(-1);
+    // The icons keep their order in the list
+    expect(
+      back.views[0].items.map(({ id }) => {
+        return id;
+      })
+    ).toEqual(['node1', 'node2', 'node3']);
+  });
 });

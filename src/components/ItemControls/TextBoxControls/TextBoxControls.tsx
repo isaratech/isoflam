@@ -17,6 +17,7 @@ import { Section } from '../components/Section';
 import { DeleteButton } from '../components/DeleteButton';
 import { DuplicateButton } from '../components/DuplicateButton';
 import { AdvancedSettings } from '../components/AdvancedSettings';
+import { LayerControls } from '../components/LayerControls';
 import { FontSizeSelector } from '../components/FontSizeSelector';
 
 interface Props {
@@ -108,6 +109,7 @@ export const TextBoxControls = ({ id }: Props) => {
           </Box>
         </Section>
       </AdvancedSettings>
+      <LayerControls item={{ type: 'TEXTBOX', id: textBox.id }} />
       <Section>
         <Box sx={{ display: 'flex', gap: 1 }}>
           <DuplicateButton

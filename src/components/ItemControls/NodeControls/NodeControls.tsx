@@ -16,6 +16,7 @@ import { ControlsContainer } from '../components/ControlsContainer';
 import { Icons } from '../IconSelectionControls/Icons';
 import { NodeSettings } from './NodeSettings/NodeSettings';
 import { Section } from '../components/Section';
+import { LayerControls } from '../components/LayerControls';
 
 interface Props {
   id: string;
@@ -82,6 +83,9 @@ export const NodeControls = ({ id }: Props) => {
               >
                 {t('Update icon')}
               </Button>
+            )}
+            {mode === 'SETTINGS' && (
+              <LayerControls item={{ type: 'ITEM', id: viewItem.id }} />
             )}
             {mode === 'CHANGE_ICON' && (
               <Button

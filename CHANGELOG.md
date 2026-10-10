@@ -5,6 +5,12 @@ All notable changes to the Isoflam project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Layer buttons (bring to front, bring forward, send backward, send to back) on every element: icons, surfaces, connectors, walls, roads and texts. Icons get a layer that overrides their depth order
+
 ## [2.4.0] - 2026-10-10
 
 ### Added

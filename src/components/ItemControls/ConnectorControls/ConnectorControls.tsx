@@ -19,6 +19,7 @@ import { ControlsContainer } from '../components/ControlsContainer';
 import { Section } from '../components/Section';
 import { DeleteButton } from '../components/DeleteButton';
 import { AdvancedSettings } from '../components/AdvancedSettings';
+import { LayerControls } from '../components/LayerControls';
 
 interface Props {
   id: string;
@@ -161,6 +162,8 @@ export const ConnectorControls = ({ id }: Props) => {
           </AdvancedSettings>
         </>
       )}
+
+      <LayerControls item={{ type: 'CONNECTOR', id: connector.id }} />
 
       {/* Action buttons */}
       <Section>
