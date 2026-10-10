@@ -1,13 +1,11 @@
 import { DrawRectangleMode, ModeActions, Rectangle } from 'src/types';
 import { produce } from 'immer';
 import { generateId, hasMovedTile, setWindowCursor } from 'src/utils';
-import { DEFAULT_VOLUME_HEIGHT } from 'src/config';
 
 const presetProperties: Record<
   NonNullable<DrawRectangleMode['preset']>,
   Partial<Rectangle>
 > = {
-  VOLUME: { height: DEFAULT_VOLUME_HEIGHT, roof: true },
   BUILDING: { height: 2, roof: true, building: {} }
 };
 
