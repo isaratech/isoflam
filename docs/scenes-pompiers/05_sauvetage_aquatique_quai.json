@@ -1,0 +1,497 @@
+{
+  "version": "1.0.0",
+  "title": "Sauvetage aquatique au quai",
+  "description": "Chute à l'eau depuis un quai : mur de quai de 1 tuile, route avec trottoirs le long du bassin, capitainerie et entrepôt portuaires. Sauveteurs aquatiques, embarcation, SMUR, réchauffement des victimes.",
+  "items": [
+    {
+      "id": "it_17",
+      "name": "Péniche",
+      "icon": "sdmis_civils_vehicules_peniche_01"
+    },
+    {
+      "id": "it_18",
+      "name": "Péniche",
+      "icon": "sdmis_civils_vehicules_peniche_02"
+    },
+    {
+      "id": "it_19",
+      "name": "Victime en détresse",
+      "icon": "sdmis_civils_victimes_victime-noyade_01"
+    },
+    {
+      "id": "it_20",
+      "name": "Victime avec gilet",
+      "icon": "sdmis_civils_victimes_victime-noyade_gilet-sauvetage_01"
+    },
+    {
+      "id": "it_21",
+      "name": "Matelas de sauvetage",
+      "icon": "sdmis_sp_sp_materiels_sauvetage-aquatique_matelas_01"
+    },
+    {
+      "id": "it_22",
+      "name": "Sauveteur aquatique 1",
+      "icon": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sav_01"
+    },
+    {
+      "id": "it_23",
+      "name": "Sauveteur aquatique 2",
+      "icon": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sal_01"
+    },
+    {
+      "id": "it_24",
+      "name": "Chef de plongée",
+      "icon": "sdmis_sp_sp_personnels_specialites_sp_specialite_aqua-sav_01"
+    },
+    {
+      "id": "it_25",
+      "name": "Drone",
+      "icon": "sdmis_sp_sp_materiels_drone-pt"
+    },
+    {
+      "id": "it_26",
+      "name": "Télépilote",
+      "icon": "sdmis_sp_sp_personnels_specialites_sp_specialite_drone_f01"
+    },
+    {
+      "id": "it_27",
+      "name": "Véhicule SAV – matériel",
+      "icon": "sdmis_sp_sp_vehicules_sp_vtaqua_01"
+    },
+    {
+      "id": "it_28",
+      "name": "VSAV",
+      "icon": "sdmis_sp_sp_vehicules_sp_vsav_01"
+    },
+    {
+      "id": "it_29",
+      "name": "VPC",
+      "icon": "sdmis_sp_sp_vehicules_sp_vpc_03"
+    },
+    {
+      "id": "it_30",
+      "name": "VL",
+      "icon": "sdmis_sp_sp_vehicules_sp_vl-gris_01"
+    },
+    {
+      "id": "it_31",
+      "name": "Médecin SMUR",
+      "icon": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_medecin_01"
+    },
+    {
+      "id": "it_32",
+      "name": "Infirmier SP",
+      "icon": "sdmis_sp_sp_personnels_sp_sssm_epi_chasuble_infirmier_01"
+    },
+    {
+      "id": "it_33",
+      "name": "Victime réchauffée",
+      "icon": "sdmis_civils_victimes_victime_couverture-survie_03"
+    },
+    {
+      "id": "it_34",
+      "name": "Témoin",
+      "icon": "sdmis_civils_personnes_femme105"
+    },
+    {
+      "id": "it_35",
+      "name": "Témoin",
+      "icon": "sdmis_civils_personnes_homme201"
+    },
+    {
+      "id": "it_36",
+      "name": "Police municipale",
+      "icon": "sdmis_fsi_vehicules_fsi_police-municipale_vl_01"
+    }
+  ],
+  "views": [
+    {
+      "id": "view_05_sauvetage_aquatique_quai",
+      "name": "Sauvetage aquatique au quai",
+      "description": "Chute à l'eau depuis un quai : mur de quai de 1 tuile, route avec trottoirs le long du bassin, capitainerie et entrepôt portuaires. Sauveteurs aquatiques, embarcation, SMUR, réchauffement des victimes.",
+      "items": [
+        {
+          "id": "it_17",
+          "tile": {
+            "x": 12,
+            "y": 11
+          }
+        },
+        {
+          "id": "it_18",
+          "tile": {
+            "x": -11,
+            "y": 12
+          }
+        },
+        {
+          "id": "it_19",
+          "tile": {
+            "x": 4,
+            "y": 9
+          }
+        },
+        {
+          "id": "it_20",
+          "tile": {
+            "x": 6,
+            "y": 12
+          }
+        },
+        {
+          "id": "it_21",
+          "tile": {
+            "x": 3,
+            "y": 7
+          }
+        },
+        {
+          "id": "it_22",
+          "tile": {
+            "x": 2,
+            "y": 8
+          }
+        },
+        {
+          "id": "it_23",
+          "tile": {
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "id": "it_24",
+          "tile": {
+            "x": 0,
+            "y": 2
+          }
+        },
+        {
+          "id": "it_25",
+          "tile": {
+            "x": 3,
+            "y": 12
+          },
+          "layer": 8
+        },
+        {
+          "id": "it_26",
+          "tile": {
+            "x": -4,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_27",
+          "tile": {
+            "x": 3,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_28",
+          "tile": {
+            "x": -3,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_29",
+          "tile": {
+            "x": -12,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_30",
+          "tile": {
+            "x": 8,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_31",
+          "tile": {
+            "x": -1,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_32",
+          "tile": {
+            "x": -5,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_33",
+          "tile": {
+            "x": -3,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_34",
+          "tile": {
+            "x": 11,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_35",
+          "tile": {
+            "x": 13,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_36",
+          "tile": {
+            "x": -1,
+            "y": -3
+          }
+        }
+      ],
+      "rectangles": [
+        {
+          "id": "rc_16",
+          "color": "color3",
+          "from": {
+            "x": -16,
+            "y": -10
+          },
+          "to": {
+            "x": -12,
+            "y": -7
+          },
+          "style": "NONE",
+          "height": 2,
+          "roof": true,
+          "building": {
+            "roof": "FLAT",
+            "roofHeight": 1,
+            "windows": true,
+            "door": true,
+            "doorFacade": "RIGHT"
+          }
+        },
+        {
+          "id": "rc_14",
+          "color": "color8",
+          "from": {
+            "x": -3,
+            "y": -10
+          },
+          "to": {
+            "x": 2,
+            "y": -6
+          },
+          "style": "NONE",
+          "height": 2,
+          "roof": true,
+          "building": {
+            "roof": "HIP",
+            "roofHeight": 1,
+            "roofColor": "color4",
+            "windows": true,
+            "door": true,
+            "doorFacade": "LEFT"
+          }
+        },
+        {
+          "id": "rc_15",
+          "color": "color5",
+          "from": {
+            "x": 6,
+            "y": -11
+          },
+          "to": {
+            "x": 13,
+            "y": -6
+          },
+          "style": "NONE",
+          "height": 3,
+          "roof": true,
+          "building": {
+            "roof": "GABLE",
+            "roofHeight": 1,
+            "roofColor": "color0",
+            "windows": true,
+            "door": true,
+            "doorFacade": "RIGHT"
+          }
+        },
+        {
+          "id": "rc_4",
+          "color": "color5",
+          "from": {
+            "x": 8,
+            "y": 6
+          },
+          "to": {
+            "x": 9,
+            "y": 10
+          },
+          "style": "NONE"
+        },
+        {
+          "id": "rc_3",
+          "color": "color5",
+          "from": {
+            "x": 0,
+            "y": 6
+          },
+          "to": {
+            "x": 1,
+            "y": 13
+          },
+          "style": "NONE"
+        },
+        {
+          "id": "rc_2",
+          "color": "color7",
+          "from": {
+            "x": -16,
+            "y": 5
+          },
+          "to": {
+            "x": 16,
+            "y": 16
+          },
+          "style": "NONE"
+        },
+        {
+          "id": "rc_1",
+          "color": "color6",
+          "from": {
+            "x": -16,
+            "y": -12
+          },
+          "to": {
+            "x": 16,
+            "y": 4
+          },
+          "style": "NONE"
+        }
+      ],
+      "connectors": [
+        {
+          "id": "cn_11",
+          "color": "color0",
+          "width": 30,
+          "height": 1,
+          "style": "SOLID",
+          "showTriangle": false,
+          "anchors": [
+            {
+              "id": "an_12",
+              "ref": {
+                "tile": {
+                  "x": -16,
+                  "y": 4
+                }
+              }
+            },
+            {
+              "id": "an_13",
+              "ref": {
+                "tile": {
+                  "x": 16,
+                  "y": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_5",
+          "color": "color0",
+          "variant": "ROAD",
+          "roadWidth": 4,
+          "sidewalks": true,
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": false,
+          "description": "Quai du Port",
+          "anchors": [
+            {
+              "id": "an_6",
+              "ref": {
+                "tile": {
+                  "x": -16,
+                  "y": -2
+                }
+              }
+            },
+            {
+              "id": "an_7",
+              "ref": {
+                "tile": {
+                  "x": 16,
+                  "y": -2
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_8",
+          "color": "color0",
+          "variant": "ROAD",
+          "roadWidth": 4,
+          "sidewalks": true,
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": false,
+          "description": "Rue de la Criée",
+          "anchors": [
+            {
+              "id": "an_9",
+              "ref": {
+                "tile": {
+                  "x": -8,
+                  "y": -2
+                }
+              }
+            },
+            {
+              "id": "an_10",
+              "ref": {
+                "tile": {
+                  "x": -8,
+                  "y": -12
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_37",
+          "color": "color5",
+          "width": 10,
+          "style": "DASHED",
+          "showTriangle": true,
+          "description": "Mise à l’eau",
+          "anchors": [
+            {
+              "id": "an_38",
+              "ref": {
+                "item": "it_27"
+              }
+            },
+            {
+              "id": "an_39",
+              "ref": {
+                "tile": {
+                  "x": 2,
+                  "y": 7
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "textBoxes": []
+    }
+  ]
+}

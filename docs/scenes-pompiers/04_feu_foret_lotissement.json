@@ -1,0 +1,716 @@
+{
+  "version": "1.0.0",
+  "title": "Feu de forêt en lisière de lotissement",
+  "description": "Feu de végétation en lisière d'un lotissement : maisons à toits à deux ou quatre pans, murets de jardin, voie de desserte avec trottoirs. Attaque par CCFM, défense des habitations, appui aérien.",
+  "items": [
+    {
+      "id": "it_9",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_10",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_11",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_12",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_13",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_14",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_15",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_16",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_17",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_18",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_19",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_20",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_30",
+      "name": "Feu de végétation",
+      "icon": "sdmis_sinistres_incendie"
+    },
+    {
+      "id": "it_31",
+      "name": "Feu de végétation",
+      "icon": "sdmis_sinistres_incendie"
+    },
+    {
+      "id": "it_32",
+      "name": "Feu de végétation",
+      "icon": "sdmis_sinistres_incendie"
+    },
+    {
+      "id": "it_33",
+      "name": "CCFM 1",
+      "icon": "sdmis_sp_sp_vehicules_sp_ccfm_01"
+    },
+    {
+      "id": "it_34",
+      "name": "CCFM 2",
+      "icon": "sdmis_sp_sp_vehicules_sp_ccfm_03"
+    },
+    {
+      "id": "it_35",
+      "name": "CCFM 3 – défense maisons",
+      "icon": "sdmis_sp_sp_vehicules_sp_ccfm_02"
+    },
+    {
+      "id": "it_36",
+      "name": "CCI – appoint",
+      "icon": "sdmis_sp_sp_vehicules_sp_cci_02"
+    },
+    {
+      "id": "it_37",
+      "name": "FPT – défense habitations",
+      "icon": "sdmis_sp_sp_vehicules_sp_fpt_01"
+    },
+    {
+      "id": "it_38",
+      "name": "VPC – PC secteur",
+      "icon": "sdmis_sp_sp_vehicules_sp_vpc_01"
+    },
+    {
+      "id": "it_39",
+      "name": "VL commandement",
+      "icon": "sdmis_sp_sp_vehicules_sp_vl-rouge_01"
+    },
+    {
+      "id": "it_40",
+      "name": "Canadair",
+      "icon": "sdmis_sp_sp_vehicules_securite-civile_bombardier-canadair_01"
+    },
+    {
+      "id": "it_41",
+      "name": "Dash",
+      "icon": "sdmis_sp_sp_vehicules_securite-civile_bombardier-dash_01"
+    },
+    {
+      "id": "it_42",
+      "name": "Drone",
+      "icon": "sdmis_sp_sp_materiels_drone-pt"
+    },
+    {
+      "id": "it_43",
+      "name": "Équipe feux de forêt 1",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_01"
+    },
+    {
+      "id": "it_44",
+      "name": "Équipe feux de forêt 2",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_03"
+    },
+    {
+      "id": "it_45",
+      "name": "Équipe feux de forêt 3",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_05"
+    },
+    {
+      "id": "it_46",
+      "name": "Équipe défense",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_07"
+    },
+    {
+      "id": "it_47",
+      "name": "Habitants",
+      "icon": "sdmis_civils_personnes_femme103"
+    },
+    {
+      "id": "it_48",
+      "name": "Gendarmerie – évacuation",
+      "icon": "sdmis_fsi_vehicules_fsi_gendarmerie_vl_01"
+    }
+  ],
+  "views": [
+    {
+      "id": "view_04_feu_foret_lotissement",
+      "name": "Feu de forêt en lisière de lotissement",
+      "description": "Feu de végétation en lisière d'un lotissement : maisons à toits à deux ou quatre pans, murets de jardin, voie de desserte avec trottoirs. Attaque par CCFM, défense des habitations, appui aérien.",
+      "items": [
+        {
+          "id": "it_9",
+          "tile": {
+            "x": -14,
+            "y": -7
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_10",
+          "tile": {
+            "x": -9,
+            "y": -9
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_11",
+          "tile": {
+            "x": -4,
+            "y": -12
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_12",
+          "tile": {
+            "x": 2,
+            "y": -9
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_13",
+          "tile": {
+            "x": -13,
+            "y": 9
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_14",
+          "tile": {
+            "x": -9,
+            "y": 12
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_15",
+          "tile": {
+            "x": -6,
+            "y": 8
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_16",
+          "tile": {
+            "x": -3,
+            "y": 13
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_17",
+          "tile": {
+            "x": 0,
+            "y": 10
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_18",
+          "tile": {
+            "x": -15,
+            "y": 14
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_19",
+          "tile": {
+            "x": 2,
+            "y": 12
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_20",
+          "tile": {
+            "x": -11,
+            "y": 7
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_30",
+          "tile": {
+            "x": -9,
+            "y": 11
+          },
+          "scaleFactor": 2,
+          "layer": 5
+        },
+        {
+          "id": "it_31",
+          "tile": {
+            "x": -3,
+            "y": 8
+          },
+          "scaleFactor": 1.6,
+          "layer": 5
+        },
+        {
+          "id": "it_32",
+          "tile": {
+            "x": -14,
+            "y": 8
+          },
+          "scaleFactor": 1.4,
+          "layer": 5
+        },
+        {
+          "id": "it_33",
+          "tile": {
+            "x": -7,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_34",
+          "tile": {
+            "x": -3,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_35",
+          "tile": {
+            "x": 3,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_36",
+          "tile": {
+            "x": -11,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_37",
+          "tile": {
+            "x": 10,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_38",
+          "tile": {
+            "x": -14,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_39",
+          "tile": {
+            "x": 0,
+            "y": 3
+          }
+        },
+        {
+          "id": "it_40",
+          "tile": {
+            "x": -12,
+            "y": 13
+          },
+          "scaleFactor": 1.2,
+          "layer": 8
+        },
+        {
+          "id": "it_41",
+          "tile": {
+            "x": -2,
+            "y": 14
+          },
+          "scaleFactor": 1.2,
+          "layer": 8
+        },
+        {
+          "id": "it_42",
+          "tile": {
+            "x": -6,
+            "y": 5
+          },
+          "layer": 8
+        },
+        {
+          "id": "it_43",
+          "tile": {
+            "x": -8,
+            "y": 3
+          }
+        },
+        {
+          "id": "it_44",
+          "tile": {
+            "x": -6,
+            "y": 3
+          }
+        },
+        {
+          "id": "it_45",
+          "tile": {
+            "x": -3,
+            "y": 3
+          }
+        },
+        {
+          "id": "it_46",
+          "tile": {
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "id": "it_47",
+          "tile": {
+            "x": 9,
+            "y": 3
+          }
+        },
+        {
+          "id": "it_48",
+          "tile": {
+            "x": 7,
+            "y": -7
+          }
+        }
+      ],
+      "rectangles": [
+        {
+          "id": "rc_21",
+          "color": "color5",
+          "from": {
+            "x": -12,
+            "y": -8
+          },
+          "to": {
+            "x": -8,
+            "y": -4
+          },
+          "style": "NONE",
+          "height": 2,
+          "roof": true,
+          "building": {
+            "roof": "GABLE",
+            "roofHeight": 1,
+            "roofColor": "color4",
+            "windows": true,
+            "door": true,
+            "doorFacade": "LEFT"
+          }
+        },
+        {
+          "id": "rc_22",
+          "color": "color3",
+          "from": {
+            "x": -5,
+            "y": -8
+          },
+          "to": {
+            "x": -1,
+            "y": -4
+          },
+          "style": "NONE",
+          "height": 2,
+          "roof": true,
+          "building": {
+            "roof": "HIP",
+            "roofHeight": 1,
+            "roofColor": "color4",
+            "windows": true,
+            "door": true,
+            "doorFacade": "RIGHT"
+          }
+        },
+        {
+          "id": "rc_24",
+          "color": "color5",
+          "from": {
+            "x": 10,
+            "y": -12
+          },
+          "to": {
+            "x": 14,
+            "y": -10
+          },
+          "style": "NONE",
+          "height": 2,
+          "roof": true,
+          "building": {
+            "roof": "HIP",
+            "roofHeight": 1,
+            "roofColor": "color4",
+            "windows": true,
+            "door": true,
+            "doorFacade": "RIGHT"
+          }
+        },
+        {
+          "id": "rc_23",
+          "color": "color8",
+          "from": {
+            "x": 10,
+            "y": -8
+          },
+          "to": {
+            "x": 14,
+            "y": -4
+          },
+          "style": "NONE",
+          "height": 2,
+          "roof": true,
+          "building": {
+            "roof": "GABLE",
+            "roofHeight": 1,
+            "roofColor": "color0",
+            "windows": true,
+            "door": true,
+            "doorFacade": "RIGHT"
+          }
+        },
+        {
+          "id": "rc_25",
+          "color": "color3",
+          "from": {
+            "x": 10,
+            "y": 4
+          },
+          "to": {
+            "x": 15,
+            "y": 9
+          },
+          "style": "NONE",
+          "height": 3,
+          "roof": true,
+          "building": {
+            "roof": "GABLE",
+            "roofHeight": 1,
+            "roofColor": "color4",
+            "windows": true,
+            "door": true,
+            "doorFacade": "LEFT"
+          }
+        },
+        {
+          "id": "rc_2",
+          "color": "color4",
+          "from": {
+            "x": -16,
+            "y": 6
+          },
+          "to": {
+            "x": 4,
+            "y": 16
+          },
+          "style": "NONE"
+        },
+        {
+          "id": "rc_1",
+          "color": "color6",
+          "from": {
+            "x": -16,
+            "y": -12
+          },
+          "to": {
+            "x": 16,
+            "y": 16
+          },
+          "style": "NONE"
+        }
+      ],
+      "connectors": [
+        {
+          "id": "cn_26",
+          "color": "color0",
+          "width": 15,
+          "height": 1,
+          "style": "SOLID",
+          "showTriangle": false,
+          "anchors": [
+            {
+              "id": "an_27",
+              "ref": {
+                "tile": {
+                  "x": 0,
+                  "y": -11
+                }
+              }
+            },
+            {
+              "id": "an_28",
+              "ref": {
+                "tile": {
+                  "x": -13,
+                  "y": -11
+                }
+              }
+            },
+            {
+              "id": "an_29",
+              "ref": {
+                "tile": {
+                  "x": -13,
+                  "y": -5
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_3",
+          "color": "color0",
+          "variant": "ROAD",
+          "roadWidth": 4,
+          "sidewalks": true,
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": false,
+          "description": "Allée des Chênes",
+          "anchors": [
+            {
+              "id": "an_4",
+              "ref": {
+                "tile": {
+                  "x": -16,
+                  "y": 0
+                }
+              }
+            },
+            {
+              "id": "an_5",
+              "ref": {
+                "tile": {
+                  "x": 14,
+                  "y": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_6",
+          "color": "color0",
+          "variant": "ROAD",
+          "roadWidth": 4,
+          "sidewalks": true,
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": false,
+          "description": "Impasse des Lilas",
+          "anchors": [
+            {
+              "id": "an_7",
+              "ref": {
+                "tile": {
+                  "x": 6,
+                  "y": 0
+                }
+              }
+            },
+            {
+              "id": "an_8",
+              "ref": {
+                "tile": {
+                  "x": 6,
+                  "y": -10
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_49",
+          "color": "color1",
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": true,
+          "description": "Attaque lisière",
+          "anchors": [
+            {
+              "id": "an_50",
+              "ref": {
+                "item": "it_33"
+              }
+            },
+            {
+              "id": "an_51",
+              "ref": {
+                "tile": {
+                  "x": -7,
+                  "y": 6
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_52",
+          "color": "color1",
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": true,
+          "anchors": [
+            {
+              "id": "an_53",
+              "ref": {
+                "item": "it_34"
+              }
+            },
+            {
+              "id": "an_54",
+              "ref": {
+                "tile": {
+                  "x": -3,
+                  "y": 6
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "textBoxes": [
+        {
+          "id": "tx_55",
+          "tile": {
+            "x": -15,
+            "y": 15
+          },
+          "content": "Direction du vent →",
+          "fontSize": 0.5,
+          "isBold": true
+        }
+      ]
+    }
+  ]
+}

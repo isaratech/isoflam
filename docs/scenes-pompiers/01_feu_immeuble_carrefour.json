@@ -1,0 +1,625 @@
+{
+  "version": "1.0.0",
+  "title": "Feu d'immeuble au carrefour",
+  "description": "Feu au 4e étage d'un immeuble R+5 à l'angle de deux rues. Deux routes à trottoirs se croisent, murs de clôture, bâtiments avec toits, fenêtres et portes. Engins sur la rue, BEA en façade, périmètre de sécurité au carrefour.",
+  "items": [
+    {
+      "id": "it_22",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_23",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_24",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_25",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_26",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_27",
+      "name": "Feu 4e étage",
+      "icon": "sdmis_sinistres_incendie_habitation_01"
+    },
+    {
+      "id": "it_28",
+      "name": "FPT 1 – attaque",
+      "icon": "sdmis_sp_sp_vehicules_sp_fpt_01"
+    },
+    {
+      "id": "it_29",
+      "name": "FPT 2 – alimentation",
+      "icon": "sdmis_sp_sp_vehicules_sp_fpt_03"
+    },
+    {
+      "id": "it_30",
+      "name": "BEA – sauvetages",
+      "icon": "sdmis_sp_sp_vehicules_sp_bea_01"
+    },
+    {
+      "id": "it_31",
+      "name": "VSAV",
+      "icon": "sdmis_sp_sp_vehicules_sp_vsav_01"
+    },
+    {
+      "id": "it_32",
+      "name": "VPC – poste de commandement",
+      "icon": "sdmis_sp_sp_vehicules_sp_vpc_01"
+    },
+    {
+      "id": "it_33",
+      "name": "Police – barrage",
+      "icon": "sdmis_fsi_vehicules_fsi_police_vl_01"
+    },
+    {
+      "id": "it_34",
+      "name": "Police – barrage",
+      "icon": "sdmis_fsi_vehicules_fsi_police_vl_03"
+    },
+    {
+      "id": "it_35",
+      "name": "Borne incendie",
+      "icon": "sdmis_sp_sp_materiels_pei-rouge"
+    },
+    {
+      "id": "it_36",
+      "name": "Équipe attaque 1",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_ari_casque-fluo_01"
+    },
+    {
+      "id": "it_37",
+      "name": "Équipe attaque 2",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_ari_casque-fluo_03"
+    },
+    {
+      "id": "it_38",
+      "name": "Chef de section",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_chasuble_01"
+    },
+    {
+      "id": "it_39",
+      "name": "Sauveteur BEA",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_05"
+    },
+    {
+      "id": "it_40",
+      "name": "Victime intoxiquée",
+      "icon": "sdmis_civils_victimes_victime_couverture-survie_01"
+    },
+    {
+      "id": "it_41",
+      "name": "Impliquée",
+      "icon": "sdmis_civils_personnes_femme101"
+    },
+    {
+      "id": "it_42",
+      "name": "Impliqué",
+      "icon": "sdmis_civils_personnes_homme103"
+    },
+    {
+      "id": "it_43",
+      "name": "Barrière",
+      "icon": "sdmis_civils_materiels_barriere1"
+    },
+    {
+      "id": "it_44",
+      "name": "Barrière",
+      "icon": "sdmis_civils_materiels_barriere2"
+    }
+  ],
+  "views": [
+    {
+      "id": "view_01_feu_immeuble_carrefour",
+      "name": "Feu d'immeuble au carrefour",
+      "description": "Feu au 4e étage d'un immeuble R+5 à l'angle de deux rues. Deux routes à trottoirs se croisent, murs de clôture, bâtiments avec toits, fenêtres et portes. Engins sur la rue, BEA en façade, périmètre de sécurité au carrefour.",
+      "items": [
+        {
+          "id": "it_22",
+          "tile": {
+            "x": -1,
+            "y": -8
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_23",
+          "tile": {
+            "x": -1,
+            "y": -10
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_24",
+          "tile": {
+            "x": 7,
+            "y": -12
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_25",
+          "tile": {
+            "x": 13,
+            "y": -12
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_26",
+          "tile": {
+            "x": -11,
+            "y": -12
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_27",
+          "tile": {
+            "x": -6,
+            "y": 3
+          },
+          "scaleFactor": 0.9,
+          "layer": 5
+        },
+        {
+          "id": "it_28",
+          "tile": {
+            "x": -6,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_29",
+          "tile": {
+            "x": -10,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_30",
+          "tile": {
+            "x": -2,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_31",
+          "tile": {
+            "x": 3,
+            "y": -6
+          }
+        },
+        {
+          "id": "it_32",
+          "tile": {
+            "x": 5,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_33",
+          "tile": {
+            "x": 3,
+            "y": -10
+          }
+        },
+        {
+          "id": "it_34",
+          "tile": {
+            "x": 11,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_35",
+          "tile": {
+            "x": -8,
+            "y": 3
+          }
+        },
+        {
+          "id": "it_36",
+          "tile": {
+            "x": -5,
+            "y": 3
+          }
+        },
+        {
+          "id": "it_37",
+          "tile": {
+            "x": -4,
+            "y": 3
+          }
+        },
+        {
+          "id": "it_38",
+          "tile": {
+            "x": -1,
+            "y": 3
+          }
+        },
+        {
+          "id": "it_39",
+          "tile": {
+            "x": -3,
+            "y": 3
+          }
+        },
+        {
+          "id": "it_40",
+          "tile": {
+            "x": 5,
+            "y": -4
+          }
+        },
+        {
+          "id": "it_41",
+          "tile": {
+            "x": 6,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_42",
+          "tile": {
+            "x": 8,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_43",
+          "tile": {
+            "x": 1,
+            "y": 6
+          }
+        },
+        {
+          "id": "it_44",
+          "tile": {
+            "x": 4,
+            "y": 6
+          }
+        }
+      ],
+      "rectangles": [
+        {
+          "id": "rc_11",
+          "color": "color5",
+          "from": {
+            "x": -13,
+            "y": -9
+          },
+          "to": {
+            "x": -9,
+            "y": -5
+          },
+          "style": "NONE",
+          "height": 2,
+          "roof": true,
+          "building": {
+            "roof": "GABLE",
+            "roofHeight": 1,
+            "roofColor": "color4",
+            "windows": true,
+            "door": true,
+            "doorFacade": "LEFT"
+          }
+        },
+        {
+          "id": "rc_12",
+          "color": "color3",
+          "from": {
+            "x": -7,
+            "y": -9
+          },
+          "to": {
+            "x": -4,
+            "y": -5
+          },
+          "style": "NONE",
+          "height": 2,
+          "roof": true,
+          "building": {
+            "roof": "GABLE",
+            "roofHeight": 1,
+            "roofColor": "color4",
+            "windows": true,
+            "door": true,
+            "doorFacade": "RIGHT"
+          }
+        },
+        {
+          "id": "rc_9",
+          "color": "color3",
+          "from": {
+            "x": -14,
+            "y": 4
+          },
+          "to": {
+            "x": -11,
+            "y": 8
+          },
+          "style": "NONE",
+          "height": 4,
+          "roof": true,
+          "building": {
+            "roof": "HIP",
+            "roofHeight": 1,
+            "roofColor": "color4",
+            "windows": true,
+            "door": true,
+            "doorFacade": "RIGHT"
+          }
+        },
+        {
+          "id": "rc_8",
+          "color": "color5",
+          "from": {
+            "x": -9,
+            "y": 4
+          },
+          "to": {
+            "x": -4,
+            "y": 8
+          },
+          "style": "NONE",
+          "height": 6,
+          "roof": true,
+          "building": {
+            "roof": "FLAT",
+            "roofHeight": 1,
+            "windows": true,
+            "door": true,
+            "doorFacade": "RIGHT"
+          }
+        },
+        {
+          "id": "rc_13",
+          "color": "color5",
+          "from": {
+            "x": 8,
+            "y": -10
+          },
+          "to": {
+            "x": 12,
+            "y": -6
+          },
+          "style": "NONE",
+          "height": 3,
+          "roof": true,
+          "building": {
+            "roof": "HIP",
+            "roofHeight": 1,
+            "roofColor": "color0",
+            "windows": true,
+            "door": true,
+            "doorFacade": "RIGHT"
+          }
+        },
+        {
+          "id": "rc_10",
+          "color": "color8",
+          "from": {
+            "x": 6,
+            "y": 5
+          },
+          "to": {
+            "x": 11,
+            "y": 9
+          },
+          "style": "NONE",
+          "height": 5,
+          "roof": true,
+          "building": {
+            "roof": "FLAT",
+            "roofHeight": 1,
+            "windows": true,
+            "door": true,
+            "doorFacade": "RIGHT"
+          }
+        },
+        {
+          "id": "rc_1",
+          "color": "color6",
+          "from": {
+            "x": -14,
+            "y": -12
+          },
+          "to": {
+            "x": 14,
+            "y": 14
+          },
+          "style": "NONE"
+        }
+      ],
+      "connectors": [
+        {
+          "id": "cn_14",
+          "color": "color0",
+          "width": 20,
+          "height": 1,
+          "style": "SOLID",
+          "showTriangle": false,
+          "anchors": [
+            {
+              "id": "an_15",
+              "ref": {
+                "tile": {
+                  "x": -3,
+                  "y": -11
+                }
+              }
+            },
+            {
+              "id": "an_16",
+              "ref": {
+                "tile": {
+                  "x": -13,
+                  "y": -11
+                }
+              }
+            },
+            {
+              "id": "an_17",
+              "ref": {
+                "tile": {
+                  "x": -13,
+                  "y": -4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_18",
+          "color": "color0",
+          "width": 20,
+          "height": 1,
+          "style": "SOLID",
+          "showTriangle": false,
+          "anchors": [
+            {
+              "id": "an_19",
+              "ref": {
+                "tile": {
+                  "x": 6,
+                  "y": -4
+                }
+              }
+            },
+            {
+              "id": "an_20",
+              "ref": {
+                "tile": {
+                  "x": 6,
+                  "y": -11
+                }
+              }
+            },
+            {
+              "id": "an_21",
+              "ref": {
+                "tile": {
+                  "x": 13,
+                  "y": -11
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_2",
+          "color": "color0",
+          "variant": "ROAD",
+          "roadWidth": 4,
+          "sidewalks": true,
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": false,
+          "description": "Rue de la République",
+          "anchors": [
+            {
+              "id": "an_3",
+              "ref": {
+                "tile": {
+                  "x": -14,
+                  "y": 0
+                }
+              }
+            },
+            {
+              "id": "an_4",
+              "ref": {
+                "tile": {
+                  "x": 14,
+                  "y": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_5",
+          "color": "color0",
+          "variant": "ROAD",
+          "roadWidth": 4,
+          "sidewalks": true,
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": false,
+          "description": "Avenue Jean Jaurès",
+          "anchors": [
+            {
+              "id": "an_6",
+              "ref": {
+                "tile": {
+                  "x": 2,
+                  "y": -12
+                }
+              }
+            },
+            {
+              "id": "an_7",
+              "ref": {
+                "tile": {
+                  "x": 2,
+                  "y": 14
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_45",
+          "color": "color4",
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": true,
+          "description": "Établissement lance",
+          "anchors": [
+            {
+              "id": "an_46",
+              "ref": {
+                "item": "it_28"
+              }
+            },
+            {
+              "id": "an_47",
+              "ref": {
+                "tile": {
+                  "x": -5,
+                  "y": 4
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "textBoxes": [
+        {
+          "id": "tx_48",
+          "tile": {
+            "x": -12,
+            "y": 3
+          },
+          "content": "Zone d'exclusion",
+          "fontSize": 0.5,
+          "isBold": true
+        }
+      ]
+    }
+  ]
+}
