@@ -1,0 +1,627 @@
+{
+  "version": "1.0.0",
+  "title": "Feu d'entrepôt en zone industrielle",
+  "description": "Entrepôt en feu dans un site clos par un mur de clôture. Bâtiments à toits à deux pans, voie d'accès, rue de desserte. Mousse, lances canon, alimentation par grosse bâche, drone de reconnaissance.",
+  "items": [
+    {
+      "id": "it_21",
+      "name": "Feu entrepôt",
+      "icon": "sdmis_sinistres_incendie_pl_01"
+    },
+    {
+      "id": "it_22",
+      "name": "Feu façade",
+      "icon": "sdmis_sinistres_incendie"
+    },
+    {
+      "id": "it_23",
+      "name": "FMOGP – mousse",
+      "icon": "sdmis_sp_sp_vehicules_sp_fmogp_01"
+    },
+    {
+      "id": "it_24",
+      "name": "FPT 1",
+      "icon": "sdmis_sp_sp_vehicules_sp_fpt_01"
+    },
+    {
+      "id": "it_25",
+      "name": "FPT 2",
+      "icon": "sdmis_sp_sp_vehicules_sp_fpt_02"
+    },
+    {
+      "id": "it_26",
+      "name": "CCI",
+      "icon": "sdmis_sp_sp_vehicules_sp_cci_01"
+    },
+    {
+      "id": "it_27",
+      "name": "Lance canon",
+      "icon": "sdmis_sp_sp_materiels_sp_canon-2entrees"
+    },
+    {
+      "id": "it_28",
+      "name": "Robot lance",
+      "icon": "sdmis_sp_sp_materiels_robot-lance_01"
+    },
+    {
+      "id": "it_29",
+      "name": "PEI",
+      "icon": "sdmis_sp_sp_materiels_pei-rouge"
+    },
+    {
+      "id": "it_30",
+      "name": "Bâche 120 m³",
+      "icon": "sdmis_civils_batiments-environnements_plan-d-eau"
+    },
+    {
+      "id": "it_31",
+      "name": "Fourgon pompe tonne",
+      "icon": "sdmis_sp_sp_vehicules_sp_fourgon_01"
+    },
+    {
+      "id": "it_32",
+      "name": "VPC – PC site",
+      "icon": "sdmis_sp_sp_vehicules_sp_vpc_01"
+    },
+    {
+      "id": "it_33",
+      "name": "VEPB – éclairage",
+      "icon": "sdmis_sp_sp_vehicules_sp_vepb_02"
+    },
+    {
+      "id": "it_34",
+      "name": "LOG – logistique",
+      "icon": "sdmis_sp_sp_vehicules_sp_log_02"
+    },
+    {
+      "id": "it_35",
+      "name": "VSAV",
+      "icon": "sdmis_sp_sp_vehicules_sp_vsav_02"
+    },
+    {
+      "id": "it_36",
+      "name": "Drone",
+      "icon": "sdmis_sp_sp_materiels_drone-gd"
+    },
+    {
+      "id": "it_37",
+      "name": "Télépilote",
+      "icon": "sdmis_sp_sp_personnels_specialites_sp_specialite_drone_h01"
+    },
+    {
+      "id": "it_38",
+      "name": "Officier sécurité",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-blanc_01"
+    },
+    {
+      "id": "it_39",
+      "name": "Équipe ARI",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_ari_casque-fluo_05"
+    },
+    {
+      "id": "it_40",
+      "name": "Équipe ARI",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_ari_casque-fluo_07"
+    },
+    {
+      "id": "it_41",
+      "name": "Chef de site",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_chasuble_03"
+    }
+  ],
+  "views": [
+    {
+      "id": "view_03_feu_entrepot_zone_industrielle",
+      "name": "Feu d'entrepôt en zone industrielle",
+      "description": "Entrepôt en feu dans un site clos par un mur de clôture. Bâtiments à toits à deux pans, voie d'accès, rue de desserte. Mousse, lances canon, alimentation par grosse bâche, drone de reconnaissance.",
+      "items": [
+        {
+          "id": "it_21",
+          "tile": {
+            "x": -5,
+            "y": 6
+          },
+          "scaleFactor": 1.4,
+          "layer": 5
+        },
+        {
+          "id": "it_22",
+          "tile": {
+            "x": -7,
+            "y": 6
+          },
+          "scaleFactor": 1.6,
+          "layer": 5
+        },
+        {
+          "id": "it_23",
+          "tile": {
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "id": "it_24",
+          "tile": {
+            "x": -3,
+            "y": 4
+          }
+        },
+        {
+          "id": "it_25",
+          "tile": {
+            "x": -7,
+            "y": 2
+          }
+        },
+        {
+          "id": "it_26",
+          "tile": {
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "id": "it_27",
+          "tile": {
+            "x": -5,
+            "y": 5
+          }
+        },
+        {
+          "id": "it_28",
+          "tile": {
+            "x": 0,
+            "y": 6
+          }
+        },
+        {
+          "id": "it_29",
+          "tile": {
+            "x": 4,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_30",
+          "tile": {
+            "x": 12,
+            "y": -9
+          },
+          "scaleFactor": 0.6
+        },
+        {
+          "id": "it_31",
+          "tile": {
+            "x": -3,
+            "y": -6
+          }
+        },
+        {
+          "id": "it_32",
+          "tile": {
+            "x": -5,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_33",
+          "tile": {
+            "x": 8,
+            "y": 4
+          }
+        },
+        {
+          "id": "it_34",
+          "tile": {
+            "x": 7,
+            "y": -6
+          }
+        },
+        {
+          "id": "it_35",
+          "tile": {
+            "x": 2,
+            "y": -3
+          }
+        },
+        {
+          "id": "it_36",
+          "tile": {
+            "x": -9,
+            "y": 9
+          },
+          "layer": 8
+        },
+        {
+          "id": "it_37",
+          "tile": {
+            "x": -9,
+            "y": 5
+          }
+        },
+        {
+          "id": "it_38",
+          "tile": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_39",
+          "tile": {
+            "x": -6,
+            "y": 4
+          }
+        },
+        {
+          "id": "it_40",
+          "tile": {
+            "x": -4,
+            "y": 4
+          }
+        },
+        {
+          "id": "it_41",
+          "tile": {
+            "x": -1,
+            "y": 3
+          }
+        }
+      ],
+      "rectangles": [
+        {
+          "id": "rc_18",
+          "color": "color8",
+          "from": {
+            "x": -8,
+            "y": 7
+          },
+          "to": {
+            "x": -2,
+            "y": 15
+          },
+          "style": "NONE",
+          "height": 4,
+          "roof": true,
+          "building": {
+            "roof": "GABLE",
+            "roofHeight": 2,
+            "roofColor": "color0",
+            "windows": true,
+            "door": true,
+            "doorFacade": "RIGHT"
+          }
+        },
+        {
+          "id": "rc_20",
+          "color": "color5",
+          "from": {
+            "x": 9,
+            "y": -5
+          },
+          "to": {
+            "x": 14,
+            "y": -2
+          },
+          "style": "NONE",
+          "height": 2,
+          "roof": true,
+          "building": {
+            "roof": "HIP",
+            "roofHeight": 1,
+            "roofColor": "color0",
+            "windows": true,
+            "door": true,
+            "doorFacade": "RIGHT"
+          }
+        },
+        {
+          "id": "rc_19",
+          "color": "color1",
+          "from": {
+            "x": 3,
+            "y": 7
+          },
+          "to": {
+            "x": 9,
+            "y": 13
+          },
+          "style": "NONE",
+          "height": 3,
+          "roof": true,
+          "building": {
+            "roof": "GABLE",
+            "roofHeight": 1,
+            "roofColor": "color0",
+            "windows": true,
+            "door": true,
+            "doorFacade": "LEFT"
+          }
+        },
+        {
+          "id": "rc_3",
+          "color": "color4",
+          "from": {
+            "x": -9,
+            "y": 6
+          },
+          "to": {
+            "x": -1,
+            "y": 16
+          },
+          "style": "NONE"
+        },
+        {
+          "id": "rc_2",
+          "color": "color0",
+          "from": {
+            "x": -11,
+            "y": 2
+          },
+          "to": {
+            "x": 11,
+            "y": 18
+          },
+          "style": "NONE"
+        },
+        {
+          "id": "rc_1",
+          "color": "color6",
+          "from": {
+            "x": -16,
+            "y": -10
+          },
+          "to": {
+            "x": 16,
+            "y": 20
+          },
+          "style": "NONE"
+        }
+      ],
+      "connectors": [
+        {
+          "id": "cn_10",
+          "color": "color0",
+          "width": 12,
+          "height": 1,
+          "style": "SOLID",
+          "showTriangle": false,
+          "anchors": [
+            {
+              "id": "an_11",
+              "ref": {
+                "tile": {
+                  "x": -4,
+                  "y": 2
+                }
+              }
+            },
+            {
+              "id": "an_12",
+              "ref": {
+                "tile": {
+                  "x": -11,
+                  "y": 2
+                }
+              }
+            },
+            {
+              "id": "an_13",
+              "ref": {
+                "tile": {
+                  "x": -11,
+                  "y": 18
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_14",
+          "color": "color0",
+          "width": 12,
+          "height": 1,
+          "style": "SOLID",
+          "showTriangle": false,
+          "anchors": [
+            {
+              "id": "an_15",
+              "ref": {
+                "tile": {
+                  "x": 4,
+                  "y": 2
+                }
+              }
+            },
+            {
+              "id": "an_16",
+              "ref": {
+                "tile": {
+                  "x": 11,
+                  "y": 2
+                }
+              }
+            },
+            {
+              "id": "an_17",
+              "ref": {
+                "tile": {
+                  "x": 11,
+                  "y": 6
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_4",
+          "color": "color0",
+          "variant": "ROAD",
+          "roadWidth": 4,
+          "sidewalks": false,
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": false,
+          "description": "Rue des Forges",
+          "anchors": [
+            {
+              "id": "an_5",
+              "ref": {
+                "tile": {
+                  "x": -16,
+                  "y": -7
+                }
+              }
+            },
+            {
+              "id": "an_6",
+              "ref": {
+                "tile": {
+                  "x": 16,
+                  "y": -7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_7",
+          "color": "color0",
+          "variant": "ROAD",
+          "roadWidth": 4,
+          "sidewalks": false,
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": false,
+          "description": "Accès site",
+          "anchors": [
+            {
+              "id": "an_8",
+              "ref": {
+                "tile": {
+                  "x": 0,
+                  "y": -7
+                }
+              }
+            },
+            {
+              "id": "an_9",
+              "ref": {
+                "tile": {
+                  "x": 0,
+                  "y": 2
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_42",
+          "color": "color1",
+          "width": 14,
+          "style": "SOLID",
+          "showTriangle": true,
+          "description": "Alimentation 2 x DN 110",
+          "anchors": [
+            {
+              "id": "an_43",
+              "ref": {
+                "item": "it_29"
+              }
+            },
+            {
+              "id": "an_44",
+              "ref": {
+                "item": "it_23"
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_45",
+          "color": "color3",
+          "width": 14,
+          "style": "SOLID",
+          "showTriangle": true,
+          "description": "Canon mousse",
+          "anchors": [
+            {
+              "id": "an_46",
+              "ref": {
+                "item": "it_23"
+              }
+            },
+            {
+              "id": "an_47",
+              "ref": {
+                "tile": {
+                  "x": -3,
+                  "y": 9
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_48",
+          "color": "color4",
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": true,
+          "description": "Lance",
+          "anchors": [
+            {
+              "id": "an_49",
+              "ref": {
+                "item": "it_24"
+              }
+            },
+            {
+              "id": "an_50",
+              "ref": {
+                "tile": {
+                  "x": -5,
+                  "y": 8
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_51",
+          "color": "color1",
+          "width": 10,
+          "style": "DASHED",
+          "showTriangle": true,
+          "anchors": [
+            {
+              "id": "an_52",
+              "ref": {
+                "item": "it_26"
+              }
+            },
+            {
+              "id": "an_53",
+              "ref": {
+                "item": "it_23"
+              }
+            }
+          ]
+        }
+      ],
+      "textBoxes": [
+        {
+          "id": "tx_54",
+          "tile": {
+            "x": -10,
+            "y": 1
+          },
+          "content": "Zone de sinistre",
+          "fontSize": 0.5,
+          "isBold": true
+        }
+      ]
+    }
+  ]
+}

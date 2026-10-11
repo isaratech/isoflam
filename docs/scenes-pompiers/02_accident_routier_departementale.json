@@ -1,0 +1,622 @@
+{
+  "version": "1.0.0",
+  "title": "Accident routier sur la départementale",
+  "description": "Collision VL / poids lourd sur une route départementale à deux voies : glissières de sécurité (murs bas), carrefour en T, station-service. Désincarcération, balisage, SUAP et hélicoptère de la gendarmerie.",
+  "items": [
+    {
+      "id": "it_22",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_23",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_24",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_25",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_26",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_27",
+      "name": "Arbre",
+      "icon": "sdmis_civils_batiments-environnements_arbre-caduque_01"
+    },
+    {
+      "id": "it_28",
+      "name": "VL accidentée n°1",
+      "icon": "sdmis_civils_vehicules_civil_vl-compacte_01"
+    },
+    {
+      "id": "it_29",
+      "name": "VL accidentée n°2",
+      "icon": "sdmis_civils_vehicules_civil_vl-suv_02"
+    },
+    {
+      "id": "it_30",
+      "name": "Poids lourd",
+      "icon": "sdmis_civils_vehicules_camion_01"
+    },
+    {
+      "id": "it_31",
+      "name": "Départ de feu moteur",
+      "icon": "sdmis_sinistres_incendie_vl_01"
+    },
+    {
+      "id": "it_32",
+      "name": "FSR – désincarcération",
+      "icon": "sdmis_sp_sp_vehicules_sp_fsr_01"
+    },
+    {
+      "id": "it_33",
+      "name": "FPT – protection incendie",
+      "icon": "sdmis_sp_sp_vehicules_sp_fpt_02"
+    },
+    {
+      "id": "it_34",
+      "name": "VSAV 1",
+      "icon": "sdmis_sp_sp_vehicules_sp_vsav_03"
+    },
+    {
+      "id": "it_35",
+      "name": "VSAV 2",
+      "icon": "sdmis_sp_sp_vehicules_sp_vsav_02"
+    },
+    {
+      "id": "it_36",
+      "name": "VPC",
+      "icon": "sdmis_sp_sp_vehicules_sp_vpc_02"
+    },
+    {
+      "id": "it_37",
+      "name": "Gendarmerie",
+      "icon": "sdmis_fsi_vehicules_fsi_gendarmerie_vl_01"
+    },
+    {
+      "id": "it_38",
+      "name": "Gendarmerie – fermeture",
+      "icon": "sdmis_fsi_vehicules_fsi_gendarmerie_vl_03"
+    },
+    {
+      "id": "it_39",
+      "name": "Hélicoptère gendarmerie",
+      "icon": "sdmis_fsi_vehicules_fsi_gendarmerie_helico_01"
+    },
+    {
+      "id": "it_40",
+      "name": "Désincarcérateur",
+      "icon": "sdmis_sp_sp_materiels_sp_lance-ecran"
+    },
+    {
+      "id": "it_41",
+      "name": "Sauveteur 1",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_01"
+    },
+    {
+      "id": "it_42",
+      "name": "Sauveteur 2",
+      "icon": "sdmis_sp_sp_personnels_sp_epi_casque-fluo_03"
+    },
+    {
+      "id": "it_43",
+      "name": "Victime 1 – coincée",
+      "icon": "sdmis_civils_victimes_victime-blessee_01"
+    },
+    {
+      "id": "it_44",
+      "name": "Victime 2 – coincée",
+      "icon": "sdmis_civils_victimes_victime-blessee_03"
+    },
+    {
+      "id": "it_45",
+      "name": "Victime 3 – éjectée",
+      "icon": "sdmis_civils_victimes_victime_couverture-survie_02"
+    },
+    {
+      "id": "it_46",
+      "name": "Barrière",
+      "icon": "sdmis_civils_materiels_barriere1"
+    },
+    {
+      "id": "it_47",
+      "name": "Barrière",
+      "icon": "sdmis_civils_materiels_barriere2"
+    },
+    {
+      "id": "it_48",
+      "name": "Repère lumineux",
+      "icon": "sdmis_sp_sp_materiels_repere-lumineux_orange"
+    },
+    {
+      "id": "it_49",
+      "name": "Repère lumineux",
+      "icon": "sdmis_sp_sp_materiels_repere-lumineux_orange"
+    }
+  ],
+  "views": [
+    {
+      "id": "view_02_accident_routier_departementale",
+      "name": "Accident routier sur la départementale",
+      "description": "Collision VL / poids lourd sur une route départementale à deux voies : glissières de sécurité (murs bas), carrefour en T, station-service. Désincarcération, balisage, SUAP et hélicoptère de la gendarmerie.",
+      "items": [
+        {
+          "id": "it_22",
+          "tile": {
+            "x": -12,
+            "y": -7
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_23",
+          "tile": {
+            "x": -6,
+            "y": -7
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_24",
+          "tile": {
+            "x": 0,
+            "y": -7
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_25",
+          "tile": {
+            "x": 8,
+            "y": -7
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_26",
+          "tile": {
+            "x": 12,
+            "y": -7
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_27",
+          "tile": {
+            "x": -3,
+            "y": 9
+          },
+          "scaleFactor": 0.35
+        },
+        {
+          "id": "it_28",
+          "tile": {
+            "x": -1,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_29",
+          "tile": {
+            "x": 1,
+            "y": 0
+          }
+        },
+        {
+          "id": "it_30",
+          "tile": {
+            "x": 4,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_31",
+          "tile": {
+            "x": 0,
+            "y": -1
+          },
+          "scaleFactor": 0.7,
+          "layer": 5
+        },
+        {
+          "id": "it_32",
+          "tile": {
+            "x": -4,
+            "y": -2
+          }
+        },
+        {
+          "id": "it_33",
+          "tile": {
+            "x": -7,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_34",
+          "tile": {
+            "x": -2,
+            "y": 2
+          }
+        },
+        {
+          "id": "it_35",
+          "tile": {
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "id": "it_36",
+          "tile": {
+            "x": -10,
+            "y": 2
+          }
+        },
+        {
+          "id": "it_37",
+          "tile": {
+            "x": -13,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_38",
+          "tile": {
+            "x": 12,
+            "y": -1
+          }
+        },
+        {
+          "id": "it_39",
+          "tile": {
+            "x": 1,
+            "y": 8
+          }
+        },
+        {
+          "id": "it_40",
+          "tile": {
+            "x": -3,
+            "y": 0
+          }
+        },
+        {
+          "id": "it_41",
+          "tile": {
+            "x": -2,
+            "y": 0
+          }
+        },
+        {
+          "id": "it_42",
+          "tile": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_43",
+          "tile": {
+            "x": -1,
+            "y": 0
+          }
+        },
+        {
+          "id": "it_44",
+          "tile": {
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "id": "it_45",
+          "tile": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "id": "it_46",
+          "tile": {
+            "x": -11,
+            "y": 0
+          }
+        },
+        {
+          "id": "it_47",
+          "tile": {
+            "x": 10,
+            "y": 0
+          }
+        },
+        {
+          "id": "it_48",
+          "tile": {
+            "x": -9,
+            "y": -2
+          }
+        },
+        {
+          "id": "it_49",
+          "tile": {
+            "x": 9,
+            "y": 2
+          }
+        }
+      ],
+      "rectangles": [
+        {
+          "id": "rc_21",
+          "color": "color5",
+          "from": {
+            "x": -13,
+            "y": 7
+          },
+          "to": {
+            "x": -8,
+            "y": 11
+          },
+          "style": "NONE",
+          "height": 2,
+          "roof": true,
+          "building": {
+            "roof": "GABLE",
+            "roofHeight": 1,
+            "roofColor": "color4",
+            "windows": true,
+            "door": true,
+            "doorFacade": "RIGHT"
+          }
+        },
+        {
+          "id": "rc_20",
+          "color": "color8",
+          "from": {
+            "x": 10,
+            "y": 7
+          },
+          "to": {
+            "x": 14,
+            "y": 11
+          },
+          "style": "NONE",
+          "height": 1,
+          "roof": true,
+          "building": {
+            "roof": "FLAT",
+            "roofHeight": 1,
+            "windows": true,
+            "door": true,
+            "doorFacade": "LEFT"
+          }
+        },
+        {
+          "id": "rc_1",
+          "color": "color6",
+          "from": {
+            "x": -14,
+            "y": -9
+          },
+          "to": {
+            "x": 14,
+            "y": 12
+          },
+          "style": "NONE"
+        }
+      ],
+      "connectors": [
+        {
+          "id": "cn_8",
+          "color": "color0",
+          "width": 12,
+          "height": 1,
+          "style": "SOLID",
+          "showTriangle": false,
+          "anchors": [
+            {
+              "id": "an_9",
+              "ref": {
+                "tile": {
+                  "x": -14,
+                  "y": -4
+                }
+              }
+            },
+            {
+              "id": "an_10",
+              "ref": {
+                "tile": {
+                  "x": 2,
+                  "y": -4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_14",
+          "color": "color0",
+          "width": 12,
+          "height": 1,
+          "style": "SOLID",
+          "showTriangle": false,
+          "anchors": [
+            {
+              "id": "an_15",
+              "ref": {
+                "tile": {
+                  "x": -14,
+                  "y": 4
+                }
+              }
+            },
+            {
+              "id": "an_16",
+              "ref": {
+                "tile": {
+                  "x": 2,
+                  "y": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_11",
+          "color": "color0",
+          "width": 12,
+          "height": 1,
+          "style": "SOLID",
+          "showTriangle": false,
+          "anchors": [
+            {
+              "id": "an_12",
+              "ref": {
+                "tile": {
+                  "x": 11,
+                  "y": -4
+                }
+              }
+            },
+            {
+              "id": "an_13",
+              "ref": {
+                "tile": {
+                  "x": 14,
+                  "y": -4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_17",
+          "color": "color0",
+          "width": 12,
+          "height": 1,
+          "style": "SOLID",
+          "showTriangle": false,
+          "anchors": [
+            {
+              "id": "an_18",
+              "ref": {
+                "tile": {
+                  "x": 11,
+                  "y": 4
+                }
+              }
+            },
+            {
+              "id": "an_19",
+              "ref": {
+                "tile": {
+                  "x": 14,
+                  "y": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_2",
+          "color": "color0",
+          "variant": "ROAD",
+          "roadWidth": 6,
+          "sidewalks": false,
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": false,
+          "description": "RD 305",
+          "anchors": [
+            {
+              "id": "an_3",
+              "ref": {
+                "tile": {
+                  "x": -14,
+                  "y": 0
+                }
+              }
+            },
+            {
+              "id": "an_4",
+              "ref": {
+                "tile": {
+                  "x": 14,
+                  "y": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_5",
+          "color": "color0",
+          "variant": "ROAD",
+          "roadWidth": 4,
+          "sidewalks": true,
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": false,
+          "description": "Chemin des Vignes",
+          "anchors": [
+            {
+              "id": "an_6",
+              "ref": {
+                "tile": {
+                  "x": 6,
+                  "y": 0
+                }
+              }
+            },
+            {
+              "id": "an_7",
+              "ref": {
+                "tile": {
+                  "x": 6,
+                  "y": 12
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn_50",
+          "color": "color4",
+          "width": 10,
+          "style": "SOLID",
+          "showTriangle": true,
+          "description": "Lance de protection",
+          "anchors": [
+            {
+              "id": "an_51",
+              "ref": {
+                "item": "it_33"
+              }
+            },
+            {
+              "id": "an_52",
+              "ref": {
+                "tile": {
+                  "x": 0,
+                  "y": -1
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "textBoxes": []
+    }
+  ]
+}
