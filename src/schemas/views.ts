@@ -13,7 +13,8 @@ export const viewItemSchema = z.object({
   mirrorHorizontal: z.boolean().optional().default(false),
   mirrorVertical: z.boolean().optional().default(false),
   // Icons are stacked by depth; a higher layer is drawn above whatever its depth
-  layer: z.number().int().optional()
+  layer: z.number().int().optional(),
+  locked: z.boolean().optional() // Can't be moved on the canvas
 });
 
 export const viewSchema = z.object({

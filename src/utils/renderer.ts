@@ -1220,6 +1220,31 @@ export const getAnchorParent = (anchorId: string, connectors: Connector[]) => {
   return connector;
 };
 
+// A locked item can't be dragged (moved, resized or reshaped) on the canvas
+export const isItemLocked = (
+  item: ItemReference,
+  scene: ReturnType<typeof useScene>
+) => {
+  switch (item.type) {
+    case 'ITEM':
+      return Boolean(getItemByIdOrThrow(scene.items, item.id).value.locked);
+    case 'RECTANGLE':
+      return Boolean(
+        getItemByIdOrThrow(scene.rectangles, item.id).value.locked
+      );
+    case 'CONNECTOR':
+      return Boolean(
+        getItemByIdOrThrow(scene.connectors, item.id).value.locked
+      );
+    case 'CONNECTOR_ANCHOR':
+      return Boolean(getAnchorParent(item.id, scene.connectors).locked);
+    case 'TEXTBOX':
+      return Boolean(getItemByIdOrThrow(scene.textBoxes, item.id).value.locked);
+    default:
+      return false;
+  }
+};
+
 export const getTileScrollPosition = (
   tile: Coords,
   origin?: TileOrigin

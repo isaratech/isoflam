@@ -27,5 +27,6 @@ export const connectorSchema = z.object({
   variant: z.enum(connectorVariantOptions).optional(), // Drawn as a road instead of a line
   roadWidth: z.number().int().min(1).max(10).optional(), // Road only, in tiles (default 4)
   sidewalks: z.boolean().optional(), // Road only
+  locked: z.boolean().optional(), // Its anchors can't be dragged on the canvas
   anchors: z.array(anchorSchema)
 });

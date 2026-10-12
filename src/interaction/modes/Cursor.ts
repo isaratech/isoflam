@@ -19,6 +19,7 @@ import {
   getItemByIdOrThrow,
   getItemsAtTile,
   hasMovedTile,
+  isItemLocked,
   setWindowCursor
 } from 'src/utils';
 import { useScene } from 'src/hooks/useScene';
@@ -123,7 +124,10 @@ const mousedown: ModeActionsAction = ({
       })
     );
 
-    uiState.actions.setItemControls(itemAtTile);
+    // Dragging a locked item pans the view, so it is only selected by a click (on mouseup)
+    if (!isItemLocked(itemAtTile, scene)) {
+      uiState.actions.setItemControls(itemAtTile);
+    }
   } else {
     // If clicking on an empty cell, switch to PAN mode
     // Store the current mode to restore it when the drag stops
@@ -156,6 +160,19 @@ export const Cursor: ModeActions = {
 
     let item = uiState.mode.mousedownItem;
     let grabOffset: Coords | undefined;
+
+    // A locked item stays in place: dragging it pans the view, as on empty space
+    if (item && isItemLocked(item, scene)) {
+      uiState.actions.setMode({
+        type: 'PAN',
+        showCursor: false,
+        previousMode: { type: 'CURSOR', showCursor: true, mousedownItem: null },
+        isDragging: true
+      });
+      setWindowCursor('grabbing');
+      uiState.actions.setItemControls(null);
+      return;
+    }
 
     if (item?.type === 'CONNECTOR' && uiState.mouse.mousedown) {
       const { tile } = uiState.mouse.mousedown;

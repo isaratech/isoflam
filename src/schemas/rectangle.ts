@@ -31,5 +31,6 @@ export const rectangleSchema = z.object({
   height: z.number().int().min(0).max(20).optional(), // Extrusion in tiles; > 0 makes the rectangle a volume
   roof: z.boolean().optional(), // Volume only: closed box if true, otherwise only the two back walls
   texture: z.enum(rectangleTextureOptions).optional(), // Drawn pattern replacing the plain fill
-  building: buildingSchema.optional() // Volume only: drawn as a building (roof, windows, door)
+  building: buildingSchema.optional(), // Volume only: drawn as a building (roof, windows, door)
+  locked: z.boolean().optional() // Can't be moved or resized on the canvas
 });

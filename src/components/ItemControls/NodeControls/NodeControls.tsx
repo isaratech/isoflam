@@ -129,6 +129,7 @@ export const NodeControls = ({ id }: Props) => {
             const newViewItem = {
               ...viewItem,
               id: newId,
+              locked: undefined, // The copy is meant to be moved
               tile: {
                 x: viewItem.tile.x + 1,
                 y: viewItem.tile.y

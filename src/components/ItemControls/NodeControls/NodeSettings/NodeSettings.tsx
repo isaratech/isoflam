@@ -27,6 +27,7 @@ import { DeleteButton } from '../../components/DeleteButton';
 import { DuplicateButton } from '../../components/DuplicateButton';
 import { Section } from '../../components/Section';
 import { AdvancedSettings } from '../../components/AdvancedSettings';
+import { LockControls } from '../../components/LockControls';
 
 export type NodeUpdates = {
   model: Partial<ModelItem>;
@@ -209,6 +210,13 @@ export const NodeSettings = ({
           </ToggleButtonGroup>
         </Section>
       </AdvancedSettings>
+
+      <LockControls
+        locked={node.locked}
+        onChange={(locked) => {
+          onViewItemUpdated({ locked });
+        }}
+      />
 
       {/* Action buttons */}
       <Section>

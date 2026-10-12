@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { ViewItem } from 'src/types';
 import { ModelProvider } from 'src/stores/modelStore';
 import { SceneProvider } from 'src/stores/sceneStore';
@@ -121,5 +121,42 @@ describe('NodeSettings', () => {
       return input.getAttribute('type') === 'number';
     });
     expect(numberInput).toBeInTheDocument();
+  });
+
+  it('locks and unlocks the node', () => {
+    const onViewItemUpdated = jest.fn();
+    const { rerender } = render(
+      <ModelProvider>
+        <SceneProvider>
+          <UiStateProvider>
+            <NodeSettings
+              {...mockProps}
+              onViewItemUpdated={onViewItemUpdated}
+            />
+          </UiStateProvider>
+        </SceneProvider>
+      </ModelProvider>
+    );
+
+    fireEvent.click(screen.getByLabelText('Lock'));
+    expect(onViewItemUpdated).toHaveBeenLastCalledWith({ locked: true });
+
+    rerender(
+      <ModelProvider>
+        <SceneProvider>
+          <UiStateProvider>
+            <NodeSettings
+              {...mockProps}
+              node={{ ...mockNode, locked: true }}
+              onViewItemUpdated={onViewItemUpdated}
+            />
+          </UiStateProvider>
+        </SceneProvider>
+      </ModelProvider>
+    );
+
+    expect(screen.getByLabelText('Lock')).toBeChecked();
+    fireEvent.click(screen.getByLabelText('Lock'));
+    expect(onViewItemUpdated).toHaveBeenLastCalledWith({ locked: false });
   });
 });
