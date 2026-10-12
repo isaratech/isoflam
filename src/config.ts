@@ -158,7 +158,9 @@ export const DEFAULTS_VIEW: Required<
  * Default configuration for view items (nodes in the scene).
  * Defines standard label height and scale factor.
  */
-export const DEFAULTS_VIEW_ITEM: Required<Omit<ViewItem, 'id' | 'tile'>> = {
+export const DEFAULTS_VIEW_ITEM: Required<
+  Omit<ViewItem, 'id' | 'tile' | 'locked'>
+> = {
   labelHeight: 80,
   scaleFactor: 1,
   color: DEFAULT_COLOR.id,
@@ -172,7 +174,10 @@ export const DEFAULTS_VIEW_ITEM: Required<Omit<ViewItem, 'id' | 'tile'>> = {
  * Includes styling, width, and visual properties.
  */
 export const DEFAULTS_CONNECTOR: Required<
-  Omit<Connector, 'id' | 'color' | 'variant' | 'roadWidth' | 'sidewalks'>
+  Omit<
+    Connector,
+    'id' | 'color' | 'variant' | 'roadWidth' | 'sidewalks' | 'locked'
+  >
 > = {
   width: 10,
   description: '',
@@ -187,7 +192,7 @@ export const DEFAULTS_CONNECTOR: Required<
  * Defines orientation, font size, and default content.
  */
 export const DEFAULTS_TEXTBOX: Required<
-  Omit<TextBox, 'id' | 'tile' | 'color'>
+  Omit<TextBox, 'id' | 'tile' | 'color' | 'locked'>
 > = {
   orientation: 'X',
   fontSize: 0.6,
@@ -215,6 +220,7 @@ export const DEFAULTS_RECTANGLE: Required<
     | 'isometric'
     | 'texture'
     | 'building'
+    | 'locked'
   >
 > = {
   style: 'NONE',

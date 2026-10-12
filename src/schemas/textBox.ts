@@ -15,5 +15,6 @@ export const textBoxSchema = z.object({
     ])
     .optional(),
   isBold: z.boolean().optional(),
-  isItalic: z.boolean().optional()
+  isItalic: z.boolean().optional(),
+  locked: z.boolean().optional() // Can't be moved on the canvas
 });

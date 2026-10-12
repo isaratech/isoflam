@@ -5,6 +5,12 @@ All notable changes to the Isoflam project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Lock an element (icon, surface, connector, wall, road or text) from its panel or the right-click menu: it can no longer be moved, resized or reshaped with the mouse, and dragging it pans the view instead. The lock is saved with the scene; a duplicate is not locked
+
 ## [2.5.0] - 2026-10-10
 
 ### Added

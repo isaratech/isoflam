@@ -28,6 +28,7 @@ import { DeleteButton } from '../components/DeleteButton';
 import { DuplicateButton } from '../components/DuplicateButton';
 import { AdvancedSettings } from '../components/AdvancedSettings';
 import { LayerControls } from '../components/LayerControls';
+import { LockControls } from '../components/LockControls';
 import { BuildingControls } from './BuildingControls';
 
 interface Props {
@@ -323,6 +324,12 @@ export const RectangleControls = ({ id }: Props) => {
       </AdvancedSettings>
 
       <LayerControls item={{ type: 'RECTANGLE', id: rectangle.id }} />
+      <LockControls
+        locked={rectangle.locked}
+        onChange={(locked) => {
+          updateRectangle(rectangle.id, { locked });
+        }}
+      />
 
       {/* Action buttons */}
       <Section>
@@ -333,6 +340,7 @@ export const RectangleControls = ({ id }: Props) => {
               const newRectangle = {
                 ...rectangle,
                 id: generateId(),
+                locked: undefined, // The copy is meant to be moved
                 from: {
                   x: rectangle.from.x + 1,
                   y: rectangle.from.y

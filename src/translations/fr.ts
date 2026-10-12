@@ -113,6 +113,8 @@ export const frTranslations = {
   Triangle: 'Triangle',
   'Show triangle': 'Afficher le triangle',
   Layer: 'Calque',
+  Lock: 'Verrouiller',
+  Unlock: 'Déverrouiller',
 
   // Connector Styles
   SOLID: 'CONTINU',

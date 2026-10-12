@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useUiStateStore } from 'src/stores/uiStateStore';
-import { CoordsUtils, generateId } from 'src/utils';
+import { CoordsUtils, generateId, isItemLocked } from 'src/utils';
 import { useScene } from 'src/hooks/useScene';
 import { useTranslation } from 'src/hooks/useTranslation';
 import { TEXTBOX_DEFAULTS } from 'src/config';
@@ -90,9 +90,20 @@ export const ContextMenuManager = () => {
     return null;
   }
 
+  const isLocked = contextMenu.item
+    ? isItemLocked(contextMenu.item, scene)
+    : false;
+
   // Determine which menu items to show based on whether we're right-clicking on an item or empty space
   const menuItems = contextMenu.item
     ? [
+        {
+          label: isLocked ? t('Unlock') : t('Lock'),
+          onClick: () => {
+            scene.setItemLocked(contextMenu.item!, !isLocked);
+            onClose();
+          }
+        },
         {
           label: t('Send backward'),
           onClick: () => {

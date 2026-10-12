@@ -113,6 +113,8 @@ export const enTranslations = {
   Triangle: 'Triangle',
   'Show triangle': 'Show triangle',
   Layer: 'Layer',
+  Lock: 'Lock',
+  Unlock: 'Unlock',
 
   // Connector Styles
   SOLID: 'SOLID',

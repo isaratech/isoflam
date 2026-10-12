@@ -281,6 +281,28 @@ export const useScene = () => {
     [getState, setState, currentViewId]
   );
 
+  const setItemLocked = useCallback(
+    (item: ItemReference, locked: boolean) => {
+      switch (item.type) {
+        case 'ITEM':
+          updateViewItem(item.id, { locked });
+          break;
+        case 'RECTANGLE':
+          updateRectangle(item.id, { locked });
+          break;
+        case 'CONNECTOR':
+          updateConnector(item.id, { locked });
+          break;
+        case 'TEXTBOX':
+          updateTextBox(item.id, { locked });
+          break;
+        default:
+          break;
+      }
+    },
+    [updateViewItem, updateRectangle, updateConnector, updateTextBox]
+  );
+
   return {
     items,
     connectors,
@@ -303,6 +325,7 @@ export const useScene = () => {
     createRectangle,
     updateRectangle,
     deleteRectangle,
-    changeLayerOrder
+    changeLayerOrder,
+    setItemLocked
   };
 };

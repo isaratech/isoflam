@@ -20,6 +20,7 @@ import { Section } from '../components/Section';
 import { DeleteButton } from '../components/DeleteButton';
 import { AdvancedSettings } from '../components/AdvancedSettings';
 import { LayerControls } from '../components/LayerControls';
+import { LockControls } from '../components/LockControls';
 
 interface Props {
   id: string;
@@ -164,6 +165,12 @@ export const ConnectorControls = ({ id }: Props) => {
       )}
 
       <LayerControls item={{ type: 'CONNECTOR', id: connector.id }} />
+      <LockControls
+        locked={connector.locked}
+        onChange={(locked) => {
+          updateConnector(connector.id, { locked });
+        }}
+      />
 
       {/* Action buttons */}
       <Section>

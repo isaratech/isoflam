@@ -43,7 +43,8 @@ export const RectangleTransformControls = ({ id }: Props) => {
     <TransformControls
       from={rectangle.from}
       to={rectangle.to}
-      onAnchorMouseDown={onAnchorMouseDown}
+      // A locked rectangle has no resize anchors
+      onAnchorMouseDown={rectangle.locked ? undefined : onAnchorMouseDown}
     />
   );
 };

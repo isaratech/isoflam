@@ -18,6 +18,7 @@ import { DeleteButton } from '../components/DeleteButton';
 import { DuplicateButton } from '../components/DuplicateButton';
 import { AdvancedSettings } from '../components/AdvancedSettings';
 import { LayerControls } from '../components/LayerControls';
+import { LockControls } from '../components/LockControls';
 import { FontSizeSelector } from '../components/FontSizeSelector';
 
 interface Props {
@@ -110,6 +111,12 @@ export const TextBoxControls = ({ id }: Props) => {
         </Section>
       </AdvancedSettings>
       <LayerControls item={{ type: 'TEXTBOX', id: textBox.id }} />
+      <LockControls
+        locked={textBox.locked}
+        onChange={(locked) => {
+          updateTextBox(textBox.id, { locked });
+        }}
+      />
       <Section>
         <Box sx={{ display: 'flex', gap: 1 }}>
           <DuplicateButton
@@ -118,6 +125,7 @@ export const TextBoxControls = ({ id }: Props) => {
               const newTextBox = {
                 ...textBox,
                 id: generateId(),
+                locked: undefined, // The copy is meant to be moved
                 tile: {
                   x: textBox.tile.x + 1,
                   y: textBox.tile.y
